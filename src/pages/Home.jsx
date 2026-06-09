@@ -47,7 +47,7 @@ const Home = () => {
       icon: RocketLaunchIcon,
       title: "Soluciones Digitales",
       description:
-        "Automatización, integración de sistemas, cloud y herramientas que tu equipo puede usar desde el día uno.",
+        "Automatización, integración de sistemas, cloud, Data Analysis, Data Science y cyberseguridad para proteger y potenciar tu operación.",
     },
   ];
 
@@ -56,6 +56,8 @@ const Home = () => {
     "Sistemas empresariales (gestión, inventario, ventas, expedientes)",
     "APIs e integraciones para conectar tus sistemas",
     "Consultoría en digitalización y optimización de procesos",
+    "Data Analysis y Data Science aplicados a tu operación",
+    "Cyberseguridad y buenas prácticas para proteger tus sistemas y datos",
     "Proyectos en México y Estado de México",
   ];
 
@@ -84,7 +86,7 @@ const Home = () => {
     { icon: ScheduleIcon, title: "Plazos Definidos", text: "Plazos y alcance definidos desde el inicio." },
     { icon: CodeIcon, title: "Código Mantenible", text: "Código y arquitectura mantenibles a largo plazo." },
     { icon: SupportIcon, title: "Soporte en Español", text: "Soporte técnico y comunicación en español." },
-    { icon: SecurityIcon, title: "Seguridad Primero", text: "Enfoque en seguridad y buenas prácticas." },
+    { icon: SecurityIcon, title: "Seguridad Primero", text: "Cyberseguridad y buenas prácticas desde el diseño de cada solución." },
     { icon: TrendingUpIcon, title: "Escalabilidad", text: "Escalabilidad cuando tu negocio crezca." },
     { icon: GroupsIcon, title: "Equipo Cercano", text: "Equipo estable y trato cercano." },
   ];

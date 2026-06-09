@@ -67,6 +67,8 @@ const Services = () => {
         "Integración entre sistemas y bases de datos",
         "Infraestructura cloud escalable",
         "Dashboards y Business Intelligence",
+        "Data Analysis y Data Science",
+        "Cyberseguridad y protección de datos",
         "Plataformas de análisis de datos",
         "Sistemas con inteligencia artificial",
       ],
@@ -79,7 +81,8 @@ const Services = () => {
     { name: "Backend", items: ["Node.js", "Python", "Django"] },
     { name: "Bases de datos", items: ["PostgreSQL", "MongoDB"] },
     { name: "Infraestructura", items: ["AWS", "Docker", "Kubernetes"] },
-    { name: "IA y análisis", items: ["TensorFlow", "Power BI", "Tableau"] },
+    { name: "Cyberseguridad", items: ["Auditorías de seguridad", "Hardening", "Buenas prácticas OWASP"] },
+    { name: "IA y análisis", items: ["Data Analysis", "Data Science", "TensorFlow", "Power BI", "Tableau"] },
   ];
 
   const process = [
@@ -94,7 +97,7 @@ const Services = () => {
     <div className="min-h-screen relative z-10">
       <PageHead
         title="Servicios de Desarrollo de Software y Consultoría Digital"
-        description="Desarrollo de software a medida, consultoría en digitalización y soluciones digitales."
+        description="Desarrollo de software a medida, consultoría en digitalización, Data Analysis, Data Science y cyberseguridad."
         path="/services"
       />
       <PageHeader
@@ -209,7 +212,7 @@ const Services = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: SpeedIcon, title: "Velocidad", description: "Soluciones en tiempos menores que agencias tradicionales." },
-              { icon: SecurityIcon, title: "Seguridad", description: "Estándares de seguridad y escalabilidad desde el inicio." },
+              { icon: SecurityIcon, title: "Cyberseguridad", description: "Protección de datos, hardening y buenas prácticas desde el inicio." },
               { icon: SupportIcon, title: "Soporte", description: "Acompañamiento durante toda la vida del sistema." },
               { icon: TrendingUpIcon, title: "Impacto", description: "Eficiencia, ahorro y crecimiento medible." },
             ].map((b, i) => {
