@@ -1,6 +1,6 @@
 /**
  * Datos estáticos del equipo para despliegue solo frontend (Vercel).
- * 4 socios cofundadores, 1 senior, 1 becario.
+ * 4 socios cofundadores, 1 senior, 2 becarios.
  */
 export const teamMembers = [
   // Cofundadores (4)
@@ -65,7 +65,7 @@ export const teamMembers = [
     email: "carolina.martinez@init.com.mx",
     linkedin: null,
   },
-  // Becario (1)
+  // Becarios (2)
   {
     id: 6,
     name: "Xoan Pablo Rodriguez",
@@ -78,4 +78,34 @@ export const teamMembers = [
     email: "xoan.rodriguez@init.com.mx",
     linkedin: null,
   },
+  {
+    id: 7,
+    name: "Diego Luna",
+    position: "Becario en Desarrollo",
+    role: "intern",
+    bio: "Documentación, pruebas de sistema para detectar fallas, y apoyo en levantamiento de necesidades y atención al cliente. Apasionado por la tecnología y el aprendizaje continuo.",
+    expertise: "Documentación, Pruebas de sistema, Levantamiento de necesidades, Atención al cliente, Customer success, Entendimiento de proceso",
+    technologies: "JavaScript, React, Git, QA, Documentación técnica, Customer success, Levantamiento de necesidades",
+    image_url: null,
+    email: "diego.luna@init.com.mx",
+    linkedin: null,
+  },
 ];
+
+export const teamStats = {
+  total: teamMembers.length,
+  owners: teamMembers.filter((m) => m.role === "owner").length,
+  seniors: teamMembers.filter((m) => m.role === "senior").length,
+  interns: teamMembers.filter((m) => m.role === "intern").length,
+};
+
+const internLabel =
+  teamStats.interns === 1 ? "un becario" : teamStats.interns === 2 ? "dos becarios" : `${teamStats.interns} becarios`;
+
+export const teamCopy = {
+  composition: `${teamStats.owners} cofundadores, una consultora senior y ${internLabel}`,
+  about: `${teamStats.owners} cofundadores, una consultora senior y ${internLabel}, comprometidos con la excelencia.`,
+  subtitle: `Somos ${teamStats.total} personas: ${teamStats.owners} cofundadores, una consultora senior y ${internLabel}, comprometidos con la excelencia.`,
+  meta: `Conoce a los profesionales de INIT: ${teamStats.owners} cofundadores, consultora senior y ${internLabel}.`,
+  size: `${teamStats.total} personas: trato cercano y sin capas innecesarias.`,
+};

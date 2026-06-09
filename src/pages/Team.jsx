@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import PageHead from "../components/PageHead";
-import { teamMembers } from "../data/teamData";
+import PageHeader from "../components/PageHeader";
+import { teamCopy, teamMembers } from "../data/teamData";
 import {
   Email as EmailIcon,
   LinkedIn as LinkedInIcon,
@@ -10,58 +10,55 @@ import {
   CheckCircle as CheckCircleIcon,
 } from "@mui/icons-material";
 
-const Team = () => {
-  const owners = teamMembers.filter((member) => member.role === "owner");
-  const seniors = teamMembers.filter((member) => member.role === "senior");
-  const interns = teamMembers.filter((member) => member.role === "intern");
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6 },
+};
 
-  const MemberCard = ({ member, index, gradient = "from-init-green to-init-green-bright", colorClass = "text-init-green" }) => (
+const Team = () => {
+  const owners = teamMembers.filter((m) => m.role === "owner");
+  const seniors = teamMembers.filter((m) => m.role === "senior");
+  const interns = teamMembers.filter((m) => m.role === "intern");
+
+  const MemberCard = ({ member, index }) => (
     <motion.div
       key={member.id}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="card-luxury p-6 text-center hover:scale-105 transition-transform duration-300"
+      className="glass-card p-6 text-center group"
     >
       {member.image_url ? (
-        <div className="w-48 h-48 mx-auto mb-6">
+        <div className="w-48 h-48 mx-auto mb-6 overflow-hidden rounded-2xl">
           <img
             src={member.image_url}
-            alt={`Foto de ${member.name}, ${member.position} en INIT, empresa de desarrollo de software`}
-            className="w-full h-full object-cover object-top rounded-2xl shadow-lg"
+            alt={`Foto de ${member.name}`}
+            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
         </div>
       ) : (
-        <div className={`w-48 h-48 bg-gradient-to-br ${gradient} rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg`}>
+        <div className="w-48 h-48 bg-gradient-to-br from-primary-container to-secondary rounded-2xl mx-auto mb-6 flex items-center justify-center">
           <PersonIcon className="h-20 w-20 text-white" />
         </div>
       )}
-      <h3 className="text-xl font-bold text-slate-900 mb-2">{member.name}</h3>
-      <p className={`font-semibold mb-4 ${colorClass}`}>{member.position}</p>
-      <p className="text-slate-600 text-sm mb-4 leading-relaxed">{member.bio}</p>
-      {member.achievement && (
-        <p className="text-slate-600 text-sm mb-4 leading-relaxed italic border-l-2 border-init-green pl-3">
-          {member.achievement}
-        </p>
-      )}
-      <div className="mb-4">
-        <h4 className="text-sm font-semibold text-slate-900 mb-2">
-          {member.technologies ? "Tecnologías / Áreas:" : "Especialidades:"}
-        </h4>
-        <p className="text-xs text-slate-600 leading-relaxed">
-          {member.technologies || member.expertise}
-        </p>
-      </div>
-      <div className="flex justify-center space-x-3">
+      <h3 className="text-xl font-bold text-on-surface mb-2">{member.name}</h3>
+      <p className="font-semibold mb-4 text-primary">{member.position}</p>
+      <p className="text-on-surface-variant text-sm mb-4 leading-relaxed">{member.bio}</p>
+      <p className="text-xs text-on-surface-variant leading-relaxed mb-4">
+        {member.technologies || member.expertise}
+      </p>
+      <div className="flex justify-center gap-3">
         {member.email && (
-          <a href={`mailto:${member.email}`} className="text-slate-400 hover:text-init-green transition-colors p-2 rounded-lg hover:bg-init-light">
+          <a href={`mailto:${member.email}`} className="text-on-surface-variant hover:text-primary p-2 rounded-lg hover:bg-white/5 transition-colors">
             <EmailIcon className="h-5 w-5" />
           </a>
         )}
         {member.linkedin && (
-          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${member.name}`} className="text-slate-400 hover:text-init-green transition-colors p-2 rounded-lg hover:bg-init-light">
+          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary p-2 rounded-lg hover:bg-white/5 transition-colors">
             <LinkedInIcon className="h-5 w-5" />
           </a>
         )}
@@ -70,89 +67,55 @@ const Team = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-init-light to-white">
+    <div className="min-h-screen relative z-10">
       <PageHead
         title="Nuestro Equipo de Desarrollo y Consultoría"
-        description="Conoce a los profesionales de INIT: 4 cofundadores, consultora senior y becario. Desarrollo de software y consultoría en digitalización en Estado de México."
+        description={teamCopy.meta}
         path="/team"
       />
-      {/* Header */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <div className="inline-flex items-center justify-center rounded-2xl bg-white p-2 shadow-lg mb-6">
-              <img src="/Init-Logo.svg" alt="INIT" className="h-14 w-14 object-contain" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Nuestro Equipo</h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Conoce a los profesionales apasionados que hacen posible la transformación digital de tu empresa. Somos un equipo de 6 personas: 4 cofundadores, una consultora senior y un becario, comprometidos con la excelencia.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHeader
+        title="Nuestro Equipo"
+        subtitle={teamCopy.subtitle}
+      />
 
-      {/* Foto grupal: 4 cofundadores */}
       <section className="py-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
+        <div className="max-w-4xl mx-auto px-6 md:px-20">
+          <motion.div {...fadeUp} className="text-center">
             <img
               src="/empleados-fotos/init-team.jpg"
-              alt="Los 4 cofundadores de INIT, empresa de desarrollo de software"
-              className="w-full rounded-2xl shadow-xl object-contain"
-              loading="eager"
+              alt="Los 4 cofundadores de INIT"
+              className="w-full rounded-2xl shadow-2xl border border-white/10 object-contain hover:scale-[1.01] transition-transform duration-500"
             />
-            <p className="text-slate-600 mt-4 font-medium">Los 4 cofundadores de INIT</p>
+            <p className="text-on-surface-variant mt-4 font-medium">Los 4 cofundadores de INIT</p>
           </motion.div>
         </div>
       </section>
 
-      {/* Cofundadores Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Cofundadores</h2>
-            <p className="text-xl text-slate-600">Los líderes que guían nuestra visión y estrategia</p>
+      <section className="section-py">
+        <div className="max-w-container mx-auto px-6 md:px-20">
+          <motion.div {...fadeUp} className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Cofundadores</h2>
+            <p className="text-on-surface-variant">Los líderes que guían nuestra visión y estrategia</p>
           </motion.div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {owners.map((member, index) => (
-              <MemberCard key={member.id} member={member} index={index} gradient="from-init-green to-init-green-bright" colorClass="text-init-green" />
+              <MemberCard key={member.id} member={member} index={index} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Senior Section */}
       {seniors.length > 0 && (
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Consultoría</h2>
-              <p className="text-xl text-slate-600">Procesos de calidad, necesidades y seguimiento</p>
+        <section className="section-py bg-surface-container-low">
+          <div className="max-w-container mx-auto px-6 md:px-20">
+            <motion.div {...fadeUp} className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Consultoría</h2>
+              <p className="text-on-surface-variant">Procesos de calidad, necesidades y seguimiento</p>
             </motion.div>
-
             <div className="flex justify-center">
               <div className="max-w-md w-full">
                 {seniors.map((member, index) => (
-                  <MemberCard key={member.id} member={member} index={index} gradient="from-init-dark to-init-green" colorClass="text-init-dark" />
+                  <MemberCard key={member.id} member={member} index={index} />
                 ))}
               </div>
             </div>
@@ -160,133 +123,61 @@ const Team = () => {
         </section>
       )}
 
-      {/* Becario Section */}
       {interns.length > 0 && (
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Nuestro Talento Joven</h2>
-              <p className="text-xl text-slate-600">Los futuros líderes de la tecnología</p>
+        <section className="section-py">
+          <div className="max-w-container mx-auto px-6 md:px-20">
+            <motion.div {...fadeUp} className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Nuestro Talento Joven</h2>
+              <p className="text-on-surface-variant">Los futuros líderes de la tecnología</p>
             </motion.div>
-
-            <div className="flex flex-wrap justify-center gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
               {interns.map((member, index) => (
-                <motion.div key={member.id} className="w-full max-w-sm">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="card-luxury p-6 text-center hover:scale-105 transition-transform duration-300"
-                  >
-                    {member.image_url ? (
-                      <div className="w-40 h-40 mx-auto mb-6">
-                        <img
-                          src={member.image_url}
-                          alt={`Foto de ${member.name}, ${member.position} en INIT, empresa de desarrollo de software`}
-                          className="w-full h-full object-cover object-top rounded-2xl shadow-lg"
-                          loading="lazy"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-40 h-40 bg-gradient-to-br from-init-green to-init-green-bright rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-                        <PersonIcon className="h-16 w-16 text-white" />
-                      </div>
-                    )}
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">{member.name}</h3>
-                    <p className="text-init-green font-semibold mb-4">{member.position}</p>
-                    <p className="text-slate-600 text-sm mb-4 leading-relaxed">{member.bio}</p>
-                    <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-slate-900 mb-2">Tecnologías:</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed">{member.expertise}</p>
-                    </div>
-                    <div className="flex justify-center space-x-3">
-                      {member.email && (
-                        <a href={`mailto:${member.email}`} className="text-slate-400 hover:text-init-green transition-colors p-2 rounded-lg hover:bg-init-light">
-                          <EmailIcon className="h-5 w-5" />
-                        </a>
-                      )}
-                      {member.linkedin && (
-                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn de ${member.name}`} className="text-slate-400 hover:text-init-green transition-colors p-2 rounded-lg hover:bg-init-light">
-                          <LinkedInIcon className="h-5 w-5" />
-                        </a>
-                      )}
-                    </div>
-                  </motion.div>
-                </motion.div>
+                <MemberCard key={member.id} member={member} index={index} />
               ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* Why work with us */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              ¿Por qué trabajar con nosotros?
-            </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Tiempo de respuesta ágil, equipo estable y metodología clara
-            </p>
+      <section className="section-py bg-surface-container-lowest">
+        <div className="max-w-container mx-auto px-6 md:px-20">
+          <motion.div {...fadeUp} className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">¿Por qué trabajar con nosotros?</h2>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="flex items-start gap-4">
-              <CheckCircleIcon className="h-8 w-8 text-init-green-bright flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-1">Tiempo de respuesta</h3>
-                <p className="text-slate-600 text-sm">Respuesta rápida y comunicación directa con el equipo que desarrolla tu proyecto.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <CheckCircleIcon className="h-8 w-8 text-init-green-bright flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-1">Tamaño del equipo</h3>
-                <p className="text-slate-600 text-sm">Equipo de 6 personas: trato cercano y sin capas innecesarias.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <CheckCircleIcon className="h-8 w-8 text-init-green-bright flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-1">Metodología</h3>
-                <p className="text-slate-600 text-sm">Análisis, alcance definido y entregas iterativas para que veas avances desde el inicio.</p>
-              </div>
-            </div>
+            {[
+              { title: "Tiempo de respuesta", text: "Comunicación directa con el equipo que desarrolla tu proyecto." },
+              { title: "Tamaño del equipo", text: teamCopy.size },
+              { title: "Metodología", text: "Alcance definido y entregas iterativas desde el inicio." },
+            ].map((item, i) => (
+              <motion.div key={item.title} {...fadeUp} transition={{ delay: i * 0.1 }} className="flex items-start gap-4">
+                <CheckCircleIcon className="h-8 w-8 text-primary flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold mb-1">{item.title}</h3>
+                  <p className="text-on-surface-variant text-sm">{item.text}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Nuestros Valores</h2>
+      <section className="section-py gradient-bg relative overflow-hidden">
+        <div className="orb w-64 h-64 bg-primary/10 blur-[80px] top-0 right-0" />
+        <div className="max-w-container mx-auto px-6 md:px-20 text-center relative z-10">
+          <motion.div {...fadeUp}>
+            <h2 className="text-3xl font-bold mb-8">Nuestros Valores</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Innovación</h3>
-                <p className="text-slate-200 leading-relaxed">Siempre buscamos las mejores soluciones tecnológicas para nuestros clientes.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Excelencia</h3>
-                <p className="text-slate-200 leading-relaxed">Nos comprometemos a entregar productos y servicios de la más alta calidad.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Colaboración</h3>
-                <p className="text-slate-200 leading-relaxed">Trabajamos en equipo para lograr resultados excepcionales.</p>
-              </div>
+              {[
+                { t: "Innovación", d: "Las mejores soluciones tecnológicas para nuestros clientes." },
+                { t: "Excelencia", d: "Productos y servicios de la más alta calidad." },
+                { t: "Colaboración", d: "Trabajo en equipo para resultados excepcionales." },
+              ].map((v, i) => (
+                <motion.div key={v.t} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+                  <h3 className="text-xl font-semibold mb-4 text-primary">{v.t}</h3>
+                  <p className="text-on-surface-variant leading-relaxed">{v.d}</p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

@@ -1,6 +1,6 @@
 # INIT – Frontend
 
-Frontend estático de INIT: **4 socios, 1 trabajador senior y 1 becario**. Desplegable en Vercel o en un Droplet (Docker).
+Frontend estático de INIT: **4 cofundadores, 1 consultora senior y 2 becarios (7 personas)**. Desplegable en Vercel o en un Droplet (Docker).
 
 ## Desplegar con Docker (DigitalOcean Droplet)
 

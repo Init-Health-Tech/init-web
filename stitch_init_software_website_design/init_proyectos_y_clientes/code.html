@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #111414;
+            color: #e1e3e2;
+        }
+        .glass-card {
+            background: rgba(69, 69, 77, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(139, 216, 142, 0.4);
+            box-shadow: 0 0 20px rgba(54, 128, 64, 0.15);
+            transform: translateY(-4px);
+        }
+        .grid-pattern {
+            background-image: linear-gradient(rgba(214, 216, 215, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(214, 216, 215, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #8bd88e;
+            transition: width 0.3s ease;
+        }
+        .nav-underline:hover::after {
+            width: 100%;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#368040",
+                    "surface-container-low": "#191c1c",
+                    "error": "#ffb4ab",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#003210",
+                    "primary-fixed": "#a6f5a8",
+                    "on-error": "#690005",
+                    "tertiary-fixed-dim": "#c7c5cf",
+                    "on-background": "#e1e3e2",
+                    "secondary-container": "#28a64e",
+                    "surface-bright": "#373a39",
+                    "on-secondary-fixed-variant": "#005320",
+                    "on-secondary": "#003914",
+                    "tertiary-container": "#717079",
+                    "primary-fixed-dim": "#8bd88e",
+                    "primary": "#8bd88e",
+                    "secondary": "#67de7f",
+                    "on-tertiary": "#2f3037",
+                    "on-primary": "#003910",
+                    "surface": "#111414",
+                    "background": "#111414",
+                    "inverse-on-surface": "#2e3131",
+                    "on-tertiary-fixed": "#1b1b22",
+                    "on-secondary-fixed": "#002108",
+                    "on-primary-fixed": "#002106",
+                    "secondary-fixed": "#84fb98",
+                    "on-surface": "#e1e3e2",
+                    "on-surface-variant": "#c0c9bb",
+                    "surface-container-high": "#272b2a",
+                    "surface-container-lowest": "#0c0f0f",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#40493e",
+                    "outline": "#8a9387",
+                    "on-tertiary-fixed-variant": "#46464e",
+                    "surface-variant": "#323535",
+                    "on-primary-fixed-variant": "#00531b",
+                    "inverse-primary": "#206c2f",
+                    "surface-tint": "#8bd88e",
+                    "surface-dim": "#111414",
+                    "on-tertiary-container": "#f8f5ff",
+                    "tertiary-fixed": "#e3e1eb",
+                    "surface-container-highest": "#323535",
+                    "tertiary": "#c7c5cf",
+                    "surface-container": "#1d2020",
+                    "secondary-fixed-dim": "#67de7f",
+                    "on-primary-container": "#e3ffde",
+                    "inverse-surface": "#e1e3e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "gutter": "24px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "container-max": "1200px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full h-[80px] bg-surface/95 backdrop-blur-md border-b border-white/10 shadow-sm z-50">
+<nav class="flex justify-between items-center px-6 md:px-20 max-w-container-max mx-auto h-full">
+<div class="font-display-lg text-headline-md font-extrabold text-primary cursor-pointer hover:scale-105 transition-transform duration-200">INIT</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Inicio</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Equipo</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Servicios</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Soluciones</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary border-b-2 border-primary pb-1 cursor-pointer" href="#">Proyectos y Clientes</a>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:scale-105 transition-all active:opacity-80 uppercase tracking-widest">
+                Contacto
+            </button>
+</nav>
+</header>
+<main class="pt-[80px] grid-pattern">
+<!-- Hero Section -->
+<section class="px-6 md:px-20 py-20 md:py-32 max-w-container-max mx-auto text-center">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">
+                Proyectos y Clientes
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Arquitectura de software de alto impacto. Descubre cómo ayudamos a líderes industriales a escalar su visión digital mediante ingeniería de precisión.
+            </p>
+</section>
+<!-- Projects Grid -->
+<section class="px-6 md:px-20 pb-20 max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- CONFE Card -->
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional industrial environment with high-tech automated machinery and clean, precise engineering elements. The atmosphere is sophisticated and modern, lit by cool blue and vibrant green LED accents reflecting off brushed metallic surfaces. The shot is a wide-angle perspective capturing the complexity of a digital transformation project in a corporate software consultancy style, maintaining a high-contrast dark mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe5GoJ1SYQy8n-qTiFdIzVxwiUviD2ekOxN5hkcMQiOLF1D4l9XGZr_wAC8XVwIHNmZPyyuE8c3I7J9ZCh4aTgktZkyHvhiIhjhjs8b2YphJ5fHi4YD53zQdH2n0ycz_kdkBcCg3-XLm3dGyJlJu7QqSfjlgsdwDatb5_6ybMi1L9v526xb5SIGbv9Fhz3eCB3ctHYdo8GWJ-fsiNrVOZtQi23cjrixCiP8PwsNMilgDUrG_16DIoWOefqjTkxMpybhuHr6zNWbw"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Sector Logística</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">CONFE</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Optimización de la cadena de suministro global mediante un núcleo operativo basado en microservicios y sincronización en tiempo real.
+                        </p>
+<div class="space-y-4">
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">Node.js</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">Kubernetes</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">PostgreSQL</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">React</span>
+</div>
+<div class="pt-4 border-t border-white/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="trending_up">trending_up</span>
+<span class="font-label-md text-label-md text-on-surface">Reducción del 40% en tiempos de latencia logística.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- JOFRA Card -->
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Sophisticated data visualization dashboards on multiple screens in a dark, minimalist office. The screens display complex graphs and emerald green analytics, reflecting on a polished black desk surface. The mood is focused and authoritative, representing technical precision and architectural stability for a high-end software agency. Cinematic lighting emphasizes the vibrant green accents against deep ebony backgrounds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSzGZlNni54rw0-rfKFOIOTRgCggA33RbXBCT0jUb1587ZwbKSX4mzjEc_DKKAc-RAtDfYAQo8YU9e-UjfXj0RGTGw3TEHkI19TqPGZX0bINdkYIIE-hfg-MYb-QvtL7iIVkYo3pz6DQ1Vcj7Cdke8BqekS5Vyx8v2uqFZkQRtlklD4dpn2t4fS2o8dUyCHjVbGTgnKPxahOZOkl_dNqfqdkv2PtCJwggNVXr-IVzgtAvRAdXPyeclNmPdw9JN2IQbCDZgq7w_pQ"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Fintech</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">JOFRA</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Plataforma de gestión patrimonial con seguridad de grado bancario y análisis predictivo de mercados financieros.
+                        </p>
+<div class="space-y-4">
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">Python</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">Django</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">AWS Security</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">Next.js</span>
+</div>
+<div class="pt-4 border-t border-white/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+<span class="font-label-md text-label-md text-on-surface">Cero brechas de seguridad en 24 meses de operación.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- TRANSCOM Card -->
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Digital representation of a global communication network with glowing lines and nodes spreading across a stylized world map. The visual style is highly modern and corporate, featuring glassmorphism effects and minimalist UI elements. Radiant green data streams flow through a dark space, creating a sense of forward-thinking innovation and technical authority. High-contrast lighting highlights the clean architectural structure of the network." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-qdGFQzE1ncj0gQr-O1RmDUABFxroJux1wd6NwJikHqOIzAfwzi3ep1spDhFrcvqMgL6r-0pPcUk8DGc9G0rtYLvKavwyDrJvvon-4QiaKgs4FDvIM3CaPCdMvfZimsmICPpBSq4oXKaThrlFmnYJnBV0OL9AeMPQ6H3-biUP6JhJ3OloQo3pBFBW-F7jwe8mhrA85OcSBctVMTJrr9aH31uJVhG1ml1JIHDtbMLl52khDzODIqTQLlGSX02AT9982CgEM5_XRA"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Telecomunicaciones</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">TRANSCOM</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Modernización de infraestructura legacy a una arquitectura cloud-native escalable para soporte de millones de usuarios simultáneos.
+                        </p>
+<div class="space-y-4">
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">Go</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">GraphQL</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">Terraform</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">GCP</span>
+</div>
+<div class="pt-4 border-t border-white/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
+<span class="font-label-md text-label-md text-on-surface">Escalabilidad dinámica con 99.99% de uptime garantizado.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- GELLER ABOGADOS Card -->
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A luxurious and minimalist law office setting with sleek furniture and digital legal documentation displayed on glass surfaces. The lighting is low-key and dramatic, with vibrant green accents framing the tech-integrated environment. The scene feels premium and authoritative, emphasizing digital transformation in the legal sector. Clean lines and architectural stability define the high-end Mexican consultancy aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANZIY3eWT2B3mwaWslblmTnGIX_12vPIkUJRf1Eh--ddKqTKHLM00UHXTvue68asPFDUzhYoIunkeSBDYOqsNXjBB2MsGCXlI-a2rgv4z1yNqUBubPwJBSNc-_9YsH3qRLC9h8_Hc0s6IoWwO6FbaYsLNKBoZr6pIqEPh2I1qxxbLXRq6p5gd8ASrua2_T2_R88E2k7jlYp0fyFcicYNssnc9rMUu7NH205AKKdj9NjkFnLxt1epcD-hSJwA5WZ_ve-uG6lTF09g"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Legal Tech</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">GELLER ABOGADOS</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Sistema de automatización de documentos y gestión de casos mediante inteligencia artificial para análisis de jurisprudencia.
+                        </p>
+<div class="space-y-4">
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">OpenAI API</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">FastAPI</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">MongoDB</span>
+<span class="bg-surface-variant text-on-surface px-3 py-1 rounded text-xs">Vue.js</span>
+</div>
+<div class="pt-4 border-t border-white/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-md text-label-md text-on-surface">Ahorro de 15 horas semanales por abogado en investigación.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-6 md:px-20 py-24 bg-surface-container-lowest relative overflow-hidden">
+
+<div class="max-w-container-max mx-auto text-center relative z-10">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-8">¿Tienes un proyecto similar?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl mx-auto">
+                    Transformamos desafíos técnicos en ventajas competitivas. Hablemos sobre cómo INIT puede llevar tu infraestructura al siguiente nivel.
+                </p>
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-10 py-5 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg hover:shadow-primary/20 uppercase tracking-widest font-bold">
+                    Contáctanos
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-start px-6 md:px-20 max-w-container-max mx-auto gap-10">
+<div class="flex flex-col gap-4">
+<div class="font-display-lg text-headline-md font-extrabold text-primary">INIT</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Software Agency de alto rendimiento. Construyendo el futuro digital de México.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-16">
+<div class="flex flex-col gap-3">
+<span class="font-label-md text-label-md text-primary uppercase mb-2">Navegación</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Inicio</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Equipo</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Servicios</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-md text-label-md text-primary uppercase mb-2">Legal</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Privacidad</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Términos</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Cookies</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-6 md:px-20 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">
+                Copyright 2024-2026 INIT Software Agency
+            </p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="hub">hub</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="terminal">terminal</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import PageHead from "../components/PageHead";
+import PageHeader from "../components/PageHeader";
 import {
   Email as EmailIcon,
   Phone as PhoneIcon,
@@ -8,50 +9,27 @@ import {
   Schedule as ScheduleIcon,
   Send as SendIcon,
   CheckCircle as CheckCircleIcon,
+  ExpandMore as ExpandMoreIcon,
 } from "@mui/icons-material";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const PROJECT_TYPES = [
-  "Aplicación web",
-  "Sistema empresarial",
-  "Consultoría",
-  "ERPinit",
-  "initlogistics",
-  "Otro",
-];
-
-const BUDGET_RANGES = [
-  "Menos de $50k MXN",
-  "$50k - $150k MXN",
-  "Más de $150k MXN",
-  "Prefiero no indicar",
-];
-
+const PROJECT_TYPES = ["Aplicación web", "Sistema empresarial", "Consultoría", "ERPinit", "initlogistics", "Otro"];
+const BUDGET_RANGES = ["Menos de $50k MXN", "$50k - $150k MXN", "Más de $150k MXN", "Prefiero no indicar"];
 const WEB3FORMS_ACCESS_KEY = "fd5fa68e-ae1d-4ea6-9c2a-9d9450583d63";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    projectType: "",
-    budget: "",
-    website: "",
+    name: "", email: "", subject: "", message: "", projectType: "", budget: "", website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState("idle");
   const [errors, setErrors] = useState({});
+  const [openFaq, setOpenFaq] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => {
-      const next = { ...prev, [name]: null };
-      if (prev.submit) delete next.submit;
-      return next;
-    });
+    setErrors((prev) => ({ ...prev, [name]: null }));
     if (submitStatus === "error") setSubmitStatus("idle");
   };
 
@@ -70,11 +48,9 @@ const Contact = () => {
     e.preventDefault();
     if (formData.website?.trim()) return;
     if (!validate()) return;
-
     setIsSubmitting(true);
     setSubmitStatus("idle");
     setErrors({});
-
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -89,28 +65,18 @@ const Contact = () => {
           "Presupuesto aproximado": formData.budget || "(no indicado)",
         }),
       });
-
       const data = await res.json();
-
       if (data.success) {
         setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-          projectType: "",
-          budget: "",
-          website: "",
-        });
+        setFormData({ name: "", email: "", subject: "", message: "", projectType: "", budget: "", website: "" });
         setTimeout(() => setSubmitStatus("idle"), 5000);
       } else {
         setSubmitStatus("error");
-        setErrors({ submit: data.message || "No se pudo enviar. Intenta de nuevo." });
+        setErrors({ submit: data.message || "No se pudo enviar." });
       }
-    } catch (err) {
+    } catch {
       setSubmitStatus("error");
-      setErrors({ submit: "Error de conexión. Intenta de nuevo más tarde." });
+      setErrors({ submit: "Error de conexión. Intenta de nuevo." });
     } finally {
       setIsSubmitting(false);
     }
@@ -119,337 +85,93 @@ const Contact = () => {
   const contactInfo = [
     { icon: EmailIcon, title: "Email", value: "support@init.com.mx", link: "mailto:support@init.com.mx" },
     { icon: PhoneIcon, title: "Teléfono", value: "55 4761 7977", link: "tel:+525547617977" },
-    {
-      icon: LocationIcon,
-      title: "Oficina",
-      value: "Ciudad López Mateos, Estado de México, México",
-      link: "https://www.google.com/maps/search/Ciudad+L%C3%B3pez+Mateos+Estado+de+M%C3%A9xico",
-    },
-    {
-      icon: ScheduleIcon,
-      title: "Horario",
-      value: "Lunes a viernes, 7:00 – 22:00 hrs (hora México central)",
-      link: "#",
-    },
+    { icon: LocationIcon, title: "Oficina", value: "Ciudad López Mateos, Estado de México", link: "https://www.google.com/maps/search/Ciudad+L%C3%B3pez+Mateos+Estado+de+M%C3%A9xico" },
+    { icon: ScheduleIcon, title: "Horario", value: "Lun–vie 7:00–22:00 (hora México central)", link: "#" },
   ];
 
   const faqs = [
-    {
-      question: "¿Cuánto tiempo toma desarrollar una aplicación web?",
-      answer:
-        "El tiempo de desarrollo varía según la complejidad del proyecto. Una aplicación web básica puede tomar 4-8 semanas, mientras que proyectos más complejos pueden requerir 3-6 meses.",
-    },
-    {
-      question: "¿Ofrecen mantenimiento después del lanzamiento?",
-      answer:
-        "Sí, ofrecemos servicios de mantenimiento y soporte continuo para asegurar que tu aplicación funcione de manera óptima y se mantenga actualizada.",
-    },
-    {
-      question: "¿Trabajan con empresas de cualquier tamaño?",
-      answer:
-        "Absolutamente. Trabajamos con startups, pequeñas empresas y grandes corporaciones. Adaptamos nuestras soluciones a las necesidades específicas de cada cliente.",
-    },
-    {
-      question: "¿Qué tecnologías utilizan para el desarrollo?",
-      answer:
-        "Utilizamos las tecnologías más modernas y confiables, incluyendo React, Node.js, Python, Django, y servicios cloud como AWS y Azure.",
-    },
-    {
-      question: "¿Trabajan con empresas fuera de CDMX/Estado de México?",
-      answer:
-        "Sí, trabajamos de forma remota con clientes en todo México y América Latina.",
-    },
-    {
-      question: "¿Ofrecen soluciones de trazabilidad y logística con RFID?",
-      answer:
-        "Sí, a través de initlogistics integramos lectores RFID para trazabilidad en tiempo real de activos, inventarios y operaciones logísticas.",
-    },
+    { q: "¿Cuánto tiempo toma desarrollar una aplicación web?", a: "4–8 semanas básica, 3–6 meses proyectos complejos." },
+    { q: "¿Ofrecen mantenimiento después del lanzamiento?", a: "Sí, soporte y mantenimiento continuo." },
+    { q: "¿Trabajan con empresas de cualquier tamaño?", a: "Sí, startups, pymes y corporaciones." },
+    { q: "¿Qué tecnologías utilizan?", a: "React, Node.js, Python, Django, AWS y Azure." },
+    { q: "¿Trabajan fuera de CDMX/Estado de México?", a: "Sí, remoto en México y LATAM." },
+    { q: "¿Ofrecen trazabilidad con RFID?", a: "Sí, vía initlogistics." },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-init-light to-white">
-      <PageHead
-        title="Contacto | Solicita tu Proyecto de Software"
-        description="Solicita una propuesta o demo. INIT – desarrollo de software a medida y consultoría en digitalización. Ciudad López Mateos, Estado de México."
-        path="/contact"
-      />
-      {/* Header */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center justify-center rounded-2xl bg-white p-2 shadow-lg mb-6">
-              <img src="/Init-Logo.svg" alt="INIT – Logo" className="h-14 w-14 object-contain" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Contáctanos
-            </h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              ¿Tienes un proyecto en mente? Estamos aquí para ayudarte a hacerlo
-              realidad. Contáctanos y conversemos sobre cómo podemos transformar
-              tu visión en una solución digital.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="min-h-screen relative z-10">
+      <PageHead title="Contacto | Solicita tu Proyecto de Software" description="Solicita una propuesta. INIT – Ciudad López Mateos." path="/contact" />
+      <PageHeader title="Contáctanos" subtitle="¿Tienes un proyecto en mente? Conversemos sobre cómo transformar tu visión en solución digital." />
 
-      {/* Contact Info & Form */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-py pt-0">
+        <div className="max-w-container mx-auto px-6 md:px-20">
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-slate-900 mb-8">
-                Información de Contacto
-              </h2>
+            <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <h2 className="text-2xl font-bold mb-8">Información de Contacto</h2>
               <div className="space-y-6">
                 {contactInfo.map((info) => (
-                  <div key={info.title} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-init-green to-init-green-bright rounded-xl flex items-center justify-center shadow-lg">
+                  <div key={info.title} className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary-container to-secondary rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
                       <info.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-slate-900 mb-1">
-                        {info.title}
-                      </h3>
-                      <a
-                        href={info.link}
-                        className="text-slate-600 hover:text-init-green transition-colors"
-                      >
-                        {info.value}
-                      </a>
+                      <h3 className="font-semibold mb-1">{info.title}</h3>
+                      <a href={info.link} className="text-on-surface-variant hover:text-primary transition-colors">{info.value}</a>
                     </div>
                   </div>
                 ))}
               </div>
-
-              <div className="mt-12">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">
-                  ¿Por qué elegirnos?
-                </h3>
-                <ul className="space-y-3">
-                  {[
-                    "Experiencia comprobada en proyectos complejos",
-                    "Equipo de expertos certificados",
-                    "Soporte técnico 24/7",
-                    "Metodologías ágiles probadas",
-                    "Resultados medibles y garantizados",
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircleIcon className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </motion.div>
 
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="card-luxury p-8">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">
-                  Envíanos un Mensaje
-                </h2>
-
+            <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <div className="glass-card p-8">
+                <h2 className="text-2xl font-bold mb-6">Envíanos un Mensaje</h2>
                 {submitStatus === "success" && (
-                  <div className="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl flex items-center">
-                    <CheckCircleIcon className="h-5 w-5 mr-2" />
-                    ¡Mensaje enviado exitosamente! Nos pondremos en contacto
-                    contigo pronto.
-                  </div>
+                  <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="mb-6 bg-primary/10 border border-primary/30 text-primary px-4 py-3 rounded-xl flex items-center">
+                    <CheckCircleIcon className="h-5 w-5 mr-2" /> ¡Mensaje enviado! Nos pondremos en contacto pronto.
+                  </motion.div>
                 )}
-
                 {submitStatus === "error" && errors.submit && (
-                  <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
-                    {errors.submit}
-                  </div>
+                  <div className="mb-6 bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl">{errors.submit}</div>
                 )}
-
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  {[
+                    { id: "name", label: "Nombre Completo *", type: "text", ph: "Tu nombre" },
+                    { id: "email", label: "Email *", type: "email", ph: "tu@email.com" },
+                    { id: "subject", label: "Asunto *", type: "text", ph: "¿En qué podemos ayudarte?" },
+                  ].map((f) => (
+                    <div key={f.id}>
+                      <label htmlFor={f.id} className="block text-sm font-semibold mb-2">{f.label}</label>
+                      <input type={f.type} id={f.id} name={f.id} required value={formData[f.id]} onChange={handleChange}
+                        className={`input-field ${errors[f.id] ? "border-red-500" : ""}`} placeholder={f.ph} />
+                      {errors[f.id] && <p className="text-sm text-red-400 mt-1">{errors[f.id]}</p>}
+                    </div>
+                  ))}
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-semibold text-slate-700 mb-2"
-                    >
-                      Nombre Completo *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={`input-field ${errors.name ? "border-red-500" : ""}`}
-                      placeholder="Tu nombre completo"
-                    />
-                    {errors.name && (
-                      <p className="text-sm text-red-600 mt-1">{errors.name}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-semibold text-slate-700 mb-2"
-                    >
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`input-field ${errors.email ? "border-red-500" : ""}`}
-                      placeholder="tu@email.com"
-                      aria-invalid={!!errors.email}
-                      aria-describedby={errors.email ? "email-error" : undefined}
-                    />
-                    {errors.email && (
-                      <p id="email-error" className="text-sm text-red-600 mt-1">
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="projectType"
-                      className="block text-sm font-semibold text-slate-700 mb-2"
-                    >
-                      Tipo de proyecto
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className="input-field"
-                    >
+                    <label htmlFor="projectType" className="block text-sm font-semibold mb-2">Tipo de proyecto</label>
+                    <select id="projectType" name="projectType" value={formData.projectType} onChange={handleChange} className="input-field">
                       <option value="">Selecciona una opción</option>
-                      {PROJECT_TYPES.map((opt) => (
-                        <option key={opt} value={opt}>
-                          {opt}
-                        </option>
-                      ))}
+                      {PROJECT_TYPES.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
                   </div>
-
                   <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-semibold text-slate-700 mb-2"
-                    >
-                      Asunto *
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className={`input-field ${errors.subject ? "border-red-500" : ""}`}
-                      placeholder="¿En qué podemos ayudarte?"
-                    />
-                    {errors.subject && (
-                      <p className="text-sm text-red-600 mt-1">{errors.subject}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="budget"
-                      className="block text-sm font-semibold text-slate-700 mb-2"
-                    >
-                      Presupuesto aproximado
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="input-field"
-                    >
+                    <label htmlFor="budget" className="block text-sm font-semibold mb-2">Presupuesto aproximado</label>
+                    <select id="budget" name="budget" value={formData.budget} onChange={handleChange} className="input-field">
                       <option value="">Selecciona un rango</option>
-                      {BUDGET_RANGES.map((opt) => (
-                        <option key={opt} value={opt}>
-                          {opt}
-                        </option>
-                      ))}
+                      {BUDGET_RANGES.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
                   </div>
-
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-semibold text-slate-700 mb-2"
-                    >
-                      Mensaje *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className={`input-field resize-none ${errors.message ? "border-red-500" : ""}`}
-                      placeholder="Cuéntanos más sobre tu proyecto..."
-                    />
-                    {errors.message && (
-                      <p className="text-sm text-red-600 mt-1">{errors.message}</p>
-                    )}
+                    <label htmlFor="message" className="block text-sm font-semibold mb-2">Mensaje *</label>
+                    <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange}
+                      className={`input-field resize-none ${errors.message ? "border-red-500" : ""}`} placeholder="Cuéntanos sobre tu proyecto..." />
+                    {errors.message && <p className="text-sm text-red-400 mt-1">{errors.message}</p>}
                   </div>
-
-                  {/* Honeypot: oculto para usuarios; los bots lo rellenan y bloqueamos el envío */}
-                  <div
-                    className="absolute -left-[9999px] h-0 overflow-hidden opacity-0 pointer-events-none"
-                    aria-hidden="true"
-                  >
-                    <label htmlFor="website">No completar</label>
-                    <input
-                      type="text"
-                      id="website"
-                      name="website"
-                      value={formData.website}
-                      onChange={handleChange}
-                      autoComplete="off"
-                      tabIndex={-1}
-                    />
+                  <div className="absolute -left-[9999px] opacity-0" aria-hidden>
+                    <input type="text" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} />
                   </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full btn-primary text-lg py-3 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center justify-center">
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                        Enviando...
-                      </div>
-                    ) : (
-                      <div className="flex items-center justify-center">
-                        <SendIcon className="h-5 w-5 mr-2" />
-                        Enviar Mensaje
-                      </div>
-                    )}
+                  <button type="submit" disabled={isSubmitting} className="w-full btn-primary py-3 disabled:opacity-50">
+                    {isSubmitting ? "Enviando..." : <span className="flex items-center justify-center gap-2"><SendIcon className="h-5 w-5" /> Enviar Mensaje</span>}
                   </button>
                 </form>
               </div>
@@ -458,69 +180,32 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Preguntas Frecuentes
-            </h2>
-            <p className="text-xl text-slate-600">
-              Resolvemos las dudas más comunes sobre nuestros servicios
-            </p>
+      <section className="section-py bg-surface-container-low">
+        <div className="max-w-3xl mx-auto px-6 md:px-20">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Preguntas Frecuentes</h2>
           </motion.div>
-
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="card-luxury p-6"
-              >
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">
-                  {faq.question}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
-              </motion.div>
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <div key={i} className="glass-card overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between p-5 text-left font-semibold hover:bg-white/5 transition-colors"
+                >
+                  {faq.q}
+                  <ExpandMoreIcon className={`h-5 w-5 text-primary transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {openFaq === i && (
+                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                      <p className="px-5 pb-5 text-on-surface-variant text-sm leading-relaxed">{faq.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 gradient-bg text-white">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              ¿Listo para Empezar tu Proyecto?
-            </h2>
-            <p className="text-xl mb-10 text-slate-200 leading-relaxed">
-              No esperes más. Contáctanos hoy mismo y descubre cómo podemos
-              transformar tu visión en una realidad digital con soluciones de
-              clase mundial.
-            </p>
-            <a
-              href="mailto:support@init.com.mx"
-              className="btn-primary text-lg px-8 py-4 inline-flex items-center group"
-            >
-              <EmailIcon className="h-5 w-5 mr-2" />
-              Enviar Email
-            </a>
-          </motion.div>
         </div>
       </section>
     </div>

@@ -14,6 +14,7 @@ Coloca las fotos en **`public/empleados-fotos/`** (ahí la web las sirve). Usa l
 | Luken Eguiluz del Angel | Socio Operaciones | `eguiluz-del-angel-luken.jpg` |
 | Carolina Martinez | Desarrolladora Senior | `martinez-carolina.jpg` |
 | Xoan Pablo Rodriguez | Becario en Desarrollo | `rodriguez-xoan-pablo.jpg` |
+| Diego Luna | Becario en Desarrollo | `luna-diego.jpg` |
 
 ---
 
@@ -35,7 +36,8 @@ public/empleados-fotos/
 ├── corona-del-rio-javier.jpg
 ├── eguiluz-del-angel-luken.jpg
 ├── martinez-carolina.jpg
-└── rodriguez-xoan-pablo.jpg
+├── rodriguez-xoan-pablo.jpg
+└── luna-diego.jpg
 ```
 
 Solo tienes que guardar cada foto con el nombre de la tabla y ponerla en esta carpeta.

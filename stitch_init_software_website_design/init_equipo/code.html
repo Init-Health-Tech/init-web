@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Equipo | INIT Software Agency</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#368040",
+                        "surface-container-low": "#191c1c",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#003210",
+                        "primary-fixed": "#a6f5a8",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#c7c5cf",
+                        "on-background": "#e1e3e2",
+                        "secondary-container": "#28a64e",
+                        "surface-bright": "#373a39",
+                        "on-secondary-fixed-variant": "#005320",
+                        "on-secondary": "#003914",
+                        "tertiary-container": "#717079",
+                        "primary-fixed-dim": "#8bd88e",
+                        "primary": "#8bd88e",
+                        "secondary": "#67de7f",
+                        "on-tertiary": "#2f3037",
+                        "on-primary": "#003910",
+                        "surface": "#111414",
+                        "background": "#111414",
+                        "inverse-on-surface": "#2e3131",
+                        "on-tertiary-fixed": "#1b1b22",
+                        "on-secondary-fixed": "#002108",
+                        "on-primary-fixed": "#002106",
+                        "secondary-fixed": "#84fb98",
+                        "on-surface": "#e1e3e2",
+                        "on-surface-variant": "#c0c9bb",
+                        "surface-container-high": "#272b2a",
+                        "surface-container-lowest": "#0c0f0f",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#40493e",
+                        "outline": "#8a9387",
+                        "on-tertiary-fixed-variant": "#46464e",
+                        "surface-variant": "#323535",
+                        "on-primary-fixed-variant": "#00531b",
+                        "inverse-primary": "#206c2f",
+                        "surface-tint": "#8bd88e",
+                        "surface-dim": "#111414",
+                        "on-tertiary-container": "#f8f5ff",
+                        "tertiary-fixed": "#e3e1eb",
+                        "surface-container-highest": "#323535",
+                        "tertiary": "#c7c5cf",
+                        "surface-container": "#1d2020",
+                        "secondary-fixed-dim": "#67de7f",
+                        "on-primary-container": "#e3ffde",
+                        "inverse-surface": "#e1e3e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "container-max": "1200px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(69, 69, 77, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(139, 216, 142, 0.4);
+            box-shadow: 0 0 30px rgba(54, 128, 64, 0.15);
+            transform: translateY(-4px);
+        }
+        .grid-pattern {
+            background-image: linear-gradient(rgba(214, 216, 215, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(214, 216, 215, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30 selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full h-[80px] bg-surface/95 backdrop-blur-md border-b border-white/10 shadow-sm z-50">
+<div class="flex justify-between items-center px-6 md:px-20 max-w-container-max mx-auto h-full">
+<div class="font-display-lg text-headline-md font-extrabold text-primary cursor-pointer hover:scale-105 transition-transform duration-200">INIT</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Inicio</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary border-b-2 border-primary pb-1 cursor-pointer" href="#">Equipo</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Servicios</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Soluciones</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Proyectos y Clientes</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-md uppercase tracking-wider hover:scale-105 transition-all active:opacity-80">Contacto</button>
+</div>
+</nav>
+<main class="pt-[80px] grid-pattern">
+<!-- Section: Hero Header -->
+<header class="max-w-container-max mx-auto px-6 md:px-20 pt-20 pb-16 text-center">
+<span class="text-primary font-label-md uppercase tracking-[0.2em] mb-4 block">Nuestra Fuerza Motriz</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">Nuestro Equipo</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Seis profesionales apasionados por la tecnología, la arquitectura de software y la transformación digital. Uniendo visión estratégica y ejecución técnica impecable.
+            </p>
+</header>
+<!-- Section 1: Cofounders Group Photo -->
+<section class="max-w-container-max mx-auto px-6 md:px-20 mb-32">
+<div class="relative rounded-3xl overflow-hidden aspect-[21/9] group">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A professional group portrait of four confident software company co-founders standing in a sleek, modern architectural office space with glass walls and minimalist furniture. The lighting is sophisticated and cinematic, using cool tones and deep shadows to create a premium, high-tech corporate atmosphere. The founders are dressed in smart-casual modern attire, reflecting a blend of engineering precision and creative leadership within a dark mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvjaGXtfFLWloLrio1DeIGBFTVJIahJeOdun0yKgzDkVSpEskNE8kX0fokpdwJkUoNrRo8UIHPhTBOQ1oLNBXp2J6zKHPOWKAsu0hhw8yf3hDXtsoB9WL5Sdr2HnXb-sLM5FSuHFQG01prKIyaKcR4375_jWjTmcPapovhgCT8Qn-R2w9X7mHRK11WlmS7XZv4tWrvNs5yMLlYHZVvn7omQFCSgWMFg6ssSpXpd3Ut8mB-fVa2rMyHbNDmWBECjOPr1gYl6v0dfA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-8 left-8 md:bottom-12 md:left-12">
+<h3 class="font-headline-lg text-on-surface">Los Fundadores</h3>
+<p class="text-secondary font-medium uppercase tracking-widest text-sm mt-2">Arquitectura &amp; Estrategia</p>
+</div>
+</div>
+</section>
+<!-- Section 2: Founders Grid -->
+<section class="max-w-container-max mx-auto px-6 md:px-20 mb-32">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Enrique Jimenez -->
+<div class="glass-card p-6 rounded-2xl flex flex-col h-full">
+<div class="w-full aspect-square rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover" data-alt="Close-up professional headshot of Enrique Jimenez, a senior software architect with a focused and intelligent expression. He is wearing a dark charcoal turtleneck against a deep ebony background. The lighting is high-contrast and dramatic, emphasizing facial structure with a slight green rim light that aligns with the corporate INIT branding. Minimalist, clean, and highly professional digital portrait." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXtKjHhkRzbXLS1r5gXVtwNEOATCL2JMEm6oJEEjrWtUvDEA0r1hVPXpcT8GqP-Df6s5KUH5cnICagMDoSafrHrPO3slFanugelR209RTbMib7y5bRn5p0IxUdcXUkURo2q78crL2y7Km4jo88_cficiBWAQqXRB_UnBfHNC5biO9xGsaV-m3qQxn_nTUfDMydcK779_Fvi75Fp9lHw28aCAi2vySUeAEjcZwoxwuM4OMFUteSOhGZiuxxnXI6WGWCaxh51aghsA"/>
+</div>
+<h4 class="font-headline-md text-on-surface mb-1">Enrique Jimenez</h4>
+<span class="text-primary font-label-md mb-4 block">CEO &amp; Lead Architect</span>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Especialista en sistemas distribuidos y escalabilidad masiva. 15 años liderando transformaciones en el sector fintech.</p>
+<div class="pt-6 border-t border-white/5 mt-auto">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="mailto:enrique@init.software">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-xs font-medium">enrique@init.software</span>
+</a>
+</div>
+</div>
+<!-- Iñaki Guerrero -->
+<div class="glass-card p-6 rounded-2xl flex flex-col h-full">
+<div class="w-full aspect-square rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of Iñaki Guerrero, a technical leader with a friendly yet authoritative demeanor. He is set against a dark, slightly textured background. The lighting is soft but directed, highlighting a professional and modern tech look. The aesthetic is clean and corporate, featuring deep blacks and a very subtle green accent light to match the software agency's modern visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6_574tjMDzMlO1jFizMKLNujSGyX1y7DG0EWRWs-MDC6zsxKaz2QpLx_L7w28HQStm3KgC3dLk59gpdoMI8MVMH2IhBNzo-QTq0Wa1B2rxzMxJJ6EPFEHkLxRczojVEod5XT7HwpdVDCrUQ1ERqk0d6IM9vDqzP5LPe3lDSU-FWJUhZN07Blze9njuASdRRnyZtsVHi8Nrub-dfy2LQN_Q4ynYmdyEh_dTQuHfB_jRTGSisuq_gWOeS00BKM0p8iH4W3Z4n8svQ"/>
+</div>
+<h4 class="font-headline-md text-on-surface mb-1">Iñaki Guerrero</h4>
+<span class="text-primary font-label-md mb-4 block">CTO &amp; DevOps lead</span>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Experto en infraestructuras Cloud-native y automatización CI/CD. Obsesionado con la excelencia operativa.</p>
+<div class="pt-6 border-t border-white/5 mt-auto">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="mailto:inaki@init.software">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-xs font-medium">inaki@init.software</span>
+</a>
+</div>
+</div>
+<!-- Javier Corona -->
+<div class="glass-card p-6 rounded-2xl flex flex-col h-full">
+<div class="w-full aspect-square rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover" data-alt="Studio portrait of Javier Corona, a senior front-end engineer, looking towards the camera with a creative and sharp gaze. The background is a minimalist dark gray with a faint grid pattern. The lighting is modern and crisp, with cool highlights and deep black shadows. His style is contemporary corporate, reflecting a high-end software development environment with a focus on technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8XlehMIZan38Yy8x9sjOEYUBuJbsizmj-KsJu1cjum2hFUKcIjvbcIgZs7W-pfIEkfdYQ8Spn_Kj5L1rXmwVcHY3I-Vnv4UxLKQlQ5aKRE4QYBdeh6vQ3Mz0zbXYYmzbHw1ijfDXe6ryGHKTwyV7a5ZOTSRSLvuubtwfW7lyIY9anMnVMm2_TnMOZNr0iEMOnkG1cR7g_3HEjOpW8cxdYz-3xobu6A0IawJWP6iRWvzy_rDRoelwhQuBTJDEuB8PsX3bC1Tch4w"/>
+</div>
+<h4 class="font-headline-md text-on-surface mb-1">Javier Corona</h4>
+<span class="text-primary font-label-md mb-4 block">Product Director</span>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Conecta la visión de negocio con el diseño centrado en el usuario. UX/UI advocate y estratega de producto.</p>
+<div class="pt-6 border-t border-white/5 mt-auto">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="mailto:javier@init.software">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-xs font-medium">javier@init.software</span>
+</a>
+</div>
+</div>
+<!-- Luken Eguiluz -->
+<div class="glass-card p-6 rounded-2xl flex flex-col h-full">
+<div class="w-full aspect-square rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover" data-alt="Portrait of Luken Eguiluz, a backend engineering expert, captured in a professional studio setting. He has a serious, methodical expression. The composition is clean and minimalist, using a dark-mode color palette of deep ebony and charcoal. Soft green accent lighting provides a subtle glow, signifying the INIT brand identity. High-resolution corporate photography for a premium software agency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9nFaGCrJcU5ih4EjLpPw3wxkPHr8ElHNU_WaaW4NrIDUaRKtE336qP0jnI-NwrR4S-x7UgcEY5hqTORgYDOyk7qkU06auCQFxlonRlIFPR4mJf_BaXCiQhJi7mS3EsrN8Xl6h5sxVf2tW9CkhEcqXr32hsGTKRDN1dkJN5foBMkxYz_vWj8kEkgDvJjCCHALAy0zK_bQK6ptizF2A3ylhqGkvGnxUF_X0mzMtxKO6lVQuy_NFs-WQs7lPBeIUO9fPwWlA_TnZQ"/>
+</div>
+<h4 class="font-headline-md text-on-surface mb-1">Luken Eguiluz</h4>
+<span class="text-primary font-label-md mb-4 block">Head of Backend</span>
+<p class="text-on-surface-variant text-sm mb-6 flex-grow">Dominio absoluto de Go y Rust. Arquitecto de microservicios de alto rendimiento y seguridad crítica.</p>
+<div class="pt-6 border-t border-white/5 mt-auto">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="mailto:luken@init.software">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-xs font-medium">luken@init.software</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3 & 4: Special Cards (Asymmetric Layout) -->
+<section class="max-w-container-max mx-auto px-6 md:px-20 mb-32">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Carolina Martinez (Featured) -->
+<div class="lg:col-span-2 glass-card p-8 md:p-12 rounded-3xl flex flex-col md:flex-row gap-10 items-center overflow-hidden relative">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] -mr-32 -mt-32"></div>
+<div class="w-full md:w-1/3 aspect-[4/5] rounded-2xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Professional profile of Carolina Martinez, a Senior Consultant, looking poised and expert. She is in a high-end corporate setting with soft ambient lighting. The style is modern corporate minimalist, featuring a dark mode aesthetic with deep grays and ebony tones. Her expression is confident and professional, set against a backdrop of subtle architectural glass. High contrast and premium finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQsMlQfpjUTAukkeLWd6f_2B1C7SUgXQ-t2p6JMY1rD5bTYGokimugDGsJEmv8nd7E_JfaHaEhjAOWWEy5Bu6FnRYCT6J-5nAF0X0WqjY19O3hPBejBa7811zZ__NxTfbsuiH4ClFbWeNKEzzS8V7DDsDfp1GzcK-zF8U4cRdmkUlwZk-FxxqCsZy8WjBFO0WtHWuXOf4ASEQIAiYME8bHgJRZBlTIxs6HD2mxj89LAjVaKUGUNk61-RIiePLYhBJ1mIalChqp1Q"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Consultora Senior</span>
+<span class="text-on-surface-variant/40 text-[10px] uppercase font-bold tracking-widest">Especialista Cloud</span>
+</div>
+<h3 class="font-headline-xl text-on-surface mb-4">Carolina Martinez</h3>
+<p class="text-body-lg text-on-surface-variant mb-6">
+                            Experta en gobernanza cloud y cumplimiento normativo. Carolina aporta una visión de 360 grados en proyectos de gran envergadura corporativa, asegurando que cada línea de código cumpla con los estándares más exigentes del mercado internacional.
+                        </p>
+<div class="flex gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant/60 font-bold tracking-tighter mb-1">Tech Stack</span>
+<div class="flex gap-2">
+<span class="bg-white/5 px-2 py-1 rounded text-[10px] border border-white/10">AWS</span>
+<span class="bg-white/5 px-2 py-1 rounded text-[10px] border border-white/10">Azure</span>
+<span class="bg-white/5 px-2 py-1 rounded text-[10px] border border-white/10">Terraform</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Xoan Pablo Rodriguez -->
+<div class="glass-card p-8 rounded-3xl flex flex-col justify-between group">
+<div>
+<div class="w-20 h-20 rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover" data-alt="A youthful and bright headshot of Xoan Pablo Rodriguez, a talented intern. He has an energetic and eager expression, set in a clean, high-tech environment. The lighting is slightly brighter but still maintains the core dark mode aesthetic of the brand, featuring dark backgrounds with subtle green glow accents. Professional yet accessible vibe for a high-end software agency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWzw0DoKoWQIPXBDjbtPosPE3FQB3yPQpud4nOXXb651aqjnx5nuB9Ss2v1Hx7oo-WHYPcLgUtEUzwnAQ2HJo67gPTsAiacQy74RXv-iajQm2W2w5NsqPgEO4_YciE2vgR4HRnvNiOwmXSE2CaxJ5mNLwcIsHdDlfLltiXd--howHDCopN2KKl3qCRQK4xi-r_1mZk_u7VP7VbNM31H8H_cJstL8Tn3sDfFeyZw1uZQUEYLFWdLmCNfpJL8neaf7ByUiXGsyr94A"/>
+</div>
+<span class="text-secondary font-label-md mb-2 block uppercase tracking-tighter">Promesa INIT</span>
+<h4 class="font-headline-md text-on-surface mb-2">Xoan Pablo Rodriguez</h4>
+<p class="text-on-surface-variant text-sm">Nuestro becario estrella. Investigando nuevas fronteras en Inteligencia Artificial y computación cuántica.</p>
+</div>
+<div class="mt-8 pt-6 border-t border-white/5 group-hover:border-primary/30 transition-colors">
+<span class="text-xs text-on-surface-variant/60 italic">"El futuro se escribe hoy, en binario."</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Why work with us -->
+<section class="max-w-container-max mx-auto px-6 md:px-20 mb-32 py-20 border-y border-white/5">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="font-headline-xl text-on-surface mb-8">¿Por qué trabajar con nosotros?</h2>
+<p class="text-body-lg text-on-surface-variant mb-12">
+                        No somos una "fábrica de software". Somos un equipo de ingeniería de élite que se integra como socios estratégicos en tu modelo de negocio.
+                    </p>
+<div class="space-y-8">
+<div class="flex gap-6 items-start">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">speed</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface mb-2">Respuesta en &lt; 4h</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Entendemos la urgencia del mundo digital. Nuestro compromiso de comunicación es innegociable.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">architecture</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface mb-2">Metodología Ágil Pura</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Iteraciones rápidas, despliegues diarios y transparencia total en cada fase del desarrollo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square bg-gradient-to-br from-primary/10 to-transparent rounded-full absolute -inset-20 blur-3xl opacity-30 animate-pulse"></div>
+<div class="glass-card rounded-3xl overflow-hidden p-2">
+<img class="w-full h-full object-cover rounded-2xl" data-alt="An abstract, high-tech conceptual image representing software methodology and rapid response. It features glowing data lines and interconnected nodes flowing through a dark, three-dimensional space. The lighting is dominated by INIT green laser-like beams and soft white highlights. The atmosphere is energetic, clean, and futuristic, embodying the precision of advanced software engineering in a professional dark-mode style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDxZXl3wV2QQvOhSRd-52kAufhjYEZww_9h1tkAjEHg-Dyue2TvKWmCi4mbJib8319DIiRA-qBlMqNi721WK6y1325l3LmW4vWLifo6yu7NJciepjdNnXTOWAR0L7vxiv8BkdFWl1UcuH9LWXV7wFCz7C-5AL-4eblWSoIQxSxIfn1TJYvrdciZ8jRSgl9AvheBBRY1HfdH0GrmHM9vNoLsgCawQHT9J8T8aQMYSHCKacUag2mK13eaX1Z2689lU_bGc3M_6vwPA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Our Values -->
+<section class="bg-surface-container-lowest py-32 overflow-hidden relative">
+<div class="absolute inset-0 grid-pattern opacity-20"></div>
+<div class="max-w-container-max mx-auto px-6 md:px-20 relative z-10 text-center">
+<h2 class="font-headline-xl text-on-surface mb-20">Nuestros Valores</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex flex-col items-center">
+<div class="mb-8 p-6 rounded-full border border-primary/20 bg-primary/5">
+<span class="material-symbols-outlined text-primary !text-5xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-4">Innovación</h3>
+<p class="text-on-surface-variant text-sm">No seguimos tendencias, exploramos qué será lo siguiente para darte una ventaja competitiva real.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="mb-8 p-6 rounded-full border border-primary/20 bg-primary/5">
+<span class="material-symbols-outlined text-primary !text-5xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-4">Excelencia</h3>
+<p class="text-on-surface-variant text-sm">El "funciona" no es suficiente. Buscamos la perfección técnica, la eficiencia y el código limpio.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="mb-8 p-6 rounded-full border border-primary/20 bg-primary/5">
+<span class="material-symbols-outlined text-primary !text-5xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-4">Colaboración</h3>
+<p class="text-on-surface-variant text-sm">Tu éxito es el nuestro. Trabajamos como una extensión de tu equipo, sin silos ni barreras.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-start px-6 md:px-20 max-w-container-max mx-auto gap-10">
+<div class="flex flex-col gap-4">
+<div class="font-display-lg text-headline-md font-extrabold text-primary">INIT</div>
+<p class="text-on-surface-variant font-body-md max-w-xs">Elevando el estándar de la ingeniería de software en México para el mundo.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div class="flex flex-col gap-3">
+<span class="text-on-surface font-bold text-sm uppercase tracking-widest mb-2">Navegación</span>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Inicio</a>
+<a class="text-primary font-bold font-body-md hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Equipo</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Servicios</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-on-surface font-bold text-sm uppercase tracking-widest mb-2">Recursos</span>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Soluciones</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Proyectos</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Blog</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-on-surface font-bold text-sm uppercase tracking-widest mb-2">Legal</span>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Contacto</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Privacidad</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Términos</a>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-white/5 max-w-container-max mx-auto px-6 md:px-20 text-center">
+<p class="text-on-surface-variant/40 text-xs">Copyright 2024-2026 INIT Software Agency. Todos los derechos reservados.</p>
+</div>
+</footer>
+<script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, header').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>
