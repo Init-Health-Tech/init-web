@@ -1,23 +1,44 @@
-# Dependencias (Vercel instala las suyas)
+# Dependencias (Vercel las instala en el build)
 node_modules
 
-# Entorno y scripts locales (no necesarios en build)
+# Build local
+dist
+.vite
+
+# Entorno y scripts locales
 .env
 .env.*
 !.env.example
 create_env.sh
 create-env-dev.sh
 create-env-production.sh
+*.bat
 
-# Docker / servidor (solo frontend estático en Vercel)
+# Docker / VM (no aplica en Vercel)
 Dockerfile
+docker-compose.yml
 nginx.conf
 nginx.conf.dokku
-.htaccess
+nginx.docker.conf
+deploy/
+DROPLET.md
 
-# Desarrollo y pruebas
-*.log
-.vite
+# Diseño de referencia y docs internos (no van al build)
+stitch_init_software_website_design/
+docs/
+
+# Imágenes duplicadas en raíz (las de producción están en public/servicios)
+Consultoría en Transformación Digital.png
+Desarrollo de Software a Medida.png
+Soluciones Tecnológicas e Integración de Sistemas.png
+logobrowser.png
+logoinit.jpg
+
+# Desarrollo
 coverage
+*.log
 .idea
 .vscode
+empleados-fotos/COMO-LAMAR-IMAGENES.md
+commit_msg.txt
+quitar-coautor.bat

@@ -1,74 +1,69 @@
-# Despliegue en Vercel – INIT
+# Despliegue en Vercel – INIT Web
 
-Este proyecto está preparado para desplegarse en [Vercel](https://vercel.com) como sitio estático (SPA).
+Repositorio: **git@github.com:Init-Health-Tech/init-web.git**
 
 ## Requisitos
 
 - Cuenta en [vercel.com](https://vercel.com)
-- Repositorio en GitHub, GitLab o Bitbucket (o despliegue por CLI)
+- Acceso al org **Init-Health-Tech** en GitHub
 
-## Opción 1: Despliegue desde la web (recomendado)
+## Opción 1: Desde el dashboard (recomendado)
 
-### 1. Conectar el repositorio
+1. [vercel.com/new](https://vercel.com/new) → Import **Init-Health-Tech/init-web**.
+2. **Root Directory:** raíz del repo (vacío).
+3. Verifica la configuración (Vercel la detecta del `vercel.json`):
 
-1. Entra en [vercel.com/new](https://vercel.com/new).
-2. Importa tu repositorio (GitHub/GitLab/Bitbucket).
-3. **No configures Root Directory**: el proyecto está en la raíz del repo.
+| Campo | Valor |
+|-------|--------|
+| Framework | Vite |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Install Command | `npm ci` |
+| Node.js | 18.x o superior |
 
-### 2. Configuración del proyecto
+4. **Deploy**. Cada push a `main` redeploya automáticamente.
 
-Vercel suele detectar Vite y rellenar esto automáticamente. Comprueba que coincida:
-
-| Campo              | Valor           |
-|--------------------|-----------------|
-| **Framework Preset** | Vite            |
-| **Build Command**    | `npm run build` |
-| **Output Directory** | `dist`           |
-| **Install Command**  | `npm install`   |
-
-No hace falta definir variables de entorno para que el sitio funcione (todo es estático).
-
-### 3. Desplegar
-
-- Pulsa **Deploy**.
-- Cuando termine, tendrás una URL tipo `tu-proyecto.vercel.app`.
-- Cada push a la rama conectada (p. ej. `main`) generará un nuevo despliegue.
-
-## Opción 2: Despliegue con Vercel CLI
+## Opción 2: Vercel CLI
 
 ```bash
-# Instalar CLI (una vez)
 npm i -g vercel
-
-# Desde la raíz del repo
-vercel
-
-# Para producción:
+vercel link    # vincular al proyecto Init-Health-Tech
 vercel --prod
 ```
 
-## Rutas (SPA)
+## Qué incluye la optimización
 
-El `vercel.json` incluye **rewrites** para que todas las rutas sirvan `index.html`:
+- **`vercel.json`**: rewrites SPA (solo rutas sin extensión → `index.html`), caché largo en `/assets`, caché en medios estáticos, cabeceras de seguridad.
+- **`.vercelignore`**: excluye Docker, diseño Stitch, docs y assets duplicados del upload de build (~30 MB menos).
+- **`vite.config.ts`**: chunks separados (react, mui, router), terser, sin sourcemaps en prod.
+- **Videos**: solo clips optimizados `hero-bg-*` (~7 MB total); eliminados orb legacy no usados.
 
-- `/` → Inicio  
-- `/team` → Equipo  
-- `/services` → Servicios  
-- `/contact` → Contacto  
-- `/login`, `/register` → Login / Registro  
+## Rutas SPA
 
-Así el enrutado de React funciona al recargar o al entrar directo a una URL.
+| Ruta | Página |
+|------|--------|
+| `/` | Inicio |
+| `/team` | Equipo |
+| `/services` | Servicios |
+| `/soluciones` | Soluciones |
+| `/portfolio` | Proyectos y clientes |
+| `/contact` | Contacto |
 
-## Archivos de configuración
+## Variables de entorno
 
-- **`vercel.json`** – Comando de build, directorio de salida, rewrites y cabeceras de caché.
-- **`.vercelignore`** – Archivos/carpetas que no se envían al build (scripts locales, Docker, etc.).
+No son obligatorias: el sitio es 100 % estático. Si más adelante conectas API:
+
+```
+VITE_API_BASE_URL=https://tu-api.com/api
+```
+
+Configúralas en **Project → Settings → Environment Variables**.
 
 ## Dominio propio
 
-En el dashboard del proyecto: **Settings → Domains** y añade tu dominio. Vercel te indicará los registros DNS si hace falta.
+**Settings → Domains** → añade `init.com.mx` (o el dominio que uses). Vercel indica los registros DNS.
 
 ## Soporte
 
-- [Documentación de Vercel](https://vercel.com/docs)
-- [Vite en Vercel](https://vercel.com/docs/frameworks/vite)
+- [Vercel + Vite](https://vercel.com/docs/frameworks/vite)
+- [Rewrites](https://vercel.com/docs/project-configuration#rewrites)

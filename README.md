@@ -1,22 +1,24 @@
-# INIT – Frontend
+# INIT Web
 
-Frontend estático de INIT: **4 cofundadores, 1 consultora senior y 2 becarios (7 personas)**. Desplegable en Vercel o en un Droplet (Docker).
+Frontend de [INIT](https://init.com.mx): sitio estático React + Vite + Tailwind v4.
 
-## Desplegar con Docker (DigitalOcean Droplet)
+**Repositorio:** [github.com/Init-Health-Tech/init-web](https://github.com/Init-Health-Tech/init-web)
 
-Build y ejecución en el servidor:
+## Desplegar en Vercel (recomendado)
+
+1. Importa el repo en [vercel.com/new](https://vercel.com/new) → `Init-Health-Tech/init-web`.
+2. Framework: **Vite** (auto-detectado).
+3. Build: `npm run build` · Output: `dist` · Install: `npm ci`.
+4. Deploy. Las rutas SPA (`/`, `/team`, `/services`, `/portfolio`, `/contact`, etc.) funcionan con el `vercel.json` incluido.
+
+Guía detallada: **[VERCEL.md](VERCEL.md)**
+
+### CLI
 
 ```bash
-docker compose up -d --build
+npm i -g vercel
+vercel --prod
 ```
-
-La app queda en el puerto 80. Guía completa: **[DROPLET.md](DROPLET.md)**.
-
-## Desplegar en Vercel
-
-1. Conecta este repo en [vercel.com](https://vercel.com): **Add New** → **Project** → importa el repo.
-2. No configures Root Directory (el proyecto está en la raíz).
-3. Deploy. Las rutas (/, /team, /services, /contact) funcionan como SPA.
 
 ## Desarrollo local
 
@@ -25,74 +27,13 @@ npm install
 npm run dev
 ```
 
----
+## Stack
 
-# React + TypeScript + Vite
+- React 18 + Vite 5
+- Tailwind CSS v4
+- React Router · Framer Motion · MUI Icons
+- Sitio estático (sin backend en este repo)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Equipo
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4 cofundadores, 1 consultora senior y 2 becarios (7 personas).
