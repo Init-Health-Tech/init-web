@@ -5,6 +5,7 @@ import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import { solutions } from "../data/solutionsData";
 import { getPageSeo } from "../data/seoData";
+import { solutionsPage } from "../data/siteCopy";
 import { CheckCircle as CheckCircleIcon, Store as StoreIcon } from "@mui/icons-material";
 
 const Solutions = () => {
@@ -18,10 +19,7 @@ const Solutions = () => {
         path={seo.path}
         keywords={seo.keywords}
       />
-      <PageHeader
-        title="Soluciones listas"
-        subtitle="ERPinit e initlogistics: software empresarial y logística con trazabilidad RFID listo para empresas en México."
-      />
+      <PageHeader title={solutionsPage.title} subtitle={solutionsPage.subtitle} />
 
       <section className="section-py pt-0">
         <div className="max-w-container mx-auto px-6 md:px-20">
@@ -72,7 +70,7 @@ const Solutions = () => {
                     <p className="text-sm text-on-surface-variant mb-4">{solution.priceNote}</p>
                   )}
                   <Link to="/contact" className="btn-primary inline-flex items-center px-6 py-3">
-                    Solicitar demo gratuita →
+                    {solutionsPage.cta} →
                   </Link>
                 </div>
               </motion.div>
@@ -85,11 +83,9 @@ const Solutions = () => {
         <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <StoreIcon className="h-14 w-14 mx-auto mb-6 text-primary" />
-            <h2 className="text-3xl font-bold mb-4">¿Necesitas algo a medida?</h2>
-            <p className="text-on-surface-variant mb-8">
-              Si tu proyecto requiere desarrollo personalizado, nuestros servicios están para ti.
-            </p>
-            <Link to="/services" className="btn-secondary px-8 py-4 inline-flex">Ver servicios</Link>
+            <h2 className="text-3xl font-bold mb-4">{solutionsPage.footerTitle}</h2>
+            <p className="text-on-surface-variant mb-8">{solutionsPage.footerBody}</p>
+            <Link to="/services" className="btn-secondary px-8 py-4 inline-flex">{solutionsPage.footerCta}</Link>
           </motion.div>
         </div>
       </section>

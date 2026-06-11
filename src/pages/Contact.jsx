@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import { getPageSeo } from "../data/seoData";
+import { contact } from "../data/siteCopy";
 import {
   Email as EmailIcon,
   Phone as PhoneIcon,
@@ -10,12 +11,10 @@ import {
   Schedule as ScheduleIcon,
   Send as SendIcon,
   CheckCircle as CheckCircleIcon,
-  ExpandMore as ExpandMoreIcon,
 } from "@mui/icons-material";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PROJECT_TYPES = ["Aplicación web", "Sistema empresarial", "Consultoría", "ERPinit", "initlogistics", "Otro"];
-const BUDGET_RANGES = ["Menos de $50k MXN", "$50k - $150k MXN", "Más de $150k MXN", "Prefiero no indicar"];
+const BUDGET_RANGES = ["Menos de $50k USD", "$50k - $150k USD", "Más de $150k USD", "Prefiero no indicar"];
 const WEB3FORMS_ACCESS_KEY = "fd5fa68e-ae1d-4ea6-9c2a-9d9450583d63";
 
 const Contact = () => {
@@ -25,7 +24,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState("idle");
   const [errors, setErrors] = useState({});
-  const [openFaq, setOpenFaq] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,15 +60,15 @@ const Contact = () => {
           email: formData.email.trim(),
           subject: formData.subject.trim(),
           message: formData.message.trim(),
-          "Tipo de proyecto": formData.projectType || "(no indicado)",
-          "Presupuesto aproximado": formData.budget || "(no indicado)",
+          "Área de interés": formData.projectType || "(no indicada)",
+          "Rango de inversión": formData.budget || "(no indicado)",
         }),
       });
       const data = await res.json();
       if (data.success) {
         setSubmitStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "", projectType: "", budget: "", website: "" });
-        setTimeout(() => setSubmitStatus("idle"), 5000);
+        setTimeout(() => setSubmitStatus("idle"), 8000);
       } else {
         setSubmitStatus("error");
         setErrors({ submit: data.message || "No se pudo enviar." });
@@ -85,18 +83,9 @@ const Contact = () => {
 
   const contactInfo = [
     { icon: EmailIcon, title: "Email", value: "support@init.com.mx", link: "mailto:support@init.com.mx" },
-    { icon: PhoneIcon, title: "Teléfono", value: "55 4761 7977", link: "tel:+525547617977" },
-    { icon: LocationIcon, title: "Oficina", value: "Ciudad López Mateos, Estado de México", link: "https://www.google.com/maps/search/Ciudad+L%C3%B3pez+Mateos+Estado+de+M%C3%A9xico" },
-    { icon: ScheduleIcon, title: "Horario", value: "Lun–vie 7:00–22:00 (hora México central)", link: "#" },
-  ];
-
-  const faqs = [
-    { q: "¿Cuánto tiempo toma desarrollar una aplicación web?", a: "4–8 semanas básica, 3–6 meses proyectos complejos." },
-    { q: "¿Ofrecen mantenimiento después del lanzamiento?", a: "Sí, soporte y mantenimiento continuo." },
-    { q: "¿Trabajan con empresas de cualquier tamaño?", a: "Sí, startups, pymes y corporaciones." },
-    { q: "¿Qué tecnologías utilizan?", a: "React, Node.js, Python, Django, AWS y Azure." },
-    { q: "¿Trabajan fuera de CDMX/Estado de México?", a: "Sí, remoto en México y LATAM." },
-    { q: "¿Ofrecen trazabilidad con RFID?", a: "Sí, vía initlogistics." },
+    { icon: PhoneIcon, title: "Teléfono", value: "+52 55 4761 7977", link: "tel:+525547617977" },
+    { icon: LocationIcon, title: "Oficina", value: "Ciudad López Mateos", link: "#" },
+    { icon: ScheduleIcon, title: "Horario", value: "Lun–vie 7:00–22:00", link: "#" },
   ];
 
   const seo = getPageSeo("contact");
@@ -104,16 +93,13 @@ const Contact = () => {
   return (
     <div className="min-h-screen relative z-10">
       <PageHead title={seo.title} description={seo.description} path={seo.path} keywords={seo.keywords} />
-      <PageHeader
-        title="Contáctanos"
-        subtitle="Solicita una propuesta de desarrollo de software a medida o consultoría en digitalización. Ciudad López Mateos, Estado de México."
-      />
+      <PageHeader title={contact.title} subtitle={contact.subtitle} />
 
       <section className="section-py pt-0">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <div className="grid lg:grid-cols-2 gap-12">
             <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl font-bold mb-8">Información de Contacto</h2>
+              <h2 className="text-2xl font-bold mb-8">{contact.contactInfoTitle}</h2>
               <div className="space-y-6">
                 {contactInfo.map((info) => (
                   <div key={info.title} className="flex items-start gap-4">
@@ -131,10 +117,10 @@ const Contact = () => {
 
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <div className="glass-card p-8">
-                <h2 className="text-2xl font-bold mb-6">Envíanos un Mensaje</h2>
+                <h2 className="text-2xl font-bold mb-6">{contact.formTitle}</h2>
                 {submitStatus === "success" && (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 bg-primary/10 border border-primary/30 text-primary px-4 py-3 exec-chamfer flex items-center">
-                    <CheckCircleIcon className="h-5 w-5 mr-2" /> ¡Mensaje enviado! Nos pondremos en contacto pronto.
+                    <CheckCircleIcon className="h-5 w-5 mr-2" /> {contact.successMessage}
                   </motion.div>
                 )}
                 {submitStatus === "error" && errors.submit && (
@@ -142,9 +128,9 @@ const Contact = () => {
                 )}
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {[
-                    { id: "name", label: "Nombre Completo *", type: "text", ph: "Tu nombre" },
-                    { id: "email", label: "Email *", type: "email", ph: "tu@email.com" },
-                    { id: "subject", label: "Asunto *", type: "text", ph: "¿En qué podemos ayudarte?" },
+                    { id: "name", label: "Nombre *", type: "text", ph: "Tu nombre" },
+                    { id: "email", label: "Email *", type: "email", ph: "tu@empresa.com" },
+                    { id: "subject", label: "Asunto *", type: "text", ph: contact.subjectPlaceholder },
                   ].map((f) => (
                     <div key={f.id}>
                       <label htmlFor={f.id} className="block text-sm font-semibold mb-2">{f.label}</label>
@@ -154,14 +140,14 @@ const Contact = () => {
                     </div>
                   ))}
                   <div>
-                    <label htmlFor="projectType" className="block text-sm font-semibold mb-2">Tipo de proyecto</label>
+                    <label htmlFor="projectType" className="block text-sm font-semibold mb-2">Área de interés</label>
                     <select id="projectType" name="projectType" value={formData.projectType} onChange={handleChange} className="input-field">
-                      <option value="">Selecciona una opción</option>
-                      {PROJECT_TYPES.map((o) => <option key={o} value={o}>{o}</option>)}
+                      <option value="">Selecciona</option>
+                      {contact.projectTypes.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="budget" className="block text-sm font-semibold mb-2">Presupuesto aproximado</label>
+                    <label htmlFor="budget" className="block text-sm font-semibold mb-2">Rango de inversión</label>
                     <select id="budget" name="budget" value={formData.budget} onChange={handleChange} className="input-field">
                       <option value="">Selecciona un rango</option>
                       {BUDGET_RANGES.map((o) => <option key={o} value={o}>{o}</option>)}
@@ -170,47 +156,23 @@ const Contact = () => {
                   <div>
                     <label htmlFor="message" className="block text-sm font-semibold mb-2">Mensaje *</label>
                     <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange}
-                      className={`input-field resize-none ${errors.message ? "border-red-500" : ""}`} placeholder="Cuéntanos sobre tu proyecto..." />
+                      className={`input-field resize-none ${errors.message ? "border-red-500" : ""}`} placeholder={contact.messagePlaceholder} />
                     {errors.message && <p className="text-sm text-red-400 mt-1">{errors.message}</p>}
                   </div>
                   <div className="absolute -left-[9999px] opacity-0" aria-hidden>
                     <input type="text" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} />
                   </div>
                   <button type="submit" disabled={isSubmitting} className="w-full btn-primary py-3 disabled:opacity-50">
-                    {isSubmitting ? "Enviando..." : <span className="flex items-center justify-center gap-2"><SendIcon className="h-5 w-5" /> Enviar Mensaje</span>}
+                    {isSubmitting ? (
+                      contact.submitLoading
+                    ) : (
+                      <span className="flex items-center justify-center gap-2"><SendIcon className="h-5 w-5" /> {contact.submitButton}</span>
+                    )}
                   </button>
+                  <p className="text-xs text-on-surface-variant text-center">{contact.formNote}</p>
                 </form>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-py bg-surface-container-low">
-        <div className="max-w-3xl mx-auto px-6 md:px-20">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Preguntas Frecuentes</h2>
-          </motion.div>
-          <div className="space-y-3">
-            {faqs.map((faq, i) => (
-              <div key={i} className="glass-card overflow-hidden">
-                <button
-                  type="button"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-5 text-left font-semibold hover:bg-white/5 transition-colors"
-                >
-                  {faq.q}
-                  <ExpandMoreIcon className={`h-5 w-5 text-primary transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`} />
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                      <p className="px-5 pb-5 text-on-surface-variant text-sm leading-relaxed">{faq.a}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
           </div>
         </div>
       </section>

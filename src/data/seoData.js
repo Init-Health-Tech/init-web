@@ -1,109 +1,92 @@
 /**
- * SEO por ruta: títulos, descripciones y palabras clave.
- * Las descriptions deben mantenerse entre ~150–160 caracteres cuando sea posible.
+ * SEO por ruta — posicionamiento global INIT.
  */
 export const SITE_URL = "https://init.com.mx";
 export const SITE_NAME = "INIT";
 
 export const defaultKeywords = [
-  "desarrollo de software a medida",
-  "software empresarial México",
-  "aplicaciones web a medida",
-  "consultoría en digitalización",
-  "transformación digital",
-  "desarrollo web México",
+  "arquitectura tecnológica",
+  "desarrollo software empresarial",
+  "ERP Odoo",
+  "logística RFID",
+  "inteligencia aplicada",
   "sistemas empresariales",
-  "automatización de procesos",
-  "integración de sistemas",
-  "desarrollo de software Estado de México",
-  "software para pymes México",
   "INIT",
+  "Brilliant Minds Building the Future",
 ].join(", ");
 
 export const pageSeo = {
   home: {
     path: "/",
-    title: "Desarrollo de Software a Medida en México",
+    title: "INIT — Brilliant Minds Building the Future",
     description:
-      "Desarrollo de software a medida, aplicaciones web y consultoría en digitalización para empresas y pymes en México. Sistemas empresariales, automatización e integración de sistemas.",
+      "Firma global de arquitectura tecnológica. Sistemas empresariales, ERP Odoo, INIT Logistics e inteligencia aplicada para el C-suite.",
     keywords: [
-      "desarrollo de software a medida México",
-      "aplicaciones web empresariales",
-      "consultoría digitalización empresas",
-      "transformación digital pymes",
-      "software empresarial Estado de México",
-      "sistemas de gestión a medida",
-      "desarrollo web Ciudad López Mateos",
-      "automatización procesos empresariales",
+      "arquitectura tecnológica",
+      "sistemas empresariales",
+      "ERP Odoo implementación",
+      "logística RFID IoT",
+      "inteligencia aplicada empresas",
+      "INIT software",
     ].join(", "),
   },
   team: {
     path: "/team",
-    title: "Equipo de Desarrollo de Software y Consultoría Digital",
+    title: "Equipo INIT — Arquitectura Tecnológica",
     description:
-      "Equipo de desarrollo de software, consultoría en digitalización y transformación digital en México. Cofundadores, consultora senior y talento técnico de INIT.",
+      "Tres disciplinas. Un estándar. Arquitectura de sistemas, operaciones tecnológicas y trazabilidad logística.",
     keywords: [
-      "equipo desarrollo software México",
-      "consultores transformación digital",
-      "desarrolladores software a medida",
-      "empresa tecnología Estado de México",
       "equipo INIT",
+      "arquitecto sistemas empresariales",
+      "firma tecnología enterprise",
     ].join(", "),
   },
   services: {
     path: "/services",
-    title: "Servicios de Desarrollo de Software y Consultoría Digital",
+    title: "Arquitectura INIT — Cuatro Pilares",
     description:
-      "Desarrollo de software a medida, consultoría en transformación digital, Data Analysis, Data Science y cyberseguridad para empresas en México.",
+      "Sistemas Empresariales, ERP & Operaciones, INIT Logistics e Inteligencia Aplicada. Cuatro pilares. Un criterio.",
     keywords: [
-      "servicios desarrollo software a medida",
-      "consultoría transformación digital México",
-      "desarrollo aplicaciones web empresariales",
-      "integración de sistemas",
-      "data analysis empresas",
-      "cyberseguridad empresarial",
-      "automatización procesos",
+      "sistemas empresariales",
+      "ERP Odoo",
+      "logística RFID",
+      "inteligencia aplicada",
+      "arquitectura software enterprise",
     ].join(", "),
   },
   solutions: {
     path: "/soluciones",
-    title: "ERPinit e initlogistics: Software Listo para Empresas",
+    title: "ERPinit e initlogistics — Plataformas INIT",
     description:
-      "ERPinit e initlogistics: ERP y plataforma logística con trazabilidad RFID para empresas en México. Software listo para usar sin desarrollo a medida.",
+      "ERPinit e initlogistics: plataformas propias para operaciones que exigen criterio de implementación.",
     keywords: [
-      "ERP México",
-      "software ERP empresas",
-      "logística RFID México",
-      "initlogistics",
       "ERPinit",
-      "software listo para usar",
-      "trazabilidad logística",
+      "initlogistics",
+      "ERP empresarial",
+      "trazabilidad RFID",
+      "plataforma logística",
     ].join(", "),
   },
   portfolio: {
     path: "/portfolio",
-    title: "Proyectos y Clientes: Casos de Éxito en Software",
+    title: "Evidencia — INIT",
     description:
-      "Casos de éxito de INIT: desarrollo web, software a medida y consultoría digital para CONFE, JOFRA, Carbiu, Polola's, TRANSCOM y Geller Abogados en México.",
+      "Decisiones estratégicas de empresas que eligieron INIT para su evolución operativa. JOFRA, TRANSCOM, CONFE y más.",
     keywords: [
-      "casos de éxito desarrollo software",
-      "clientes software a medida México",
-      "portafolio desarrollo web",
-      "proyectos transformación digital",
-      "empresa desarrollo software clientes",
+      "evidencia INIT",
+      "arquitectura empresarial casos",
+      "sistemas empresariales referencias",
     ].join(", "),
   },
   contact: {
     path: "/contact",
-    title: "Contacto: Solicita tu Proyecto de Software",
+    title: "Iniciar conversación — INIT",
     description:
-      "Solicita una propuesta de desarrollo de software a medida o consultoría en digitalización. INIT — Ciudad López Mateos, Estado de México. Respuesta en español.",
+      "INIT no abre proyectos. Abre conversaciones. Cuéntanos qué necesita tu operación. Respondemos en 24 horas.",
     keywords: [
-      "contacto desarrollo software México",
-      "cotizar software a medida",
-      "solicitar propuesta desarrollo web",
-      "consultoría digitalización contacto",
-      "empresa software Estado de México",
+      "contacto INIT",
+      "arquitectura tecnológica consulta",
+      "iniciar conversación INIT",
     ].join(", "),
   },
 };

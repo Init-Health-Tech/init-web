@@ -6,23 +6,15 @@ import PageHeader from "../components/PageHeader";
 import ClientLogo from "../components/ClientLogo";
 import { portfolioClients } from "../data/portfolioData";
 import { getPageSeo } from "../data/seoData";
-import { CheckCircle as CheckCircleIcon } from "@mui/icons-material";
+import { evidence } from "../data/siteCopy";
 
 const Portfolio = () => {
   const seo = getPageSeo("portfolio");
 
   return (
     <div className="min-h-screen relative z-10">
-      <PageHead
-        title={seo.title}
-        description={seo.description}
-        path={seo.path}
-        keywords={seo.keywords}
-      />
-      <PageHeader
-        title="Proyectos y Clientes"
-        subtitle="Casos de éxito en desarrollo de software a medida, aplicaciones web y consultoría digital con empresas en México."
-      />
+      <PageHead title={seo.title} description={seo.description} path={seo.path} keywords={seo.keywords} />
+      <PageHeader title={evidence.title} subtitle={evidence.intro} />
 
       <section className="section-py pt-0">
         <div className="max-w-container mx-auto px-6 md:px-20">
@@ -54,33 +46,21 @@ const Portfolio = () => {
                           {client.sectorDetail || client.sector}
                         </span>
                       </div>
-                      <p className="text-on-surface-variant mb-4 leading-relaxed">{client.summary}</p>
-                      {client.stack && (
-                        <p className="text-sm text-on-surface-variant mb-2">
-                          <span className="font-semibold text-on-surface">Stack:</span> {client.stack}
-                        </p>
-                      )}
-                      {client.engagement === "consultoria" && (
-                        <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                          Consultoría
-                        </p>
-                      )}
-                      {client.result && (
-                        <p className="text-sm text-primary mb-4">
-                          <span className="font-semibold">Resultado:</span> {client.result}
-                        </p>
-                      )}
-                      <h3 className="text-sm font-semibold uppercase tracking-wide mb-3">
-                        {client.engagement === "consultoria" ? "Consultoría realizada" : "Lo que hemos realizado"}
-                      </h3>
-                      <ul className="space-y-2">
-                        {client.deliverables.map((item, i) => (
-                          <li key={i} className="flex items-start text-on-surface">
-                            <CheckCircleIcon className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <p className="text-lg text-on-surface mb-6 leading-snug">{client.summary}</p>
+                      <div className="grid md:grid-cols-3 gap-6">
+                        <div>
+                          <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">{evidence.fields.context}</p>
+                          <p className="text-sm text-on-surface-variant leading-relaxed">{client.contexto}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">{evidence.fields.decision}</p>
+                          <p className="text-sm text-on-surface leading-relaxed">{client.decision}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">{evidence.fields.state}</p>
+                          <p className="text-sm text-primary leading-relaxed">{client.estado}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -99,9 +79,9 @@ const Portfolio = () => {
             className="glass-card p-12 text-center relative overflow-hidden"
           >
             <div className="relative z-10">
-              <h2 className="text-3xl font-semibold mb-4 tracking-tight">¿Quieres ser nuestro próximo caso de éxito?</h2>
-              <p className="text-on-surface-variant mb-8">Cuéntanos tu proyecto y te proponemos una solución a medida.</p>
-              <Link to="/contact" className="btn-primary inline-flex items-center px-8 py-4">Contáctanos</Link>
+              <h2 className="text-3xl font-semibold mb-4 tracking-tight">Tu operación merece el mismo criterio.</h2>
+              <p className="text-on-surface-variant mb-8">Descríbenos el sistema que necesitas construir.</p>
+              <Link to="/contact" className="btn-primary inline-flex items-center px-8 py-4">Iniciar conversación</Link>
             </div>
           </motion.div>
         </div>

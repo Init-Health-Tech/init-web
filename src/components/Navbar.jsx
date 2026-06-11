@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { nav } from '../data/siteCopy';
 import {
   Menu as MenuIcon,
   Close as CloseIcon,
@@ -33,9 +34,9 @@ const Navbar = () => {
   const navigation = [
     { name: 'Inicio', href: '/' },
     { name: 'Equipo', href: '/team' },
-    { name: 'Servicios', href: '/services' },
-    { name: 'Soluciones', href: '/soluciones' },
-    { name: 'Proyectos y Clientes', href: '/portfolio' },
+    { name: nav.services, href: '/services' },
+    { name: nav.solutions, href: '/soluciones' },
+    { name: nav.portfolio, href: '/portfolio' },
   ];
 
   const isActive = (href) =>
@@ -97,7 +98,7 @@ const Navbar = () => {
               location.pathname === '/contact' ? 'border-primary/60' : ''
             }`}
           >
-            Contacto
+            {nav.contact}
           </Link>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -128,7 +129,7 @@ const Navbar = () => {
             to="/contact"
             className="block px-3 py-3 text-sm font-semibold uppercase tracking-wider text-primary bg-primary-container/20 exec-chamfer"
           >
-            Contacto
+            {nav.contact}
           </Link>
           {isAuthenticated && (
             <button

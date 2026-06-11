@@ -1,49 +1,48 @@
 /**
- * Soluciones listas para contratar (productos terminados).
+ * Plataformas INIT — ERPinit e initlogistics.
  */
 export const solutions = [
   {
     id: 1,
     name: "ERPinit",
-    tagline: "Sistema de planificación de recursos empresariales",
-    description: "Solución ERP lista para usar: gestión integral de tu empresa. Finanzas, inventario, ventas, compras y reportes en una sola plataforma.",
+    tagline: "El sistema nervioso de tu empresa.",
+    description:
+      "ERPinit centraliza finanzas, inventario, ventas y operaciones en una plataforma — con criterio de implementación, no solo instalación. Implementación, configuración y evolución continua con un equipo que conoce tu operación.",
     features: [
-      "Gestión financiera y contable",
+      "Gestión financiera y contable integrada",
       "Control de inventario y almacén",
       "Ventas, compras y proveedores",
-      "Reportes y dashboards",
+      "Reportes ejecutivos en tiempo real",
       "Multiempresa y multiusuario",
-      "Implementación y soporte incluido",
+      "Implementación y evolución continua",
     ],
     paraQuien: [
-      "Pymes que necesitan un ERP integrado sin desarrollo a medida",
-      "Empresas con múltiples almacenes o puntos de venta",
-      "Equipos que quieren dejar Excel y pasar a un sistema centralizado",
+      "Operaciones que superaron Excel y sistemas desconectados",
+      "Empresas con múltiples almacenes o puntos de operación",
+      "Equipos que necesitan un eje central, no otro parche",
     ],
-    priceNote: "Desde $X/mes según módulos y usuarios (consulta con nosotros)",
-    color: "from-init-green to-init-green-bright",
+    priceNote: "Inversión según módulos y escala operativa.",
     initial: "E",
   },
   {
     id: 2,
     name: "initlogistics",
-    tagline: "Gestión logística y trazabilidad",
-    description: "Plataforma para operaciones logísticas con trazabilidad RFID: envíos, rutas, almacenes y seguimiento en tiempo real. Integración con lectores RFID para activos, inventarios y operaciones logísticas.",
+    tagline: "Ver antes de mover.",
+    description:
+      "initlogistics conecta almacén, ruta y campo con datos que llegan antes que el problema. Trazabilidad RFID, gestión de envíos y panel operativo unificado — tecnología in-house, no subcontratada.",
     features: [
-      "Trazabilidad RFID en tiempo real (activos, inventarios)",
-      "Gestión de envíos y rutas",
-      "Control de almacenes y stock",
-      "Integración con lectores RFID y gestión de almacenes",
-      "Documentación y facturación",
-      "Panel de control y reportes",
+      "Trazabilidad RFID de activos e inventarios",
+      "Gestión de envíos, rutas y almacenes",
+      "Integración con lectores IoT en campo",
+      "Panel de control operativo unificado",
+      "Documentación y reportes ejecutivos",
     ],
     paraQuien: [
-      "Empresas de logística y transporte (última milla, distribución)",
-      "Operaciones con necesidad de trazabilidad de activos e inventarios",
-      "Almacenes que requieren integración con lectores RFID",
+      "Operaciones logísticas que no pueden operar a ciegas",
+      "Empresas con activos e inventarios que requieren trazabilidad",
+      "Almacenes que necesitan visibilidad en tiempo real",
     ],
-    priceNote: "Desde $X/mes según volumen y módulos (consulta con nosotros)",
-    color: "from-init-green to-init-green-bright",
+    priceNote: "Inversión según volumen operativo y módulos.",
     initial: "i",
   },
 ];

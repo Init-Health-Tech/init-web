@@ -1,5 +1,5 @@
 /**
- * Partners estratégicos de INIT.
+ * Alianzas de INIT.
  */
 export const partners = [
   {
@@ -9,6 +9,6 @@ export const partners = [
     url: "https://konnex.com.mx/",
     brightLogo: true,
     description:
-      "Trabajamos en conjunto con Konnex. Somos mancuerna para llevar innovación tecnológica, inteligencia artificial y eficiencia energética a nuestros clientes.",
+      "Colaboración con Konnex en inteligencia artificial y eficiencia energética — ampliando la capacidad de INIT en proyectos de alta complejidad.",
   },
 ];
