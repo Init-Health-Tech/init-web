@@ -5,19 +5,23 @@ import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import ClientLogo from "../components/ClientLogo";
 import { portfolioClients } from "../data/portfolioData";
+import { getPageSeo } from "../data/seoData";
 import { CheckCircle as CheckCircleIcon } from "@mui/icons-material";
 
 const Portfolio = () => {
+  const seo = getPageSeo("portfolio");
+
   return (
     <div className="min-h-screen relative z-10">
       <PageHead
-        title="Proyectos y Clientes: Casos de Éxito"
-        description="Clientes de INIT: CONFE, JOFRA, Carbiu, Polola's, TRANSCOM, Geller Abogados."
-        path="/portfolio"
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
       />
       <PageHeader
         title="Proyectos y Clientes"
-        subtitle="Empresas e instituciones con las que hemos trabajado. Desglose de cada proyecto."
+        subtitle="Casos de éxito en desarrollo de software a medida, aplicaciones web y consultoría digital con empresas en México."
       />
 
       <section className="section-py pt-0">

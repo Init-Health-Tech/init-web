@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
+import { getPageSeo } from "../data/seoData";
 import { teamCopy, teamMembers } from "../data/teamData";
 import {
   Email as EmailIcon,
@@ -76,16 +77,19 @@ const Team = () => {
     </motion.div>
   );
 
+  const seo = getPageSeo("team");
+
   return (
     <div className="min-h-screen relative z-10">
       <PageHead
-        title="Nuestro Equipo de Desarrollo y Consultoría"
-        description={teamCopy.meta}
-        path="/team"
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
       />
       <PageHeader
         title="Nuestro Equipo"
-        subtitle={teamCopy.subtitle}
+        subtitle={`Equipo de desarrollo de software y consultoría en digitalización en México. ${teamCopy.subtitle}`}
       />
 
       {SHOW_TEAM_GROUP_PHOTO && (

@@ -4,19 +4,23 @@ import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import { solutions } from "../data/solutionsData";
+import { getPageSeo } from "../data/seoData";
 import { CheckCircle as CheckCircleIcon, Store as StoreIcon } from "@mui/icons-material";
 
 const Solutions = () => {
+  const seo = getPageSeo("solutions");
+
   return (
     <div className="min-h-screen relative z-10">
       <PageHead
-        title="ERPinit e initlogistics: Software Listo para Usar"
-        description="ERPinit e initlogistics: soluciones listas para empresas en México."
-        path="/soluciones"
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
       />
       <PageHeader
         title="Soluciones listas"
-        subtitle="Productos terminados que puedes usar desde el primer día sin desarrollo a medida."
+        subtitle="ERPinit e initlogistics: software empresarial y logística con trazabilidad RFID listo para empresas en México."
       />
 
       <section className="section-py pt-0">

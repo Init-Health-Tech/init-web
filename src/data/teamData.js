@@ -106,6 +106,6 @@ export const teamCopy = {
   composition: `${teamStats.owners} cofundadores, una consultora senior y ${internLabel}`,
   about: `${teamStats.owners} cofundadores, una consultora senior y ${internLabel}, comprometidos con la excelencia.`,
   subtitle: `Somos ${teamStats.total} personas: ${teamStats.owners} cofundadores, una consultora senior y ${internLabel}, comprometidos con la excelencia.`,
-  meta: `Conoce a los profesionales de INIT: ${teamStats.owners} cofundadores, consultora senior y ${internLabel}.`,
+  meta: `Equipo de desarrollo de software y consultoría en digitalización en México: ${teamStats.owners} cofundadores, consultora senior y ${internLabel}.`,
   size: `${teamStats.total} personas: trato cercano y sin capas innecesarias.`,
 };

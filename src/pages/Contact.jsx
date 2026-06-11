@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
+import { getPageSeo } from "../data/seoData";
 import {
   Email as EmailIcon,
   Phone as PhoneIcon,
@@ -98,10 +99,15 @@ const Contact = () => {
     { q: "¿Ofrecen trazabilidad con RFID?", a: "Sí, vía initlogistics." },
   ];
 
+  const seo = getPageSeo("contact");
+
   return (
     <div className="min-h-screen relative z-10">
-      <PageHead title="Contacto | Solicita tu Proyecto de Software" description="Solicita una propuesta. INIT – Ciudad López Mateos." path="/contact" />
-      <PageHeader title="Contáctanos" subtitle="¿Tienes un proyecto en mente? Conversemos sobre cómo transformar tu visión en solución digital." />
+      <PageHead title={seo.title} description={seo.description} path={seo.path} keywords={seo.keywords} />
+      <PageHeader
+        title="Contáctanos"
+        subtitle="Solicita una propuesta de desarrollo de software a medida o consultoría en digitalización. Ciudad López Mateos, Estado de México."
+      />
 
       <section className="section-py pt-0">
         <div className="max-w-container mx-auto px-6 md:px-20">

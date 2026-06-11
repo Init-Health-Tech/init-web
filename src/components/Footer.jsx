@@ -7,7 +7,7 @@ const Footer = () => (
       <div className="flex flex-col gap-4">
         <div className="text-2xl font-semibold text-primary tracking-tight">INIT</div>
         <p className="text-on-surface-variant max-w-xs text-sm">
-          Ingeniería de software de alta precisión para el mercado mexicano.
+          Desarrollo de software a medida, aplicaciones web y consultoría en digitalización para empresas en México.
         </p>
         <p className="text-on-surface-variant text-sm">
           Partner estratégico:{" "}

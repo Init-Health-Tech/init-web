@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
+import { getPageSeo } from "../data/seoData";
 import {
   Code as CodeIcon,
   Computer as ComputerIcon,
@@ -93,16 +94,19 @@ const Services = () => {
     { step: 5, title: "Soporte Continuo", description: "Monitoreo, optimización y evolución.", timeframe: "Continuo" },
   ];
 
+  const seo = getPageSeo("services");
+
   return (
     <div className="min-h-screen relative z-10">
       <PageHead
-        title="Servicios de Desarrollo de Software y Consultoría Digital"
-        description="Desarrollo de software a medida, consultoría en digitalización, Data Analysis, Data Science y cyberseguridad."
-        path="/services"
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
       />
       <PageHeader
         title="Nuestros Servicios"
-        subtitle="En INIT ayudamos a empresas a automatizar procesos, escalar operaciones y tomar decisiones basadas en datos."
+        subtitle="Desarrollo de software a medida, consultoría en transformación digital, Data Analysis, Data Science y cyberseguridad para empresas en México."
       />
 
       <section className="section-py pt-0">
@@ -157,7 +161,7 @@ const Services = () => {
       <section className="section-py bg-surface-container-low">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Tecnologías que Utilizamos</h2>
+            <h2 className="text-3xl font-semibold mb-4">Tecnologías para Desarrollo de Software</h2>
             <div className="section-title-line" />
           </motion.div>
           <div className="flex flex-col items-center gap-8">
@@ -178,7 +182,7 @@ const Services = () => {
       <section className="section-py">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Nuestro Proceso de Trabajo</h2>
+            <h2 className="text-3xl font-semibold mb-4">Proceso de Desarrollo de Software a Medida</h2>
             <p className="text-on-surface-variant">Metodología estructurada que reduce riesgos.</p>
           </motion.div>
           <div className="grid md:grid-cols-5 gap-6">
@@ -206,7 +210,7 @@ const Services = () => {
       <section className="section-py gradient-bg relative overflow-hidden">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl font-bold">¿Por qué trabajar con INIT?</h2>
+            <h2 className="text-3xl font-semibold">¿Por qué elegir INIT para tu software a medida?</h2>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[

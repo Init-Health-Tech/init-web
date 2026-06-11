@@ -7,6 +7,7 @@ import PageVideoBackground from "../components/PageVideoBackground";
 import ClientLogo from "../components/ClientLogo";
 import PartnerSection from "../components/PartnerSection";
 import { clientLogos, getClientLogo } from "../data/clientsData";
+import { getPageSeo, SITE_URL } from "../data/seoData";
 import { teamCopy, teamStats } from "../data/teamData";
 import {
   Code as CodeIcon,
@@ -98,29 +99,75 @@ const Home = () => {
   ];
 
   const yearsExperience = new Date().getFullYear() - 2024;
+  const seo = getPageSeo("home");
 
   return (
     <div className="min-h-screen">
       <PageHead
-        title="Desarrollo de Software a Medida en México"
-        description="En INIT transformamos los procesos de tu empresa con aplicaciones web, sistemas empresariales y consultoría en digitalización. Estado de México."
-        path="/"
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
       />
       <Helmet>
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "INIT",
-            url: typeof window !== "undefined" ? window.location.origin : "",
-            telephone: "+52 55 4761 7977",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Ciudad López Mateos",
-              addressRegion: "Estado de México",
-              addressCountry: "MX",
+          {JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "INIT",
+              url: SITE_URL,
+              logo: `${SITE_URL}/Init-Logo.svg`,
+              description:
+                "Empresa de desarrollo de software a medida y consultoría en digitalización para empresas en México.",
+              telephone: "+52 55 4761 7977",
+              email: "support@init.com.mx",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Ciudad López Mateos",
+                addressRegion: "Estado de México",
+                addressCountry: "MX",
+              },
+              areaServed: { "@type": "Country", name: "México" },
+              knowsAbout: [
+                "Desarrollo de software a medida",
+                "Aplicaciones web empresariales",
+                "Consultoría en digitalización",
+                "Transformación digital",
+                "Cyberseguridad",
+                "Data Analysis",
+              ],
             },
-          })}
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "INIT",
+              url: SITE_URL,
+              description: seo.description,
+              inLanguage: "es-MX",
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "INIT — Desarrollo de Software a Medida",
+              url: SITE_URL,
+              image: `${SITE_URL}/Init-Logo.svg`,
+              telephone: "+52 55 4761 7977",
+              priceRange: "$$",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Ciudad López Mateos",
+                addressRegion: "Estado de México",
+                addressCountry: "MX",
+              },
+              serviceType: [
+                "Desarrollo de software a medida",
+                "Consultoría en transformación digital",
+                "Desarrollo de aplicaciones web",
+                "Integración de sistemas",
+              ],
+            },
+          ])}
         </script>
       </Helmet>
 
@@ -155,8 +202,8 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            En INIT transformamos los procesos de tu empresa con aplicaciones web, sistemas
-            empresariales y consultoría en digitalización. Basados en Estado de México.
+            En INIT ayudamos a pymes y empresas en México a automatizar procesos con aplicaciones web,
+            sistemas empresariales a medida y consultoría en digitalización. Basados en Estado de México.
           </motion.p>
 
           <motion.div
@@ -215,7 +262,8 @@ const Home = () => {
           <motion.div {...fadeUp}>
             <h2 className="text-3xl md:text-4xl font-semibold text-on-surface mb-6 tracking-tight">Qué hacemos por las empresas</h2>
             <p className="text-lg text-on-surface-variant mb-8 leading-relaxed">
-              Trabajamos con pymes, instituciones y empresas que necesitan soluciones digitales a medida.
+              Trabajamos con pymes, instituciones y empresas en México que necesitan desarrollo de
+              software a medida, aplicaciones web y transformación digital.
             </p>
             <ul className="space-y-4 mb-8">
               {whatWeDo.map((item, i) => (
@@ -239,7 +287,7 @@ const Home = () => {
           <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }} className="relative">
             <img
               src="/empleados-fotos/init-team.jpg"
-              alt="Equipo INIT"
+              alt="Equipo de desarrollo de software INIT en México"
               className="exec-chamfer shadow-lg relative z-10 border border-white/10 w-full object-cover aspect-[4/3]"
             />
           </motion.div>
@@ -250,7 +298,10 @@ const Home = () => {
       <section className="layer-panel section-py bg-surface-container-lowest shadow-[0_-20px_60px_rgba(12,15,15,0.95)]">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">Nuestros Servicios</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">Servicios de Desarrollo de Software</h2>
+            <p className="text-on-surface-variant max-w-2xl mx-auto mb-4">
+              Desarrollo a medida, consultoría en digitalización y soluciones tecnológicas para empresas en México.
+            </p>
             <div className="section-title-line" />
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -283,8 +334,9 @@ const Home = () => {
           <motion.div {...fadeUp}>
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">Sobre INIT</h2>
             <p className="text-lg text-on-surface-variant mb-6 leading-relaxed">
-              Somos una empresa de desarrollo de software y consultoría en digitalización. Transformamos
-              la forma en que las empresas trabajan, con soluciones prácticas y trato cercano.
+              Somos una empresa de desarrollo de software a medida y consultoría en transformación
+              digital en México. Transformamos la forma en que las empresas trabajan, con soluciones
+              prácticas y trato cercano.
             </p>
             <p className="text-on-surface-variant mb-10">
               {teamCopy.about}
@@ -319,8 +371,10 @@ const Home = () => {
       <section className="layer-panel section-py bg-surface shadow-[0_-20px_60px_rgba(17,20,20,0.9)]">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Casos de Éxito</h2>
-            <p className="text-on-surface-variant mt-4">Resultados con empresas e instituciones.</p>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Casos de Éxito en Software</h2>
+            <p className="text-on-surface-variant mt-4">
+              Proyectos de desarrollo web, software a medida y consultoría digital con empresas en México.
+            </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {successCases.map((item, i) => (
@@ -388,7 +442,9 @@ const Home = () => {
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">¿Por qué elegirnos?</h2>
-            <p className="text-on-surface-variant">Plazos claros, código mantenible y soporte en español.</p>
+            <p className="text-on-surface-variant">
+              Desarrollo de software a medida con plazos claros, código mantenible y soporte en español.
+            </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyUs.map((b, i) => {
@@ -422,7 +478,8 @@ const Home = () => {
             <div className="relative z-10">
               <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">¿Listo para transformar tu empresa?</h2>
               <p className="text-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
-                Cuéntanos tu proyecto o agenda una llamada. Te proponemos una solución a medida sin compromiso.
+                Cuéntanos tu proyecto de software a medida o agenda una llamada. Te proponemos una
+                solución de desarrollo web o consultoría digital sin compromiso.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" className="btn-primary text-base px-10 py-5 inline-flex items-center justify-center gap-2">
