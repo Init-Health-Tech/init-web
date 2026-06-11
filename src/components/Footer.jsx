@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className="relative z-10 bg-surface-container-lowest py-12 border-t border-white/5">
     <div className="flex flex-col md:flex-row justify-between items-start px-6 md:px-20 max-w-container mx-auto gap-10">
       <div className="flex flex-col gap-4">
-        <div className="text-2xl font-extrabold text-primary">INIT</div>
+        <div className="text-2xl font-semibold text-primary tracking-tight">INIT</div>
         <p className="text-on-surface-variant max-w-xs text-sm">
           Ingeniería de software de alta precisión para el mercado mexicano.
         </p>

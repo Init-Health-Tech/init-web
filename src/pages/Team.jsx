@@ -10,6 +10,16 @@ import {
   CheckCircle as CheckCircleIcon,
 } from "@mui/icons-material";
 
+// ─── Fotos del equipo ───────────────────────────────────────────────────────
+// Fotos individuales (cofundadores, consultora, becarios).
+// Cambiar a false para ocultarlas y mostrar solo el ícono placeholder.
+const SHOW_INDIVIDUAL_MEMBER_PHOTOS = true;
+
+// Foto grupal de los 4 cofundadores (init-team.jpg).
+// Cambiar a false para ocultar esa sección.
+const SHOW_TEAM_GROUP_PHOTO = true;
+// ─────────────────────────────────────────────────────────────────────────────
+
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -31,21 +41,21 @@ const Team = () => {
       viewport={{ once: true }}
       className="glass-card p-6 text-center group"
     >
-      {member.image_url ? (
-        <div className="w-48 h-48 mx-auto mb-6 overflow-hidden rounded-2xl">
+      {SHOW_INDIVIDUAL_MEMBER_PHOTOS && member.image_url ? (
+        <div className="w-48 h-48 mx-auto mb-6 overflow-hidden exec-chamfer border border-white/10">
           <img
             src={member.image_url}
             alt={`Foto de ${member.name}`}
-            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover object-top"
             loading="lazy"
           />
         </div>
       ) : (
-        <div className="w-48 h-48 bg-gradient-to-br from-primary-container to-secondary rounded-2xl mx-auto mb-6 flex items-center justify-center">
+        <div className="w-48 h-48 bg-primary-container exec-chamfer mx-auto mb-6 flex items-center justify-center border border-primary/30">
           <PersonIcon className="h-20 w-20 text-white" />
         </div>
       )}
-      <h3 className="text-xl font-bold text-on-surface mb-2">{member.name}</h3>
+      <h3 className="text-xl font-semibold text-on-surface mb-2">{member.name}</h3>
       <p className="font-semibold mb-4 text-primary">{member.position}</p>
       <p className="text-on-surface-variant text-sm mb-4 leading-relaxed">{member.bio}</p>
       <p className="text-xs text-on-surface-variant leading-relaxed mb-4">
@@ -78,18 +88,20 @@ const Team = () => {
         subtitle={teamCopy.subtitle}
       />
 
-      <section className="py-12">
-        <div className="max-w-4xl mx-auto px-6 md:px-20">
-          <motion.div {...fadeUp} className="text-center">
-            <img
-              src="/empleados-fotos/init-team.jpg"
-              alt="Los 4 cofundadores de INIT"
-              className="w-full rounded-2xl shadow-2xl border border-white/10 object-contain hover:scale-[1.01] transition-transform duration-500"
-            />
-            <p className="text-on-surface-variant mt-4 font-medium">Los 4 cofundadores de INIT</p>
-          </motion.div>
-        </div>
-      </section>
+      {SHOW_TEAM_GROUP_PHOTO && (
+        <section className="py-12">
+          <div className="max-w-4xl mx-auto px-6 md:px-20">
+            <motion.div {...fadeUp} className="text-center">
+              <img
+                src="/empleados-fotos/init-team.jpg"
+                alt="Los 4 cofundadores de INIT"
+                className="w-full exec-chamfer shadow-lg border border-white/10 object-contain"
+              />
+              <p className="text-on-surface-variant mt-4 font-medium">Los 4 cofundadores de INIT</p>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       <section className="section-py">
         <div className="max-w-container mx-auto px-6 md:px-20">
@@ -163,7 +175,6 @@ const Team = () => {
       </section>
 
       <section className="section-py gradient-bg relative overflow-hidden">
-        <div className="orb w-64 h-64 bg-primary/10 blur-[80px] top-0 right-0" />
         <div className="max-w-container mx-auto px-6 md:px-20 text-center relative z-10">
           <motion.div {...fadeUp}>
             <h2 className="text-3xl font-bold mb-8">Nuestros Valores</h2>

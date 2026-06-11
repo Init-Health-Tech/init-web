@@ -22,6 +22,26 @@ export const clientLogos = [
     dimmedColor: true,
   },
   {
+    id: "jofra",
+    name: "JOFRA",
+    logo: "/clients/jofra.png",
+    lightBg: false,
+    dimmedColor: true,
+  },
+  {
+    id: "carbiu",
+    name: "Carbiu",
+    logo: "/clients/carbiu.png",
+    lightBg: false,
+    dimmedColor: true,
+  },
+  {
+    id: "pololas",
+    name: "Polola's",
+    logo: "/clients/pololas.png",
+    lightBg: true,
+  },
+  {
     id: "geller",
     name: "Geller Abogados",
     logo: "/clients/geller-abogados.png",
@@ -31,5 +51,8 @@ export const clientLogos = [
 
 export const getClientLogo = (name) =>
   clientLogos.find(
-    (c) => c.name.toLowerCase() === name.toLowerCase() || c.id === name.toLowerCase()
+    (c) =>
+      c.name.toLowerCase() === name.toLowerCase() ||
+      c.id === name.toLowerCase() ||
+      c.name.toLowerCase().replace(/\s+/g, "") === name.toLowerCase().replace(/\s+/g, "")
   );

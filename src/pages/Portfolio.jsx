@@ -12,7 +12,7 @@ const Portfolio = () => {
     <div className="min-h-screen relative z-10">
       <PageHead
         title="Proyectos y Clientes: Casos de Éxito"
-        description="Clientes de INIT: CONFE, JOFRA, TRANSCOM, Geller Abogados."
+        description="Clientes de INIT: CONFE, JOFRA, Carbiu, Polola's, TRANSCOM, Geller Abogados."
         path="/portfolio"
       />
       <PageHeader
@@ -38,15 +38,15 @@ const Portfolio = () => {
                       {client.logo ? (
                         <ClientLogo client={client} size="lg" className="min-w-[140px]" />
                       ) : (
-                        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-container to-secondary flex items-center justify-center shadow-lg animate-float" style={{ animationDelay: `${index}s` }}>
-                          <span className="text-3xl font-bold text-white">{client.initial}</span>
+                        <div className="icon-badge min-w-[80px] min-h-[80px] text-3xl font-semibold text-white">
+                          <span>{client.initial}</span>
                         </div>
                       )}
                     </div>
                     <div className="flex-1">
                       <div className="flex flex-wrap items-baseline gap-3 mb-2">
                         <h2 className="text-2xl md:text-3xl font-bold">{client.name}</h2>
-                        <span className="text-sm font-medium text-on-surface-variant bg-surface-container px-3 py-1 rounded-full border border-white/10">
+                        <span className="text-sm font-medium text-on-surface-variant bg-surface-container px-3 py-1 border border-white/10 tech-pill">
                           {client.sectorDetail || client.sector}
                         </span>
                       </div>
@@ -92,11 +92,10 @@ const Portfolio = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-surface-container-highest to-background border border-white/10 rounded-[2rem] p-12 text-center relative overflow-hidden"
+            className="glass-card p-12 text-center relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-72 h-72 bg-primary/10 blur-[100px] rounded-full animate-breathe" />
             <div className="relative z-10">
-              <h2 className="text-3xl font-bold mb-4">¿Quieres ser nuestro próximo caso de éxito?</h2>
+              <h2 className="text-3xl font-semibold mb-4 tracking-tight">¿Quieres ser nuestro próximo caso de éxito?</h2>
               <p className="text-on-surface-variant mb-8">Cuéntanos tu proyecto y te proponemos una solución a medida.</p>
               <Link to="/contact" className="btn-primary inline-flex items-center px-8 py-4">Contáctanos</Link>
             </div>

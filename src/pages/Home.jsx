@@ -80,6 +80,12 @@ const Home = () => {
       title: "Software y digitalización institucional",
       result: "Procesos y atención mejorados con sistemas centralizados.",
     },
+    {
+      client: "Polola's",
+      sector: "Gastronomía / Repostería",
+      title: "Web y sistema de pedidos en línea",
+      result: "Venta de pasteles, galletas y planificación de comidas desde un canal digital.",
+    },
   ];
 
   const whyUs = [
@@ -122,25 +128,25 @@ const Home = () => {
 
       {/* Hero — video visible behind */}
       <section className="layer-reveal relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 grid-pattern opacity-15 pointer-events-none" />
         <div className="relative z-10 max-w-container mx-auto px-6 md:px-20 text-center pt-24 pb-16">
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
-            className="inline-block p-4 bg-white rounded-2xl mb-8 shadow-xl hover:rotate-3 transition-transform duration-300"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            className="exec-frame inline-block mb-10"
           >
-            <img src="/Init-Logo.svg" alt="INIT" className="w-20 h-20 md:w-24 md:h-24 object-contain" />
+            <img src="/Init-Logo.svg" alt="INIT" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight max-w-4xl mx-auto tracking-tight"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight max-w-4xl mx-auto tracking-tight"
           >
             Desarrollo de Software a Medida para Empresas en{" "}
-            <span className="text-shimmer-mexico">México</span>
+            <span className="text-accent">México</span>
           </motion.h1>
 
           <motion.p
@@ -169,11 +175,12 @@ const Home = () => {
           </motion.div>
 
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="mt-16 text-primary/60"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-14 text-on-surface-variant/50"
           >
-            <ChevronDownIcon className="h-8 w-8 mx-auto" />
+            <ChevronDownIcon className="h-6 w-6 mx-auto" />
           </motion.div>
         </div>
       </section>
@@ -187,11 +194,11 @@ const Home = () => {
           ].map((stat, i) => (
             <motion.div key={stat.label} {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.15 }} className="flex flex-col items-center">
               <motion.span
-                initial={{ scale: 0.5, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, type: "spring" }}
-                className={`text-5xl md:text-6xl font-extrabold ${stat.color} mb-2`}
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                className={`text-4xl md:text-5xl font-semibold ${stat.color} mb-2`}
               >
                 {stat.num}
               </motion.span>
@@ -206,7 +213,7 @@ const Home = () => {
       <section className="layer-reveal section-py">
         <div className="max-w-container mx-auto px-6 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <motion.div {...fadeUp}>
-            <h2 className="text-3xl md:text-5xl font-bold text-on-surface mb-6">Qué hacemos por las empresas</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-on-surface mb-6 tracking-tight">Qué hacemos por las empresas</h2>
             <p className="text-lg text-on-surface-variant mb-8 leading-relaxed">
               Trabajamos con pymes, instituciones y empresas que necesitan soluciones digitales a medida.
             </p>
@@ -229,12 +236,11 @@ const Home = () => {
               Ver todos nuestros servicios <ArrowForwardIcon className="h-4 w-4" />
             </Link>
           </motion.div>
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }} className="relative group">
-            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-30 group-hover:opacity-60 transition-opacity animate-breathe" />
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }} className="relative">
             <img
               src="/empleados-fotos/init-team.jpg"
               alt="Equipo INIT"
-              className="rounded-2xl shadow-2xl relative z-10 border border-white/10 w-full object-cover aspect-[4/3] group-hover:scale-[1.02] transition-transform duration-500"
+              className="exec-chamfer shadow-lg relative z-10 border border-white/10 w-full object-cover aspect-[4/3]"
             />
           </motion.div>
         </div>
@@ -244,7 +250,7 @@ const Home = () => {
       <section className="layer-panel section-py bg-surface-container-lowest shadow-[0_-20px_60px_rgba(12,15,15,0.95)]">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Nuestros Servicios</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">Nuestros Servicios</h2>
             <div className="section-title-line" />
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -257,12 +263,12 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.12, duration: 0.6 }}
-                  className="glass-card p-10 rounded-3xl group"
+                  className="glass-card p-10 group"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-container to-secondary flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                    <Icon className="h-8 w-8 text-white" />
+                  <div className="icon-badge mb-8">
+                    <Icon className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4">{service.title}</h3>
+                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
                   <p className="text-on-surface-variant text-sm leading-relaxed">{service.description}</p>
                 </motion.div>
               );
@@ -275,7 +281,7 @@ const Home = () => {
       <section className="layer-reveal section-py overflow-hidden">
         <div className="max-w-container mx-auto px-6 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div {...fadeUp}>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Sobre INIT</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">Sobre INIT</h2>
             <p className="text-lg text-on-surface-variant mb-6 leading-relaxed">
               Somos una empresa de desarrollo de software y consultoría en digitalización. Transformamos
               la forma en que las empresas trabajan, con soluciones prácticas y trato cercano.
@@ -283,32 +289,28 @@ const Home = () => {
             <p className="text-on-surface-variant mb-10">
               {teamCopy.about}
             </p>
-            <Link to="/team" className="inline-flex items-center gap-2 bg-surface-container-highest text-primary px-8 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-surface-variant transition-colors">
+            <Link to="/team" className="btn-secondary inline-flex items-center gap-2 px-8 py-3">
               Conocer al Equipo <ArrowForwardIcon className="h-4 w-4" />
             </Link>
           </motion.div>
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }} className="relative">
-            <div className="glass-card p-10 md:p-12 rounded-[2rem] relative z-10 overflow-hidden">
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-2xl animate-breathe" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-secondary/10 rounded-full blur-xl animate-float" />
-              <h3 className="text-2xl font-bold text-primary mb-6 relative z-10">Nuestra Misión</h3>
-              <p className="text-lg text-on-surface leading-relaxed italic relative z-10">
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }}>
+            <div className="glass-card p-10 md:p-12">
+              <h3 className="text-xl font-semibold text-primary mb-6 uppercase tracking-wider text-[11px]">Nuestra Misión</h3>
+              <p className="text-lg text-on-surface leading-relaxed relative z-10">
                 Transformar empresas a través de la innovación tecnológica, proporcionando soluciones
                 digitales que impulsen el crecimiento y la competitividad.
               </p>
-              <div className="grid grid-cols-2 gap-6 mt-8 relative z-10">
+              <div className="grid grid-cols-2 gap-6 mt-8 pt-8 border-t border-white/10">
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold text-primary">{teamStats.total}</div>
-                  <div className="text-sm text-on-surface-variant">Miembros del Equipo</div>
+                  <div className="text-3xl font-semibold text-primary">{teamStats.total}</div>
+                  <div className="text-sm text-on-surface-variant mt-1">Miembros del Equipo</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold text-secondary">100%</div>
-                  <div className="text-sm text-on-surface-variant">Compromiso</div>
+                  <div className="text-3xl font-semibold text-secondary">100%</div>
+                  <div className="text-sm text-on-surface-variant mt-1">Compromiso</div>
                 </div>
               </div>
             </div>
-            <div className="absolute top-1/2 -left-4 w-8 h-8 bg-primary rounded-full blur-sm opacity-50 animate-float" />
-            <div className="absolute bottom-10 -right-4 w-12 h-12 bg-secondary rounded-full blur-md opacity-30 animate-float" style={{ animationDelay: "2s" }} />
           </motion.div>
         </div>
       </section>
@@ -317,10 +319,10 @@ const Home = () => {
       <section className="layer-panel section-py bg-surface shadow-[0_-20px_60px_rgba(17,20,20,0.9)]">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold">Casos de Éxito</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Casos de Éxito</h2>
             <p className="text-on-surface-variant mt-4">Resultados con empresas e instituciones.</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {successCases.map((item, i) => (
               <motion.div
                 key={item.client}
@@ -332,21 +334,27 @@ const Home = () => {
               >
                 {getClientLogo(item.client) && (
                   <div
-                    className={`success-case-logo flex items-center justify-center rounded-2xl mb-6 h-40 md:h-52 border group-hover:border-primary/30 transition-colors ${
-                      item.client === "CONFE"
-                        ? "success-case-logo--confe bg-white border-white/30 p-2 md:p-3"
+                    className={`success-case-logo exec-chamfer flex items-center justify-center mb-6 h-40 md:h-52 border transition-colors ${
+                      item.client === "CONFE" || item.client === "Polola's"
+                        ? `success-case-logo--${item.client === "CONFE" ? "confe" : "pololas"} bg-white border-white/30 p-2 md:p-3`
                         : "bg-surface-container-low border-white/10"
                     }`}
                   >
                     <ClientLogo
                       client={
-                        item.client === "CONFE"
+                        item.client === "CONFE" || item.client === "Polola's"
                           ? { ...getClientLogo(item.client), lightBg: false }
                           : getClientLogo(item.client)
                       }
-                      size={item.client === "CONFE" ? "2xl" : "lg"}
+                      size={item.client === "CONFE" || item.client === "Polola's" ? "2xl" : "lg"}
                       variant="featured"
-                      className={item.client === "CONFE" ? "success-case-confe-logo" : ""}
+                      className={
+                        item.client === "CONFE"
+                          ? "success-case-confe-logo"
+                          : item.client === "Polola's"
+                            ? "success-case-pololas-logo"
+                            : ""
+                      }
                     />
                   </div>
                 )}
@@ -379,7 +387,7 @@ const Home = () => {
       <section className="layer-panel section-py bg-surface-container-low shadow-[0_-20px_60px_rgba(25,28,28,0.95)]">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">¿Por qué elegirnos?</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">¿Por qué elegirnos?</h2>
             <p className="text-on-surface-variant">Plazos claros, código mantenible y soporte en español.</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -395,7 +403,7 @@ const Home = () => {
                   className="benefit-card"
                 >
                   <Icon className="h-8 w-8 text-primary mb-4" />
-                  <h4 className="text-lg font-bold mb-2">{b.title}</h4>
+                  <h4 className="text-lg font-semibold mb-2">{b.title}</h4>
                   <p className="text-on-surface-variant text-sm">{b.text}</p>
                 </motion.div>
               );
@@ -409,11 +417,10 @@ const Home = () => {
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div
             {...fadeUp}
-            className="bg-gradient-to-r from-surface-container-highest to-background border border-white/10 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden"
+            className="glass-card p-12 md:p-20 text-center relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full animate-breathe" />
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-extrabold mb-6">¿Listo para transformar tu empresa?</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">¿Listo para transformar tu empresa?</h2>
               <p className="text-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
                 Cuéntanos tu proyecto o agenda una llamada. Te proponemos una solución a medida sin compromiso.
               </p>

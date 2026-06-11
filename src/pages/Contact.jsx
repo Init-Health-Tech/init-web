@@ -111,7 +111,7 @@ const Contact = () => {
               <div className="space-y-6">
                 {contactInfo.map((info) => (
                   <div key={info.title} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary-container to-secondary rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                    <div className="icon-badge flex-shrink-0">
                       <info.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -127,12 +127,12 @@ const Contact = () => {
               <div className="glass-card p-8">
                 <h2 className="text-2xl font-bold mb-6">Envíanos un Mensaje</h2>
                 {submitStatus === "success" && (
-                  <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="mb-6 bg-primary/10 border border-primary/30 text-primary px-4 py-3 rounded-xl flex items-center">
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 bg-primary/10 border border-primary/30 text-primary px-4 py-3 exec-chamfer flex items-center">
                     <CheckCircleIcon className="h-5 w-5 mr-2" /> ¡Mensaje enviado! Nos pondremos en contacto pronto.
                   </motion.div>
                 )}
                 {submitStatus === "error" && errors.submit && (
-                  <div className="mb-6 bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl">{errors.submit}</div>
+                  <div className="mb-6 bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 exec-chamfer">{errors.submit}</div>
                 )}
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {[

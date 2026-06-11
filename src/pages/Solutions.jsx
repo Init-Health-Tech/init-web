@@ -33,8 +33,8 @@ const Solutions = () => {
               >
                 <div className="p-8 md:p-10">
                   <div className="flex items-start gap-5 mb-6">
-                    <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-container to-secondary flex items-center justify-center shadow-lg">
-                      <span className="text-2xl font-bold text-white">{solution.initial}</span>
+                    <div className="flex-shrink-0 icon-badge w-16 h-16">
+                      <span className="text-2xl font-semibold text-white">{solution.initial}</span>
                     </div>
                     <div>
                       <h2 className="text-2xl md:text-3xl font-bold">{solution.name}</h2>
@@ -78,7 +78,6 @@ const Solutions = () => {
       </section>
 
       <section className="section-py gradient-bg relative overflow-hidden">
-        <div className="orb w-64 h-64 bg-primary/10 blur-[80px] -top-10 left-1/2 -translate-x-1/2" />
         <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <StoreIcon className="h-14 w-14 mx-auto mb-6 text-primary" />

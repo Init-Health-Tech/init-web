@@ -117,23 +117,22 @@ const Services = () => {
                 transition={{ ...fadeUp.transition, delay: index * 0.1 }}
                 className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${isImageRight ? "lg:grid-flow-dense" : ""}`}
               >
-                <div className={`relative group ${isImageRight ? "lg:col-start-2" : ""}`}>
-                  <div className="absolute -inset-2 bg-primary/10 blur-2xl rounded-2xl opacity-40 group-hover:opacity-70 transition-opacity animate-breathe" />
-                  <div className="relative overflow-hidden rounded-2xl border border-white/10 aspect-[4/3]">
+                <div className={`relative ${isImageRight ? "lg:col-start-2" : ""}`}>
+                  <div className="relative overflow-hidden exec-chamfer border border-white/10 aspect-[4/3]">
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover"
                       loading={index === 0 ? "eager" : "lazy"}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
                   </div>
                 </div>
                 <div className={isImageRight ? "lg:col-start-1 lg:row-start-1" : ""}>
-                  <div className="inline-flex w-14 h-14 bg-gradient-to-br from-primary-container to-secondary rounded-xl mb-5 items-center justify-center shadow-lg">
+                  <div className="icon-badge mb-5">
                     <ServiceIcon className="h-7 w-7 text-white" />
                   </div>
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-4">{service.title}</h2>
+                  <h2 className="text-3xl lg:text-4xl font-semibold mb-4 tracking-tight">{service.title}</h2>
                   <p className="text-lg text-on-surface-variant mb-4">{service.intro}</p>
                   <p className="text-lg text-on-surface-variant mb-6">{service.description}</p>
                   <p className="text-sm font-semibold uppercase tracking-wide mb-3">{service.featuresLabel}</p>
@@ -192,7 +191,7 @@ const Services = () => {
                 transition={{ delay: index * 0.1 }}
                 className="glass-card p-6 text-center"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary-container to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">
+                <div className="icon-badge mx-auto mb-4 text-white font-semibold text-xl">
                   {step.step}
                 </div>
                 <h3 className="font-semibold mb-2">{step.title}</h3>
@@ -219,8 +218,8 @@ const Services = () => {
               const Icon = b.icon;
               return (
                 <motion.div key={b.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
-                  <div className="inline-flex w-16 h-16 bg-white/10 rounded-2xl mb-6 items-center justify-center backdrop-blur-sm">
-                    <Icon className="h-8 w-8 text-primary" />
+                  <div className="icon-badge mx-auto mb-6">
+                    <Icon className="h-7 w-7 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{b.title}</h3>
                   <p className="text-on-surface-variant text-sm">{b.description}</p>
