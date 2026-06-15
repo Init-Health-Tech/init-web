@@ -10,7 +10,7 @@ const PageHeader = ({ title, subtitle }) => (
         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       >
         <div className="exec-frame inline-block mb-8">
-          <img src="/Init-Logo.svg" alt="INIT" className="h-12 w-12 md:h-14 md:w-14 object-contain" />
+          <img src="/Init-Logo-black.svg" alt="INIT" className="h-12 w-auto object-contain" />
         </div>
         <h1 className="text-4xl md:text-5xl font-semibold text-on-surface mb-6 tracking-tight">{title}</h1>
         {subtitle && (

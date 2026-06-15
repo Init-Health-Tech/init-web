@@ -51,10 +51,8 @@ const Navbar = () => {
     >
       <div className="flex justify-between items-center px-6 md:px-20 max-w-container mx-auto h-full">
         <Link to="/" className="flex items-center gap-3 group">
-          <span className="exec-frame flex h-9 w-9 items-center justify-center p-1">
-            <img src="/Init-Logo.svg" alt="INIT" className="h-full w-full object-contain" />
-          </span>
-          <span className="hidden sm:block text-lg font-semibold text-primary tracking-tight">INIT</span>
+          <img src="/Init-Logo-green.svg" alt="INIT" className="h-10 w-auto max-h-full object-contain" />
+          {/* <span className="hidden sm:block text-lg font-semibold text-primary tracking-tight">INIT</span> */}
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">

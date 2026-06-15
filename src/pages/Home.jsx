@@ -56,7 +56,7 @@ const Home = () => {
               name: "INIT",
               slogan: TAGLINE,
               url: SITE_URL,
-              logo: `${SITE_URL}/Init-Logo.svg`,
+              logo: `${SITE_URL}/Init-Logo-black.svg`,
               description: "Firma global de arquitectura tecnológica.",
               telephone: "+52 55 4761 7977",
               email: "support@init.com.mx",
@@ -83,7 +83,7 @@ const Home = () => {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="exec-frame inline-block mb-10"
           >
-            <img src="/Init-Logo.svg" alt="INIT" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
+            <img src="/Init-Logo-black.svg" alt="INIT" className="h-12 md:h-14 w-auto object-contain" />
           </motion.div>
 
           <motion.p

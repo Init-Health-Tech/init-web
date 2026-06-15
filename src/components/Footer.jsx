@@ -24,7 +24,7 @@ const Footer = () => (
           {" "}— {partner.description}
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
+      <div className="grid grid-cols-2 md:grid-cols-[auto_auto_auto] gap-x-12 gap-y-10 shrink-0">
         <div className="flex flex-col gap-3">
           <h5 className="text-primary font-bold text-sm">Navegación</h5>
           <Link to="/" className="text-on-surface-variant text-sm hover:text-secondary transition-colors hover:underline underline-offset-4">Inicio</Link>
@@ -39,8 +39,8 @@ const Footer = () => (
         </div>
         <div className="flex flex-col gap-3">
           <h5 className="text-primary font-bold text-sm">Contacto</h5>
-          <a href="mailto:support@init.com.mx" className="text-on-surface-variant text-sm hover:text-secondary transition-colors">support@init.com.mx</a>
-          <a href="tel:+525547617977" className="text-on-surface-variant text-sm hover:text-secondary transition-colors">+52 55 4761 7977</a>
+          <a href="mailto:support@init.com.mx" className="text-on-surface-variant text-sm hover:text-secondary transition-colors md:whitespace-nowrap">support@init.com.mx</a>
+          <a href="tel:+525547617977" className="text-on-surface-variant text-sm hover:text-secondary transition-colors md:whitespace-nowrap">+52 55 4761 7977</a>
         </div>
       </div>
     </div>
