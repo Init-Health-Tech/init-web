@@ -1,32 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap");
 @import "tailwindcss";
 
 @theme {
   --color-init-black: #000000;
   --color-init-dark: #45454d;
-  --color-init-gray: #8d8d8d;
+  --color-init-gray: #8B949E;
   --color-init-light: #d6d8d7;
-  --color-init-green: #368040;
-  --color-init-green-bright: #2d8a47;
+  --color-init-green: #2E6A3A;
+  --color-init-green-bright: #23532d;
 
-  --color-surface: #0f1111;
-  --color-background: #0f1111;
-  --color-on-surface: #dce0dc;
-  --color-on-surface-variant: #9aa39a;
-  --color-primary: #6aab6e;
-  --color-primary-container: #2f6b38;
-  --color-on-primary-container: #e8f0e6;
-  --color-secondary: #4d9a62;
-  --color-secondary-container: #245832;
-  --color-outline: #5a635c;
-  --color-surface-container-low: #161919;
-  --color-surface-container-lowest: #0a0c0c;
-  --color-surface-container: #1a1d1d;
-  --color-surface-container-high: #222625;
-  --color-surface-container-highest: #2a2e2d;
-  --color-surface-variant: #2a2e2d;
+  --color-surface: #12141D;
+  --color-background: #090A0F;
+  --color-on-surface: #F3F4F6;
+  --color-on-surface-variant: #8B949E;
+  --color-primary: #2E6A3A;
+  --color-primary-container: #2E6A3A;
+  --color-on-primary-container: #ffffff;
+  --color-secondary: #D4AF37;
+  --color-secondary-container: #23532d;
+  --color-outline: rgba(255, 255, 255, 0.1);
+  --color-surface-container-low: #12141D;
+  --color-surface-container-lowest: #090A0F;
+  --color-surface-container: #12141D;
+  --color-surface-container-high: #1a1d28;
+  --color-surface-container-highest: #22252f;
+  --color-surface-variant: #1a1d28;
+  --color-text: #F3F4F6;
+  --color-muted: #8B949E;
+  --color-accent: #D4AF37;
 
-  --radius-exec: 2px;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Satoshi", system-ui, sans-serif;
+
+  --radius-exec: 12px;
   --chamfer: 10px;
 
   --animate-marquee: marquee 40s linear infinite;
@@ -75,17 +82,22 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeUpMesh {
+  0% { opacity: 0; filter: brightness(0.2); }
+  100% { opacity: 1; filter: brightness(1); }
+}
+
 @layer base {
   html {
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: var(--font-body);
     scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-on-surface antialiased overflow-x-hidden;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Inter", system-ui, sans-serif;
-    @apply font-semibold tracking-tight text-on-surface;
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-on-surface;
     letter-spacing: -0.02em;
   }
 }
@@ -143,19 +155,55 @@
   }
 
   .glass-card {
-    background: rgba(26, 29, 29, 0.85);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-left: 3px solid rgba(54, 128, 64, 0.55);
+    background: rgba(18, 20, 29, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-exec);
-    transition: border-color 0.25s ease, background-color 0.25s ease;
+    transition: all 0.3s ease-out;
   }
 
   .glass-card:hover {
-    border-color: rgba(106, 171, 110, 0.25);
-    border-left-color: rgba(106, 171, 110, 0.85);
-    box-shadow: none;
-    transform: none;
+    border-color: rgba(46, 106, 58, 0.6);
+    box-shadow: 0 0 20px rgba(46, 106, 58, 0.4);
+    transform: translateY(-4px);
+  }
+
+  .pillar-card {
+    background: rgba(18, 20, 29, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease-out;
+    height: 100%;
+  }
+
+  .pillar-card:hover {
+    transform: translateY(-8px);
+    border-color: #2E6A3A;
+    box-shadow: 0 0 20px rgba(46, 106, 58, 0.4);
+  }
+
+  .hero-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(46, 106, 58, 0.25) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(46, 106, 58, 0.2) 0%, transparent 50%);
+    z-index: 1;
+    animation: fadeUpMesh 1.5s ease-out forwards;
+    pointer-events: none;
+  }
+
+  .neural-fluid-fallback {
+    background:
+      radial-gradient(circle at 50% 50%, rgba(46, 106, 58, 0.15) 0%, transparent 60%),
+      #090A0F;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
   }
 
   .text-gradient-green {
@@ -171,10 +219,10 @@
   }
 
   .btn-primary {
-    @apply bg-primary-container hover:bg-secondary-container text-on-primary-container font-semibold py-3 px-6 text-xs uppercase tracking-widest transition-colors duration-200;
-    border: 1px solid rgba(106, 171, 110, 0.35);
+    @apply bg-primary hover:bg-secondary-container text-on-primary-container font-medium py-3 px-6 text-sm uppercase tracking-wide transition-colors duration-200;
+    font-family: var(--font-display);
+    border: 1px solid rgba(46, 106, 58, 0.35);
     box-shadow: none;
-    transform: none;
     clip-path: polygon(
       var(--chamfer) 0,
       100% 0,
@@ -186,13 +234,13 @@
   }
 
   .btn-primary:hover {
-    animation: none;
-    transform: none;
-    border-color: rgba(106, 171, 110, 0.55);
+    background-color: #23532d;
+    border-color: rgba(46, 106, 58, 0.55);
   }
 
   .btn-secondary {
-    @apply border border-outline/80 text-on-surface hover:bg-white/[0.04] hover:border-primary/40 font-semibold py-3 px-6 text-xs uppercase tracking-widest transition-colors duration-200;
+    @apply border border-white/10 text-on-surface hover:bg-white/[0.04] hover:border-primary/40 font-medium py-3 px-6 text-sm uppercase tracking-wide transition-colors duration-200;
+    font-family: var(--font-display);
     clip-path: polygon(
       var(--chamfer) 0,
       100% 0,
@@ -204,13 +252,12 @@
   }
 
   .btn-ghost-nav {
-    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant hover:text-primary transition-colors relative;
+    @apply text-sm font-medium text-on-surface hover:text-primary transition-colors relative;
+    font-family: var(--font-display);
   }
 
   .btn-ghost-nav.active {
     @apply text-primary;
-    border-bottom: 2px solid var(--color-primary);
-    padding-bottom: 0.2rem;
   }
 
   .card-luxury {

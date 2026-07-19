@@ -3,12 +3,19 @@
 export const TAGLINE = "Brilliant Minds Building the Future";
 
 export const hero = {
-  headline: "Tu operación creció. Tus sistemas no.",
-  subheadline:
-    "No vendemos horas ni features. Diseñamos los sistemas que definen cómo opera tu empresa los próximos diez años.",
+  headline: "Transformación Digital con Inteligencia Fluida.",
+  subheadline: "Innovación ágil para líderes empresariales.",
   ctaPrimary: "Iniciar conversación",
-  ctaSecondary: "Ver arquitectura",
+  ctaSecondary: "Explorar soluciones",
 };
+
+export const homePillars = [
+  { slug: "estrategia", title: "Estrategia", href: "/services", icon: "strategy" },
+  { slug: "ia", title: "Inteligencia Artificial", href: "/services#ia", icon: "ai" },
+  { slug: "desarrollo", title: "Desarrollo a Medida", href: "/services#sistemas", icon: "code" },
+  { slug: "ciberseguridad", title: "Ciberseguridad", href: "/services", icon: "shield" },
+  { slug: "rfid", title: "Sistemas RFID", href: "/soluciones", icon: "rfid" },
+];
 
 export const metrics = [
   { num: "4", label: "Pilares", sub: "de arquitectura tecnológica" },
@@ -168,7 +175,7 @@ export const ctaFinal = {
 
 export const nav = {
   portfolio: "Evidencia",
-  services: "Arquitectura",
+  services: "Servicios",
   solutions: "Plataformas",
   contact: "Iniciar conversación",
 };
