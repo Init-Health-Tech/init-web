@@ -21,6 +21,7 @@ import {
   Groups as GroupsIcon,
   Insights as InsightsIcon,
   KeyboardArrowDown as ChevronDownIcon,
+  LocationOn as LocationIcon,
 } from "@mui/icons-material";
 
 const fadeUp = {
@@ -234,23 +235,28 @@ const Home = () => {
 
       {/* Metrics — solid panel covers video */}
       <section className="layer-panel section-py bg-surface-container-low border-y border-white/5 shadow-[0_-20px_60px_rgba(17,20,20,0.9)]">
-        <div className="max-w-container mx-auto px-6 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-12 text-center">
+        <div className="max-w-container mx-auto px-6 md:px-20 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {[
-            { num: yearsExperience, label: "Años de Experiencia", sub: "entregando software a medida", color: "text-primary" },
-            { num: "24/7", label: "Soporte Técnico", sub: "post-lanzamiento incluido", color: "text-secondary" },
+            { icon: TrendingUpIcon, value: yearsExperience, label: "Años de Experiencia", sub: "entregando software a medida" },
+            { icon: SupportIcon, value: "24/7", label: "Soporte Técnico", sub: "post-lanzamiento incluido" },
+            { icon: LocationIcon, value: "Edo. México", label: "Sede y Operación", sub: "Ciudad López Mateos" },
           ].map((stat, i) => (
-            <motion.div key={stat.label} {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.15 }} className="flex flex-col items-center">
-              <motion.span
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                className={`text-4xl md:text-5xl font-semibold ${stat.color} mb-2`}
-              >
-                {stat.num}
-              </motion.span>
-              <span className="text-xl font-semibold text-on-surface">{stat.label}</span>
-              <span className="text-sm text-on-surface-variant mt-1">{stat.sub}</span>
+            <motion.div
+              key={stat.label}
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: i * 0.12 }}
+              className="glass-card flex items-start gap-4 p-6"
+            >
+              <div className="icon-badge shrink-0">
+                <stat.icon className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <span className="block text-2xl md:text-3xl font-semibold text-on-surface leading-none mb-1">
+                  {stat.value}
+                </span>
+                <span className="block text-sm font-semibold text-on-surface uppercase tracking-wide">{stat.label}</span>
+                <span className="block text-xs text-on-surface-variant mt-1">{stat.sub}</span>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -314,9 +320,12 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.12, duration: 0.6 }}
-                  className="glass-card p-10 group"
+                  className="glass-card p-10 group relative overflow-hidden"
                 >
-                  <div className="icon-badge mb-8">
+                  <span className="absolute top-6 right-8 text-5xl font-bold text-on-surface-variant/10 group-hover:text-primary/20 transition-colors duration-300 select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="icon-badge mb-8 relative">
                     <Icon className="h-7 w-7 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold mb-4">{service.title}</h3>

@@ -10,29 +10,22 @@ export default {
           gray: "#8d8d8d",
           light: "#d6d8d7",
           green: "#368040",
-          "green-bright": "#21a14a",
+          "green-bright": "#2d8a47",
         },
       },
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-        serif: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "luxury-gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        "premium-gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-      },
-      boxShadow: {
-        luxury: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-        premium:
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",
         "slide-up": "slideUp 0.5s ease-out",
         float: "float 6s ease-in-out infinite",
+        "ping-slow": "pingSlow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite",
       },
       keyframes: {
         fadeIn: {
@@ -46,6 +39,10 @@ export default {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
+        },
+        pingSlow: {
+          "0%": { transform: "scale(1)", opacity: "0.55" },
+          "75%, 100%": { transform: "scale(1.6)", opacity: "0" },
         },
       },
     },

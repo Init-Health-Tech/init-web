@@ -24,6 +24,29 @@ const Portfolio = () => {
         subtitle="Casos de éxito en desarrollo de software a medida, aplicaciones web y consultoría digital con empresas en México."
       />
 
+      <section className="section-py pt-0 pb-12">
+        <div className="max-w-container mx-auto px-6 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { value: `${portfolioClients.length}+`, label: "Clientes atendidos" },
+            { value: `${new Set(portfolioClients.map((c) => c.sector)).size}+`, label: "Sectores distintos" },
+            { value: "100%", label: "Proyectos entregados" },
+            { value: "MX", label: "Empresas mexicanas" },
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="glass-card p-5 text-center"
+            >
+              <span className="block text-2xl md:text-3xl font-semibold text-primary mb-1">{stat.value}</span>
+              <span className="block text-xs md:text-sm text-on-surface-variant uppercase tracking-wide">{stat.label}</span>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       <section className="section-py pt-0">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <div className="space-y-10">

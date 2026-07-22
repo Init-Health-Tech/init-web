@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import StitchBackground from './components/StitchBackground';
 import ScrollProgress from './components/ScrollProgress';
 import ScrollToTop from './components/ScrollToTop';
+import FloatingContactButton from './components/FloatingContactButton';
 import Home from './pages/Home';
 import Team from './pages/Team';
 import Services from './pages/Services';
@@ -33,17 +33,16 @@ function AppRoutes() {
         </Routes>
       </div>
       <Footer />
+      <FloatingContactButton />
     </div>
   );
 }
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <AppRoutes />
-      </Router>
-    </AuthProvider>
+    <Router>
+      <AppRoutes />
+    </Router>
   );
 }
 

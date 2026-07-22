@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Menu as MenuIcon,
   Close as CloseIcon,
-  Person as PersonIcon,
-  Logout as LogoutIcon,
 } from '@mui/icons-material';
 
 const Navbar = () => {
-  const { isAuthenticated, user, logout } = useAuth();
-  const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -24,11 +19,6 @@ const Navbar = () => {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
-
-  const handleLogout = async () => {
-    await logout();
-    navigate('/');
-  };
 
   const navigation = [
     { name: 'Inicio', href: '/' },
@@ -68,26 +58,6 @@ const Navbar = () => {
               {item.name}
             </Link>
           ))}
-
-          {isAuthenticated && (
-            <div className="flex items-center gap-3 ml-2">
-              <div className="flex items-center gap-2 bg-surface-container px-3 py-1.5 border border-white/10 exec-chamfer">
-                <div className="w-7 h-7 bg-primary-container flex items-center justify-center exec-chamfer">
-                  <PersonIcon className="h-3.5 w-3.5 text-white" />
-                </div>
-                <span className="text-xs font-medium text-on-surface">
-                  {user?.first_name || user?.username}
-                </span>
-              </div>
-              <button
-                onClick={handleLogout}
-                className="text-on-surface-variant hover:text-primary p-2 transition-colors"
-                aria-label="Cerrar sesión"
-              >
-                <LogoutIcon className="h-5 w-5" />
-              </button>
-            </div>
-          )}
         </div>
 
         <div className="flex items-center gap-3">
@@ -103,6 +73,8 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden text-on-surface p-2 hover:bg-white/5 transition-colors exec-chamfer"
             aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
@@ -110,7 +82,7 @@ const Navbar = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="lg:hidden bg-surface/98 backdrop-blur-md border-t border-white/10 px-4 py-4 space-y-1">
+        <div id="mobile-menu" className="lg:hidden bg-surface/98 backdrop-blur-md border-t border-white/10 px-4 py-4 space-y-1">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -130,14 +102,6 @@ const Navbar = () => {
           >
             Contacto
           </Link>
-          {isAuthenticated && (
-            <button
-              onClick={handleLogout}
-              className="w-full text-left px-3 py-3 text-sm text-on-surface-variant flex items-center gap-2"
-            >
-              <LogoutIcon className="h-4 w-4" /> Cerrar Sesión
-            </button>
-          )}
         </div>
       )}
     </nav>

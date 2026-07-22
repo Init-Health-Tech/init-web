@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
@@ -193,6 +194,22 @@ const Team = () => {
                   <p className="text-on-surface-variant leading-relaxed">{v.d}</p>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="section-py">
+        <div className="max-w-container mx-auto px-6 md:px-20">
+          <motion.div {...fadeUp} className="glass-card p-12 text-center relative overflow-hidden">
+            <div className="relative z-10">
+              <h2 className="text-3xl font-semibold mb-4 tracking-tight">¿Quieres conocer al equipo detrás de tu proyecto?</h2>
+              <p className="text-on-surface-variant mb-8 max-w-xl mx-auto">
+                Agenda una llamada y platícanos qué necesita tu empresa.
+              </p>
+              <Link to="/contact" className="btn-primary inline-flex items-center px-8 py-4">
+                Contáctanos
+              </Link>
             </div>
           </motion.div>
         </div>
