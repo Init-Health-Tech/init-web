@@ -14,7 +14,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start px-4 sm:px-6 md:px-12 lg:px-20 max-w-container mx-auto gap-10 md:gap-12">
           <div className="flex flex-col gap-4 max-w-sm">
             <div className="flex items-center gap-3">
-              <img src="/Init-Logo.svg" alt={BRAND.name} className="h-9 w-9 object-contain" />
+              <img
+                src="/Init-Logo-green.svg"
+                alt={BRAND.name}
+                className="h-9 sm:h-10 w-auto object-contain"
+              />
               <span
                 className="text-2xl font-semibold text-on-surface tracking-tight"
                 style={{ fontFamily: "var(--font-heading)" }}

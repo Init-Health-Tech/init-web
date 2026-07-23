@@ -19,8 +19,12 @@ const PageHeader = ({ eyebrow, title, subtitle }) => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       >
-        <div className="exec-frame inline-block mb-6 sm:mb-8">
-          <img src="/Init-Logo.svg" alt="INIT" className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 object-contain" />
+        <div className="mb-6 sm:mb-8">
+          <img
+            src="/Init-Logo-green.svg"
+            alt="INIT"
+            className="h-10 sm:h-12 md:h-14 w-auto mx-auto object-contain"
+          />
         </div>
         {eyebrow && <span className="eyebrow block mb-3">{eyebrow}</span>}
         <h1 className="display-title text-[1.75rem] leading-tight sm:text-4xl md:text-5xl text-on-surface mb-4 sm:mb-6 text-balance">
