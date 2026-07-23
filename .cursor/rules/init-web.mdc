@@ -14,7 +14,7 @@ Leer: `docs/PROJECT_CONTEXT.md`, `.agents/product-marketing.md`, `docs/brand-col
 ## No negociable
 
 - Tono: **evaluar fit**, no vender. CTAs: “Evaluar si podemos ayudar” / “¿Podemos ayudar?”. Prohibido: Cotiza, demo gratis, “próximo caso de éxito”.
-- Colores: Navy `#062D55`, Green `#1E8F41` (CTA AA `#146B36`), Teal `#00A7A7`, Lime `#7ED957`, Light `#F4F7FB`, Mint `#E8F8F0`. Texto secundario dark: `#94A3B8`. Sin oro legacy.
+- Colores: Navy `#062D55` (fondos — nunca negro), Green `#1E8F41` (CTA AA `#146B36`), Teal `#00A7A7`, Lime `#7ED957`, Light `#F4F7FB`, Mint `#E8F8F0`. Texto secundario: `#A3ADB8`. Solo paleta INIT.
 - Visual: espacio tipo Apple, navy profundo, no purple/cream AI-defaults.
 - SEO: alinear `src/data/seoData.js` con copy de página.
 - Tras UI: `npm run build`.

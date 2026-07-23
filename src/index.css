@@ -3,15 +3,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── INIT brand primitives (source of truth) ─────────────────────────
-     Psychology:
-     Navy  — confianza, autoridad, profundidad (consultora)
-     Green — crecimiento, salud, fiabilidad (marca / CTAs)
-     Teal  — claridad, calma tecnológica, comunicación
-     Lime  — progreso, energía (acento escaso, ~5%)
-     Light — apertura, claridad tipográfica
-     Mint  — frescura / estados suaves de éxito
-     Gray  — neutralidad (en dark se aclara para AA) */
+  /* ── INIT brand only (no pure black, no off-palette) ─────────────────
+     Navy  #062D55 — confianza / fondos
+     Green #1E8F41 — crecimiento / CTAs
+     Teal  #00A7A7 — claridad
+     Lime  #7ED957 — progreso (acento escaso)
+     Light #F4F7FB — texto / superficies claras
+     Mint  #E8F8F0 — éxito suave
+     Gray  #6B7280 — neutro (en dark se aclara hacia Light) */
   --color-init-navy: #062D55;
   --color-init-green: #1E8F41;
   --color-init-teal: #00A7A7;
@@ -20,41 +19,36 @@
   --color-init-mint: #E8F8F0;
   --color-init-gray: #6B7280;
 
-  /* Legacy aliases */
-  --color-init-black: #031525;
-  --color-init-dark: #0A2240;
+  /* Alias: “dark” = navy, never #000 */
+  --color-init-black: #062D55;
+  --color-init-dark: #0A3A6B;
   --color-init-green-bright: #2BB855;
 
-  /* Accent = Lime (progreso). Teal como acento secundario de claridad. */
   --color-accent: #7ED957;
   --color-accent-bright: #9AE56F;
   --color-accent-container: #1A3D28;
 
-  /* Surfaces: navy profundo (no negro genérico) — confianza + Apple space */
-  --color-surface: #031525;
-  --color-background: #031525;
+  /* Surfaces = navy scale (readable, not black) */
+  --color-surface: #062D55;
+  --color-background: #062D55;
   --color-on-surface: #F4F7FB;
-  --color-on-surface-variant: #94A3B8;
-  /* Primary text/links on dark: green lifted for WCAG AA */
+  --color-on-surface-variant: #A3ADB8;
   --color-primary: #2BB855;
-  /* CTA fill: green darkened so white text passes AA (~6.6:1) */
   --color-primary-container: #146B36;
-  --color-on-primary-container: #ffffff;
+  --color-on-primary-container: #F4F7FB;
   --color-secondary: #00A7A7;
   --color-secondary-container: #007A7A;
   --color-outline: #4B6490;
-  --color-surface-container-low: #0A2240;
-  --color-surface-container-lowest: #021018;
-  --color-surface-container: #0E2F52;
-  --color-surface-container-high: #163A5C;
-  --color-surface-container-highest: #1E4A70;
-  --color-surface-variant: #163A5C;
+  --color-surface-container-low: #0A3A6B;
+  --color-surface-container-lowest: #052548;
+  --color-surface-container: #0C4578;
+  --color-surface-container-high: #105088;
+  --color-surface-container-highest: #17609A;
+  --color-surface-variant: #105088;
 
-  /* Soft light tokens (success banners, soft panels) */
   --color-mint: #E8F8F0;
   --color-light: #F4F7FB;
 
-  /* Premium soft geometry (Apple-like) */
   --radius-exec: 22px;
   --radius-pill: 980px;
   --chamfer: 0px;
@@ -156,7 +150,7 @@ textarea:focus-visible,
   }
 
   .section-py {
-    @apply py-24 md:py-32 lg:py-40;
+    @apply py-16 sm:py-24 md:py-32 lg:py-40;
   }
 
   .eyebrow {
@@ -169,21 +163,21 @@ textarea:focus-visible,
     line-height: 1.05;
   }
 
-  /* Hero readability — navy-tinted scrim (trust / depth) */
+  /* Hero readability — navy veil (INITNavy RGB 6,45,85 — never black) */
   .hero-scrim {
     background:
       radial-gradient(ellipse 80% 55% at 50% 35%, rgba(6, 45, 85, 0.35) 0%, transparent 70%),
       linear-gradient(
         180deg,
-        rgba(3, 21, 37, 0.82) 0%,
-        rgba(3, 21, 37, 0.5) 35%,
-        rgba(3, 21, 37, 0.62) 65%,
-        rgba(2, 16, 24, 0.94) 100%
+        rgba(6, 45, 85, 0.78) 0%,
+        rgba(6, 45, 85, 0.45) 35%,
+        rgba(6, 45, 85, 0.58) 65%,
+        rgba(5, 37, 72, 0.88) 100%
       );
   }
 
   .apple-row {
-    @apply flex items-center justify-between gap-6 py-7 md:py-8 border-b border-white/10 transition-colors duration-300;
+    @apply flex items-center justify-between gap-4 sm:gap-6 py-6 sm:py-7 md:py-8 border-b border-white/10 transition-colors duration-300;
   }
 
   .apple-row:hover {
@@ -217,16 +211,16 @@ textarea:focus-visible,
   }
 
   .glass-card {
-    background: rgba(10, 34, 64, 0.88);
+    background: rgba(6, 45, 85, 0.88);
     backdrop-filter: blur(24px);
-    border: 1px solid rgba(0, 167, 167, 0.14);
+    border: 1px solid rgba(0, 167, 167, 0.16);
     border-radius: var(--radius-exec);
     transition: border-color 0.35s ease, background-color 0.35s ease;
   }
 
   .glass-card:hover {
     border-color: rgba(30, 143, 65, 0.45);
-    background: rgba(14, 47, 82, 0.95);
+    background: rgba(10, 58, 107, 0.94);
     box-shadow: none;
     transform: none;
   }
@@ -274,7 +268,7 @@ textarea:focus-visible,
   }
 
   .btn-primary {
-    @apply bg-primary-container hover:brightness-110 text-white font-semibold py-3.5 px-9 text-[13px] tracking-[-0.01em] transition-all duration-300;
+    @apply inline-flex items-center justify-center bg-primary-container hover:brightness-110 text-init-light font-semibold py-3.5 px-6 sm:px-9 text-[13px] leading-none tracking-[-0.01em] transition-all duration-300 min-h-11;
     border: 1px solid transparent;
     border-radius: var(--radius-pill);
     box-shadow: none;
@@ -287,7 +281,7 @@ textarea:focus-visible,
   }
 
   .btn-secondary {
-    @apply border border-white/25 text-on-surface hover:bg-white/[0.08] hover:border-white/40 font-semibold py-3.5 px-9 text-[13px] tracking-[-0.01em] transition-colors duration-300;
+    @apply inline-flex items-center justify-center border border-init-light/25 text-on-surface hover:bg-init-light/[0.08] hover:border-init-light/40 font-semibold py-3.5 px-6 sm:px-9 text-[13px] leading-none tracking-[-0.01em] transition-colors duration-300 min-h-11;
     border-radius: var(--radius-pill);
   }
 
@@ -381,7 +375,7 @@ textarea:focus-visible,
     z-index: 1;
     overflow: hidden;
     pointer-events: none;
-    background: #031525;
+    background: var(--color-init-navy);
   }
 
   .page-video-bg__veil {
@@ -389,13 +383,13 @@ textarea:focus-visible,
     inset: 0;
     z-index: 2;
     background:
-      radial-gradient(ellipse 70% 55% at 50% 40%, rgba(6, 45, 85, 0.15) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 55% at 50% 40%, rgba(0, 167, 167, 0.08) 0%, transparent 65%),
       linear-gradient(
         180deg,
-        rgba(3, 21, 37, 0.55) 0%,
-        rgba(3, 21, 37, 0.28) 40%,
-        rgba(3, 21, 37, 0.45) 70%,
-        rgba(2, 16, 24, 0.72) 100%
+        rgba(6, 45, 85, 0.55) 0%,
+        rgba(6, 45, 85, 0.28) 40%,
+        rgba(6, 45, 85, 0.42) 70%,
+        rgba(5, 37, 72, 0.7) 100%
       );
   }
 
@@ -533,7 +527,7 @@ textarea:focus-visible,
 
   .layer-reveal .glass-card,
   .layer-reveal .benefit-card {
-    background: rgba(10, 34, 64, 0.92);
+    background: rgba(6, 45, 85, 0.9);
     backdrop-filter: blur(20px);
   }
 

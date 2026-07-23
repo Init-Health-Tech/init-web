@@ -8,6 +8,7 @@
 | Campo | Valor |
 |-------|--------|
 | Nombre | INIT |
+| Slogan | Brilliant minds building the future |
 | Qué somos | **Consultora** de software a medida y digitalización: primero evaluamos si podemos ayudar de verdad |
 | Dónde | Ciudad López Mateos, Estado de México · proyectos en México / LATAM |
 | Sitio | https://init.com.mx |

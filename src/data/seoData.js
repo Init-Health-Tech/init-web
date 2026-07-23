@@ -23,9 +23,9 @@ export const defaultKeywords = [
 export const pageSeo = {
   home: {
     path: "/",
-    title: "Desarrollo de Software a Medida en México",
+    title: "INIT — Brilliant minds building the future",
     description:
-      "Consultora de software a medida y digitalización en México. Primero evaluamos si podemos ayudar. Si no hay fit, te lo decimos — no vendemos por vender.",
+      "INIT: Brilliant minds building the future. Consultora de software a medida y digitalización en México. Evaluamos fit — no vendemos por vender.",
     keywords: [
       "desarrollo de software a medida México",
       "aplicaciones web empresariales",
@@ -107,4 +107,20 @@ export const pageSeo = {
   },
 };
 
-export const getPageSeo = (key) => pageSeo[key] ?? pageSeo.home;
+import { messages } from "../i18n/messages";
+
+/**
+ * @param {string} key
+ * @param {"es"|"en"} [lang="es"]
+ */
+export const getPageSeo = (key, lang = "es") => {
+  const base = pageSeo[key] ?? pageSeo.home;
+  const localized = messages[lang]?.seo?.[key] ?? messages.es.seo?.[key];
+  if (!localized) return base;
+  return {
+    ...base,
+    title: localized.title ?? base.title,
+    description: localized.description ?? base.description,
+    keywords: localized.keywords ?? base.keywords,
+  };
+};

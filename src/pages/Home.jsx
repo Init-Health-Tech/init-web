@@ -8,8 +8,9 @@ import ClientLogo from "../components/ClientLogo";
 import PartnerSection from "../components/PartnerSection";
 import CtaBanner from "../components/CtaBanner";
 import { clientLogos, getClientLogo } from "../data/clientsData";
-import { getPageSeo, SITE_URL } from "../data/seoData";
-import { teamCopy } from "../data/teamData";
+import { getPageSeo } from "../data/seoData";
+import { BRAND } from "../data/brandData";
+import { useLanguage } from "../i18n/LanguageContext";
 import {
   ArrowForward as ArrowForwardIcon,
   KeyboardArrowDown as ChevronDownIcon,
@@ -23,34 +24,11 @@ const fadeUp = {
 };
 
 const Home = () => {
-  const pillars = [
-    {
-      title: "Hecho para tu operación",
-      text: "Sistemas a tu medida. Sin plantillas. Sin atajos que te cuesten después.",
-    },
-    {
-      title: "Claridad antes de código",
-      text: "Primero el negocio. Después lo que de verdad mueve la aguja.",
-    },
-    {
-      title: "Una experiencia, no un ticket más",
-      text: "Diseño, desarrollo y acompañamiento con el mismo estándar: precisión y calma.",
-    },
-  ];
-
-  const successCases = [
-    { client: "CONFE", tease: "Institucional. Del caos de procesos a un sistema que ordena." },
-    { client: "Polola's", tease: "Gastronomía. Pedidos y operación en un solo lugar." },
-    { client: "TRANSCOM", tease: "Logística. Un diagnóstico que abre el siguiente paso." },
-  ];
-
-  const services = [
-    { title: "Software a medida", hint: "Apps y sistemas que solo existen para tu negocio." },
-    { title: "Digitalización", hint: "Orden, roadmap y prioridades con criterio." },
-    { title: "Sistemas e integración", hint: "Datos, automatización y operación conectada." },
-  ];
-
-  const seo = getPageSeo("home");
+  const { t, lang } = useLanguage();
+  const pillars = t("home.pillars");
+  const services = t("home.services");
+  const successCases = t("home.cases");
+  const seo = getPageSeo("home", lang);
 
   return (
     <div className="min-h-screen">
@@ -66,9 +44,9 @@ const Home = () => {
           {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            name: "INIT — Desarrollo de Software a Medida",
-            url: SITE_URL,
-            image: `${SITE_URL}/Init-Logo.svg`,
+            name: "INIT — Brilliant minds building the future",
+            url: BRAND.siteUrl,
+            image: `${BRAND.siteUrl}/Init-Logo.svg`,
             telephone: "+52 55 4761 7977",
             priceRange: "$$",
             address: {
@@ -77,63 +55,74 @@ const Home = () => {
               addressRegion: "Estado de México",
               addressCountry: "MX",
             },
-            serviceType: [
-              "Desarrollo de software a medida",
-              "Consultoría en transformación digital",
-              "Desarrollo de aplicaciones web",
-              "Integración de sistemas",
-            ],
+            serviceType:
+              lang === "en"
+                ? [
+                    "Custom software development",
+                    "Digital transformation consulting",
+                    "Web application development",
+                    "Systems integration",
+                  ]
+                : [
+                    "Desarrollo de software a medida",
+                    "Consultoría en transformación digital",
+                    "Desarrollo de aplicaciones web",
+                    "Integración de sistemas",
+                  ],
           },
         ]}
       />
 
       <PageVideoBackground clip="cinematic" />
 
-      {/* Hero — one composition: brand + thesis + one line + CTAs */}
       <section className="layer-reveal relative min-h-[100svh] flex items-center justify-center overflow-hidden">
         <div className="hero-scrim absolute inset-0 pointer-events-none" aria-hidden="true" />
-        <div className="relative z-10 max-w-container mx-auto px-6 md:px-12 lg:px-16 text-center pt-32 pb-24">
-          <motion.p
+        <div className="relative z-10 max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 text-center pt-28 sm:pt-32 pb-20 sm:pb-24">
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-on-surface mb-10 md:mb-14"
+            className="mb-8 sm:mb-10 md:mb-14"
           >
-            INIT
-          </motion.p>
+            <p className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-on-surface">
+              {BRAND.name}
+            </p>
+            <p className="mt-3 text-sm sm:text-base md:text-lg text-secondary font-medium tracking-wide px-2">
+              {BRAND.slogan}
+            </p>
+          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="display-title text-[2.75rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-[4.5rem] mb-7 md:mb-8 max-w-3xl mx-auto text-balance"
+            className="display-title text-[2.15rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-[4.5rem] mb-6 sm:mb-7 md:mb-8 max-w-3xl mx-auto text-balance"
           >
-            Hay empresas que operan.
+            {t("home.h1Line1")}
             <br />
-            <span className="text-primary">Y empresas que avanzan.</span>
+            <span className="text-primary">{t("home.h1Line2")}</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.95, delay: 0.22 }}
-            className="text-[17px] md:text-xl text-on-surface-variant max-w-lg mx-auto mb-12 md:mb-14 leading-relaxed"
+            className="text-[15px] sm:text-[17px] md:text-xl text-on-surface-variant max-w-lg mx-auto mb-10 sm:mb-12 md:mb-14 leading-relaxed px-1"
           >
-            Consultora de software. Primero evaluamos si realmente podemos ayudar.
-            Si no, te lo decimos — no vendemos por vender.
+            {t("home.sub")}
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.36 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-sm sm:max-w-none mx-auto"
           >
-            <Link to="/portfolio" className="btn-primary inline-flex items-center gap-2">
-              Ver el trabajo
+            <Link to="/portfolio" className="btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto">
+              {t("home.ctaWork")}
             </Link>
-            <Link to="/contact" className="btn-secondary inline-flex items-center gap-2">
-              ¿Podemos ayudar?
+            <Link to="/contact" className="btn-secondary inline-flex items-center justify-center gap-2 w-full sm:w-auto">
+              {t("home.ctaHelp")}
               <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
           </motion.div>
@@ -142,7 +131,7 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="mt-24 md:mt-28 text-on-surface-variant/70"
+            className="mt-16 sm:mt-24 md:mt-28 text-on-surface-variant/70"
             aria-hidden="true"
           >
             <ChevronDownIcon className="h-7 w-7 mx-auto animate-[bounce-slow_2.4s_ease-in-out_infinite]" />
@@ -150,37 +139,35 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Scarcity — typographic billboard over video (Apple reveal) */}
-      <section className="layer-reveal relative py-28 md:py-36">
+      <section className="layer-reveal relative py-20 sm:py-28 md:py-36">
         <div className="absolute inset-0 bg-background/40 pointer-events-none" aria-hidden="true" />
-        <div className="relative max-w-container mx-auto px-6 md:px-12 lg:px-16 text-center">
+        <div className="relative max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 text-center">
           <motion.p
             {...fadeUp}
-            className="display-title text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface max-w-3xl mx-auto leading-[1.15] text-balance"
+            className="display-title text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface max-w-3xl mx-auto leading-[1.15] text-balance"
           >
-            No aceptamos todos los proyectos.
-            <span className="block mt-3 md:mt-4 text-on-surface-variant font-normal tracking-tight text-2xl sm:text-3xl md:text-4xl">
-              Si no podemos ayudar, no vendemos.
+            {t("home.scarcity1")}
+            <span className="block mt-3 md:mt-4 text-on-surface-variant font-normal tracking-tight text-xl sm:text-3xl md:text-4xl">
+              {t("home.scarcity2")}
             </span>
           </motion.p>
         </div>
       </section>
 
-      {/* Difference — still over video */}
       <section className="layer-reveal relative section-py">
         <div className="absolute inset-0 bg-background/55 pointer-events-none" aria-hidden="true" />
-        <div className="relative max-w-container mx-auto px-6 md:px-12 lg:px-16">
-          <motion.div {...fadeUp} className="max-w-2xl mx-auto text-center mb-20 md:mb-28">
-            <p className="eyebrow mb-5">La diferencia</p>
-            <h2 className="display-title text-4xl md:text-5xl lg:text-[3.5rem] mb-6 text-balance">
-              Cuando el sistema trabaja contigo, todo cambia.
+        <div className="relative max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+          <motion.div {...fadeUp} className="max-w-2xl mx-auto text-center mb-14 sm:mb-20 md:mb-28">
+            <p className="eyebrow mb-5">{t("home.diffEyebrow")}</p>
+            <h2 className="display-title text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] mb-5 sm:mb-6 text-balance">
+              {t("home.diffTitle")}
             </h2>
-            <p className="text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-xl mx-auto">
-              Menos fricción. Menos improvisación. Más control.
+            <p className="text-base sm:text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-xl mx-auto">
+              {t("home.diffSub")}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-12 md:gap-10">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-10">
             {pillars.map((item, i) => (
               <motion.div
                 key={item.title}
@@ -201,16 +188,15 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services — Apple list rows */}
       <section className="layer-panel section-py bg-background">
-        <div className="max-w-container mx-auto px-6 md:px-12 lg:px-16">
-          <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-            <p className="eyebrow mb-5">Lo que construimos</p>
-            <h2 className="display-title text-4xl md:text-5xl mb-5 text-balance">
-              Tres caminos. Una sola exigencia.
+        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+          <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 md:mb-20">
+            <p className="eyebrow mb-5">{t("home.servicesEyebrow")}</p>
+            <h2 className="display-title text-3xl sm:text-4xl md:text-5xl mb-5 text-balance">
+              {t("home.servicesTitle")}
             </h2>
-            <p className="text-on-surface-variant text-lg leading-relaxed">
-              Solo lo esencial. Si encaja, el resto lo vemos juntos.
+            <p className="text-on-surface-variant text-base sm:text-lg leading-relaxed">
+              {t("home.servicesSub")}
             </p>
           </motion.div>
 
@@ -223,10 +209,10 @@ const Home = () => {
               >
                 <Link to="/services" className="apple-row group">
                   <div className="text-left min-w-0">
-                    <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-on-surface group-hover:text-primary transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-on-surface group-hover:text-primary transition-colors">
                       {row.title}
                     </h3>
-                    <p className="text-[15px] text-on-surface-variant mt-1.5 leading-relaxed">
+                    <p className="text-[14px] sm:text-[15px] text-on-surface-variant mt-1.5 leading-relaxed">
                       {row.hint}
                     </p>
                   </div>
@@ -241,49 +227,45 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About */}
       <section className="layer-panel section-py bg-surface-container-low">
-        <div className="max-w-container mx-auto px-6 md:px-12 lg:px-16 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 items-center">
           <motion.div {...fadeUp}>
-            <p className="eyebrow mb-5">Quiénes somos</p>
-            <h2 className="display-title text-4xl md:text-5xl mb-6 text-balance">
-              Un equipo pequeño. Una obsesión grande.
+            <p className="eyebrow mb-5">{t("home.aboutEyebrow")}</p>
+            <h2 className="display-title text-3xl sm:text-4xl md:text-5xl mb-6 text-balance">
+              {t("home.aboutTitle")}
             </h2>
-            <p className="text-lg text-on-surface-variant mb-5 leading-relaxed">
-              {teamCopy.about} Trabajamos cerca, sin capas de más —
-              como si fueras parte del estudio.
+            <p className="text-base sm:text-lg text-on-surface-variant mb-5 leading-relaxed">
+              {t("team.compositionAbout")} {t("home.aboutExtra")}
             </p>
-            <p className="text-on-surface-variant mb-10 leading-relaxed">
-              Estado de México. Para empresas que quieren sentir —no solo decir—
-              que su tecnología está a la altura.
+            <p className="text-on-surface-variant mb-8 sm:mb-10 leading-relaxed">
+              {t("home.aboutLocation")}
             </p>
-            <Link to="/team" className="btn-secondary inline-flex items-center gap-2">
-              Conocer al equipo
+            <Link to="/team" className="btn-secondary inline-flex items-center gap-2 w-full sm:w-auto justify-center">
+              {t("home.aboutCta")}
               <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
           </motion.div>
           <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.12 }}>
             <img
               src="/empleados-fotos/init-team.jpg"
-              alt="Equipo INIT"
+              alt="INIT"
               className="w-full object-cover aspect-[4/3] rounded-[var(--radius-exec)] border border-white/12"
             />
           </motion.div>
         </div>
       </section>
 
-      {/* Cases */}
       <section className="layer-panel section-py bg-background">
-        <div className="max-w-container mx-auto px-6 md:px-12 lg:px-16">
-          <motion.div {...fadeUp} className="mb-16 md:mb-20 max-w-2xl mx-auto text-center">
-            <p className="eyebrow mb-5">Confianza</p>
-            <h2 className="display-title text-4xl md:text-5xl mb-4 text-balance">
-              Quienes ya están dentro.
+        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+          <motion.div {...fadeUp} className="mb-12 sm:mb-16 md:mb-20 max-w-2xl mx-auto text-center">
+            <p className="eyebrow mb-5">{t("home.trustEyebrow")}</p>
+            <h2 className="display-title text-3xl sm:text-4xl md:text-5xl mb-4 text-balance">
+              {t("home.trustTitle")}
             </h2>
-            <p className="text-on-surface-variant text-lg">Casos reales. El detalle, cuando hablemos.</p>
+            <p className="text-on-surface-variant text-base sm:text-lg">{t("home.trustSub")}</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-10 md:gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-8">
             {successCases.map((item, i) => (
               <motion.div
                 key={item.client}
@@ -293,7 +275,7 @@ const Home = () => {
               >
                 {getClientLogo(item.client) && (
                   <div
-                    className={`success-case-logo flex items-center justify-center mb-7 h-36 md:h-40 border rounded-[var(--radius-exec)] ${
+                    className={`success-case-logo flex items-center justify-center mb-7 h-32 sm:h-36 md:h-40 border rounded-[var(--radius-exec)] ${
                       item.client === "CONFE" || item.client === "Polola's"
                         ? `success-case-logo--${item.client === "CONFE" ? "confe" : "pololas"} bg-white border-white/25 p-3`
                         : "bg-surface-container border-white/12"
@@ -325,9 +307,9 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <Link to="/portfolio" className="btn-primary inline-flex items-center gap-2">
-              Explorar portafolio
+          <div className="mt-12 sm:mt-16 text-center">
+            <Link to="/portfolio" className="btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto max-w-sm mx-auto">
+              {t("home.explorePortfolio")}
               <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
@@ -336,8 +318,8 @@ const Home = () => {
 
       <PartnerSection />
 
-      <section className="layer-panel py-16 bg-surface-container-low border-y border-white/10 overflow-hidden">
-        <div className="flex animate-marquee items-center gap-16 opacity-80">
+      <section className="layer-panel py-12 sm:py-16 bg-surface-container-low border-y border-white/10 overflow-hidden">
+        <div className="flex animate-marquee items-center gap-12 sm:gap-16 opacity-80">
           {[...clientLogos, ...clientLogos].map((client, i) => (
             <ClientLogo key={`${client.id}-${i}`} client={client} size="md" />
           ))}
@@ -345,10 +327,10 @@ const Home = () => {
       </section>
 
       <CtaBanner
-        title="¿Tiene sentido hablar?"
-        text="Escribimos para evaluar si podemos ayudar de verdad. Si el encaje no está, te lo diremos con claridad — sin empujar una venta."
-        ctaLabel="Evaluar si podemos ayudar"
-        secondaryLabel="Ver servicios"
+        title={t("home.ctaTitle")}
+        text={t("home.ctaText")}
+        ctaLabel={t("common.ctaEvaluate")}
+        secondaryLabel={t("home.ctaSecondary")}
         secondaryTo="/services"
       />
     </div>

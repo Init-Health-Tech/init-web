@@ -4,7 +4,8 @@
 
 ## Qué es
 
-**INIT** — consultora de desarrollo de software a medida y digitalización en Ciudad López Mateos, Estado de México. Sitio: https://init.com.mx
+**INIT** — *Brilliant minds building the future.*  
+Consultora de desarrollo de software a medida y digitalización en Ciudad López Mateos, Estado de México. Sitio: https://init.com.mx
 
 No es una fábrica de cotizaciones: **primero evalúan si pueden ayudar**. Si no hay fit, lo dicen y no venden por vender.
 
@@ -60,13 +61,22 @@ Componentes clave: `CtaBanner`, `PageHeader`, `PageHead`, `StructuredData`, `Flo
 
 Al cambiar copy de página, alinear `title`/`description` en `seoData.js`.
 
+## Idioma
+
+- ES / EN con toggle en navbar (`src/i18n/`). Preferencia en `localStorage` (`init-lang`).
+- **Predeterminado: español.** EN solo tras elección explícita del usuario (no por idioma del navegador).
+- Copy UI: `src/i18n/messages.js`. Slogan siempre en inglés.
+- SEO por idioma vía `getPageSeo(key, lang)`.
+- Alcance: empresas de todo tamaño, en cualquier parte del mundo (base en Estado de México).
+
 ## Cómo mantener coherencia
 
 1. Leer este archivo + product-marketing + brand-colors.
 2. Usar tokens de `@theme` — no hardcodear hex de otra paleta.
-3. Copy corto, calmado, en español (México).
+3. Copy corto, calmado; al cambiar textos, actualizar **es y en** en `messages.js`.
 4. `npm run build` tras cambios de UI.
 5. Actualizar este doc si cambia posicionamiento o tokens.
+6. Mobile-first: padding `px-4 sm:px-6`, CTAs full-width en móvil, targets ≥44px.
 
 ## Skills instalados
 

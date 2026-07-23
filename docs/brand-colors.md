@@ -27,26 +27,17 @@ Fuente: tokens LaTeX oficiales. Sistema aplicado en `src/index.css` (`@theme`) c
 
 | Token CSS | Hex | Por qué |
 |-----------|-----|---------|
-| `--color-background` | `#031525` | Navy profundizado (más intimidad Apple) |
-| `--color-surface-container-low` | `#0A2240` | Panel navy |
+| `--color-background` | `#062D55` | INITNavy literal — **nunca negro puro** |
+| `--color-surface-container-low` | `#0A3A6B` | Navy un paso más claro |
+| `--color-surface-container-lowest` | `#052548` | Navy más profundo (sigue siendo azul) |
 | `--color-on-surface` | `#F4F7FB` | INITLight |
-| `--color-on-surface-variant` | `#94A3B8` | Gray alzado (AA sobre navy; `#6B7280` no pasa) |
+| `--color-on-surface-variant` | `#A3ADB8` | Gray aclarado hacia Light (AA) |
 | `--color-primary` | `#2BB855` | Green alzado para texto/links AA |
-| `--color-primary-container` | `#146B36` | Green oscurecido; blanco pasa AA en botones |
+| `--color-primary-container` | `#146B36` | Green oscurecido; Light sobre él pasa AA |
 | `--color-secondary` | `#00A7A7` | Teal literal |
 | `--color-accent` | `#7ED957` | Lime literal |
 
-### Contraste (verificado)
-
-| Par | Ratio | AA |
-|-----|-------|----|
-| Light on navy profundo | ~17:1 | Pass |
-| Primary `#2BB855` on `#031525` | ~7.1:1 | Pass |
-| White on CTA `#146B36` | ~6.6:1 | Pass |
-| Teal on `#031525` | ~6.2:1 | Pass |
-| Lime on `#031525` | ~10.5:1 | Pass |
-| Gray `#6B7280` on dark | ~3.8:1 | Fail → usar `#94A3B8` |
-| White on green brand `#1E8F41` | ~4.15:1 | Fail en botón → usar `#146B36` |
+Velos y scrims: solo `rgba(6, 45, 85, …)` (navy). Sin `rgba(0,0,0)`.
 
 ## Escalas 50–950 (referencia)
 
