@@ -31,7 +31,7 @@ const Navbar = () => {
 
   const navigation = [
     { name: t('nav.home'), href: '/' },
-    { name: t('nav.team'), href: '/team' },
+    // { name: t('nav.team'), href: '/team' }, // Equipo oculto de momento
     { name: t('nav.services'), href: '/services' },
     { name: t('nav.solutions'), href: '/soluciones' },
     { name: t('nav.portfolio'), href: '/portfolio' },

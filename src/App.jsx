@@ -12,7 +12,8 @@ import PageLoader from './components/PageLoader';
 // Home stays eager (first paint / LCP route). The rest are code-split so
 // visitors only download the JS for the page they actually open.
 import Home from './pages/Home';
-const Team = lazy(() => import('./pages/Team'));
+// Equipo oculto de momento
+// const Team = lazy(() => import('./pages/Team'));
 const Services = lazy(() => import('./pages/Services'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
@@ -32,7 +33,8 @@ function AppRoutes() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/team" element={<Team />} />
+            {/* Equipo oculto de momento */}
+            {/* <Route path="/team" element={<Team />} /> */}
             <Route path="/services" element={<Services />} />
             <Route path="/soluciones" element={<Solutions />} />
             <Route path="/portfolio" element={<Portfolio />} />

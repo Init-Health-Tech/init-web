@@ -227,6 +227,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Equipo oculto de momento — sección "Quiénes somos" + CTA a /team
       <section className="layer-panel section-py bg-surface-container-low">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 items-center">
           <motion.div {...fadeUp}>
@@ -254,6 +255,7 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+      */}
 
       <section className="layer-panel section-py bg-background">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">

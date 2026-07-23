@@ -46,9 +46,11 @@ const Footer = () => {
               <Link to="/" className="text-on-surface-variant text-sm hover:text-primary transition-colors hover:underline underline-offset-4 py-0.5">
                 {t("footer.home")}
               </Link>
+              {/* Equipo oculto de momento
               <Link to="/team" className="text-on-surface-variant text-sm hover:text-primary transition-colors hover:underline underline-offset-4 py-0.5">
                 {t("footer.team")}
               </Link>
+              */}
               <Link to="/services" className="text-on-surface-variant text-sm hover:text-primary transition-colors hover:underline underline-offset-4 py-0.5">
                 {t("footer.services")}
               </Link>
