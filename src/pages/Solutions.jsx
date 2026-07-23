@@ -5,6 +5,7 @@ import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import StructuredData from "../components/StructuredData";
 import CtaBanner from "../components/CtaBanner";
+import PageVideoBackground from "../components/PageVideoBackground";
 import { solutions } from "../data/solutionsData";
 import { getPageSeo } from "../data/seoData";
 import { CheckCircle as CheckCircleIcon } from "@mui/icons-material";
@@ -21,13 +22,14 @@ const Solutions = () => {
         keywords={seo.keywords}
       />
       <StructuredData description={seo.description} />
+      <PageVideoBackground clip="minimal" />
       <PageHeader
         eyebrow="Productos"
         title="Soluciones listas"
         subtitle="ERPinit e initlogistics: software empresarial y logística con trazabilidad RFID listo para empresas en México."
       />
 
-      <section className="section-py pt-0">
+      <section className="layer-panel section-py pt-0 bg-background/80">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <div className="grid md:grid-cols-2 gap-10">
             {solutions.map((solution, index) => (
@@ -75,8 +77,8 @@ const Solutions = () => {
                   {solution.priceNote && (
                     <p className="text-sm text-on-surface-variant mb-4">{solution.priceNote}</p>
                   )}
-                  <Link to="/contact" className="btn-primary inline-flex items-center px-6 py-3">
-                    Solicitar demo gratuita →
+                  <Link to="/contact" className="btn-secondary inline-flex items-center px-6 py-3">
+                    Ver si encaja con tu operación
                   </Link>
                 </div>
               </motion.div>
@@ -86,10 +88,11 @@ const Solutions = () => {
       </section>
 
       <CtaBanner
-        title="¿Necesitas algo a medida?"
-        text="Si tu proyecto requiere desarrollo personalizado en lugar de una solución lista, nuestros servicios están para ti."
-        ctaLabel="Ver servicios"
-        to="/services"
+        title="¿Producto listo o a medida?"
+        text="A veces un producto encaja. A veces no. Lo evaluamos contigo — sin empujar una venta."
+        ctaLabel="Evaluar si podemos ayudar"
+        secondaryLabel="Ver servicios"
+        secondaryTo="/services"
       />
     </div>
   );

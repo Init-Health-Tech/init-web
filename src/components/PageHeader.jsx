@@ -2,13 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const PageHeader = ({ eyebrow, title, subtitle }) => (
-  <section className="relative z-10 pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden">
-    {/* Per-page subtle accent glow — replaces the identical shallow template
-        every route used to share, without competing with the green brand. */}
+  <section className="layer-reveal relative z-10 pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+    <div className="hero-scrim absolute inset-0 pointer-events-none opacity-90" aria-hidden="true" />
     <div
       className="absolute top-0 left-1/2 -translate-x-1/2 w-[560px] h-[280px] pointer-events-none opacity-40"
       style={{
-        background: "radial-gradient(circle, var(--color-accent-container) 0%, transparent 70%)",
+        background:
+          "radial-gradient(circle, rgba(0, 167, 167, 0.18) 0%, rgba(6, 45, 85, 0.25) 40%, transparent 70%)",
       }}
       aria-hidden="true"
     />
@@ -23,23 +23,17 @@ const PageHeader = ({ eyebrow, title, subtitle }) => (
           <img src="/Init-Logo.svg" alt="INIT" className="h-12 w-12 md:h-14 md:w-14 object-contain" />
         </div>
         {eyebrow && (
-          <span className="block text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
+          <span className="eyebrow block mb-3">
             {eyebrow}
           </span>
         )}
-        <h1
-          className="text-4xl md:text-5xl font-semibold text-on-surface mb-6 tracking-tight"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
-          {title}
-        </h1>
+        <h1 className="display-title text-4xl md:text-5xl text-on-surface mb-6">{title}</h1>
         {subtitle && (
-          <p className="text-lg md:text-xl text-on-surface-variant max-w-3xl mx-auto leading-relaxed">{subtitle}</p>
+          <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+            {subtitle}
+          </p>
         )}
-        <div
-          className="mt-8 mx-auto"
-          style={{ width: "3rem", height: "2px", background: "var(--gradient-accent)" }}
-        />
+        <div className="section-title-line mt-8" />
       </motion.div>
     </div>
   </section>

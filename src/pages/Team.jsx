@@ -4,6 +4,7 @@ import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import StructuredData from "../components/StructuredData";
 import CtaBanner from "../components/CtaBanner";
+import PageVideoBackground from "../components/PageVideoBackground";
 import { getPageSeo } from "../data/seoData";
 import { teamCopy, teamMembers } from "../data/teamData";
 import {
@@ -90,6 +91,7 @@ const Team = () => {
         keywords={seo.keywords}
       />
       <StructuredData description={seo.description} />
+      <PageVideoBackground clip="reveal" />
       <PageHeader
         eyebrow="Quiénes somos"
         title="Nuestro Equipo"
@@ -97,7 +99,7 @@ const Team = () => {
       />
 
       {SHOW_TEAM_GROUP_PHOTO && (
-        <section className="py-12">
+        <section className="layer-panel py-12 bg-background/70">
           <div className="max-w-4xl mx-auto px-6 md:px-20">
             <motion.div {...fadeUp} className="text-center">
               <img
@@ -113,7 +115,7 @@ const Team = () => {
         </section>
       )}
 
-      <section className="section-py">
+      <section className="layer-panel section-py bg-background">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Cofundadores</h2>
@@ -128,7 +130,7 @@ const Team = () => {
       </section>
 
       {seniors.length > 0 && (
-        <section className="section-py bg-surface-container-low">
+        <section className="layer-panel section-py bg-surface-container-low">
           <div className="max-w-container mx-auto px-6 md:px-20">
             <motion.div {...fadeUp} className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Consultoría</h2>
@@ -146,7 +148,7 @@ const Team = () => {
       )}
 
       {interns.length > 0 && (
-        <section className="section-py">
+        <section className="layer-panel section-py bg-background">
           <div className="max-w-container mx-auto px-6 md:px-20">
             <motion.div {...fadeUp} className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Nuestro Talento Joven</h2>
@@ -161,7 +163,7 @@ const Team = () => {
         </section>
       )}
 
-      <section className="section-py bg-surface-container-lowest">
+      <section className="layer-panel section-py bg-surface-container-lowest">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <motion.div {...fadeUp} className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">¿Por qué trabajar con nosotros?</h2>
@@ -184,7 +186,7 @@ const Team = () => {
         </div>
       </section>
 
-      <section className="section-py gradient-bg relative overflow-hidden">
+      <section className="layer-panel section-py gradient-bg relative overflow-hidden">
         <div className="max-w-container mx-auto px-6 md:px-20 text-center relative z-10">
           <motion.div {...fadeUp}>
             <h2 className="text-3xl font-bold mb-8">Nuestros Valores</h2>
@@ -205,9 +207,9 @@ const Team = () => {
       </section>
 
       <CtaBanner
-        title="¿Quieres conocer al equipo detrás de tu proyecto?"
-        text="Agenda una llamada y platícanos qué necesita tu empresa."
-        ctaLabel="Agenda una llamada"
+        title="¿Quieres conocer cómo trabajamos?"
+        text="Primero evaluamos fit. Si podemos ayudar, avanzamos. Si no, te lo decimos con claridad."
+        ctaLabel="Evaluar si podemos ayudar"
       />
     </div>
   );

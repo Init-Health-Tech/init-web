@@ -4,6 +4,7 @@ import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import StructuredData from "../components/StructuredData";
 import CtaBanner from "../components/CtaBanner";
+import PageVideoBackground from "../components/PageVideoBackground";
 import { getPageSeo } from "../data/seoData";
 import {
   Code as CodeIcon,
@@ -17,10 +18,10 @@ import {
 } from "@mui/icons-material";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.7 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
 };
 
 const Services = () => {
@@ -28,54 +29,54 @@ const Services = () => {
     {
       icon: CodeIcon,
       image: "/servicios/desarrollo-software-a-medida.jpg",
-      title: "Desarrollo de Software a Medida",
-      intro: "Para empresas que han crecido más allá de Excel, procesos manuales o sistemas limitados.",
-      description: "Diseñamos y desarrollamos aplicaciones web y móviles adaptadas completamente a tu operación.",
-      featuresLabel: "Lo que desarrollamos:",
+      title: "Software a medida",
+      intro: "Para cuando Excel, WhatsApp o un sistema genérico ya no alcanzan.",
+      description:
+        "Aplicaciones web y sistemas hechos para tu operación — no para un catálogo de plantillas.",
+      featuresLabel: "Qué construimos",
       features: [
         "Aplicaciones web empresariales",
-        "Portales corporativos y plataformas internas",
-        "Sistemas de gestión (inventarios, expedientes, ventas)",
-        "Integración con APIs y servicios externos",
-        "Aplicaciones móviles empresariales",
-        "Plataformas SaaS escalables",
+        "Portales y plataformas internas",
+        "Sistemas de gestión (inventario, ventas, expedientes)",
+        "APIs e integraciones",
+        "Apps móviles empresariales",
       ],
-      result: "Procesos automatizados, menos errores operativos y mayor control del negocio.",
+      result: "Menos fricción operativa. Más control del negocio.",
     },
     {
       icon: ComputerIcon,
       image: "/servicios/consultoria-transformacion-digital.jpg",
-      title: "Consultoría en Transformación Digital",
-      intro: "Muchas empresas saben que necesitan digitalizarse, pero no tienen claridad sobre por dónde empezar.",
-      description: "En INIT analizamos tu operación y diseñamos un plan tecnológico claro y ejecutable.",
-      featuresLabel: "Incluye:",
+      title: "Digitalización",
+      intro: "Sabes que necesitas ordenar. No siempre sabes por dónde empezar.",
+      description:
+        "Analizamos tu operación y dejamos un plan claro: qué hacer primero, qué después, qué no tocar.",
+      featuresLabel: "Qué incluye",
       features: [
-        "Diagnóstico de procesos actuales",
-        "Identificación de cuellos de botella",
-        "Diseño de arquitectura tecnológica",
-        "Roadmap de transformación digital",
-        "Prioridad de proyectos con impacto real",
+        "Diagnóstico de procesos",
+        "Cuellos de botella y prioridades",
+        "Arquitectura tecnológica",
+        "Roadmap ejecutable",
+        "Proyectos con impacto real primero",
       ],
-      result: "Una estrategia tecnológica alineada con el crecimiento del negocio.",
+      result: "Una dirección tecnológica alineada al crecimiento — no a la moda.",
     },
     {
       icon: RocketLaunchIcon,
       image: "/servicios/soluciones-tecnologicas-integracion.jpg",
-      title: "Soluciones Tecnológicas e Integración de Sistemas",
-      intro: "Para empresas que necesitan automatizar operaciones, conectar sistemas o trabajar con datos en tiempo real.",
-      description: "Implementamos plataformas robustas que integran información y procesos en un ecosistema digital.",
-      featuresLabel: "Soluciones que implementamos:",
+      title: "Sistemas e integración",
+      intro: "Cuando la operación pide automatizar, conectar datos o proteger lo crítico.",
+      description:
+        "Plataformas que unen sistemas, datos y procesos en un solo ecosistema.",
+      featuresLabel: "Qué implementamos",
       features: [
-        "Automatización de procesos operativos",
+        "Automatización de procesos",
         "Integración entre sistemas y bases de datos",
-        "Infraestructura cloud escalable",
+        "Cloud escalable",
         "Dashboards y Business Intelligence",
         "Data Analysis y Data Science",
-        "Cyberseguridad y protección de datos",
-        "Plataformas de análisis de datos",
-        "Sistemas con inteligencia artificial",
+        "Cyberseguridad desde el diseño",
       ],
-      result: "Mayor eficiencia operativa y decisiones basadas en información confiable.",
+      result: "Operación más fluida. Decisiones con información confiable.",
     },
   ];
 
@@ -84,16 +85,16 @@ const Services = () => {
     { name: "Backend", items: ["Node.js", "Python", "Django"] },
     { name: "Bases de datos", items: ["PostgreSQL", "MongoDB"] },
     { name: "Infraestructura", items: ["AWS", "Docker", "Kubernetes"] },
-    { name: "Cyberseguridad", items: ["Auditorías de seguridad", "Hardening", "Buenas prácticas OWASP"] },
-    { name: "IA y análisis", items: ["Data Analysis", "Data Science", "TensorFlow", "Power BI", "Tableau"] },
+    { name: "Cyberseguridad", items: ["Auditorías", "Hardening", "OWASP"] },
+    { name: "Datos e IA", items: ["Data Analysis", "Data Science", "Power BI", "Tableau"] },
   ];
 
   const process = [
-    { step: 1, title: "Análisis y Planificación", description: "Definimos la arquitectura de la solución.", timeframe: "1–2 semanas" },
-    { step: 2, title: "Diseño y Prototipado", description: "Prototipos funcionales para validar.", timeframe: "1–3 semanas" },
-    { step: 3, title: "Desarrollo e Implementación", description: "Construcción con tecnologías escalables.", timeframe: "4–12 semanas" },
-    { step: 4, title: "Pruebas y Despliegue", description: "Pruebas técnicas y funcionales.", timeframe: "1–2 semanas" },
-    { step: 5, title: "Soporte Continuo", description: "Monitoreo, optimización y evolución.", timeframe: "Continuo" },
+    { step: 1, title: "Entender", description: "Alcance, operación y arquitectura.", timeframe: "1–2 semanas" },
+    { step: 2, title: "Diseñar", description: "Prototipos para validar antes de construir.", timeframe: "1–3 semanas" },
+    { step: 3, title: "Construir", description: "Desarrollo con código mantenible.", timeframe: "4–12 semanas" },
+    { step: 4, title: "Lanzar", description: "Pruebas, despliegue y salida limpia.", timeframe: "1–2 semanas" },
+    { step: 5, title: "Acompañar", description: "Soporte y evolución del sistema.", timeframe: "Continuo" },
   ];
 
   const seo = getPageSeo("services");
@@ -107,14 +108,15 @@ const Services = () => {
         keywords={seo.keywords}
       />
       <StructuredData description={seo.description} />
+      <PageVideoBackground clip="systems" />
       <PageHeader
-        eyebrow="Lo que hacemos"
-        title="Nuestros Servicios"
-        subtitle="Desarrollo de software a medida, consultoría en transformación digital, Data Analysis, Data Science y cyberseguridad para empresas en México."
+        eyebrow="Tres caminos"
+        title="Una sola exigencia"
+        subtitle="Software a medida, digitalización e integración. Pocos proyectos. Primero evaluamos si hay fit."
       />
 
-      <section className="section-py pt-0">
-        <div className="max-w-container mx-auto px-6 md:px-20 space-y-24">
+      <section className="layer-panel section-py pt-0 bg-background/80">
+        <div className="max-w-container mx-auto px-6 md:px-20 space-y-28">
           {services.map((service, index) => {
             const ServiceIcon = service.icon;
             const isImageRight = index % 2 === 1;
@@ -122,38 +124,41 @@ const Services = () => {
               <motion.div
                 key={service.title}
                 {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: index * 0.1 }}
-                className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${isImageRight ? "lg:grid-flow-dense" : ""}`}
+                transition={{ ...fadeUp.transition, delay: index * 0.08 }}
+                className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isImageRight ? "lg:grid-flow-dense" : ""}`}
               >
                 <div className={`relative ${isImageRight ? "lg:col-start-2" : ""}`}>
-                  <div className="relative overflow-hidden exec-chamfer border border-white/10 aspect-[4/3]">
+                  <div className="relative overflow-hidden rounded-[var(--radius-exec)] border border-white/10 aspect-[4/3]">
                     <img
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover"
                       loading={index === 0 ? "eager" : "lazy"}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/55 to-transparent pointer-events-none" />
                   </div>
                 </div>
                 <div className={isImageRight ? "lg:col-start-1 lg:row-start-1" : ""}>
-                  <div className="icon-badge mb-5">
+                  <p className="eyebrow mb-4">{String(index + 1).padStart(2, "0")}</p>
+                  <div className="icon-badge mb-6">
                     <ServiceIcon className="h-7 w-7 text-white" />
                   </div>
-                  <h2 className="text-3xl lg:text-4xl font-semibold mb-4 tracking-tight">{service.title}</h2>
-                  <p className="text-lg text-on-surface-variant mb-4">{service.intro}</p>
-                  <p className="text-lg text-on-surface-variant mb-6">{service.description}</p>
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-3">{service.featuresLabel}</p>
-                  <ul className="space-y-2.5 mb-6">
-                    {service.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-3">
+                  <h2 className="display-title text-3xl lg:text-4xl mb-4">{service.title}</h2>
+                  <p className="text-lg text-on-surface mb-3 leading-relaxed">{service.intro}</p>
+                  <p className="text-on-surface-variant mb-8 leading-relaxed">{service.description}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
+                    {service.featuresLabel}
+                  </p>
+                  <ul className="space-y-2.5 mb-8">
+                    {service.features.map((f) => (
+                      <li key={f} className="flex items-start gap-3">
                         <CheckCircleIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{f}</span>
+                        <span className="text-on-surface">{f}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="text-primary font-semibold border-l-2 border-primary pl-4">
-                    Resultado: {service.result}
+                  <p className="text-primary font-medium border-l-2 border-primary pl-4 leading-relaxed">
+                    {service.result}
                   </p>
                 </div>
               </motion.div>
@@ -162,19 +167,33 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="section-py bg-surface-container-low">
+      <section className="layer-panel section-py bg-surface-container-low">
         <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl font-semibold mb-4">Tecnologías para Desarrollo de Software</h2>
-            <div className="section-title-line" />
+          <motion.div {...fadeUp} className="text-center mb-16 max-w-xl mx-auto">
+            <p className="eyebrow mb-4">Stack</p>
+            <h2 className="display-title text-3xl md:text-4xl mb-3">Herramientas con criterio</h2>
+            <p className="text-on-surface-variant text-sm leading-relaxed">
+              Elegimos tecnología por el problema — no por la moda.
+            </p>
           </motion.div>
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col items-center gap-10">
             {technologyCategories.map((cat, i) => (
-              <motion.div key={cat.name} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="text-center">
-                <h3 className="text-lg font-semibold mb-3">{cat.name}</h3>
+              <motion.div
+                key={cat.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="text-center"
+              >
+                <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-on-surface-variant mb-3">
+                  {cat.name}
+                </h3>
                 <div className="flex flex-wrap justify-center gap-3">
                   {cat.items.map((tech) => (
-                    <span key={tech} className="tech-pill">{tech}</span>
+                    <span key={tech} className="tech-pill">
+                      {tech}
+                    </span>
                   ))}
                 </div>
               </motion.div>
@@ -183,57 +202,63 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="section-py">
+      <section className="layer-panel section-py bg-background">
         <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl font-semibold mb-4">Proceso de Desarrollo de Software a Medida</h2>
-            <p className="text-on-surface-variant">Metodología estructurada que reduce riesgos.</p>
+          <motion.div {...fadeUp} className="text-center mb-16 max-w-xl mx-auto">
+            <p className="eyebrow mb-4">Cómo trabajamos</p>
+            <h2 className="display-title text-3xl md:text-4xl mb-3">Un proceso que reduce sorpresas</h2>
+            <p className="text-on-surface-variant">Plazos claros. Entregas que se pueden tocar.</p>
           </motion.div>
-          <div className="grid md:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-5 gap-5">
             {process.map((step, index) => (
               <motion.div
                 key={step.step}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card p-6 text-center relative hover:-translate-y-1 transition-transform duration-300"
+                transition={{ delay: index * 0.08 }}
+                className="glass-card p-6 text-center"
               >
-                <div
-                  className="icon-badge mx-auto mb-4 text-white font-semibold text-xl"
-                  style={{ background: "var(--gradient-accent)", borderColor: "var(--color-accent-bright)" }}
-                >
+                <div className="icon-badge mx-auto mb-4 text-white font-semibold text-lg">
                   {step.step}
                 </div>
-                <h3 className="font-semibold mb-2">{step.title}</h3>
-                <p className="text-sm text-on-surface-variant">{step.description}</p>
-                <p className="text-xs text-accent mt-2">{step.timeframe}</p>
+                <h3 className="font-semibold mb-2 tracking-tight">{step.title}</h3>
+                <p className="text-sm text-on-surface-variant leading-relaxed">{step.description}</p>
+                <p className="text-xs text-primary mt-3 tracking-wide">{step.timeframe}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-py gradient-bg relative overflow-hidden">
+      <section className="layer-panel section-py bg-surface-container-lowest">
         <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl font-semibold">¿Por qué elegir INIT para tu software a medida?</h2>
+          <motion.div {...fadeUp} className="text-center mb-16 max-w-xl mx-auto">
+            <p className="eyebrow mb-4">Por qué INIT</p>
+            <h2 className="display-title text-3xl md:text-4xl">Lo que no negociamos</h2>
           </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             {[
-              { icon: SpeedIcon, title: "Velocidad", description: "Soluciones en tiempos menores que agencias tradicionales." },
-              { icon: SecurityIcon, title: "Cyberseguridad", description: "Protección de datos, hardening y buenas prácticas desde el inicio." },
-              { icon: SupportIcon, title: "Soporte", description: "Acompañamiento durante toda la vida del sistema." },
-              { icon: TrendingUpIcon, title: "Impacto", description: "Eficiencia, ahorro y crecimiento medible." },
+              { icon: SpeedIcon, title: "Ritmo", description: "Avance real sin el teatro de las agencias grandes." },
+              { icon: SecurityIcon, title: "Seguridad", description: "Buenas prácticas desde el diseño — no al final." },
+              { icon: SupportIcon, title: "Cercanía", description: "Hablas con quien construye. En español." },
+              { icon: TrendingUpIcon, title: "Impacto", description: "Menos caos operativo. Más capacidad de crecer." },
             ].map((b, i) => {
               const Icon = b.icon;
               return (
-                <motion.div key={b.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
-                  <div className="icon-badge mx-auto mb-6">
+                <motion.div
+                  key={b.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="text-center"
+                >
+                  <div className="icon-badge mx-auto mb-5">
                     <Icon className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{b.title}</h3>
-                  <p className="text-on-surface-variant text-sm">{b.description}</p>
+                  <h3 className="text-lg font-semibold mb-2 tracking-tight">{b.title}</h3>
+                  <p className="text-on-surface-variant text-sm leading-relaxed">{b.description}</p>
                 </motion.div>
               );
             })}
@@ -242,9 +267,11 @@ const Services = () => {
       </section>
 
       <CtaBanner
-        title="¿Listo para automatizar tu operación?"
-        text="Cuéntanos el reto que enfrenta tu empresa y te proponemos una solución de software a medida."
-        ctaLabel="Solicitar una propuesta"
+        title="¿Crees que podríamos ayudar?"
+        text="Escribimos para evaluar el encaje. Si no es lo nuestro, te lo diremos — sin vender por vender."
+        ctaLabel="Evaluar si podemos ayudar"
+        secondaryLabel="Ver el trabajo"
+        secondaryTo="/portfolio"
       />
     </div>
   );

@@ -25,7 +25,7 @@ export const pageSeo = {
     path: "/",
     title: "Desarrollo de Software a Medida en México",
     description:
-      "Desarrollo de software a medida, aplicaciones web y consultoría en digitalización para empresas y pymes en México. Sistemas empresariales, automatización e integración de sistemas.",
+      "Consultora de software a medida y digitalización en México. Primero evaluamos si podemos ayudar. Si no hay fit, te lo decimos — no vendemos por vender.",
     keywords: [
       "desarrollo de software a medida México",
       "aplicaciones web empresariales",
@@ -52,9 +52,9 @@ export const pageSeo = {
   },
   services: {
     path: "/services",
-    title: "Servicios de Desarrollo de Software y Consultoría Digital",
+    title: "Servicios: Software a Medida y Digitalización",
     description:
-      "Desarrollo de software a medida, consultoría en transformación digital, Data Analysis, Data Science y cyberseguridad para empresas en México.",
+      "Software a medida, digitalización e integración de sistemas para empresas en México. Pocos proyectos. Estándar alto. INIT.",
     keywords: [
       "servicios desarrollo software a medida",
       "consultoría transformación digital México",
@@ -95,14 +95,13 @@ export const pageSeo = {
   },
   contact: {
     path: "/contact",
-    title: "Contacto: Solicita tu Proyecto de Software",
+    title: "Evaluar fit: Consultoría de Software | INIT",
     description:
-      "Solicita una propuesta de desarrollo de software a medida o consultoría en digitalización. INIT — Ciudad López Mateos, Estado de México. Respuesta en español.",
+      "Conversación para determinar si INIT puede ayudar a tu empresa. Software a medida y digitalización en México. Si no hay encaje, te lo decimos.",
     keywords: [
-      "contacto desarrollo software México",
-      "cotizar software a medida",
-      "solicitar propuesta desarrollo web",
-      "consultoría digitalización contacto",
+      "contacto consultoría software México",
+      "evaluar desarrollo software a medida",
+      "consultoría digitalización México",
       "empresa software Estado de México",
     ].join(", "),
   },

@@ -67,7 +67,7 @@ const Navbar = () => {
               location.pathname === '/contact' ? 'border-primary/60' : ''
             }`}
           >
-            Cotiza tu proyecto
+            ¿Podemos ayudar?
           </Link>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -100,7 +100,7 @@ const Navbar = () => {
             to="/contact"
             className="block px-3 py-3 text-sm font-semibold uppercase tracking-wider text-primary bg-primary-container/20 exec-chamfer"
           >
-            Cotiza tu proyecto
+            ¿Podemos ayudar?
           </Link>
         </div>
       )}

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import StructuredData from "../components/StructuredData";
+import PageVideoBackground from "../components/PageVideoBackground";
 import { getPageSeo } from "../data/seoData";
 import {
   Email as EmailIcon,
@@ -92,12 +93,34 @@ const Contact = () => {
   ];
 
   const faqs = [
-    { q: "¿Cuánto tiempo toma desarrollar una aplicación web?", a: "4–8 semanas básica, 3–6 meses proyectos complejos." },
-    { q: "¿Ofrecen mantenimiento después del lanzamiento?", a: "Sí, soporte y mantenimiento continuo." },
-    { q: "¿Trabajan con empresas de cualquier tamaño?", a: "Sí, startups, pymes y corporaciones." },
-    { q: "¿Qué tecnologías utilizan?", a: "React, Node.js, Python, Django, AWS y Azure." },
-    { q: "¿Trabajan fuera de CDMX/Estado de México?", a: "Sí, remoto en México y LATAM." },
-    { q: "¿Ofrecen trazabilidad con RFID?", a: "Sí, vía initlogistics." },
+    {
+      q: "¿Esto es para cotizar un proyecto?",
+      a: "No. Es para evaluar si podemos ayudar de verdad. Si el encaje no está, te lo decimos — no armamos una propuesta solo por vender.",
+    },
+    {
+      q: "¿Cuánto tarda un proyecto?",
+      a: "Una app web enfocada: suele ser 4–8 semanas. Sistemas más complejos: 3–6 meses. Lo definimos juntos solo si hay fit — con plazos claros desde el inicio.",
+    },
+    {
+      q: "¿Qué pasa después del lanzamiento?",
+      a: "Seguimos. Soporte y evolución del sistema, en español, con el mismo equipo que lo construyó.",
+    },
+    {
+      q: "¿Trabajan con cualquier empresa?",
+      a: "No. Priorizamos proyectos donde podemos aportar. Si tu reto no es lo nuestro, preferimos decirlo a forzar un contrato.",
+    },
+    {
+      q: "¿Con qué tecnologías trabajan?",
+      a: "React, Node.js, Python, Django, AWS y más — elegidas por el problema, no por moda. El detalle lo vemos según tu caso.",
+    },
+    {
+      q: "¿Solo en Estado de México?",
+      a: "Estamos en Ciudad López Mateos. Trabajamos remoto en México y LATAM.",
+    },
+    {
+      q: "¿Tienen productos listos?",
+      a: "Sí: ERPinit e initlogistics (incluye trazabilidad RFID). También desarrollamos 100% a medida — siempre tras evaluar si encaja.",
+    },
   ];
 
   const seo = getPageSeo("contact");
@@ -106,17 +129,19 @@ const Contact = () => {
     <div className="min-h-screen relative z-10">
       <PageHead title={seo.title} description={seo.description} path={seo.path} keywords={seo.keywords} />
       <StructuredData description={seo.description} />
+      <PageVideoBackground clip="cinematicCut" />
       <PageHeader
-        eyebrow="Hablemos"
-        title="Contáctanos"
-        subtitle="Solicita una propuesta de desarrollo de software a medida o consultoría en digitalización. Ciudad López Mateos, Estado de México."
+        eyebrow="Evaluación"
+        title="Primero vemos si podemos ayudar"
+        subtitle="No es una cotización. Es una conversación para determinar si hay fit — y si no lo hay, te lo diremos sin venderte nada."
       />
 
-      <section className="section-py pt-0">
+      <section className="layer-panel section-py pt-0 bg-background/80">
         <div className="max-w-container mx-auto px-6 md:px-20">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-14 lg:gap-16">
             <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl font-bold mb-8">Información de Contacto</h2>
+              <p className="eyebrow mb-4">Directo</p>
+              <h2 className="display-title text-2xl md:text-3xl mb-8">Cómo encontrarnos</h2>
               <div className="space-y-6">
                 {contactInfo.map((info) => (
                   <div key={info.title} className="flex items-start gap-4">
@@ -124,72 +149,165 @@ const Contact = () => {
                       <info.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-1">{info.title}</h3>
-                      <a href={info.link} className="text-on-surface-variant hover:text-primary transition-colors">{info.value}</a>
+                      <h3 className="font-semibold mb-1 tracking-tight">{info.title}</h3>
+                      <a href={info.link} className="text-on-surface-variant hover:text-primary transition-colors">
+                        {info.value}
+                      </a>
                     </div>
                   </div>
                 ))}
               </div>
+              <p className="mt-10 text-sm text-on-surface-variant leading-relaxed max-w-sm">
+                Somos consultora, no una línea de ventas. Si el proyecto no encaja
+                con lo que hacemos bien, la respuesta honesta es no — y preferimos
+                eso a un mal engagement.
+              </p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <div className="glass-card p-8">
-                <h2 className="text-2xl font-bold mb-6">Envíanos un Mensaje</h2>
+              <div className="glass-card p-8 md:p-10">
+                <h2 className="display-title text-2xl mb-2">Lo esencial para evaluar</h2>
+                <p className="text-sm text-on-surface-variant mb-8 leading-relaxed">
+                  Con eso basta para ver si tiene sentido seguir.
+                </p>
                 {submitStatus === "success" && (
-                  <motion.div role="status" aria-live="polite" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 bg-primary/10 border border-primary/30 text-primary px-4 py-3 exec-chamfer flex items-center">
-                    <CheckCircleIcon className="h-5 w-5 mr-2" aria-hidden="true" /> ¡Mensaje enviado! Nos pondremos en contacto pronto.
+                  <motion.div
+                    role="status"
+                    aria-live="polite"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="mb-6 border px-4 py-3 rounded-[var(--radius-exec)] flex items-center text-[#0F5C2E]"
+                    style={{
+                      background: "var(--color-init-mint)",
+                      borderColor: "rgba(30, 143, 65, 0.35)",
+                    }}
+                  >
+                    <CheckCircleIcon className="h-5 w-5 mr-2 flex-shrink-0" aria-hidden="true" />
+                    Mensaje recibido. Lo revisamos y te respondemos — incluso si la respuesta es que no encajamos.
                   </motion.div>
                 )}
                 {submitStatus === "error" && errors.submit && (
-                  <div role="alert" className="mb-6 bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 exec-chamfer">{errors.submit}</div>
+                  <div
+                    role="alert"
+                    className="mb-6 bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-[var(--radius-exec)]"
+                  >
+                    {errors.submit}
+                  </div>
                 )}
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   {[
-                    { id: "name", label: "Nombre Completo *", type: "text", ph: "Tu nombre", autoComplete: "name" },
-                    { id: "email", label: "Email *", type: "email", ph: "tu@email.com", autoComplete: "email" },
-                    { id: "subject", label: "Asunto *", type: "text", ph: "¿En qué podemos ayudarte?", autoComplete: "off" },
+                    { id: "name", label: "Nombre *", type: "text", ph: "Tu nombre", autoComplete: "name" },
+                    { id: "email", label: "Email *", type: "email", ph: "tu@empresa.com", autoComplete: "email" },
+                    { id: "subject", label: "Asunto *", type: "text", ph: "De qué trata tu reto", autoComplete: "off" },
                   ].map((f) => (
                     <div key={f.id}>
-                      <label htmlFor={f.id} className="block text-sm font-semibold mb-2">{f.label}</label>
-                      <input type={f.type} id={f.id} name={f.id} required value={formData[f.id]} onChange={handleChange}
+                      <label htmlFor={f.id} className="block text-sm font-semibold mb-2">
+                        {f.label}
+                      </label>
+                      <input
+                        type={f.type}
+                        id={f.id}
+                        name={f.id}
+                        required
+                        value={formData[f.id]}
+                        onChange={handleChange}
                         autoComplete={f.autoComplete}
                         aria-invalid={errors[f.id] ? "true" : "false"}
                         aria-describedby={errors[f.id] ? `${f.id}-error` : undefined}
-                        className={`input-field ${errors[f.id] ? "border-red-500" : ""}`} placeholder={f.ph} />
-                      {errors[f.id] && <p id={`${f.id}-error`} role="alert" className="text-sm text-red-400 mt-1">{errors[f.id]}</p>}
+                        className={`input-field ${errors[f.id] ? "border-red-500" : ""}`}
+                        placeholder={f.ph}
+                      />
+                      {errors[f.id] && (
+                        <p id={`${f.id}-error`} role="alert" className="text-sm text-red-400 mt-1">
+                          {errors[f.id]}
+                        </p>
+                      )}
                     </div>
                   ))}
                   <div>
-                    <label htmlFor="projectType" className="block text-sm font-semibold mb-2">Tipo de proyecto</label>
-                    <select id="projectType" name="projectType" value={formData.projectType} onChange={handleChange} className="input-field">
+                    <label htmlFor="projectType" className="block text-sm font-semibold mb-2">
+                      Tipo de proyecto
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className="input-field"
+                    >
                       <option value="">Selecciona una opción</option>
-                      {PROJECT_TYPES.map((o) => <option key={o} value={o}>{o}</option>)}
+                      {PROJECT_TYPES.map((o) => (
+                        <option key={o} value={o}>
+                          {o}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="budget" className="block text-sm font-semibold mb-2">Presupuesto aproximado</label>
-                    <select id="budget" name="budget" value={formData.budget} onChange={handleChange} className="input-field">
+                    <label htmlFor="budget" className="block text-sm font-semibold mb-2">
+                      Presupuesto aproximado
+                    </label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="input-field"
+                    >
                       <option value="">Selecciona un rango</option>
-                      {BUDGET_RANGES.map((o) => <option key={o} value={o}>{o}</option>)}
+                      {BUDGET_RANGES.map((o) => (
+                        <option key={o} value={o}>
+                          {o}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold mb-2">Mensaje *</label>
-                    <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange}
+                    <label htmlFor="message" className="block text-sm font-semibold mb-2">
+                      Mensaje *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
                       aria-invalid={errors.message ? "true" : "false"}
                       aria-describedby={errors.message ? "message-error" : undefined}
-                      className={`input-field resize-none ${errors.message ? "border-red-500" : ""}`} placeholder="Cuéntanos sobre tu proyecto..." />
-                    {errors.message && <p id="message-error" role="alert" className="text-sm text-red-400 mt-1">{errors.message}</p>}
+                      className={`input-field resize-none ${errors.message ? "border-red-500" : ""}`}
+                      placeholder="Qué duele hoy en tu operación y qué te gustaría cambiar..."
+                    />
+                    {errors.message && (
+                      <p id="message-error" role="alert" className="text-sm text-red-400 mt-1">
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
                   <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
                     <label htmlFor="website">No llenar este campo</label>
-                    <input type="text" id="website" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
                   </div>
-                  <button type="submit" disabled={isSubmitting} className="w-full btn-primary py-3 disabled:opacity-50">
-                    {isSubmitting ? "Enviando..." : <span className="flex items-center justify-center gap-2"><SendIcon className="h-5 w-5" aria-hidden="true" /> Enviar Mensaje</span>}
+                  <button type="submit" disabled={isSubmitting} className="w-full btn-primary py-3.5 disabled:opacity-50">
+                    {isSubmitting ? (
+                      "Enviando..."
+                    ) : (
+                      <span className="flex items-center justify-center gap-2">
+                        <SendIcon className="h-5 w-5" aria-hidden="true" />
+                        Enviar para evaluar
+                      </span>
+                    )}
                   </button>
-                  <p className="text-xs text-on-surface-variant text-center">
-                    Te contactaremos usando el correo o teléfono que nos compartas.
+                  <p className="text-xs text-on-surface-variant text-center leading-relaxed">
+                    Sin compromiso de venta. Solo claridad sobre si podemos ayudar.
                   </p>
                 </form>
               </div>
@@ -198,14 +316,21 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="section-py bg-surface-container-low">
+      <section className="layer-panel section-py bg-surface-container-low">
         <div className="max-w-3xl mx-auto px-6 md:px-20">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Preguntas Frecuentes</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="eyebrow mb-4">Antes de escribir</p>
+            <h2 className="display-title text-3xl mb-3">Preguntas frecuentes</h2>
+            <p className="text-on-surface-variant text-sm">Lo esencial. El resto, en la conversación.</p>
           </motion.div>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
-              <div key={i} className="glass-card overflow-hidden">
+              <div key={faq.q} className="glass-card overflow-hidden">
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -215,7 +340,12 @@ const Contact = () => {
                   id={`faq-button-${i}`}
                 >
                   {faq.q}
-                  <ExpandMoreIcon className={`h-5 w-5 text-primary transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`} aria-hidden="true" />
+                  <ExpandMoreIcon
+                    className={`h-5 w-5 text-primary transition-transform duration-300 flex-shrink-0 ml-3 ${
+                      openFaq === i ? "rotate-180" : ""
+                    }`}
+                    aria-hidden="true"
+                  />
                 </button>
                 <AnimatePresence>
                   {openFaq === i && (
@@ -223,7 +353,12 @@ const Contact = () => {
                       id={`faq-panel-${i}`}
                       role="region"
                       aria-labelledby={`faq-button-${i}`}
-                      initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
                       <p className="px-5 pb-5 text-on-surface-variant text-sm leading-relaxed">{faq.a}</p>
                     </motion.div>
                   )}

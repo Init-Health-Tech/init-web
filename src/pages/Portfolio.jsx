@@ -6,6 +6,7 @@ import StructuredData from "../components/StructuredData";
 import CtaBanner from "../components/CtaBanner";
 import ClientLogo from "../components/ClientLogo";
 import StatTile from "../components/StatTile";
+import PageVideoBackground from "../components/PageVideoBackground";
 import { portfolioClients } from "../data/portfolioData";
 import { getPageSeo } from "../data/seoData";
 import { CheckCircle as CheckCircleIcon } from "@mui/icons-material";
@@ -22,13 +23,14 @@ const Portfolio = () => {
         keywords={seo.keywords}
       />
       <StructuredData description={seo.description} />
+      <PageVideoBackground clip="reveal" />
       <PageHeader
-        eyebrow="Casos de éxito"
-        title="Proyectos y Clientes"
-        subtitle="Casos de éxito en desarrollo de software a medida, aplicaciones web y consultoría digital con empresas en México."
+        eyebrow="Trabajo real"
+        title="Proyectos y clientes"
+        subtitle="Casos donde sí hubo fit. El detalle completo, cuando evaluemos si encajamos contigo."
       />
 
-      <section className="section-py pt-0 pb-12">
+      <section className="layer-panel section-py pt-0 pb-12 bg-background/75">
         <div className="max-w-container mx-auto px-6 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { value: `${portfolioClients.length}+`, label: "Clientes atendidos" },
@@ -41,7 +43,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section className="section-py pt-0">
+      <section className="layer-panel section-py pt-0 bg-background">
         <div className="max-w-container mx-auto px-6 md:px-20">
           <div className="space-y-10">
             {portfolioClients.map((client, index) => (
@@ -108,9 +110,9 @@ const Portfolio = () => {
       </section>
 
       <CtaBanner
-        title="¿Quieres ser nuestro próximo caso de éxito?"
-        text="Cuéntanos tu proyecto y te proponemos una solución a medida."
-        ctaLabel="Cuéntanos tu proyecto"
+        title="¿Tu operación se parece a alguna de estas?"
+        text="Si ves un paralelismo, hablemos para evaluar si podemos ayudar. Si no hay fit, preferimos decirlo a forzar un proyecto."
+        ctaLabel="Evaluar si podemos ayudar"
       />
     </div>
   );

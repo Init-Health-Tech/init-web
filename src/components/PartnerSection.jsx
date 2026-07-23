@@ -12,14 +12,13 @@ const fadeUp = {
 };
 
 const PartnerSection = () => (
-  <section className="layer-reveal section-py border-y border-white/10">
-    <div className="max-w-container mx-auto px-6 md:px-20">
-      <motion.div {...fadeUp} className="text-center mb-12">
-        <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-3">Alianza estratégica</p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nuestro Partner</h2>
-        <p className="text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-          En INIT no trabajamos solos. Colaboramos de la mano con socios que complementan nuestra
-          capacidad de desarrollo y consultoría.
+  <section className="layer-panel section-py bg-surface-container-low border-y border-white/10">
+    <div className="max-w-container mx-auto px-6 md:px-12 lg:px-16">
+      <motion.div {...fadeUp} className="text-center mb-14">
+        <p className="eyebrow mb-4">Alianza</p>
+        <h2 className="display-title text-3xl md:text-4xl mb-4">Nuestro partner</h2>
+        <p className="text-on-surface-variant text-lg max-w-md mx-auto leading-relaxed">
+          No trabajamos solos. Socios que elevan el estándar — no que lo diluyen.
         </p>
       </motion.div>
 

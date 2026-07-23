@@ -1,0 +1,14 @@
+---
+description: Páginas y componentes INIT — copy consultivo y tokens de marca
+globs: src/pages/**/*.jsx,src/components/**/*.jsx,src/data/seoData.js,src/index.css
+alwaysApply: false
+---
+
+# INIT — UI & copy pages
+
+- Preferir tokens Tailwind/CSS del `@theme` (`primary`, `secondary`, `surface-*`, `on-surface*`) sobre hex sueltos.
+- CTAs vía `CtaBanner` con framing de evaluación, no de cotización.
+- Floating button: nunca texto de “cotiza”.
+- Home hero: INIT como marca hero; explorar trabajo primero; contacto = filtro.
+- Éxito de formularios: mint / tono calmado, sin exclamaciones de venta.
+- Mantener coherencia con `.agents/product-marketing.md`.

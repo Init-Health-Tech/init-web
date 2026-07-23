@@ -7,102 +7,49 @@ import PageVideoBackground from "../components/PageVideoBackground";
 import ClientLogo from "../components/ClientLogo";
 import PartnerSection from "../components/PartnerSection";
 import CtaBanner from "../components/CtaBanner";
-import IconFeatureCard from "../components/IconFeatureCard";
-import StatTile from "../components/StatTile";
 import { clientLogos, getClientLogo } from "../data/clientsData";
 import { getPageSeo, SITE_URL } from "../data/seoData";
-import { teamCopy, teamStats } from "../data/teamData";
+import { teamCopy } from "../data/teamData";
 import {
-  Code as CodeIcon,
-  RocketLaunch as RocketLaunchIcon,
   ArrowForward as ArrowForwardIcon,
-  CheckCircle as CheckCircleIcon,
-  Schedule as ScheduleIcon,
-  Support as SupportIcon,
-  Security as SecurityIcon,
-  TrendingUp as TrendingUpIcon,
-  Groups as GroupsIcon,
-  Insights as InsightsIcon,
   KeyboardArrowDown as ChevronDownIcon,
-  LocationOn as LocationIcon,
 } from "@mui/icons-material";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 40 },
+  initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1] },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
 };
 
 const Home = () => {
-  const services = [
+  const pillars = [
     {
-      icon: CodeIcon,
-      title: "Desarrollo de Software",
-      description:
-        "Desarrollamos software a medida: aplicaciones web, sistemas de gestión y APIs escalables. Desde portales corporativos hasta ERPs adaptados a tu operación.",
+      title: "Hecho para tu operación",
+      text: "Sistemas a tu medida. Sin plantillas. Sin atajos que te cuesten después.",
     },
     {
-      icon: InsightsIcon,
-      title: "Consultoría en Digitalización",
-      description:
-        "Te acompañamos en la transformación digital: análisis de procesos, roadmap y priorización. Más eficiencia, menos errores manuales.",
+      title: "Claridad antes de código",
+      text: "Primero el negocio. Después lo que de verdad mueve la aguja.",
     },
     {
-      icon: RocketLaunchIcon,
-      title: "Soluciones Digitales",
-      description:
-        "Automatización, integración de sistemas, cloud, Data Analysis, Data Science y cyberseguridad para proteger y potenciar tu operación.",
+      title: "Una experiencia, no un ticket más",
+      text: "Diseño, desarrollo y acompañamiento con el mismo estándar: precisión y calma.",
     },
-  ];
-
-  const whatWeDo = [
-    "Desarrollo de aplicaciones web y portales a medida",
-    "Sistemas empresariales (gestión, inventario, ventas, expedientes)",
-    "APIs e integraciones para conectar tus sistemas",
-    "Consultoría en digitalización y optimización de procesos",
-    "Data Analysis y Data Science aplicados a tu operación",
-    "Cyberseguridad y buenas prácticas para proteger tus sistemas y datos",
-    "Proyectos en México y Estado de México",
   ];
 
   const successCases = [
-    {
-      client: "TRANSCOM",
-      sector: "Logística / Transporte · Consultoría",
-      title: "Consultoría en digitalización operativa",
-      result: "Diagnóstico y recomendaciones para ordenar operaciones y trazabilidad.",
-    },
-    {
-      client: "Geller Abogados",
-      sector: "Despacho jurídico · Consultoría",
-      title: "Consultoría en procesos del despacho",
-      result: "Análisis y recomendaciones para optimizar gestión documental y expedientes.",
-    },
-    {
-      client: "CONFE",
-      sector: "Sector social / institucional",
-      title: "Software y digitalización institucional",
-      result: "Procesos y atención mejorados con sistemas centralizados.",
-    },
-    {
-      client: "Polola's",
-      sector: "Gastronomía / Repostería",
-      title: "Web y sistema de pedidos en línea",
-      result: "Venta de pasteles, galletas y planificación de comidas desde un canal digital.",
-    },
+    { client: "CONFE", tease: "Institucional. Del caos de procesos a un sistema que ordena." },
+    { client: "Polola's", tease: "Gastronomía. Pedidos y operación en un solo lugar." },
+    { client: "TRANSCOM", tease: "Logística. Un diagnóstico que abre el siguiente paso." },
   ];
 
-  const whyUs = [
-    { icon: ScheduleIcon, title: "Plazos Definidos", text: "Plazos y alcance definidos desde el inicio." },
-    { icon: CodeIcon, title: "Código Mantenible", text: "Código y arquitectura mantenibles a largo plazo." },
-    { icon: SupportIcon, title: "Soporte en Español", text: "Soporte técnico y comunicación en español." },
-    { icon: SecurityIcon, title: "Seguridad Primero", text: "Cyberseguridad y buenas prácticas desde el diseño de cada solución." },
-    { icon: TrendingUpIcon, title: "Escalabilidad", text: "Escalabilidad cuando tu negocio crezca." },
-    { icon: GroupsIcon, title: "Equipo Cercano", text: "Equipo estable y trato cercano." },
+  const services = [
+    { title: "Software a medida", hint: "Apps y sistemas que solo existen para tu negocio." },
+    { title: "Digitalización", hint: "Orden, roadmap y prioridades con criterio." },
+    { title: "Sistemas e integración", hint: "Datos, automatización y operación conectada." },
   ];
 
-  const yearsExperience = new Date().getFullYear() - 2024;
   const seo = getPageSeo("home");
 
   return (
@@ -140,219 +87,216 @@ const Home = () => {
         ]}
       />
 
-      <PageVideoBackground />
+      <PageVideoBackground clip="cinematic" />
 
-      {/* Hero — video visible behind */}
-      <section className="layer-reveal relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-15 pointer-events-none" />
-        <div className="relative z-10 max-w-container mx-auto px-6 md:px-20 text-center pt-24 pb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
+      {/* Hero — one composition: brand + thesis + one line + CTAs */}
+      <section className="layer-reveal relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+        <div className="hero-scrim absolute inset-0 pointer-events-none" aria-hidden="true" />
+        <div className="relative z-10 max-w-container mx-auto px-6 md:px-12 lg:px-16 text-center pt-32 pb-24">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-            className="exec-frame inline-block mb-10"
+            transition={{ duration: 0.8 }}
+            className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-on-surface mb-10 md:mb-14"
           >
-            <img src="/Init-Logo.svg" alt="INIT" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-          </motion.div>
+            INIT
+          </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight max-w-4xl mx-auto tracking-tight"
+            transition={{ duration: 1, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="display-title text-[2.75rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-[4.5rem] mb-7 md:mb-8 max-w-3xl mx-auto text-balance"
           >
-            Desarrollo de Software a Medida para Empresas en{" "}
-            <span className="text-accent">México</span>
+            Hay empresas que operan.
+            <br />
+            <span className="text-primary">Y empresas que avanzan.</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed"
+            transition={{ duration: 0.95, delay: 0.22 }}
+            className="text-[17px] md:text-xl text-on-surface-variant max-w-lg mx-auto mb-12 md:mb-14 leading-relaxed"
           >
-            En INIT ayudamos a pymes y empresas en México a automatizar procesos con aplicaciones web,
-            sistemas empresariales a medida y consultoría en digitalización. Basados en Estado de México.
+            Consultora de software. Primero evaluamos si realmente podemos ayudar.
+            Si no, te lo decimos — no vendemos por vender.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            transition={{ duration: 0.85, delay: 0.36 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
-            <Link to="/contact" className="btn-primary text-sm uppercase tracking-widest px-8 py-4 inline-flex items-center gap-2">
-              Solicitar una propuesta
-              <ArrowForwardIcon className="h-4 w-4" />
+            <Link to="/portfolio" className="btn-primary inline-flex items-center gap-2">
+              Ver el trabajo
             </Link>
-            <Link to="/services" className="btn-secondary text-sm uppercase tracking-widest px-8 py-4">
-              Ver nuestros servicios
+            <Link to="/contact" className="btn-secondary inline-flex items-center gap-2">
+              ¿Podemos ayudar?
+              <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-14 text-on-surface-variant/50"
+            transition={{ duration: 1, delay: 1 }}
+            className="mt-24 md:mt-28 text-on-surface-variant/70"
+            aria-hidden="true"
           >
-            <ChevronDownIcon className="h-6 w-6 mx-auto" />
+            <ChevronDownIcon className="h-7 w-7 mx-auto animate-[bounce-slow_2.4s_ease-in-out_infinite]" />
           </motion.div>
         </div>
       </section>
 
-      {/* Metrics — solid panel covers video */}
-      <section className="layer-panel section-py bg-surface-container-low border-y border-white/5 shadow-[0_-20px_60px_rgba(17,20,20,0.9)]">
-        <div className="max-w-container mx-auto px-6 md:px-20 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {[
-            { icon: TrendingUpIcon, value: yearsExperience, label: "Años de Experiencia", sub: "entregando software a medida" },
-            { icon: SupportIcon, value: "24/7", label: "Soporte Técnico", sub: "post-lanzamiento incluido" },
-            { icon: LocationIcon, value: "Edo. México", label: "Sede y Operación", sub: "Ciudad López Mateos" },
-          ].map((stat, i) => (
-            <StatTile key={stat.label} {...stat} delay={i * 0.12} />
-          ))}
+      {/* Scarcity — typographic billboard over video (Apple reveal) */}
+      <section className="layer-reveal relative py-28 md:py-36">
+        <div className="absolute inset-0 bg-background/40 pointer-events-none" aria-hidden="true" />
+        <div className="relative max-w-container mx-auto px-6 md:px-12 lg:px-16 text-center">
+          <motion.p
+            {...fadeUp}
+            className="display-title text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface max-w-3xl mx-auto leading-[1.15] text-balance"
+          >
+            No aceptamos todos los proyectos.
+            <span className="block mt-3 md:mt-4 text-on-surface-variant font-normal tracking-tight text-2xl sm:text-3xl md:text-4xl">
+              Si no podemos ayudar, no vendemos.
+            </span>
+          </motion.p>
         </div>
       </section>
 
-      {/* Qué hacemos — video peeks through */}
-      <section className="layer-reveal section-py">
-        <div className="max-w-container mx-auto px-6 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <motion.div {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-semibold text-on-surface mb-6 tracking-tight">Qué hacemos por las empresas</h2>
-            <p className="text-lg text-on-surface-variant mb-8 leading-relaxed">
-              Trabajamos con pymes, instituciones y empresas en México que necesitan desarrollo de
-              software a medida, aplicaciones web y transformación digital.
+      {/* Difference — still over video */}
+      <section className="layer-reveal relative section-py">
+        <div className="absolute inset-0 bg-background/55 pointer-events-none" aria-hidden="true" />
+        <div className="relative max-w-container mx-auto px-6 md:px-12 lg:px-16">
+          <motion.div {...fadeUp} className="max-w-2xl mx-auto text-center mb-20 md:mb-28">
+            <p className="eyebrow mb-5">La diferencia</p>
+            <h2 className="display-title text-4xl md:text-5xl lg:text-[3.5rem] mb-6 text-balance">
+              Cuando el sistema trabaja contigo, todo cambia.
+            </h2>
+            <p className="text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-xl mx-auto">
+              Menos fricción. Menos improvisación. Más control.
             </p>
-            <ul className="space-y-4 mb-8">
-              {whatWeDo.map((item, i) => (
-                <motion.li
-                  key={item}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="flex items-center gap-3"
-                >
-                  <CheckCircleIcon className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span className="text-on-surface">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-            <Link to="/services" className="btn-primary inline-flex items-center gap-2 text-sm uppercase tracking-wider">
-              Ver todos nuestros servicios <ArrowForwardIcon className="h-4 w-4" />
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-12 md:gap-10">
+            {pillars.map((item, i) => (
+              <motion.div
+                key={item.title}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: i * 0.08 }}
+                className="text-center md:text-left"
+              >
+                <p className="text-[13px] text-primary font-medium tracking-[0.12em] mb-5">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="text-xl md:text-[1.35rem] font-semibold mb-3 tracking-tight text-on-surface">
+                  {item.title}
+                </h3>
+                <p className="text-on-surface-variant text-[15px] leading-relaxed">{item.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services — Apple list rows */}
+      <section className="layer-panel section-py bg-background">
+        <div className="max-w-container mx-auto px-6 md:px-12 lg:px-16">
+          <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+            <p className="eyebrow mb-5">Lo que construimos</p>
+            <h2 className="display-title text-4xl md:text-5xl mb-5 text-balance">
+              Tres caminos. Una sola exigencia.
+            </h2>
+            <p className="text-on-surface-variant text-lg leading-relaxed">
+              Solo lo esencial. Si encaja, el resto lo vemos juntos.
+            </p>
+          </motion.div>
+
+          <div className="max-w-2xl mx-auto">
+            {services.map((row, i) => (
+              <motion.div
+                key={row.title}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: i * 0.06 }}
+              >
+                <Link to="/services" className="apple-row group">
+                  <div className="text-left min-w-0">
+                    <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-on-surface group-hover:text-primary transition-colors">
+                      {row.title}
+                    </h3>
+                    <p className="text-[15px] text-on-surface-variant mt-1.5 leading-relaxed">
+                      {row.hint}
+                    </p>
+                  </div>
+                  <ArrowForwardIcon
+                    className="h-5 w-5 text-on-surface-variant group-hover:text-primary transition-colors flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="layer-panel section-py bg-surface-container-low">
+        <div className="max-w-container mx-auto px-6 md:px-12 lg:px-16 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <motion.div {...fadeUp}>
+            <p className="eyebrow mb-5">Quiénes somos</p>
+            <h2 className="display-title text-4xl md:text-5xl mb-6 text-balance">
+              Un equipo pequeño. Una obsesión grande.
+            </h2>
+            <p className="text-lg text-on-surface-variant mb-5 leading-relaxed">
+              {teamCopy.about} Trabajamos cerca, sin capas de más —
+              como si fueras parte del estudio.
+            </p>
+            <p className="text-on-surface-variant mb-10 leading-relaxed">
+              Estado de México. Para empresas que quieren sentir —no solo decir—
+              que su tecnología está a la altura.
+            </p>
+            <Link to="/team" className="btn-secondary inline-flex items-center gap-2">
+              Conocer al equipo
+              <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
           </motion.div>
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }} className="relative">
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.12 }}>
             <img
               src="/empleados-fotos/init-team.jpg"
-              alt="Equipo de desarrollo de software INIT en México"
-              className="exec-chamfer shadow-lg relative z-10 border border-white/10 w-full object-cover aspect-[4/3]"
+              alt="Equipo INIT"
+              className="w-full object-cover aspect-[4/3] rounded-[var(--radius-exec)] border border-white/12"
             />
           </motion.div>
         </div>
       </section>
 
-      {/* Servicios — solid panel */}
-      <section className="layer-panel section-py bg-surface-container-lowest shadow-[0_-20px_60px_rgba(12,15,15,0.95)]">
-        <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">Servicios de Desarrollo de Software</h2>
-            <p className="text-on-surface-variant max-w-2xl mx-auto mb-4">
-              Desarrollo a medida, consultoría en digitalización y soluciones tecnológicas para empresas en México.
-            </p>
-            <div className="section-title-line" />
+      {/* Cases */}
+      <section className="layer-panel section-py bg-background">
+        <div className="max-w-container mx-auto px-6 md:px-12 lg:px-16">
+          <motion.div {...fadeUp} className="mb-16 md:mb-20 max-w-2xl mx-auto text-center">
+            <p className="eyebrow mb-5">Confianza</p>
+            <h2 className="display-title text-4xl md:text-5xl mb-4 text-balance">
+              Quienes ya están dentro.
+            </h2>
+            <p className="text-on-surface-variant text-lg">Casos reales. El detalle, cuando hablemos.</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, i) => {
-              const Icon = service.icon;
-              return (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.12, duration: 0.6 }}
-                  className="glass-card p-10 group relative overflow-hidden"
-                >
-                  <span className="absolute top-6 right-8 text-5xl font-bold text-on-surface-variant/10 group-hover:text-primary/20 transition-colors duration-300 select-none">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="icon-badge mb-8 relative">
-                    <Icon className="h-7 w-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                  <p className="text-on-surface-variant text-sm leading-relaxed">{service.description}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
-      {/* Sobre INIT — reveal */}
-      <section className="layer-reveal section-py overflow-hidden">
-        <div className="max-w-container mx-auto px-6 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <motion.div {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">Sobre INIT</h2>
-            <p className="text-lg text-on-surface-variant mb-6 leading-relaxed">
-              Somos una empresa de desarrollo de software a medida y consultoría en transformación
-              digital en México. Transformamos la forma en que las empresas trabajan, con soluciones
-              prácticas y trato cercano.
-            </p>
-            <p className="text-on-surface-variant mb-10">
-              {teamCopy.about}
-            </p>
-            <Link to="/team" className="btn-secondary inline-flex items-center gap-2 px-8 py-3">
-              Conocer al Equipo <ArrowForwardIcon className="h-4 w-4" />
-            </Link>
-          </motion.div>
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.15 }}>
-            <div className="glass-card p-10 md:p-12">
-              <h3 className="text-xl font-semibold text-primary mb-6 uppercase tracking-wider text-[11px]">Nuestra Misión</h3>
-              <p className="text-lg text-on-surface leading-relaxed relative z-10">
-                Transformar empresas a través de la innovación tecnológica, proporcionando soluciones
-                digitales que impulsen el crecimiento y la competitividad.
-              </p>
-              <div className="grid grid-cols-2 gap-6 mt-8 pt-8 border-t border-white/10">
-                <div className="text-center">
-                  <div className="text-3xl font-semibold text-primary">{teamStats.total}</div>
-                  <div className="text-sm text-on-surface-variant mt-1">Miembros del Equipo</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-semibold text-secondary">100%</div>
-                  <div className="text-sm text-on-surface-variant mt-1">Compromiso</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Casos de éxito — panel */}
-      <section className="layer-panel section-py bg-surface shadow-[0_-20px_60px_rgba(17,20,20,0.9)]">
-        <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div {...fadeUp} className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Casos de Éxito en Software</h2>
-            <p className="text-on-surface-variant mt-4">
-              Proyectos de desarrollo web, software a medida y consultoría digital con empresas en México.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-10 md:gap-8">
             {successCases.map((item, i) => (
               <motion.div
                 key={item.client}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: i * 0.08 }}
+                className="group text-center"
               >
                 {getClientLogo(item.client) && (
                   <div
-                    className={`success-case-logo exec-chamfer flex items-center justify-center mb-6 h-40 md:h-52 border transition-colors ${
+                    className={`success-case-logo flex items-center justify-center mb-7 h-36 md:h-40 border rounded-[var(--radius-exec)] ${
                       item.client === "CONFE" || item.client === "Polola's"
-                        ? `success-case-logo--${item.client === "CONFE" ? "confe" : "pololas"} bg-white border-white/30 p-2 md:p-3`
-                        : "bg-surface-container-low border-white/10"
+                        ? `success-case-logo--${item.client === "CONFE" ? "confe" : "pololas"} bg-white border-white/25 p-3`
+                        : "bg-surface-container border-white/12"
                     }`}
                   >
                     <ClientLogo
@@ -361,7 +305,7 @@ const Home = () => {
                           ? { ...getClientLogo(item.client), lightBg: false }
                           : getClientLogo(item.client)
                       }
-                      size={item.client === "CONFE" || item.client === "Polola's" ? "2xl" : "lg"}
+                      size="lg"
                       variant="featured"
                       className={
                         item.client === "CONFE"
@@ -373,15 +317,18 @@ const Home = () => {
                     />
                   </div>
                 )}
-                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">{item.sector}</p>
-                <p className="font-medium text-on-surface mb-2">{item.title}</p>
-                <p className="text-sm text-on-surface-variant">{item.result}</p>
+                <p className="font-semibold text-on-surface text-lg mb-2">{item.client}</p>
+                <p className="text-[15px] text-on-surface-variant leading-relaxed max-w-xs mx-auto">
+                  {item.tease}
+                </p>
               </motion.div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link to="/portfolio" className="btn-primary inline-flex items-center gap-2 text-sm uppercase tracking-wider">
-              Ver todos los proyectos <ArrowForwardIcon className="h-4 w-4" />
+
+          <div className="mt-16 text-center">
+            <Link to="/portfolio" className="btn-primary inline-flex items-center gap-2">
+              Explorar portafolio
+              <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -389,38 +336,20 @@ const Home = () => {
 
       <PartnerSection />
 
-      {/* Clientes — reveal strip */}
-      <section className="layer-reveal py-12 border-y border-white/10 overflow-hidden">
-        <div className="flex animate-marquee items-center gap-12 md:gap-16 opacity-80 hover:opacity-100 transition-opacity">
+      <section className="layer-panel py-16 bg-surface-container-low border-y border-white/10 overflow-hidden">
+        <div className="flex animate-marquee items-center gap-16 opacity-80">
           {[...clientLogos, ...clientLogos].map((client, i) => (
             <ClientLogo key={`${client.id}-${i}`} client={client} size="md" />
           ))}
         </div>
       </section>
 
-      {/* Por qué elegirnos — panel */}
-      <section className="layer-panel section-py bg-surface-container-low shadow-[0_-20px_60px_rgba(25,28,28,0.95)]">
-        <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">¿Por qué elegirnos?</h2>
-            <p className="text-on-surface-variant">
-              Desarrollo de software a medida con plazos claros, código mantenible y soporte en español.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyUs.map((b, i) => (
-              <IconFeatureCard key={b.title} icon={b.icon} title={b.title} text={b.text} delay={i * 0.08} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA final — reveal, video visible around card */}
       <CtaBanner
-        title="¿Listo para transformar tu empresa?"
-        text="Cuéntanos tu proyecto de software a medida o agenda una llamada. Te proponemos una solución de desarrollo web o consultoría digital sin compromiso."
-        ctaLabel="Agenda una llamada"
-        secondaryLabel="Cuéntanos tu proyecto"
+        title="¿Tiene sentido hablar?"
+        text="Escribimos para evaluar si podemos ayudar de verdad. Si el encaje no está, te lo diremos con claridad — sin empujar una venta."
+        ctaLabel="Evaluar si podemos ayudar"
+        secondaryLabel="Ver servicios"
+        secondaryTo="/services"
       />
     </div>
   );

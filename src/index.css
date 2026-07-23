@@ -3,56 +3,68 @@
 @import "tailwindcss";
 
 @theme {
-  --color-init-black: #000000;
-  --color-init-dark: #45454d;
-  --color-init-gray: #8d8d8d;
-  --color-init-light: #d6d8d7;
-  --color-init-green: #368040;
-  --color-init-green-bright: #2d8a47;
+  /* ── INIT brand primitives (source of truth) ─────────────────────────
+     Psychology:
+     Navy  — confianza, autoridad, profundidad (consultora)
+     Green — crecimiento, salud, fiabilidad (marca / CTAs)
+     Teal  — claridad, calma tecnológica, comunicación
+     Lime  — progreso, energía (acento escaso, ~5%)
+     Light — apertura, claridad tipográfica
+     Mint  — frescura / estados suaves de éxito
+     Gray  — neutralidad (en dark se aclara para AA) */
+  --color-init-navy: #062D55;
+  --color-init-green: #1E8F41;
+  --color-init-teal: #00A7A7;
+  --color-init-lime: #7ED957;
+  --color-init-light: #F4F7FB;
+  --color-init-mint: #E8F8F0;
+  --color-init-gray: #6B7280;
 
-  /* New accent — warm gold, used sparingly (~5-10% of visual weight):
-     gradient text, stat numbers, eyebrow labels, timeline markers,
-     featured-card borders. Never a full section background. */
-  --color-accent: #d4a24e;
-  --color-accent-bright: #e8b968;
-  --color-accent-container: #4a3a1e;
+  /* Legacy aliases */
+  --color-init-black: #031525;
+  --color-init-dark: #0A2240;
+  --color-init-green-bright: #2BB855;
 
-  --color-surface: #0f1111;
-  --color-background: #0f1111;
-  --color-on-surface: #dce0dc;
-  --color-on-surface-variant: #9aa39a;
-  --color-primary: #6aab6e;
-  --color-primary-container: #2f6b38;
-  --color-on-primary-container: #e8f0e6;
-  --color-secondary: #4d9a62;
-  --color-secondary-container: #245832;
-  --color-outline: #5a635c;
-  --color-surface-container-low: #161919;
-  --color-surface-container-lowest: #0a0c0c;
-  --color-surface-container: #1a1d1d;
-  --color-surface-container-high: #222625;
-  --color-surface-container-highest: #2a2e2d;
-  --color-surface-variant: #2a2e2d;
+  /* Accent = Lime (progreso). Teal como acento secundario de claridad. */
+  --color-accent: #7ED957;
+  --color-accent-bright: #9AE56F;
+  --color-accent-container: #1A3D28;
 
-  --radius-exec: 2px;
-  --chamfer: 10px;
-  /* Shared six-point "chamfered corner" clip-path used by exec-chamfer,
-     exec-frame, btn-primary, btn-secondary and icon-badge. Defined once
-     here so all of them stay in sync instead of repeating the polygon(). */
-  --exec-clip: polygon(
-    var(--chamfer) 0,
-    100% 0,
-    100% calc(100% - var(--chamfer)),
-    calc(100% - var(--chamfer)) 100%,
-    0 100%,
-    0 var(--chamfer)
-  );
+  /* Surfaces: navy profundo (no negro genérico) — confianza + Apple space */
+  --color-surface: #031525;
+  --color-background: #031525;
+  --color-on-surface: #F4F7FB;
+  --color-on-surface-variant: #94A3B8;
+  /* Primary text/links on dark: green lifted for WCAG AA */
+  --color-primary: #2BB855;
+  /* CTA fill: green darkened so white text passes AA (~6.6:1) */
+  --color-primary-container: #146B36;
+  --color-on-primary-container: #ffffff;
+  --color-secondary: #00A7A7;
+  --color-secondary-container: #007A7A;
+  --color-outline: #4B6490;
+  --color-surface-container-low: #0A2240;
+  --color-surface-container-lowest: #021018;
+  --color-surface-container: #0E2F52;
+  --color-surface-container-high: #163A5C;
+  --color-surface-container-highest: #1E4A70;
+  --color-surface-variant: #163A5C;
 
-  --animate-marquee: marquee 40s linear infinite;
+  /* Soft light tokens (success banners, soft panels) */
+  --color-mint: #E8F8F0;
+  --color-light: #F4F7FB;
 
-  --max-width-container: 1200px;
+  /* Premium soft geometry (Apple-like) */
+  --radius-exec: 22px;
+  --radius-pill: 980px;
+  --chamfer: 0px;
+  --exec-clip: none;
 
-  --gradient-accent: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  --animate-marquee: marquee 50s linear infinite;
+
+  --max-width-container: 980px;
+
+  --gradient-accent: linear-gradient(135deg, #1E8F41 0%, #00A7A7 55%, #7ED957 100%);
   --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
 }
 
@@ -72,8 +84,8 @@
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(54, 128, 64, 0.2); }
-  50% { box-shadow: 0 0 40px rgba(139, 216, 142, 0.45); }
+  0%, 100% { box-shadow: 0 0 20px rgba(30, 143, 65, 0.22); }
+  50% { box-shadow: 0 0 40px rgba(0, 167, 167, 0.35); }
 }
 
 @keyframes marquee {
@@ -111,6 +123,10 @@
     letter-spacing: -0.02em;
     line-height: 1.15;
   }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -129,7 +145,7 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-secondary);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -140,48 +156,83 @@ textarea:focus-visible,
   }
 
   .section-py {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .eyebrow {
+    @apply text-[12px] font-medium uppercase tracking-[0.18em] text-secondary;
+  }
+
+  .display-title {
+    @apply font-semibold tracking-tight text-on-surface;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+  }
+
+  /* Hero readability — navy-tinted scrim (trust / depth) */
+  .hero-scrim {
+    background:
+      radial-gradient(ellipse 80% 55% at 50% 35%, rgba(6, 45, 85, 0.35) 0%, transparent 70%),
+      linear-gradient(
+        180deg,
+        rgba(3, 21, 37, 0.82) 0%,
+        rgba(3, 21, 37, 0.5) 35%,
+        rgba(3, 21, 37, 0.62) 65%,
+        rgba(2, 16, 24, 0.94) 100%
+      );
+  }
+
+  .apple-row {
+    @apply flex items-center justify-between gap-6 py-7 md:py-8 border-b border-white/10 transition-colors duration-300;
+  }
+
+  .apple-row:hover {
+    border-bottom-color: rgba(0, 167, 167, 0.5);
+  }
+
+  .apple-row:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .grid-pattern {
-    background-image: radial-gradient(rgba(106, 171, 110, 0.06) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(0, 167, 167, 0.07) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .grid-pattern-lines {
     background-image:
-      linear-gradient(rgba(214, 216, 215, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(214, 216, 215, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(244, 247, 251, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244, 247, 251, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .exec-chamfer {
-    clip-path: var(--exec-clip);
+    border-radius: var(--radius-exec);
+    overflow: hidden;
   }
 
   .exec-frame {
-    @apply bg-white p-3 border border-white/25 shadow-md;
-    clip-path: var(--exec-clip);
+    @apply bg-init-light p-3 border border-white/15 shadow-md;
+    border-radius: var(--radius-exec);
   }
 
   .glass-card {
-    background: rgba(26, 29, 29, 0.85);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-left: 3px solid rgba(54, 128, 64, 0.55);
+    background: rgba(10, 34, 64, 0.88);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 167, 167, 0.14);
     border-radius: var(--radius-exec);
-    transition: border-color 0.25s ease, background-color 0.25s ease;
+    transition: border-color 0.35s ease, background-color 0.35s ease;
   }
 
   .glass-card:hover {
-    border-color: rgba(106, 171, 110, 0.25);
-    border-left-color: rgba(106, 171, 110, 0.85);
+    border-color: rgba(30, 143, 65, 0.45);
+    background: rgba(14, 47, 82, 0.95);
     box-shadow: none;
     transform: none;
   }
 
   .text-gradient-green {
-    background: linear-gradient(135deg, #6aab6e 0%, #368040 100%);
+    background: linear-gradient(135deg, #7ED957 0%, #1E8F41 55%, #00A7A7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -189,11 +240,10 @@ textarea:focus-visible,
 
   .text-shimmer-mexico,
   .text-accent {
-    @apply text-primary;
+    @apply text-accent;
   }
 
-  /* Gradient headline accent — primary → gold, slow drift via gradient-shift.
-     Used sparingly on a single keyword per hero, never a whole paragraph. */
+  /* Gradient headline — green → teal → lime */
   .text-gradient-accent {
     background: var(--gradient-accent);
     background-size: 200% 200%;
@@ -203,7 +253,7 @@ textarea:focus-visible,
     animation: gradient-shift 6s ease infinite;
   }
 
-  /* Shimmer sweep for stat numbers — subtle, one-time-feeling loop. */
+  /* Shimmer for stats — lime (progreso) */
   .stat-shimmer {
     background: linear-gradient(
       90deg,
@@ -224,26 +274,25 @@ textarea:focus-visible,
   }
 
   .btn-primary {
-    @apply bg-primary-container hover:bg-secondary-container text-on-primary-container font-semibold py-3 px-6 text-xs uppercase tracking-widest transition-colors duration-200;
-    border: 1px solid rgba(106, 171, 110, 0.35);
+    @apply bg-primary-container hover:brightness-110 text-white font-semibold py-3.5 px-9 text-[13px] tracking-[-0.01em] transition-all duration-300;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
     box-shadow: none;
     transform: none;
-    clip-path: var(--exec-clip);
   }
 
   .btn-primary:hover {
-    animation: glow-pulse 2s ease-in-out infinite;
+    animation: none;
     transform: none;
-    border-color: rgba(106, 171, 110, 0.55);
   }
 
   .btn-secondary {
-    @apply border border-outline/80 text-on-surface hover:bg-white/[0.04] hover:border-primary/40 font-semibold py-3 px-6 text-xs uppercase tracking-widest transition-colors duration-200;
-    clip-path: var(--exec-clip);
+    @apply border border-white/25 text-on-surface hover:bg-white/[0.08] hover:border-white/40 font-semibold py-3.5 px-9 text-[13px] tracking-[-0.01em] transition-colors duration-300;
+    border-radius: var(--radius-pill);
   }
 
   .btn-ghost-nav {
-    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant hover:text-primary transition-colors relative;
+    @apply text-[12px] font-medium tracking-[-0.01em] text-on-surface-variant hover:text-on-surface transition-colors relative;
   }
 
   .btn-ghost-nav.active {
@@ -285,9 +334,8 @@ textarea:focus-visible,
   }
 
   .benefit-card {
-    @apply p-8 border border-white/[0.07] hover:bg-white/[0.03] transition-colors duration-200 hover:border-primary/25;
+    @apply p-8 border border-white/[0.06] hover:bg-white/[0.03] transition-colors duration-300 hover:border-primary/25;
     border-radius: var(--radius-exec);
-    border-left: 3px solid rgba(54, 128, 64, 0.4);
   }
 
   .benefit-card:hover {
@@ -301,7 +349,7 @@ textarea:focus-visible,
 
   .icon-badge {
     @apply w-14 h-14 flex items-center justify-center bg-primary-container border border-primary/30;
-    clip-path: var(--exec-clip);
+    border-radius: var(--radius-exec);
   }
 
   .nav-link-underline::after {
@@ -326,19 +374,48 @@ textarea:focus-visible,
     border-radius: var(--radius-exec);
   }
 
-  /* Full-page scroll video background */
+  /* Full-page Apple scroll-scrub video */
   .page-video-bg {
     position: fixed;
     inset: 0;
     z-index: 1;
     overflow: hidden;
     pointer-events: none;
+    background: #031525;
+  }
+
+  .page-video-bg__veil {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 40%, rgba(6, 45, 85, 0.15) 0%, transparent 65%),
+      linear-gradient(
+        180deg,
+        rgba(3, 21, 37, 0.55) 0%,
+        rgba(3, 21, 37, 0.28) 40%,
+        rgba(3, 21, 37, 0.45) 70%,
+        rgba(2, 16, 24, 0.72) 100%
+      );
   }
 
   .page-video-bg__track {
     position: absolute;
-    inset: -15% 0;
-    transform: translate3d(0, 0, 0);
+    inset: -8% 0;
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  .page-video-bg__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: opacity 0.45s ease;
   }
 
   .client-logo {
@@ -441,15 +518,6 @@ textarea:focus-visible,
     filter: brightness(1.28) saturate(1.12);
   }
 
-  .page-video-bg__video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transform: scale(1.08) translateZ(0);
-    backface-visibility: hidden;
-  }
-
   /* Content layers over video — panels cover, reveal sections show video through */
   .layer-panel {
     position: relative;
@@ -465,7 +533,11 @@ textarea:focus-visible,
 
   .layer-reveal .glass-card,
   .layer-reveal .benefit-card {
-    background: rgba(29, 32, 32, 0.72);
-    backdrop-filter: blur(16px);
+    background: rgba(10, 34, 64, 0.92);
+    backdrop-filter: blur(20px);
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }
