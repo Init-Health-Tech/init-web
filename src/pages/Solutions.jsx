@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
+import StructuredData from "../components/StructuredData";
+import CtaBanner from "../components/CtaBanner";
 import { solutions } from "../data/solutionsData";
 import { getPageSeo } from "../data/seoData";
-import { CheckCircle as CheckCircleIcon, Store as StoreIcon } from "@mui/icons-material";
+import { CheckCircle as CheckCircleIcon } from "@mui/icons-material";
 
 const Solutions = () => {
   const seo = getPageSeo("solutions");
@@ -18,7 +20,9 @@ const Solutions = () => {
         path={seo.path}
         keywords={seo.keywords}
       />
+      <StructuredData description={seo.description} />
       <PageHeader
+        eyebrow="Productos"
         title="Soluciones listas"
         subtitle="ERPinit e initlogistics: software empresarial y logística con trazabilidad RFID listo para empresas en México."
       />
@@ -81,18 +85,12 @@ const Solutions = () => {
         </div>
       </section>
 
-      <section className="section-py gradient-bg relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <StoreIcon className="h-14 w-14 mx-auto mb-6 text-primary" />
-            <h2 className="text-3xl font-bold mb-4">¿Necesitas algo a medida?</h2>
-            <p className="text-on-surface-variant mb-8">
-              Si tu proyecto requiere desarrollo personalizado, nuestros servicios están para ti.
-            </p>
-            <Link to="/services" className="btn-secondary px-8 py-4 inline-flex">Ver servicios</Link>
-          </motion.div>
-        </div>
-      </section>
+      <CtaBanner
+        title="¿Necesitas algo a medida?"
+        text="Si tu proyecto requiere desarrollo personalizado en lugar de una solución lista, nuestros servicios están para ti."
+        ctaLabel="Ver servicios"
+        to="/services"
+      />
     </div>
   );
 };

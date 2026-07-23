@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
+import StructuredData from "../components/StructuredData";
+import CtaBanner from "../components/CtaBanner";
 import { getPageSeo } from "../data/seoData";
 import { teamCopy, teamMembers } from "../data/teamData";
 import {
@@ -41,7 +42,7 @@ const Team = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="glass-card p-6 text-center group"
+      className="glass-card p-6 text-center group transition-transform duration-300 hover:-translate-y-1"
     >
       {SHOW_INDIVIDUAL_MEMBER_PHOTOS && member.image_url ? (
         <div className="w-48 h-48 mx-auto mb-6 overflow-hidden exec-chamfer border border-white/10">
@@ -88,7 +89,9 @@ const Team = () => {
         path={seo.path}
         keywords={seo.keywords}
       />
+      <StructuredData description={seo.description} />
       <PageHeader
+        eyebrow="Quiénes somos"
         title="Nuestro Equipo"
         subtitle={`Equipo de desarrollo de software y consultoría en digitalización en México. ${teamCopy.subtitle}`}
       />
@@ -100,6 +103,8 @@ const Team = () => {
               <img
                 src="/empleados-fotos/init-team.jpg"
                 alt="Los 4 cofundadores de INIT"
+                loading="lazy"
+                decoding="async"
                 className="w-full exec-chamfer shadow-lg border border-white/10 object-contain"
               />
               <p className="text-on-surface-variant mt-4 font-medium">Los 4 cofundadores de INIT</p>
@@ -199,21 +204,11 @@ const Team = () => {
         </div>
       </section>
 
-      <section className="section-py">
-        <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div {...fadeUp} className="glass-card p-12 text-center relative overflow-hidden">
-            <div className="relative z-10">
-              <h2 className="text-3xl font-semibold mb-4 tracking-tight">¿Quieres conocer al equipo detrás de tu proyecto?</h2>
-              <p className="text-on-surface-variant mb-8 max-w-xl mx-auto">
-                Agenda una llamada y platícanos qué necesita tu empresa.
-              </p>
-              <Link to="/contact" className="btn-primary inline-flex items-center px-8 py-4">
-                Contáctanos
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <CtaBanner
+        title="¿Quieres conocer al equipo detrás de tu proyecto?"
+        text="Agenda una llamada y platícanos qué necesita tu empresa."
+        ctaLabel="Agenda una llamada"
+      />
     </div>
   );
 };

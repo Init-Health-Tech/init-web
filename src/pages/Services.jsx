@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
+import StructuredData from "../components/StructuredData";
+import CtaBanner from "../components/CtaBanner";
 import { getPageSeo } from "../data/seoData";
 import {
   Code as CodeIcon,
@@ -26,7 +27,7 @@ const Services = () => {
   const services = [
     {
       icon: CodeIcon,
-      image: "/servicios/desarrollo-software-a-medida.png",
+      image: "/servicios/desarrollo-software-a-medida.jpg",
       title: "Desarrollo de Software a Medida",
       intro: "Para empresas que han crecido más allá de Excel, procesos manuales o sistemas limitados.",
       description: "Diseñamos y desarrollamos aplicaciones web y móviles adaptadas completamente a tu operación.",
@@ -43,7 +44,7 @@ const Services = () => {
     },
     {
       icon: ComputerIcon,
-      image: "/servicios/consultoria-transformacion-digital.png",
+      image: "/servicios/consultoria-transformacion-digital.jpg",
       title: "Consultoría en Transformación Digital",
       intro: "Muchas empresas saben que necesitan digitalizarse, pero no tienen claridad sobre por dónde empezar.",
       description: "En INIT analizamos tu operación y diseñamos un plan tecnológico claro y ejecutable.",
@@ -59,7 +60,7 @@ const Services = () => {
     },
     {
       icon: RocketLaunchIcon,
-      image: "/servicios/soluciones-tecnologicas-integracion.png",
+      image: "/servicios/soluciones-tecnologicas-integracion.jpg",
       title: "Soluciones Tecnológicas e Integración de Sistemas",
       intro: "Para empresas que necesitan automatizar operaciones, conectar sistemas o trabajar con datos en tiempo real.",
       description: "Implementamos plataformas robustas que integran información y procesos en un ecosistema digital.",
@@ -105,7 +106,9 @@ const Services = () => {
         path={seo.path}
         keywords={seo.keywords}
       />
+      <StructuredData description={seo.description} />
       <PageHeader
+        eyebrow="Lo que hacemos"
         title="Nuestros Servicios"
         subtitle="Desarrollo de software a medida, consultoría en transformación digital, Data Analysis, Data Science y cyberseguridad para empresas en México."
       />
@@ -194,14 +197,17 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="glass-card p-6 text-center"
+                className="glass-card p-6 text-center relative hover:-translate-y-1 transition-transform duration-300"
               >
-                <div className="icon-badge mx-auto mb-4 text-white font-semibold text-xl">
+                <div
+                  className="icon-badge mx-auto mb-4 text-white font-semibold text-xl"
+                  style={{ background: "var(--gradient-accent)", borderColor: "var(--color-accent-bright)" }}
+                >
                   {step.step}
                 </div>
                 <h3 className="font-semibold mb-2">{step.title}</h3>
                 <p className="text-sm text-on-surface-variant">{step.description}</p>
-                <p className="text-xs text-primary mt-2">{step.timeframe}</p>
+                <p className="text-xs text-accent mt-2">{step.timeframe}</p>
               </motion.div>
             ))}
           </div>
@@ -235,21 +241,11 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="section-py">
-        <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div {...fadeUp} className="glass-card p-12 text-center relative overflow-hidden">
-            <div className="relative z-10">
-              <h2 className="text-3xl font-semibold mb-4 tracking-tight">¿Listo para automatizar tu operación?</h2>
-              <p className="text-on-surface-variant mb-8 max-w-xl mx-auto">
-                Cuéntanos el reto que enfrenta tu empresa y te proponemos una solución de software a medida.
-              </p>
-              <Link to="/contact" className="btn-primary inline-flex items-center px-8 py-4">
-                Solicitar una propuesta
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <CtaBanner
+        title="¿Listo para automatizar tu operación?"
+        text="Cuéntanos el reto que enfrenta tu empresa y te proponemos una solución de software a medida."
+        ctaLabel="Solicitar una propuesta"
+      />
     </div>
   );
 };

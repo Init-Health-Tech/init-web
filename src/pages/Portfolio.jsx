@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
+import StructuredData from "../components/StructuredData";
+import CtaBanner from "../components/CtaBanner";
 import ClientLogo from "../components/ClientLogo";
+import StatTile from "../components/StatTile";
 import { portfolioClients } from "../data/portfolioData";
 import { getPageSeo } from "../data/seoData";
 import { CheckCircle as CheckCircleIcon } from "@mui/icons-material";
@@ -19,7 +21,9 @@ const Portfolio = () => {
         path={seo.path}
         keywords={seo.keywords}
       />
+      <StructuredData description={seo.description} />
       <PageHeader
+        eyebrow="Casos de éxito"
         title="Proyectos y Clientes"
         subtitle="Casos de éxito en desarrollo de software a medida, aplicaciones web y consultoría digital con empresas en México."
       />
@@ -32,17 +36,7 @@ const Portfolio = () => {
             { value: "100%", label: "Proyectos entregados" },
             { value: "MX", label: "Empresas mexicanas" },
           ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="glass-card p-5 text-center"
-            >
-              <span className="block text-2xl md:text-3xl font-semibold text-primary mb-1">{stat.value}</span>
-              <span className="block text-xs md:text-sm text-on-surface-variant uppercase tracking-wide">{stat.label}</span>
-            </motion.div>
+            <StatTile key={stat.label} {...stat} delay={i * 0.08} compact />
           ))}
         </div>
       </section>
@@ -113,22 +107,11 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section className="section-py">
-        <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass-card p-12 text-center relative overflow-hidden"
-          >
-            <div className="relative z-10">
-              <h2 className="text-3xl font-semibold mb-4 tracking-tight">¿Quieres ser nuestro próximo caso de éxito?</h2>
-              <p className="text-on-surface-variant mb-8">Cuéntanos tu proyecto y te proponemos una solución a medida.</p>
-              <Link to="/contact" className="btn-primary inline-flex items-center px-8 py-4">Contáctanos</Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <CtaBanner
+        title="¿Quieres ser nuestro próximo caso de éxito?"
+        text="Cuéntanos tu proyecto y te proponemos una solución a medida."
+        ctaLabel="Cuéntanos tu proyecto"
+      />
     </div>
   );
 };

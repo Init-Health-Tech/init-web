@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
+import StructuredData from "../components/StructuredData";
 import { getPageSeo } from "../data/seoData";
 import {
   Email as EmailIcon,
@@ -104,7 +105,9 @@ const Contact = () => {
   return (
     <div className="min-h-screen relative z-10">
       <PageHead title={seo.title} description={seo.description} path={seo.path} keywords={seo.keywords} />
+      <StructuredData description={seo.description} />
       <PageHeader
+        eyebrow="Hablemos"
         title="Contáctanos"
         subtitle="Solicita una propuesta de desarrollo de software a medida o consultoría en digitalización. Ciudad López Mateos, Estado de México."
       />
@@ -133,24 +136,27 @@ const Contact = () => {
               <div className="glass-card p-8">
                 <h2 className="text-2xl font-bold mb-6">Envíanos un Mensaje</h2>
                 {submitStatus === "success" && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 bg-primary/10 border border-primary/30 text-primary px-4 py-3 exec-chamfer flex items-center">
-                    <CheckCircleIcon className="h-5 w-5 mr-2" /> ¡Mensaje enviado! Nos pondremos en contacto pronto.
+                  <motion.div role="status" aria-live="polite" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 bg-primary/10 border border-primary/30 text-primary px-4 py-3 exec-chamfer flex items-center">
+                    <CheckCircleIcon className="h-5 w-5 mr-2" aria-hidden="true" /> ¡Mensaje enviado! Nos pondremos en contacto pronto.
                   </motion.div>
                 )}
                 {submitStatus === "error" && errors.submit && (
-                  <div className="mb-6 bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 exec-chamfer">{errors.submit}</div>
+                  <div role="alert" className="mb-6 bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 exec-chamfer">{errors.submit}</div>
                 )}
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   {[
-                    { id: "name", label: "Nombre Completo *", type: "text", ph: "Tu nombre" },
-                    { id: "email", label: "Email *", type: "email", ph: "tu@email.com" },
-                    { id: "subject", label: "Asunto *", type: "text", ph: "¿En qué podemos ayudarte?" },
+                    { id: "name", label: "Nombre Completo *", type: "text", ph: "Tu nombre", autoComplete: "name" },
+                    { id: "email", label: "Email *", type: "email", ph: "tu@email.com", autoComplete: "email" },
+                    { id: "subject", label: "Asunto *", type: "text", ph: "¿En qué podemos ayudarte?", autoComplete: "off" },
                   ].map((f) => (
                     <div key={f.id}>
                       <label htmlFor={f.id} className="block text-sm font-semibold mb-2">{f.label}</label>
                       <input type={f.type} id={f.id} name={f.id} required value={formData[f.id]} onChange={handleChange}
+                        autoComplete={f.autoComplete}
+                        aria-invalid={errors[f.id] ? "true" : "false"}
+                        aria-describedby={errors[f.id] ? `${f.id}-error` : undefined}
                         className={`input-field ${errors[f.id] ? "border-red-500" : ""}`} placeholder={f.ph} />
-                      {errors[f.id] && <p className="text-sm text-red-400 mt-1">{errors[f.id]}</p>}
+                      {errors[f.id] && <p id={`${f.id}-error`} role="alert" className="text-sm text-red-400 mt-1">{errors[f.id]}</p>}
                     </div>
                   ))}
                   <div>
@@ -170,15 +176,21 @@ const Contact = () => {
                   <div>
                     <label htmlFor="message" className="block text-sm font-semibold mb-2">Mensaje *</label>
                     <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange}
+                      aria-invalid={errors.message ? "true" : "false"}
+                      aria-describedby={errors.message ? "message-error" : undefined}
                       className={`input-field resize-none ${errors.message ? "border-red-500" : ""}`} placeholder="Cuéntanos sobre tu proyecto..." />
-                    {errors.message && <p className="text-sm text-red-400 mt-1">{errors.message}</p>}
+                    {errors.message && <p id="message-error" role="alert" className="text-sm text-red-400 mt-1">{errors.message}</p>}
                   </div>
-                  <div className="absolute -left-[9999px] opacity-0" aria-hidden>
-                    <input type="text" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} />
+                  <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
+                    <label htmlFor="website">No llenar este campo</label>
+                    <input type="text" id="website" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
                   </div>
                   <button type="submit" disabled={isSubmitting} className="w-full btn-primary py-3 disabled:opacity-50">
-                    {isSubmitting ? "Enviando..." : <span className="flex items-center justify-center gap-2"><SendIcon className="h-5 w-5" /> Enviar Mensaje</span>}
+                    {isSubmitting ? "Enviando..." : <span className="flex items-center justify-center gap-2"><SendIcon className="h-5 w-5" aria-hidden="true" /> Enviar Mensaje</span>}
                   </button>
+                  <p className="text-xs text-on-surface-variant text-center">
+                    Te contactaremos usando el correo o teléfono que nos compartas.
+                  </p>
                 </form>
               </div>
             </motion.div>
@@ -198,13 +210,20 @@ const Contact = () => {
                   type="button"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-5 text-left font-semibold hover:bg-white/5 transition-colors"
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-panel-${i}`}
+                  id={`faq-button-${i}`}
                 >
                   {faq.q}
-                  <ExpandMoreIcon className={`h-5 w-5 text-primary transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`} />
+                  <ExpandMoreIcon className={`h-5 w-5 text-primary transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`} aria-hidden="true" />
                 </button>
                 <AnimatePresence>
                   {openFaq === i && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                    <motion.div
+                      id={`faq-panel-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-button-${i}`}
+                      initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
                       <p className="px-5 pb-5 text-on-surface-variant text-sm leading-relaxed">{faq.a}</p>
                     </motion.div>
                   )}

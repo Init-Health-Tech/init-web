@@ -46,12 +46,12 @@ const Navbar = () => {
           <span className="hidden sm:block text-lg font-semibold text-primary tracking-tight">INIT</span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-6">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
-              className={`btn-ghost-nav nav-link-underline px-1 py-2 ${
+              className={`btn-ghost-nav nav-link-underline px-1 py-2 whitespace-nowrap ${
                 isActive(item.href) ? 'active' : ''
               }`}
             >
@@ -63,11 +63,11 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className={`hidden sm:inline-flex btn-primary px-5 py-2 ${
+            className={`hidden sm:inline-flex btn-primary px-5 py-2 whitespace-nowrap ${
               location.pathname === '/contact' ? 'border-primary/60' : ''
             }`}
           >
-            Contacto
+            Cotiza tu proyecto
           </Link>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -100,7 +100,7 @@ const Navbar = () => {
             to="/contact"
             className="block px-3 py-3 text-sm font-semibold uppercase tracking-wider text-primary bg-primary-container/20 exec-chamfer"
           >
-            Contacto
+            Cotiza tu proyecto
           </Link>
         </div>
       )}

@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/* Inter is loaded from index.html (preconnect + <link rel="stylesheet">)
+   so the font request starts before this stylesheet is even parsed. */
 @import "tailwindcss";
 
 @theme {
@@ -8,6 +9,13 @@
   --color-init-light: #d6d8d7;
   --color-init-green: #368040;
   --color-init-green-bright: #2d8a47;
+
+  /* New accent — warm gold, used sparingly (~5-10% of visual weight):
+     gradient text, stat numbers, eyebrow labels, timeline markers,
+     featured-card borders. Never a full section background. */
+  --color-accent: #d4a24e;
+  --color-accent-bright: #e8b968;
+  --color-accent-container: #4a3a1e;
 
   --color-surface: #0f1111;
   --color-background: #0f1111;
@@ -28,10 +36,24 @@
 
   --radius-exec: 2px;
   --chamfer: 10px;
+  /* Shared six-point "chamfered corner" clip-path used by exec-chamfer,
+     exec-frame, btn-primary, btn-secondary and icon-badge. Defined once
+     here so all of them stay in sync instead of repeating the polygon(). */
+  --exec-clip: polygon(
+    var(--chamfer) 0,
+    100% 0,
+    100% calc(100% - var(--chamfer)),
+    calc(100% - var(--chamfer)) 100%,
+    0 100%,
+    0 var(--chamfer)
+  );
 
   --animate-marquee: marquee 40s linear infinite;
 
   --max-width-container: 1200px;
+
+  --gradient-accent: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
 }
 
 @keyframes breathe {
@@ -84,9 +106,10 @@
     @apply bg-background text-on-surface antialiased overflow-x-hidden;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: var(--font-heading);
     @apply font-semibold tracking-tight text-on-surface;
     letter-spacing: -0.02em;
+    line-height: 1.15;
   }
 }
 
@@ -96,6 +119,19 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Visible keyboard-focus ring across the site. Mouse/touch clicks don't
+   trigger :focus-visible, so this only shows up for keyboard navigation. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 @layer components {
@@ -120,26 +156,12 @@
   }
 
   .exec-chamfer {
-    clip-path: polygon(
-      var(--chamfer) 0,
-      100% 0,
-      100% calc(100% - var(--chamfer)),
-      calc(100% - var(--chamfer)) 100%,
-      0 100%,
-      0 var(--chamfer)
-    );
+    clip-path: var(--exec-clip);
   }
 
   .exec-frame {
     @apply bg-white p-3 border border-white/25 shadow-md;
-    clip-path: polygon(
-      var(--chamfer) 0,
-      100% 0,
-      100% calc(100% - var(--chamfer)),
-      calc(100% - var(--chamfer)) 100%,
-      0 100%,
-      0 var(--chamfer)
-    );
+    clip-path: var(--exec-clip);
   }
 
   .glass-card {
@@ -170,37 +192,54 @@
     @apply text-primary;
   }
 
+  /* Gradient headline accent — primary → gold, slow drift via gradient-shift.
+     Used sparingly on a single keyword per hero, never a whole paragraph. */
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  /* Shimmer sweep for stat numbers — subtle, one-time-feeling loop. */
+  .stat-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-accent-bright) 50%,
+      var(--color-accent) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3.5s linear infinite;
+  }
+
+  /* Soft breathing glow for background orbs. */
+  .orb-breathe {
+    animation: breathe 6s ease-in-out infinite;
+  }
+
   .btn-primary {
     @apply bg-primary-container hover:bg-secondary-container text-on-primary-container font-semibold py-3 px-6 text-xs uppercase tracking-widest transition-colors duration-200;
     border: 1px solid rgba(106, 171, 110, 0.35);
     box-shadow: none;
     transform: none;
-    clip-path: polygon(
-      var(--chamfer) 0,
-      100% 0,
-      100% calc(100% - var(--chamfer)),
-      calc(100% - var(--chamfer)) 100%,
-      0 100%,
-      0 var(--chamfer)
-    );
+    clip-path: var(--exec-clip);
   }
 
   .btn-primary:hover {
-    animation: none;
+    animation: glow-pulse 2s ease-in-out infinite;
     transform: none;
     border-color: rgba(106, 171, 110, 0.55);
   }
 
   .btn-secondary {
     @apply border border-outline/80 text-on-surface hover:bg-white/[0.04] hover:border-primary/40 font-semibold py-3 px-6 text-xs uppercase tracking-widest transition-colors duration-200;
-    clip-path: polygon(
-      var(--chamfer) 0,
-      100% 0,
-      100% calc(100% - var(--chamfer)),
-      calc(100% - var(--chamfer)) 100%,
-      0 100%,
-      0 var(--chamfer)
-    );
+    clip-path: var(--exec-clip);
   }
 
   .btn-ghost-nav {
@@ -211,21 +250,6 @@
     @apply text-primary;
     border-bottom: 2px solid var(--color-primary);
     padding-bottom: 0.2rem;
-  }
-
-  .card-luxury {
-    background: rgba(26, 29, 29, 0.85);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-left: 3px solid rgba(54, 128, 64, 0.55);
-    border-radius: var(--radius-exec);
-    transition: border-color 0.25s ease;
-  }
-
-  .card-luxury:hover {
-    border-color: rgba(106, 171, 110, 0.25);
-    transform: none;
-    box-shadow: none;
   }
 
   .input-field {
@@ -277,14 +301,7 @@
 
   .icon-badge {
     @apply w-14 h-14 flex items-center justify-center bg-primary-container border border-primary/30;
-    clip-path: polygon(
-      var(--chamfer) 0,
-      100% 0,
-      100% calc(100% - var(--chamfer)),
-      calc(100% - var(--chamfer)) 100%,
-      0 100%,
-      0 var(--chamfer)
-    );
+    clip-path: var(--exec-clip);
   }
 
   .nav-link-underline::after {

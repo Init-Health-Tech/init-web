@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
+import StructuredData from "../components/StructuredData";
 import PageVideoBackground from "../components/PageVideoBackground";
 import ClientLogo from "../components/ClientLogo";
 import PartnerSection from "../components/PartnerSection";
+import CtaBanner from "../components/CtaBanner";
+import IconFeatureCard from "../components/IconFeatureCard";
+import StatTile from "../components/StatTile";
 import { clientLogos, getClientLogo } from "../data/clientsData";
 import { getPageSeo, SITE_URL } from "../data/seoData";
 import { teamCopy, teamStats } from "../data/teamData";
@@ -110,67 +113,32 @@ const Home = () => {
         path={seo.path}
         keywords={seo.keywords}
       />
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify([
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "INIT",
-              url: SITE_URL,
-              logo: `${SITE_URL}/Init-Logo.svg`,
-              description:
-                "Empresa de desarrollo de software a medida y consultoría en digitalización para empresas en México.",
-              telephone: "+52 55 4761 7977",
-              email: "support@init.com.mx",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Ciudad López Mateos",
-                addressRegion: "Estado de México",
-                addressCountry: "MX",
-              },
-              areaServed: { "@type": "Country", name: "México" },
-              knowsAbout: [
-                "Desarrollo de software a medida",
-                "Aplicaciones web empresariales",
-                "Consultoría en digitalización",
-                "Transformación digital",
-                "Cyberseguridad",
-                "Data Analysis",
-              ],
+      <StructuredData
+        description={seo.description}
+        extra={[
+          {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            name: "INIT — Desarrollo de Software a Medida",
+            url: SITE_URL,
+            image: `${SITE_URL}/Init-Logo.svg`,
+            telephone: "+52 55 4761 7977",
+            priceRange: "$$",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Ciudad López Mateos",
+              addressRegion: "Estado de México",
+              addressCountry: "MX",
             },
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "INIT",
-              url: SITE_URL,
-              description: seo.description,
-              inLanguage: "es-MX",
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "INIT — Desarrollo de Software a Medida",
-              url: SITE_URL,
-              image: `${SITE_URL}/Init-Logo.svg`,
-              telephone: "+52 55 4761 7977",
-              priceRange: "$$",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Ciudad López Mateos",
-                addressRegion: "Estado de México",
-                addressCountry: "MX",
-              },
-              serviceType: [
-                "Desarrollo de software a medida",
-                "Consultoría en transformación digital",
-                "Desarrollo de aplicaciones web",
-                "Integración de sistemas",
-              ],
-            },
-          ])}
-        </script>
-      </Helmet>
+            serviceType: [
+              "Desarrollo de software a medida",
+              "Consultoría en transformación digital",
+              "Desarrollo de aplicaciones web",
+              "Integración de sistemas",
+            ],
+          },
+        ]}
+      />
 
       <PageVideoBackground />
 
@@ -241,23 +209,7 @@ const Home = () => {
             { icon: SupportIcon, value: "24/7", label: "Soporte Técnico", sub: "post-lanzamiento incluido" },
             { icon: LocationIcon, value: "Edo. México", label: "Sede y Operación", sub: "Ciudad López Mateos" },
           ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              {...fadeUp}
-              transition={{ ...fadeUp.transition, delay: i * 0.12 }}
-              className="glass-card flex items-start gap-4 p-6"
-            >
-              <div className="icon-badge shrink-0">
-                <stat.icon className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <span className="block text-2xl md:text-3xl font-semibold text-on-surface leading-none mb-1">
-                  {stat.value}
-                </span>
-                <span className="block text-sm font-semibold text-on-surface uppercase tracking-wide">{stat.label}</span>
-                <span className="block text-xs text-on-surface-variant mt-1">{stat.sub}</span>
-              </div>
-            </motion.div>
+            <StatTile key={stat.label} {...stat} delay={i * 0.12} />
           ))}
         </div>
       </section>
@@ -393,7 +345,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group cursor-pointer"
+                className="group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
               >
                 {getClientLogo(item.client) && (
                   <div
@@ -456,52 +408,20 @@ const Home = () => {
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyUs.map((b, i) => {
-              const Icon = b.icon;
-              return (
-                <motion.div
-                  key={b.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="benefit-card"
-                >
-                  <Icon className="h-8 w-8 text-primary mb-4" />
-                  <h4 className="text-lg font-semibold mb-2">{b.title}</h4>
-                  <p className="text-on-surface-variant text-sm">{b.text}</p>
-                </motion.div>
-              );
-            })}
+            {whyUs.map((b, i) => (
+              <IconFeatureCard key={b.title} icon={b.icon} title={b.title} text={b.text} delay={i * 0.08} />
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA final — reveal, video visible around card */}
-      <section className="layer-reveal section-py">
-        <div className="max-w-container mx-auto px-6 md:px-20">
-          <motion.div
-            {...fadeUp}
-            className="glass-card p-12 md:p-20 text-center relative overflow-hidden"
-          >
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">¿Listo para transformar tu empresa?</h2>
-              <p className="text-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
-                Cuéntanos tu proyecto de software a medida o agenda una llamada. Te proponemos una
-                solución de desarrollo web o consultoría digital sin compromiso.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact" className="btn-primary text-base px-10 py-5 inline-flex items-center justify-center gap-2">
-                  Agenda una llamada <ArrowForwardIcon className="h-5 w-5" />
-                </Link>
-                <Link to="/contact" className="btn-secondary text-base px-10 py-5">
-                  Cuéntanos tu proyecto
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <CtaBanner
+        title="¿Listo para transformar tu empresa?"
+        text="Cuéntanos tu proyecto de software a medida o agenda una llamada. Te proponemos una solución de desarrollo web o consultoría digital sin compromiso."
+        ctaLabel="Agenda una llamada"
+        secondaryLabel="Cuéntanos tu proyecto"
+      />
     </div>
   );
 };
