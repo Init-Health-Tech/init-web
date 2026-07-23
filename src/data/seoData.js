@@ -1,23 +1,18 @@
 /**
- * SEO por ruta: títulos, descripciones y palabras clave.
- * Las descriptions deben mantenerse entre ~150–160 caracteres cuando sea posible.
+ * SEO por ruta — posicionamiento global INIT.
  */
 export const SITE_URL = "https://init.com.mx";
 export const SITE_NAME = "INIT";
 
 export const defaultKeywords = [
-  "desarrollo de software a medida",
-  "software empresarial México",
-  "aplicaciones web a medida",
-  "consultoría en digitalización",
-  "transformación digital",
-  "desarrollo web México",
+  "arquitectura tecnológica",
+  "desarrollo software empresarial",
+  "ERP Odoo",
+  "logística RFID",
+  "inteligencia aplicada",
   "sistemas empresariales",
-  "automatización de procesos",
-  "integración de sistemas",
-  "desarrollo de software Estado de México",
-  "software para pymes México",
   "INIT",
+  "Brilliant Minds Building the Future",
 ].join(", ");
 
 export const pageSeo = {
@@ -27,27 +22,23 @@ export const pageSeo = {
     description:
       "INIT: Brilliant minds building the future. Consultora de software a medida y digitalización en México. Evaluamos fit — no vendemos por vender.",
     keywords: [
-      "desarrollo de software a medida México",
-      "aplicaciones web empresariales",
-      "consultoría digitalización empresas",
-      "transformación digital pymes",
-      "software empresarial Estado de México",
-      "sistemas de gestión a medida",
-      "desarrollo web Ciudad López Mateos",
-      "automatización procesos empresariales",
+      "arquitectura tecnológica",
+      "sistemas empresariales",
+      "ERP Odoo implementación",
+      "logística RFID IoT",
+      "inteligencia aplicada empresas",
+      "INIT software",
     ].join(", "),
   },
   team: {
     path: "/team",
-    title: "Equipo de Desarrollo de Software y Consultoría Digital",
+    title: "Equipo INIT — Arquitectura Tecnológica",
     description:
-      "Equipo de desarrollo de software, consultoría en digitalización y transformación digital en México. Cofundadores, consultora senior y talento técnico de INIT.",
+      "Tres disciplinas. Un estándar. Arquitectura de sistemas, operaciones tecnológicas y trazabilidad logística.",
     keywords: [
-      "equipo desarrollo software México",
-      "consultores transformación digital",
-      "desarrolladores software a medida",
-      "empresa tecnología Estado de México",
       "equipo INIT",
+      "arquitecto sistemas empresariales",
+      "firma tecnología enterprise",
     ].join(", "),
   },
   services: {
@@ -56,41 +47,35 @@ export const pageSeo = {
     description:
       "Software a medida, digitalización e integración de sistemas para empresas en México. Pocos proyectos. Estándar alto. INIT.",
     keywords: [
-      "servicios desarrollo software a medida",
-      "consultoría transformación digital México",
-      "desarrollo aplicaciones web empresariales",
-      "integración de sistemas",
-      "data analysis empresas",
-      "cyberseguridad empresarial",
-      "automatización procesos",
+      "sistemas empresariales",
+      "ERP Odoo",
+      "logística RFID",
+      "inteligencia aplicada",
+      "arquitectura software enterprise",
     ].join(", "),
   },
   solutions: {
     path: "/soluciones",
-    title: "ERPinit e initlogistics: Software Listo para Empresas",
+    title: "ERPinit e initlogistics — Plataformas INIT",
     description:
-      "ERPinit e initlogistics: ERP y plataforma logística con trazabilidad RFID para empresas en México. Software listo para usar sin desarrollo a medida.",
+      "ERPinit e initlogistics: plataformas propias para operaciones que exigen criterio de implementación.",
     keywords: [
-      "ERP México",
-      "software ERP empresas",
-      "logística RFID México",
-      "initlogistics",
       "ERPinit",
-      "software listo para usar",
-      "trazabilidad logística",
+      "initlogistics",
+      "ERP empresarial",
+      "trazabilidad RFID",
+      "plataforma logística",
     ].join(", "),
   },
   portfolio: {
     path: "/portfolio",
-    title: "Proyectos y Clientes: Casos de Éxito en Software",
+    title: "Evidencia — INIT",
     description:
-      "Casos de éxito de INIT: desarrollo web, software a medida y consultoría digital para CONFE, JOFRA, Carbiu, Polola's, TRANSCOM y Geller Abogados en México.",
+      "Decisiones estratégicas de empresas que eligieron INIT para su evolución operativa. JOFRA, TRANSCOM, CONFE y más.",
     keywords: [
-      "casos de éxito desarrollo software",
-      "clientes software a medida México",
-      "portafolio desarrollo web",
-      "proyectos transformación digital",
-      "empresa desarrollo software clientes",
+      "evidencia INIT",
+      "arquitectura empresarial casos",
+      "sistemas empresariales referencias",
     ].join(", "),
   },
   contact: {

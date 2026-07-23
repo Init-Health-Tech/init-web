@@ -1,29 +1,31 @@
 /**
- * Datos estáticos del equipo para despliegue solo frontend (Vercel).
- * 4 socios cofundadores, 1 senior, 2 becarios.
+ * Datos del equipo INIT.
  */
 export const teamMembers = [
-  // Cofundadores (4)
   {
     id: 1,
     name: "Enrique Jimenez Guevara",
-    position: "Cofundador",
+    position: "Director de Operaciones Tecnológicas",
     role: "owner",
-    bio: "Liderazgo estratégico y visión de negocio. Experiencia en ventas B2B y B2C, transformación digital y gestión de equipos.",
-    expertise: "Estrategia, Liderazgo, Digitalización, Ventas B2B y B2C, Customer success, Entendimiento de proceso, Levantamiento de necesidades",
-    technologies: "Gestión de equipos, Negocio digital, Ventas B2B, Ventas B2C, Customer success, Levantamiento de necesidades",
+    featured: true,
+    bio: "Conecta la estrategia del negocio con la ejecución técnica sin capas intermedias.",
+    quote: "La mejor arquitectura es la que el equipo operativo puede sostener.",
+    expertise: "Estrategia, Liderazgo, Negocio B2B y B2C",
+    technologies: "Gestión de equipos, Negocio digital, Ventas B2B, Ventas B2C",
     image_url: "/empleados-fotos/jimenez-guevara-enrique.jpg",
     email: "enrique.jimenez@init.com.mx",
-    linkedin: null, // Reemplazar con URL real o dejar null para ocultar
+    linkedin: null,
   },
   {
     id: 2,
     name: "Iñaki Guerrero Negrete",
-    position: "Cofundador",
+    position: "Arquitecto de Sistemas",
     role: "owner",
-    bio: "Arquitecto de soluciones y referente técnico. Especializado en cloud y arquitecturas escalables.",
-    expertise: "Cloud, Arquitectura, DevOps, Customer success, Entendimiento de proceso, Levantamiento de necesidades",
-    technologies: "Experto en todo el stack: Cloud, Backend, Frontend, DevOps, Arquitectura. Customer success, Levantamiento de necesidades",
+    featured: true,
+    bio: "Diseña la infraestructura que sostiene operaciones sin margen de error.",
+    quote: "Si no escala en cinco años, no se construye hoy.",
+    expertise: "Cloud, Arquitectura, DevOps",
+    technologies: "Cloud, Backend, Frontend, DevOps, Arquitectura",
     image_url: "/empleados-fotos/guerrero-negrete-inaki.jpg",
     email: "inaki.guerrero@init.com.mx",
     linkedin: null,
@@ -33,9 +35,10 @@ export const teamMembers = [
     name: "Javier Corona del Rio",
     position: "Cofundador",
     role: "owner",
-    bio: "Desarrollo de negocio y relaciones con clientes. Experiencia desarrollando páginas web avanzadas y modernas para clientes. Enfoque en crecimiento y alianzas estratégicas.",
-    expertise: "Ventas, Alianzas, Negocio, Desarrollo web, Customer success, Entendimiento de proceso, Levantamiento de necesidades",
-    technologies: "Ventas B2B, Alianzas estratégicas, Páginas web avanzadas, Customer success, Levantamiento de necesidades",
+    featured: false,
+    bio: "Desarrollo de negocio y relaciones con clientes. Enfoque en crecimiento y alianzas.",
+    expertise: "Ventas, Alianzas, Negocio, Desarrollo web",
+    technologies: "Ventas B2B, Alianzas estratégicas, Páginas web avanzadas",
     image_url: "/empleados-fotos/corona-del-rio-javier.jpg",
     email: "javier.corona@init.com.mx",
     linkedin: null,
@@ -43,37 +46,39 @@ export const teamMembers = [
   {
     id: 4,
     name: "Luken Eguiluz del Angel",
-    position: "Cofundador",
+    position: "Estratega de Logística & Trazabilidad",
     role: "owner",
-    bio: "Gestión operativa y calidad. Experto en RFID y soluciones logísticas relacionadas. Aseguramos la entrega y la excelencia en cada proyecto.",
-    expertise: "Operaciones, Calidad, Procesos, RFID, Logística, Customer success, Entendimiento de proceso, Levantamiento de necesidades",
-    technologies: "Gestión de proyectos, QA, Procesos, RFID, Trazabilidad logística, Customer success, Levantamiento de necesidades",
+    featured: true,
+    bio: "RFID, IoT y visibilidad operativa desde el diseño — no desde el proveedor.",
+    quote: "Los datos deben llegar antes que el problema.",
+    expertise: "Operaciones, Calidad, RFID, Logística",
+    technologies: "Gestión de proyectos, QA, RFID, Trazabilidad logística",
     image_url: "/empleados-fotos/eguiluz-del-angel-luken.jpg",
     email: "luken.eguiluz@init.com.mx",
     linkedin: null,
   },
-  // Consultora senior (1)
   {
     id: 5,
     name: "Carolina Martinez",
     position: "Consultora Senior",
     role: "senior",
-    bio: "Procesos de calidad, levantamiento de necesidades y seguimiento de proyectos. Acompaña a los clientes desde el análisis hasta la entrega.",
-    expertise: "Procesos de calidad, Levantamiento de necesidades, Seguimiento, Customer success, Entendimiento de proceso",
-    technologies: "Levantamiento de requisitos, Metodologías ágiles, Customer success, Levantamiento de necesidades",
+    featured: false,
+    bio: "Procesos de calidad, levantamiento de necesidades y seguimiento de proyectos.",
+    expertise: "Procesos de calidad, Levantamiento de necesidades, Seguimiento",
+    technologies: "Levantamiento de requisitos, Metodologías ágiles",
     image_url: "/empleados-fotos/martinez-carolina.jpg",
     email: "carolina.martinez@init.com.mx",
     linkedin: null,
   },
-  // Becarios (2)
   {
     id: 6,
     name: "Xoan Pablo Rodriguez",
     position: "Becario en Desarrollo",
     role: "intern",
-    bio: "Documentación, pruebas de sistema para detectar fallas, y apoyo en levantamiento de necesidades y atención al cliente. Apasionado por la tecnología y el aprendizaje continuo.",
-    expertise: "Documentación, Pruebas de sistema, Levantamiento de necesidades, Atención al cliente, Customer success, Entendimiento de proceso",
-    technologies: "JavaScript, React, Git, QA, Documentación técnica, Customer success, Levantamiento de necesidades",
+    featured: false,
+    bio: "Documentación, pruebas de sistema y apoyo en levantamiento de necesidades.",
+    expertise: "Documentación, Pruebas de sistema, QA",
+    technologies: "JavaScript, React, Git, QA, Documentación técnica",
     image_url: "/empleados-fotos/rodriguez-xoan-pablo.jpg",
     email: "xoan.rodriguez@init.com.mx",
     linkedin: null,
@@ -83,9 +88,10 @@ export const teamMembers = [
     name: "Diego Luna",
     position: "Becario en Desarrollo",
     role: "intern",
-    bio: "Documentación, pruebas de sistema para detectar fallas, y apoyo en levantamiento de necesidades y atención al cliente. Apasionado por la tecnología y el aprendizaje continuo.",
-    expertise: "Documentación, Pruebas de sistema, Levantamiento de necesidades, Atención al cliente, Customer success, Entendimiento de proceso",
-    technologies: "JavaScript, React, Git, QA, Documentación técnica, Customer success, Levantamiento de necesidades",
+    featured: false,
+    bio: "Documentación, pruebas de sistema y apoyo en levantamiento de necesidades.",
+    expertise: "Documentación, Pruebas de sistema, QA",
+    technologies: "JavaScript, React, Git, QA, Documentación técnica",
     image_url: null,
     email: "diego.luna@init.com.mx",
     linkedin: null,
@@ -93,19 +99,16 @@ export const teamMembers = [
 ];
 
 export const teamStats = {
-  total: teamMembers.length,
-  owners: teamMembers.filter((m) => m.role === "owner").length,
-  seniors: teamMembers.filter((m) => m.role === "senior").length,
-  interns: teamMembers.filter((m) => m.role === "intern").length,
+  total: teamMembers.filter((m) => m.featured).length,
+  owners: teamMembers.filter((m) => m.role === "owner" && m.featured).length,
 };
-
-const internLabel =
-  teamStats.interns === 1 ? "un becario" : teamStats.interns === 2 ? "dos becarios" : `${teamStats.interns} becarios`;
 
 export const teamCopy = {
-  composition: `${teamStats.owners} cofundadores, una consultora senior y ${internLabel}`,
-  about: `${teamStats.owners} cofundadores, una consultora senior y ${internLabel}, comprometidos con la excelencia.`,
-  subtitle: `Somos ${teamStats.total} personas: ${teamStats.owners} cofundadores, una consultora senior y ${internLabel}, comprometidos con la excelencia.`,
-  meta: `Equipo de desarrollo de software y consultoría en digitalización en México: ${teamStats.owners} cofundadores, consultora senior y ${internLabel}.`,
-  size: `${teamStats.total} personas: trato cercano y sin capas innecesarias.`,
+  about: "Tres disciplinas. Un estándar. Arquitectura, operaciones y logística en la misma mesa.",
+  subtitle: "Grupo pequeño. Criterio extraordinario. Sin capas innecesarias.",
+  meta: "Equipo INIT: arquitectura de sistemas, operaciones tecnológicas y trazabilidad logística.",
+  size: "Grupo deliberadamente pequeño. Sin capas innecesarias.",
 };
+
+export const getFeaturedTeam = () =>
+  teamMembers.filter((m) => m.featured);

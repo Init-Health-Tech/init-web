@@ -1,5 +1,5 @@
 /**
- * Partners estratégicos de INIT.
+ * Alianzas de INIT.
  */
 export const partners = [
   {
