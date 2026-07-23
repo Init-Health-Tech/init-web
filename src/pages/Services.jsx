@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
@@ -10,11 +9,10 @@ import { getPageSeo } from "../data/seoData";
 import { useLanguage } from "../i18n/LanguageContext";
 import {
   Code as CodeIcon,
-  AccountTree as ErpIcon,
-  Sensors as LogisticsIcon,
-  Psychology as IaIcon,
-  Speed as SpeedIcon,
+  Computer as ComputerIcon,
+  RocketLaunch as RocketLaunchIcon,
   Security as SecurityIcon,
+  Speed as SpeedIcon,
   Support as SupportIcon,
   TrendingUp as TrendingUpIcon,
   CheckCircle as CheckCircleIcon,
@@ -75,7 +73,7 @@ const Services = () => {
             const isImageRight = index % 2 === 1;
             return (
               <motion.div
-                key={pillar.slug}
+                key={service.title}
                 {...fadeUp}
                 transition={{ ...fadeUp.transition, delay: index * 0.08 }}
                 className={`grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center ${isImageRight ? "lg:grid-flow-dense" : ""}`}
@@ -113,7 +111,6 @@ const Services = () => {
                   <p className="text-primary font-medium border-l-2 border-primary pl-4 leading-relaxed">
                     {service.result}
                   </p>
-                  <p className="text-sm text-on-surface-variant italic">{pillar.closer}</p>
                 </div>
               </motion.div>
             );
@@ -209,9 +206,6 @@ const Services = () => {
                 </motion.div>
               );
             })}
-          </div>
-          <div className="text-center mt-12">
-            <Link to="/contact" className="btn-primary inline-flex px-8 py-4">Iniciar conversación</Link>
           </div>
         </div>
       </section>

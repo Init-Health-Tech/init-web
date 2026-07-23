@@ -16,8 +16,6 @@ import {
   KeyboardArrowDown as ChevronDownIcon,
 } from "@mui/icons-material";
 
-const pillarIcons = [CodeIcon, ErpIcon, LogisticsIcon, IaIcon];
-
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
@@ -93,15 +91,6 @@ const Home = () => {
               {BRAND.slogan}
             </p>
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="text-lg md:text-xl italic text-on-surface-variant mb-6 tracking-tight"
-          >
-            {TAGLINE}
-          </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 22 }}
@@ -284,7 +273,7 @@ const Home = () => {
                 transition={{ ...fadeUp.transition, delay: i * 0.08 }}
                 className="group text-center"
               >
-                {getClientLogo(item.name) && (
+                {getClientLogo(item.client) && (
                   <div
                     className={`success-case-logo flex items-center justify-center mb-7 h-32 sm:h-36 md:h-40 border rounded-[var(--radius-exec)] ${
                       item.client === "CONFE" || item.client === "Polola's"
@@ -294,13 +283,19 @@ const Home = () => {
                   >
                     <ClientLogo
                       client={
-                        item.name === "CONFE"
-                          ? { ...getClientLogo(item.name), lightBg: false }
-                          : getClientLogo(item.name)
+                        item.client === "CONFE" || item.client === "Polola's"
+                          ? { ...getClientLogo(item.client), lightBg: false }
+                          : getClientLogo(item.client)
                       }
                       size="lg"
                       variant="featured"
-                      className={item.name === "CONFE" ? "success-case-confe-logo" : ""}
+                      className={
+                        item.client === "CONFE"
+                          ? "success-case-confe-logo"
+                          : item.client === "Polola's"
+                            ? "success-case-pololas-logo"
+                            : ""
+                      }
                     />
                   </div>
                 )}

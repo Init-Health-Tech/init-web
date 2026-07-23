@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
@@ -16,8 +15,15 @@ import {
   CheckCircle as CheckCircleIcon,
 } from "@mui/icons-material";
 
+// ─── Fotos del equipo ───────────────────────────────────────────────────────
+// Fotos individuales (cofundadores, consultora, becarios).
+// Cambiar a false para ocultarlas y mostrar solo el ícono placeholder.
 const SHOW_INDIVIDUAL_MEMBER_PHOTOS = true;
+
+// Foto grupal de los 4 cofundadores (init-team.jpg).
+// Cambiar a false para ocultar esa sección.
 const SHOW_TEAM_GROUP_PHOTO = true;
+// ─────────────────────────────────────────────────────────────────────────────
 
 const ROLE_POSITION_KEY = {
   owner: "cofounder",
@@ -215,9 +221,6 @@ const Team = () => {
                   <p className="text-on-surface-variant leading-relaxed">{v.d}</p>
                 </motion.div>
               ))}
-            </div>
-            <div className="mt-12">
-              <Link to="/contact" className="btn-primary inline-flex px-8 py-4">Iniciar conversación</Link>
             </div>
           </motion.div>
         </div>
