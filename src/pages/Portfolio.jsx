@@ -4,17 +4,12 @@ import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import ClientLogo from "../components/ClientLogo";
+import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
 import { portfolioClients, industries, projectStats } from "../data/portfolioData";
 import { getPageSeo } from "../data/seoData";
 import { evidence } from "../data/siteCopy";
 import { ArrowForward as ArrowIcon } from "@mui/icons-material";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-};
+import { fadeUp } from "../lib/motion";
 
 const Field = ({ label, children, accent }) => (
   <div>
@@ -36,13 +31,13 @@ const Portfolio = () => {
       <PageHeader eyebrow={evidence.eyebrow} title={evidence.title} subtitle={evidence.intro} />
 
       {/* ── Sector stats + chips ─────────────────────────────── */}
-      <section className="px-6 md:px-10 pb-4">
+      <section className="px-6 md:px-10 pb-4 section-glow section-glow--center">
         <div className="max-w-container mx-auto">
           <motion.div {...fadeUp} className="glass-card px-8 md:px-12 py-10">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
               {projectStats.map((s) => (
                 <div key={s.label} className="text-center lg:text-left">
-                  <div className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight">
+                  <div className="font-display text-4xl md:text-5xl font-bold text-on-surface tracking-tight">
                     {s.num}
                   </div>
                   <div className="mt-2 text-sm font-semibold text-on-surface">{s.label}</div>
@@ -50,7 +45,7 @@ const Portfolio = () => {
                 </div>
               ))}
             </div>
-            <div className="mt-9 pt-8 border-t border-white/5">
+            <div className="mt-9 pt-8 border-t border-outline-soft">
               <p className="text-xs uppercase tracking-[0.16em] text-faint font-display mb-4">
                 Sectores que hemos atendido
               </p>
@@ -65,13 +60,12 @@ const Portfolio = () => {
       </section>
 
       {/* ── Projects — sector-led ────────────────────────────── */}
-      <section className="section-py pt-12">
-        <div className="max-w-container mx-auto px-6 md:px-10 space-y-5">
+      <section className="section-py pt-12 section-glow">
+        <Stagger className="max-w-container mx-auto px-6 md:px-10 space-y-5">
           {portfolioClients.map((client, index) => (
-            <motion.div
+            <StaggerItem
               key={client.id}
-              {...fadeUp}
-              transition={{ ...fadeUp.transition, delay: (index % 3) * 0.08 }}
+              soft={false}
               className="glass-card p-8 md:p-10"
             >
               <div className="flex flex-col lg:flex-row lg:gap-12">
@@ -85,7 +79,7 @@ const Portfolio = () => {
                     {client.industry}
                   </h2>
                   {/* client as secondary detail */}
-                  <div className="mt-6 pt-6 border-t border-white/5 flex items-center gap-3">
+                  <div className="mt-6 pt-6 border-t border-outline-soft flex items-center gap-3">
                     {client.logo ? (
                       <ClientLogo client={client} size="sm" />
                     ) : (
@@ -99,7 +93,7 @@ const Portfolio = () => {
                 </div>
 
                 {/* Right column: story */}
-                <div className="flex-1 lg:border-l lg:border-white/5 lg:pl-12">
+                <div className="flex-1 lg:border-l lg:border-outline-soft lg:pl-12">
                   <p className="font-display text-lg md:text-xl text-on-surface leading-snug mb-8 max-w-2xl">
                     {client.summary}
                   </p>
@@ -110,15 +104,14 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </section>
 
       <section className="px-6 md:px-10 pb-24 md:pb-32">
-        <motion.div
-          {...fadeUp}
-          className="max-w-container mx-auto gradient-bg border border-white/10 rounded-xl p-12 md:p-16 text-center"
+        <Reveal
+          className="max-w-container mx-auto gradient-bg border border-outline rounded-xl p-12 md:p-16 text-center"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 tracking-tight">
             ¿Tu sector todavía no está aquí?
@@ -130,7 +123,7 @@ const Portfolio = () => {
             Iniciar conversación
             <ArrowIcon className="h-4 w-4" />
           </Link>
-        </motion.div>
+        </Reveal>
       </section>
     </div>
   );

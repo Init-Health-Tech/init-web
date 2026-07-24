@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 import PageHead from "../components/PageHead";
 import NeuralFluidBackground from "../components/NeuralFluidBackground";
 import ClientLogo from "../components/ClientLogo";
 import PillarDiagram from "../components/PillarDiagram";
+import { Reveal, Stagger, StaggerItem } from "../components/Reveal";
+import { heroContainer, heroItem } from "../lib/motion";
 import { getPageSeo, SITE_URL } from "../data/seoData";
 import {
   TAGLINE,
@@ -36,15 +43,19 @@ const pillarIcons = {
   ia: IaIcon,
 };
 
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-};
-
 const Home = () => {
   const seo = getPageSeo("home");
+  const reduce = useReducedMotion();
+  const heroRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 72]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.97]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -75,46 +86,47 @@ const Home = () => {
       </Helmet>
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="hero-container relative min-h-[92vh] flex items-center overflow-hidden">
+      <section
+        ref={heroRef}
+        className="hero-container relative min-h-[92vh] flex items-center overflow-hidden"
+      >
         <div className="absolute inset-0 z-0">
           <NeuralFluidBackground />
         </div>
 
-        <div className="relative z-10 w-full max-w-container mx-auto px-6 md:px-10 pt-32 pb-20">
-          <div className="max-w-3xl">
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="eyebrow mb-6"
-            >
+        <motion.div
+          className="relative z-10 w-full max-w-container mx-auto px-6 md:px-10 pt-32 pb-20"
+          style={
+            reduce
+              ? undefined
+              : { opacity: heroOpacity, y: heroY, scale: heroScale }
+          }
+        >
+          <motion.div
+            className="max-w-3xl"
+            variants={heroContainer}
+            initial={reduce ? false : "hidden"}
+            animate="visible"
+          >
+            <motion.p variants={heroItem} className="eyebrow mb-6">
               {hero.eyebrow}
             </motion.p>
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display text-white text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-bold leading-[1.03] tracking-[-0.03em]"
+              variants={heroItem}
+              className="font-display text-on-surface text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-bold leading-[1.03] tracking-[-0.03em]"
             >
               {hero.headline}
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15 }}
+              variants={heroItem}
               className="mt-6 text-on-surface-variant text-base md:text-lg leading-relaxed max-w-xl"
             >
               {hero.subheadline}
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.25 }}
-              className="mt-10 flex flex-col sm:flex-row gap-3"
-            >
+            <motion.div variants={heroItem} className="mt-10 flex flex-wrap gap-3">
               <Link to="/contact" className="btn-primary px-7 py-3.5">
                 {hero.ctaPrimary}
                 <ArrowIcon className="h-4 w-4" />
@@ -123,61 +135,67 @@ const Home = () => {
                 {hero.ctaSecondary}
               </a>
             </motion.div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* client strip pinned to hero base */}
-        <div className="absolute bottom-0 inset-x-0 z-10 border-t border-white/5 bg-background/40 backdrop-blur-sm">
-          <div className="max-w-container mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center gap-x-8 gap-y-3">
-            <span className="text-xs uppercase tracking-[0.16em] text-faint font-display shrink-0">
+        <div className="absolute bottom-0 inset-x-0 z-10 border-t border-outline-soft bg-background/70 backdrop-blur-sm">
+          <div className="max-w-container mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <span className="text-xs uppercase tracking-[0.16em] text-on-surface-variant font-display shrink-0">
               Confían en INIT
             </span>
-            <div className="flex flex-wrap items-center gap-6 md:gap-8 opacity-90">
-              {clientLogos.slice(0, 6).map((c) => (
-                <img
-                  key={c.id}
-                  src={c.logo}
-                  alt={c.name}
-                  className="h-6 md:h-7 w-auto object-contain grayscale opacity-60 hover:opacity-90 transition-opacity"
-                  loading="lazy"
-                />
-              ))}
+            <div className="client-marquee" aria-label="Logos de clientes">
+              <div className="client-marquee__track">
+                {[...clientLogos.slice(0, 6), ...clientLogos.slice(0, 6)].map((c, i) => (
+                  <img
+                    key={`${c.id}-${i}`}
+                    src={c.logo}
+                    alt={i < 6 ? c.name : ""}
+                    aria-hidden={i >= 6}
+                    className="client-marquee__logo"
+                    loading="lazy"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── What we do ───────────────────────────────────────── */}
-      <section id="que-hacemos" className="relative z-10 section-py px-6 md:px-10 scroll-mt-24">
+      <section id="que-hacemos" className="relative z-10 section-py px-6 md:px-10 scroll-mt-24 section-glow">
         <div className="max-w-container mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <motion.div {...fadeUp} className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <p className="eyebrow mb-5">{homeIntro.eyebrow}</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight tracking-tight">
               {homeIntro.title}
             </h2>
-          </motion.div>
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} className="lg:col-span-7 lg:pt-2">
+          </Reveal>
+          <Reveal soft className="lg:col-span-7 lg:pt-2" delay={0.08}>
             <p className="text-on-surface-variant text-base md:text-lg leading-relaxed">
               {homeIntro.body}
             </p>
-            <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3">
+            <Stagger fast className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3">
               {whatWeDo.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-on-surface/90">
+                <StaggerItem
+                  key={item}
+                  className="flex items-start gap-3 text-sm text-on-surface/90"
+                >
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-secondary shrink-0" />
                   {item}
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
-          </motion.div>
+            </Stagger>
+          </Reveal>
         </div>
       </section>
 
       <div className="max-w-container mx-auto px-6 md:px-10"><div className="rule" /></div>
 
       {/* ── Capabilities / pillars ───────────────────────────── */}
-      <section className="relative z-10 section-py px-6 md:px-10">
+      <section className="relative z-10 section-py px-6 md:px-10 section-glow section-glow--center">
         <div className="max-w-container mx-auto">
-          <motion.div {...fadeUp} className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
               <p className="eyebrow mb-4">Capacidades</p>
               <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight max-w-xl">
@@ -187,17 +205,13 @@ const Home = () => {
             <Link to="/services" className="text-sm font-display text-secondary hover:text-green-300 transition-colors inline-flex items-center gap-1.5 shrink-0">
               Ver arquitectura completa <ArrowIcon className="h-4 w-4" />
             </Link>
-          </motion.div>
+          </Reveal>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <Stagger className="grid md:grid-cols-2 gap-4">
             {pillars.map((pillar, i) => {
               const Icon = pillarIcons[pillar.slug] ?? SistemasIcon;
               return (
-                <motion.div
-                  key={pillar.slug}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: i * 0.08 }}
-                >
+                <StaggerItem key={pillar.slug}>
                   <Link
                     to="/services"
                     className="glass-card group flex flex-col h-full p-8 md:p-10"
@@ -221,17 +235,17 @@ const Home = () => {
                       Explorar <ArrowIcon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                     </span>
                   </Link>
-                </motion.div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* ── AI feature ───────────────────────────────────────── */}
-      <section className="relative z-10 section-py px-6 md:px-10">
+      <section className="relative z-10 section-py px-6 md:px-10 section-glow">
         <div className="max-w-container mx-auto glass-card p-8 md:p-12 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <motion.div {...fadeUp}>
+          <Reveal>
             <p className="eyebrow mb-5">{homeAI.eyebrow}</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight leading-tight">
               {homeAI.title}
@@ -250,64 +264,57 @@ const Home = () => {
             <Link to="/services#ia" className="mt-8 inline-flex items-center gap-1.5 text-sm font-display text-secondary hover:text-green-300 transition-colors">
               Ver cómo aplicamos IA <ArrowIcon className="h-4 w-4" />
             </Link>
-          </motion.div>
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
+          </Reveal>
+          <Reveal soft delay={0.1}>
             <PillarDiagram slug="ia" />
-          </motion.div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── Stats band ───────────────────────────────────────── */}
-      <section className="relative z-10 px-6 md:px-10 py-16 md:py-20">
-        <div className="max-w-container mx-auto glass-card px-8 md:px-12 py-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
-            {homeStats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: i * 0.08 }}
-                className="text-center lg:text-left"
-              >
-                <div className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight">
+      <section className="relative z-10 px-6 md:px-10 py-16 md:py-20 section-glow section-glow--center">
+        <Reveal className="max-w-container mx-auto glass-card px-8 md:px-12 py-12">
+          <Stagger fast className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
+            {homeStats.map((s) => (
+              <StaggerItem key={s.label} className="text-center lg:text-left">
+                <div className="font-display text-4xl md:text-5xl font-bold text-on-surface tracking-tight">
                   {s.num}
                 </div>
                 <div className="mt-2 text-sm font-semibold text-on-surface">{s.label}</div>
                 <div className="mt-1 text-xs text-faint leading-relaxed">{s.sub}</div>
-              </motion.div>
+              </StaggerItem>
             ))}
-          </div>
-        </div>
+          </Stagger>
+        </Reveal>
       </section>
 
       {/* ── How we work ──────────────────────────────────────── */}
-      <section className="relative z-10 section-py px-6 md:px-10">
+      <section className="relative z-10 section-py px-6 md:px-10 section-glow">
         <div className="max-w-container mx-auto">
-          <motion.div {...fadeUp} className="max-w-2xl mb-12">
+          <Reveal className="max-w-2xl mb-12">
             <p className="eyebrow mb-4">Cómo trabajamos</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
               No escalamos con headcount. Escalamos con criterio.
             </h2>
-          </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded-lg overflow-hidden border border-white/5">
-            {criteria.map((c, i) => (
-              <motion.div
+          </Reveal>
+          <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-outline-soft rounded-lg overflow-hidden border border-outline-soft">
+            {criteria.map((c) => (
+              <StaggerItem
                 key={c.title}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: (i % 3) * 0.06 }}
                 className="bg-background p-8 hover:bg-surface-container/60 transition-colors"
               >
                 <h3 className="font-display text-lg font-bold text-on-surface">{c.title}</h3>
                 <p className="mt-3 text-sm text-on-surface-variant leading-relaxed">{c.text}</p>
-              </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* ── Evidence preview ─────────────────────────────────── */}
-      <section className="relative z-10 section-py px-6 md:px-10">
+      <section className="relative z-10 section-py px-6 md:px-10 section-glow section-glow--bottom">
         <div className="max-w-container mx-auto">
-          <motion.div {...fadeUp} className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
               <p className="eyebrow mb-4">Proyectos y clientes</p>
               <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight max-w-xl">
@@ -320,16 +327,11 @@ const Home = () => {
             <Link to="/proyectos" className="text-sm font-display text-secondary hover:text-green-300 transition-colors inline-flex items-center gap-1.5 shrink-0">
               Ver todos los proyectos <ArrowIcon className="h-4 w-4" />
             </Link>
-          </motion.div>
+          </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-4">
-            {featuredEvidence.map((c, i) => (
-              <motion.div
-                key={c.id}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: i * 0.08 }}
-                className="glass-card p-8 flex flex-col"
-              >
+          <Stagger className="grid md:grid-cols-3 gap-4">
+            {featuredEvidence.map((c) => (
+              <StaggerItem key={c.id} className="glass-card p-8 flex flex-col">
                 <div className="h-10 flex items-center mb-6">
                   <ClientLogo client={c} size="sm" />
                 </div>
@@ -339,20 +341,19 @@ const Home = () => {
                 <p className="font-display text-lg font-bold text-on-surface leading-snug flex-1">
                   {c.summary}
                 </p>
-                <p className="mt-4 pt-4 border-t border-white/5 text-sm text-on-surface-variant leading-relaxed">
+                <p className="mt-4 pt-4 border-t border-outline-soft text-sm text-on-surface-variant leading-relaxed">
                   {c.estado}
                 </p>
-              </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* ── Final CTA ────────────────────────────────────────── */}
       <section className="relative z-10 px-6 md:px-10 pb-24 md:pb-32">
-        <motion.div
-          {...fadeUp}
-          className="max-w-container mx-auto gradient-bg border border-white/10 rounded-xl px-8 md:px-16 py-16 md:py-20 text-center overflow-hidden relative"
+        <Reveal
+          className="max-w-container mx-auto gradient-bg border border-outline rounded-xl px-8 md:px-16 py-16 md:py-20 text-center overflow-hidden relative"
         >
           <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
           <div className="relative">
@@ -374,7 +375,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       </section>
     </div>
   );

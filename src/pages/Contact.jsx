@@ -95,7 +95,7 @@ const Contact = () => {
       <PageHead title={seo.title} description={seo.description} path={seo.path} keywords={seo.keywords} />
       <PageHeader eyebrow="Iniciar conversación" title={contact.title} subtitle={contact.subtitle} />
 
-      <section className="section-py pt-0">
+      <section className="section-py pt-0 section-glow">
         <div className="max-w-container mx-auto px-6 md:px-10">
           <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16">
             <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>

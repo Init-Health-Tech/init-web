@@ -99,7 +99,7 @@ const Signal = ({ cx, cy, r = 18 }) => (
 );
 
 const Panel = ({ label, children }) => (
-  <div className="relative aspect-[4/3] rounded-xl border border-white/10 bg-surface-container/40 overflow-hidden shadow-2xl shadow-black/20">
+  <div className="relative aspect-[4/3] rounded-xl border border-outline bg-surface-container/40 overflow-hidden shadow-2xl shadow-black/10">
     <div className="absolute inset-0 grid-pattern-lines opacity-50" />
     <div
       className="absolute inset-0"

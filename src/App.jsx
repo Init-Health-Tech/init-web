@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import StitchBackground from './components/StitchBackground';
 import ScrollProgress from './components/ScrollProgress';
 import ScrollToTop from './components/ScrollToTop';
+import ThemeToggle from './components/ThemeToggle';
+import PageTransition from './components/PageTransition';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
@@ -21,8 +23,8 @@ function AppRoutes() {
       <ScrollProgress />
       {!isHome && <StitchBackground />}
       <Navbar />
-      <div key={location.pathname} className="relative z-10">
-        <Routes>
+      <PageTransition>
+        <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/soluciones" element={<Solutions />} />
@@ -30,8 +32,9 @@ function AppRoutes() {
           <Route path="/portfolio" element={<Navigate to="/proyectos" replace />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-      </div>
+      </PageTransition>
       <Footer />
+      <ThemeToggle />
     </div>
   );
 }

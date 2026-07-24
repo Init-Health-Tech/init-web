@@ -44,8 +44,8 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isHome && !scrolled
-          ? "bg-transparent border-b border-white/5"
-          : "bg-surface/80 backdrop-blur-xl border-b border-white/5"
+          ? "bg-transparent border-b border-outline-soft"
+          : "bg-surface/80 backdrop-blur-xl border-b border-outline-soft"
       } ${scrolled ? "h-16" : "h-[4.5rem]"}`}
       aria-label="Navegación principal"
     >
@@ -71,7 +71,7 @@ const Navbar = () => {
 
           {isAuthenticated && (
             <div className="flex items-center gap-3 ml-2">
-              <div className="flex items-center gap-2 bg-surface/60 px-3 py-1.5 border border-white/5 rounded-lg backdrop-blur-sm">
+              <div className="flex items-center gap-2 bg-surface/60 px-3 py-1.5 border border-outline-soft rounded-lg backdrop-blur-sm">
                 <div className="w-7 h-7 bg-primary flex items-center justify-center rounded-md">
                   <PersonIcon className="h-3.5 w-3.5 text-white" />
                 </div>
@@ -94,14 +94,14 @@ const Navbar = () => {
           <Link
             to="/contact"
             className={`hidden sm:inline-flex btn-primary px-4 py-2 h-10 min-w-[84px] ${
-              location.pathname === "/contact" ? "ring-1 ring-white/20" : ""
+              location.pathname === "/contact" ? "ring-1 ring-outline" : ""
             }`}
           >
             {nav.contact}
           </Link>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-white p-2 hover:bg-white/5 transition-colors rounded-lg"
+            className="lg:hidden text-on-surface p-2 hover:bg-surface-container-high transition-colors rounded-lg"
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
@@ -110,15 +110,15 @@ const Navbar = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="lg:hidden bg-surface/95 backdrop-blur-xl border-t border-white/5 px-4 py-4 space-y-1">
+        <div className="lg:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-soft px-4 py-4 space-y-1">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
               className={`block px-3 py-3 text-sm font-medium rounded-lg transition-colors ${
                 isActive(item.href)
-                  ? "text-secondary bg-white/5"
-                  : "text-muted hover:text-white hover:bg-white/5"
+                  ? "text-secondary bg-surface-container-high"
+                  : "text-muted hover:text-on-surface hover:bg-surface-container-high"
               }`}
             >
               {item.name}

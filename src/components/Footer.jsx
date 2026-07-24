@@ -5,7 +5,7 @@ import { TAGLINE, nav, partner } from "../data/siteCopy";
 const year = new Date().getFullYear();
 
 const Footer = () => (
-  <footer className="relative z-10 bg-surface-container-lowest border-t border-white/5">
+  <footer className="relative z-10 bg-surface-container-lowest border-t border-outline-soft">
     <div className="max-w-container mx-auto px-6 md:px-10 py-16 md:py-20">
       <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr_1fr]">
         {/* Brand */}
@@ -53,7 +53,7 @@ const Footer = () => (
         </FooterCol>
       </div>
 
-      <div className="mt-14 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+      <div className="mt-14 pt-8 border-t border-outline-soft flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
         <p className="text-faint text-sm">© {year} INIT. Todos los derechos reservados.</p>
         <p className="text-faint text-sm">México · LATAM</p>
       </div>
