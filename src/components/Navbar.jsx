@@ -34,7 +34,8 @@ const Navbar = () => {
 
   const navigation = [
     { name: nav.services, href: "/services" },
-    { name: nav.portfolio, href: "/portfolio" },
+    { name: nav.solutions, href: "/soluciones" },
+    { name: nav.portfolio, href: "/proyectos" },
   ];
 
   const isActive = (href) => location.pathname.startsWith(href);
@@ -48,7 +49,7 @@ const Navbar = () => {
       } ${scrolled ? "h-16" : "h-[4.5rem]"}`}
       aria-label="Navegación principal"
     >
-      <div className="flex justify-between items-center px-6 md:px-10 max-w-[960px] mx-auto h-full">
+      <div className="flex justify-between items-center px-6 md:px-10 max-w-container mx-auto h-full">
         <Link to="/" className="flex items-center gap-3 group">
           <img
             src="/Init-Logo-green.svg"
@@ -62,7 +63,7 @@ const Navbar = () => {
             <Link
               key={item.name}
               to={item.href}
-              className={`btn-ghost-nav ${isActive(item.href) ? "active" : "text-white/90"}`}
+              className={`btn-ghost-nav nav-link-underline ${isActive(item.href) ? "active" : ""}`}
             >
               {item.name}
             </Link>
@@ -116,7 +117,7 @@ const Navbar = () => {
               to={item.href}
               className={`block px-3 py-3 text-sm font-medium rounded-lg transition-colors ${
                 isActive(item.href)
-                  ? "text-primary bg-white/5"
+                  ? "text-secondary bg-white/5"
                   : "text-muted hover:text-white hover:bg-white/5"
               }`}
             >

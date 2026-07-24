@@ -93,22 +93,23 @@ const Contact = () => {
   return (
     <div className="min-h-screen relative z-10">
       <PageHead title={seo.title} description={seo.description} path={seo.path} keywords={seo.keywords} />
-      <PageHeader title={contact.title} subtitle={contact.subtitle} />
+      <PageHeader eyebrow="Iniciar conversación" title={contact.title} subtitle={contact.subtitle} />
 
       <section className="section-py pt-0">
-        <div className="max-w-container mx-auto px-6 md:px-20">
-          <div className="grid lg:grid-cols-2 gap-12">
+        <div className="max-w-container mx-auto px-6 md:px-10">
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16">
             <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl font-bold mb-8">{contact.contactInfoTitle}</h2>
-              <div className="space-y-6">
+              <p className="eyebrow mb-4">Contacto directo</p>
+              <h2 className="font-display text-2xl md:text-3xl font-bold mb-8 tracking-tight">{contact.contactInfoTitle}</h2>
+              <div className="space-y-5">
                 {contactInfo.map((info) => (
                   <div key={info.title} className="flex items-start gap-4">
                     <div className="icon-badge flex-shrink-0">
-                      <info.icon className="h-6 w-6 text-white" />
+                      <info.icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-1">{info.title}</h3>
-                      <a href={info.link} className="text-on-surface-variant hover:text-primary transition-colors">{info.value}</a>
+                      <h3 className="font-semibold text-sm mb-0.5">{info.title}</h3>
+                      <a href={info.link} className="text-on-surface-variant hover:text-secondary transition-colors">{info.value}</a>
                     </div>
                   </div>
                 ))}
@@ -116,10 +117,10 @@ const Contact = () => {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <div className="glass-card p-8">
-                <h2 className="text-2xl font-bold mb-6">{contact.formTitle}</h2>
+              <div className="glass-card p-8 md:p-10">
+                <h2 className="font-display text-2xl font-bold mb-6 tracking-tight">{contact.formTitle}</h2>
                 {submitStatus === "success" && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 bg-primary/10 border border-primary/30 text-primary px-4 py-3 exec-chamfer flex items-center">
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 bg-secondary/10 border border-secondary/30 text-secondary px-4 py-3 rounded-lg flex items-center">
                     <CheckCircleIcon className="h-5 w-5 mr-2" /> {contact.successMessage}
                   </motion.div>
                 )}

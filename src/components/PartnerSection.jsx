@@ -14,7 +14,7 @@ const fadeUp = {
 
 const PartnerSection = () => (
   <section className="layer-reveal section-py border-y border-white/10">
-    <div className="max-w-container mx-auto px-6 md:px-20">
+    <div className="max-w-container mx-auto px-6 md:px-10">
       <motion.div {...fadeUp} className="text-center mb-12">
         <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-3">{partnerCopy.label}</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-4">{partnerCopy.title}</h2>

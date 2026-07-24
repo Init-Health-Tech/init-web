@@ -3,11 +3,41 @@
 export const TAGLINE = "Brilliant Minds Building the Future";
 
 export const hero = {
-  headline: "Transformación Digital con Inteligencia Fluida.",
-  subheadline: "Innovación ágil para líderes empresariales.",
+  eyebrow: "Firma de arquitectura tecnológica",
+  headline: "Tecnología que sostiene tu escala.",
+  subheadline:
+    "Diseñamos, construimos y operamos sistemas empresariales, ERP, logística RFID e inteligencia artificial aplicada para líderes que exigen ejecución de primer nivel.",
   ctaPrimary: "Iniciar conversación",
-  ctaSecondary: "Explorar soluciones",
+  ctaSecondary: "Ver qué hacemos",
 };
+
+export const homeIntro = {
+  eyebrow: "Qué hacemos",
+  title: "Convertimos operaciones complejas en sistemas que funcionan.",
+  body:
+    "INIT es una firma de arquitectura tecnológica. Trabajamos con empresas cuya operación ya superó sus herramientas y necesitan sistemas construidos con criterio — no plantillas ni parches. Diagnosticamos, diseñamos y ejecutamos software con inteligencia artificial integrada donde aporta valor real: en la decisión, no en la presentación.",
+};
+
+export const homeAI = {
+  eyebrow: "Inteligencia Artificial",
+  title: "IA aplicada donde se toman decisiones.",
+  body:
+    "No hacemos IA para lucirla en una demo. Integramos modelos, automatización y agentes directamente en la operación y en tus sistemas — sobre tus datos, con criterio y con seguridad desde el diseño.",
+  capabilities: [
+    "Modelos predictivos y de clasificación sobre datos operativos",
+    "Agentes y asistentes con IA generativa (LLMs) conectados a tus sistemas",
+    "Automatización inteligente de procesos críticos",
+    "Pipelines de datos y analítica para decisiones ejecutivas",
+  ],
+};
+
+/** Cifras honestas — nada inventado, todo defendible. */
+export const homeStats = [
+  { num: "4", label: "Pilares de arquitectura", sub: "sistemas, ERP, logística e IA" },
+  { num: "24 h", label: "Primera respuesta", sub: "directo con quien construye" },
+  { num: "100%", label: "Desarrollo in-house", sub: "sin subcontratar el criterio" },
+  { num: "2", label: "Plataformas propias", sub: "ERPinit · initlogistics" },
+];
 
 export const homePillars = [
   { slug: "estrategia", title: "Estrategia", href: "/services", icon: "strategy" },
@@ -80,17 +110,17 @@ export const pillars = [
   },
   {
     slug: "ia",
-    title: "Inteligencia Aplicada",
+    title: "Inteligencia Artificial",
     headline: "Inteligencia donde hay decisiones.",
     description:
-      "Modelos, pipelines de datos y automatización avanzada integrados en la operación — no en presentaciones. Priorizamos impacto medible sobre experimentación sin rumbo.",
+      "Modelos predictivos, pipelines de datos y agentes de IA generativa integrados en la operación — no en presentaciones. Priorizamos impacto medible sobre experimentación sin rumbo, con seguridad desde el diseño.",
     closer: "Si la respuesta cambia cómo decide tu empresa, hablemos de arquitectura.",
     features: [
-      "Pipelines de datos operativos",
-      "Modelos aplicados a decisiones reales",
-      "Dashboards para liderazgo ejecutivo",
-      "Automatización inteligente de procesos",
-      "IA integrada en sistemas existentes",
+      "Modelos predictivos y de clasificación sobre datos operativos",
+      "Agentes y asistentes con IA generativa (LLMs)",
+      "Automatización inteligente de procesos críticos",
+      "Pipelines de datos y dashboards para liderazgo",
+      "IA integrada y segura en sistemas existentes",
     ],
     result: "Claridad operativa donde antes había intuición.",
   },
@@ -101,7 +131,7 @@ export const whatWeDo = [
   "Sistemas de gestión: inventario, expedientes, operaciones",
   "ERP Odoo e implementación operativa",
   "INIT Logistics: RFID, IoT y trazabilidad en tiempo real",
-  "Inteligencia aplicada y pipelines de datos",
+  "Inteligencia artificial: modelos, agentes y pipelines de datos",
   "APIs e integraciones entre sistemas",
   "Cyberseguridad desde el diseño de arquitectura",
 ];
@@ -116,10 +146,11 @@ export const criteria = [
 ];
 
 export const evidence = {
-  title: "Evidencia",
+  eyebrow: "Proyectos y clientes",
+  title: "Empresas que eligieron construir con criterio.",
   intro:
-    "No mostramos volumen. Mostramos criterio. Cada registro es una decisión estratégica — no una lista de entregables.",
-  cta: "Ver evidencia completa",
+    "No mostramos volumen. Mostramos criterio. Cada proyecto es una decisión estratégica — no una lista de entregables.",
+  cta: "Ver todos los proyectos",
   fields: {
     context: "Contexto",
     decision: "Decisión",
@@ -161,7 +192,7 @@ export const contact = {
     "Sistemas Empresariales",
     "ERP & Operaciones",
     "INIT Logistics",
-    "Inteligencia Aplicada",
+    "Inteligencia Artificial",
     "Otro",
   ],
 };
@@ -174,7 +205,7 @@ export const ctaFinal = {
 };
 
 export const nav = {
-  portfolio: "Evidencia",
+  portfolio: "Proyectos y Clientes",
   services: "Servicios",
   solutions: "Plataformas",
   contact: "Iniciar conversación",

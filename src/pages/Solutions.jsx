@@ -6,7 +6,10 @@ import PageHeader from "../components/PageHeader";
 import { solutions } from "../data/solutionsData";
 import { getPageSeo } from "../data/seoData";
 import { solutionsPage } from "../data/siteCopy";
-import { CheckCircle as CheckCircleIcon, Store as StoreIcon } from "@mui/icons-material";
+import {
+  CheckCircle as CheckCircleIcon,
+  ArrowForward as ArrowIcon,
+} from "@mui/icons-material";
 
 const Solutions = () => {
   const seo = getPageSeo("solutions");
@@ -19,73 +22,83 @@ const Solutions = () => {
         path={seo.path}
         keywords={seo.keywords}
       />
-      <PageHeader title={solutionsPage.title} subtitle={solutionsPage.subtitle} />
+      <PageHeader eyebrow="Plataformas propias" title={solutionsPage.title} subtitle={solutionsPage.subtitle} />
 
       <section className="section-py pt-0">
-        <div className="max-w-container mx-auto px-6 md:px-20">
-          <div className="grid md:grid-cols-2 gap-10">
-            {solutions.map((solution, index) => (
-              <motion.div
-                key={solution.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                className="glass-card overflow-hidden"
-              >
-                <div className="p-8 md:p-10">
-                  <div className="flex items-start gap-5 mb-6">
-                    <div className="flex-shrink-0 icon-badge w-16 h-16">
-                      <span className="text-2xl font-semibold text-white">{solution.initial}</span>
-                    </div>
-                    <div>
-                      <h2 className="text-2xl md:text-3xl font-bold">{solution.name}</h2>
-                      <p className="text-on-surface-variant font-medium mt-1">{solution.tagline}</p>
-                    </div>
+        <div className="max-w-container mx-auto px-6 md:px-10 space-y-6">
+          {solutions.map((solution, index) => (
+            <motion.div
+              key={solution.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              className="glass-card p-8 md:p-12 grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16"
+            >
+              {/* Left: identity */}
+              <div className="flex flex-col">
+                <span className="eyebrow mb-5">Plataforma propia</span>
+                <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">
+                  {solution.name}
+                </h2>
+                <p className="mt-2 text-secondary text-lg font-medium">{solution.tagline}</p>
+                <p className="mt-5 text-on-surface-variant leading-relaxed">{solution.description}</p>
+
+                {solution.paraQuien?.length > 0 && (
+                  <div className="mt-8">
+                    <h3 className="text-xs uppercase tracking-[0.16em] text-faint font-display mb-4">
+                      Para quién es
+                    </h3>
+                    <ul className="space-y-2.5">
+                      {solution.paraQuien.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-sm text-on-surface-variant">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-secondary shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-on-surface-variant mb-6 leading-relaxed">{solution.description}</p>
-                  <h3 className="text-sm font-semibold uppercase tracking-wide mb-3">Incluye</h3>
-                  <ul className="space-y-2 mb-6">
-                    {solution.features.map((feature, i) => (
-                      <li key={i} className="flex items-start">
-                        <CheckCircleIcon className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  {solution.paraQuien?.length > 0 && (
-                    <>
-                      <h3 className="text-sm font-semibold uppercase tracking-wide mb-3">Para quién es</h3>
-                      <ul className="space-y-2 mb-6">
-                        {solution.paraQuien.map((item, i) => (
-                          <li key={i} className="flex items-start text-sm text-on-surface-variant">
-                            <span className="text-primary mr-2">•</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                  {solution.priceNote && (
-                    <p className="text-sm text-on-surface-variant mb-4">{solution.priceNote}</p>
-                  )}
-                  <Link to="/contact" className="btn-primary inline-flex items-center px-6 py-3">
-                    {solutionsPage.cta} →
+                )}
+
+                <div className="mt-auto pt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+                  <Link to="/contact" className="btn-primary px-6 py-3">
+                    {solutionsPage.cta}
+                    <ArrowIcon className="h-4 w-4" />
                   </Link>
+                  {solution.priceNote && (
+                    <p className="text-xs text-faint max-w-[16rem]">{solution.priceNote}</p>
+                  )}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+
+              {/* Right: capabilities */}
+              <div className="lg:border-l lg:border-white/5 lg:pl-16">
+                <h3 className="text-xs uppercase tracking-[0.16em] text-faint font-display mb-5">
+                  Incluye
+                </h3>
+                <ul className="grid sm:grid-cols-2 lg:grid-cols-1 gap-x-8 gap-y-3.5">
+                  {solution.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <CheckCircleIcon className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-on-surface/90">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      <section className="section-py gradient-bg relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
+      <section className="px-6 md:px-10 pb-24 md:pb-32">
+        <div className="max-w-container mx-auto gradient-bg border border-white/10 rounded-xl px-8 md:px-16 py-16 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <StoreIcon className="h-14 w-14 mx-auto mb-6 text-primary" />
-            <h2 className="text-3xl font-bold mb-4">{solutionsPage.footerTitle}</h2>
-            <p className="text-on-surface-variant mb-8">{solutionsPage.footerBody}</p>
-            <Link to="/services" className="btn-secondary px-8 py-4 inline-flex">{solutionsPage.footerCta}</Link>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight">{solutionsPage.footerTitle}</h2>
+            <p className="mt-5 text-on-surface-variant max-w-xl mx-auto leading-relaxed">{solutionsPage.footerBody}</p>
+            <Link to="/services" className="btn-secondary px-8 py-3.5 mt-9 inline-flex">
+              {solutionsPage.footerCta}
+              <ArrowIcon className="h-4 w-4" />
+            </Link>
           </motion.div>
         </div>
       </section>

@@ -11,7 +11,7 @@ const PillarCard = ({ icon: Icon, title, href, index = 0 }) => (
   >
     <Link
       to={href}
-      className="pillar-card group flex h-full min-h-[4.75rem] gap-2.5 rounded-xl p-3.5 items-center"
+      className="pillar-card group flex h-full min-h-[4.75rem] gap-2.5 rounded-lg p-3.5 items-center"
     >
       <div className="text-text shrink-0">
         <Icon className="h-5 w-5" />

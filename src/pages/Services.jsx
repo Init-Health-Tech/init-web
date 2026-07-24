@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
+import PillarDiagram from "../components/PillarDiagram";
 import { getPageSeo } from "../data/seoData";
 import { pillars } from "../data/siteCopy";
 import {
@@ -24,12 +25,7 @@ const fadeUp = {
   transition: { duration: 0.7 },
 };
 
-const pillarConfig = [
-  { icon: CodeIcon, image: "/servicios/desarrollo-software-a-medida.png" },
-  { icon: ErpIcon, image: "/servicios/consultoria-transformacion-digital.png" },
-  { icon: LogisticsIcon, image: "/servicios/soluciones-tecnologicas-integracion.png" },
-  { icon: IaIcon, image: "/servicios/desarrollo-software-a-medida.png" },
-];
+const pillarIcons = [CodeIcon, ErpIcon, LogisticsIcon, IaIcon];
 
 const process = [
   { step: 1, title: "Diagnóstico", description: "Entendemos la operación antes de proponer arquitectura.", timeframe: "1–2 semanas" },
@@ -46,49 +42,43 @@ const Services = () => {
     <div className="min-h-screen relative z-10">
       <PageHead title={seo.title} description={seo.description} path={seo.path} keywords={seo.keywords} />
       <PageHeader
-        title="Arquitectura"
-        subtitle="Cuatro pilares. Un criterio. Sistemas Empresariales, ERP & Operaciones, INIT Logistics e Inteligencia Aplicada."
+        eyebrow="Arquitectura tecnológica"
+        title="Cuatro pilares. Un criterio de ejecución."
+        subtitle="Sistemas Empresariales, ERP & Operaciones, INIT Logistics e Inteligencia Aplicada — diseñados para reflejar tu operación y escalar con ella."
       />
 
       <section className="section-py pt-0">
-        <div className="max-w-container mx-auto px-6 md:px-20 space-y-24">
+        <div className="max-w-container mx-auto px-6 md:px-10 space-y-24">
           {pillars.map((pillar, index) => {
-            const ServiceIcon = pillarConfig[index].icon;
+            const ServiceIcon = pillarIcons[index] ?? CodeIcon;
             const isImageRight = index % 2 === 1;
             return (
               <motion.div
                 key={pillar.slug}
+                id={pillar.slug}
                 {...fadeUp}
                 transition={{ ...fadeUp.transition, delay: index * 0.1 }}
-                className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${isImageRight ? "lg:grid-flow-dense" : ""}`}
+                className={`scroll-mt-28 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${isImageRight ? "lg:grid-flow-dense" : ""}`}
               >
                 <div className={`relative ${isImageRight ? "lg:col-start-2" : ""}`}>
-                  <div className="relative overflow-hidden exec-chamfer border border-white/10 aspect-[4/3]">
-                    <img
-                      src={pillarConfig[index].image}
-                      alt={pillar.title}
-                      className="w-full h-full object-cover"
-                      loading={index === 0 ? "eager" : "lazy"}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
-                  </div>
+                  <PillarDiagram slug={pillar.slug} />
                 </div>
                 <div className={isImageRight ? "lg:col-start-1 lg:row-start-1" : ""}>
                   <div className="icon-badge mb-5">
-                    <ServiceIcon className="h-7 w-7 text-white" />
+                    <ServiceIcon className="h-6 w-6" />
                   </div>
-                  <p className="text-sm text-primary font-semibold uppercase tracking-wider mb-2">{pillar.headline}</p>
+                  <p className="text-sm text-secondary font-semibold uppercase tracking-wider mb-2">{pillar.headline}</p>
                   <h2 className="text-3xl lg:text-4xl font-semibold mb-4 tracking-tight">{pillar.title}</h2>
                   <p className="text-lg text-on-surface-variant mb-6 leading-relaxed">{pillar.description}</p>
                   <ul className="space-y-2.5 mb-6">
                     {pillar.features.map((f) => (
                       <li key={f} className="flex items-start gap-3">
-                        <CheckCircleIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <CheckCircleIcon className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
                         <span>{f}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="text-primary font-semibold border-l-2 border-primary pl-4 mb-4">
+                  <p className="text-secondary font-semibold border-l-2 border-secondary pl-4 mb-4">
                     {pillar.result}
                   </p>
                   <p className="text-sm text-on-surface-variant italic">{pillar.closer}</p>
@@ -100,7 +90,7 @@ const Services = () => {
       </section>
 
       <section className="section-py">
-        <div className="max-w-container mx-auto px-6 md:px-20">
+        <div className="max-w-container mx-auto px-6 md:px-10">
           <motion.div {...fadeUp} className="text-center mb-16">
             <h2 className="text-3xl font-semibold mb-4">Cómo trabajamos</h2>
             <p className="text-on-surface-variant">Diagnóstico primero. Arquitectura después. Sin atajos.</p>
@@ -115,10 +105,10 @@ const Services = () => {
                 transition={{ delay: index * 0.1 }}
                 className="glass-card p-6 text-center"
               >
-                <div className="icon-badge mx-auto mb-4 text-white font-semibold text-xl">{step.step}</div>
+                <div className="icon-badge mx-auto mb-4 text-secondary font-semibold text-lg">{step.step}</div>
                 <h3 className="font-semibold mb-2">{step.title}</h3>
                 <p className="text-sm text-on-surface-variant">{step.description}</p>
-                <p className="text-xs text-primary mt-2">{step.timeframe}</p>
+                <p className="text-xs text-secondary mt-2">{step.timeframe}</p>
               </motion.div>
             ))}
           </div>
@@ -126,7 +116,7 @@ const Services = () => {
       </section>
 
       <section className="section-py gradient-bg relative overflow-hidden">
-        <div className="max-w-container mx-auto px-6 md:px-20">
+        <div className="max-w-container mx-auto px-6 md:px-10">
           <motion.div {...fadeUp} className="text-center mb-16">
             <h2 className="text-3xl font-semibold">Por qué INIT</h2>
           </motion.div>
@@ -141,7 +131,7 @@ const Services = () => {
               return (
                 <motion.div key={b.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
                   <div className="icon-badge mx-auto mb-6">
-                    <Icon className="h-7 w-7 text-white" />
+                    <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{b.title}</h3>
                   <p className="text-on-surface-variant text-sm">{b.description}</p>

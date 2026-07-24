@@ -1,5 +1,5 @@
 /**
- * Evidencia — proyectos narrados como decisiones estratégicas.
+ * Proyectos y clientes — proyectos narrados como decisiones estratégicas.
  */
 export const portfolioClients = [
   {
@@ -8,6 +8,7 @@ export const portfolioClients = [
     logo: "/clients/jofra.png",
     lightBg: false,
     dimmedColor: true,
+    industry: "Manufactura industrial",
     sector: "Manufactura · Sistemas industriales",
     sectorDetail: "Sistemas y equipos industriales",
     contexto: "Operaciones fragmentadas. Sistemas que no conversaban.",
@@ -24,6 +25,7 @@ export const portfolioClients = [
     lightBg: false,
     dimmedColor: true,
     engagement: "consultoria",
+    industry: "Logística y transporte",
     sector: "Logística · Transporte",
     sectorDetail: "Logística y transporte",
     contexto: "Decisiones logísticas sin visibilidad en campo.",
@@ -38,6 +40,7 @@ export const portfolioClients = [
     name: "CONFE",
     logo: "/clients/confe.png",
     lightBg: true,
+    industry: "Sector social e institucional",
     sector: "Institucional · Sector social",
     sectorDetail: "Organización institucional",
     contexto: "Procesos dispersos. Atención sin un eje central.",
@@ -53,6 +56,7 @@ export const portfolioClients = [
     logo: "/clients/geller-abogados.png",
     lightBg: false,
     engagement: "consultoria",
+    industry: "Servicios jurídicos",
     sector: "Despacho jurídico",
     sectorDetail: "Despacho de abogados",
     contexto: "Gestión documental y expedientes sin visibilidad unificada.",
@@ -68,6 +72,7 @@ export const portfolioClients = [
     logo: "/clients/carbiu.png",
     lightBg: false,
     dimmedColor: true,
+    industry: "Corporativo",
     sector: "Corporativo",
     sectorDetail: "Cliente corporativo",
     contexto: "Presencia digital y procesos internos desconectados.",
@@ -82,6 +87,7 @@ export const portfolioClients = [
     name: "POLOLA'S",
     logo: "/clients/pololas.png",
     lightBg: true,
+    industry: "Gastronomía y retail",
     sector: "Gastronomía",
     sectorDetail: "Productos gastronómicos",
     contexto: "Venta y pedidos sin un canal digital propio.",
@@ -97,3 +103,14 @@ export const portfolioClients = [
 export const featuredEvidence = portfolioClients.filter((c) =>
   ["JOFRA", "TRANSCOM", "CONFE"].includes(c.name)
 );
+
+/** Sectores/industrias únicos trabajados — derivados de los proyectos reales. */
+export const industries = [...new Set(portfolioClients.map((c) => c.industry))];
+
+/** Cifras agregadas para la página de Proyectos y Clientes. */
+export const projectStats = [
+  { num: `${industries.length}`, label: "Sectores trabajados", sub: "industrias con criterio propio" },
+  { num: `${portfolioClients.length}`, label: "Proyectos y clientes", sub: "relaciones de largo plazo" },
+  { num: "100%", label: "Desarrollo in-house", sub: "sin subcontratar el criterio" },
+  { num: "24 h", label: "Primera respuesta", sub: "directo con quien construye" },
+];

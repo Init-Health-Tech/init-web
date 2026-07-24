@@ -1,52 +1,18 @@
 /** @type {import('tailwindcss').Config} */
+// NOTE: In Tailwind v4 the design tokens live in the `@theme` block in
+// src/index.css. This file only declares content sources and a couple of
+// utilities that are easier to express here.
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      colors: {
-        init: {
-          black: "#000000",
-          dark: "#45454d",
-          gray: "#8d8d8d",
-          light: "#d6d8d7",
-          green: "#368040",
-          "green-bright": "#21a14a",
-        },
-      },
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-        serif: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "luxury-gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        "premium-gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-      },
-      boxShadow: {
-        luxury: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-        premium:
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        display: ["Space Grotesk", "system-ui", "sans-serif"],
+        sans: ["Satoshi", "system-ui", "sans-serif"],
       },
       animation: {
-        "fade-in": "fadeIn 0.5s ease-in-out",
-        "slide-up": "slideUp 0.5s ease-out",
+        "fade-up": "fade-up 0.6s ease-out both",
         float: "float 6s ease-in-out infinite",
-      },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        slideUp: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
       },
     },
   },

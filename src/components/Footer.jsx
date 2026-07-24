@@ -2,52 +2,79 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TAGLINE, nav, partner } from "../data/siteCopy";
 
+const year = new Date().getFullYear();
+
 const Footer = () => (
-  <footer className="relative z-10 bg-surface-container-lowest py-12 border-t border-white/5">
-    <div className="flex flex-col md:flex-row justify-between items-start px-6 md:px-20 max-w-container mx-auto gap-10">
-      <div className="flex flex-col gap-4">
-        <div className="text-2xl font-semibold text-primary tracking-tight">INIT</div>
-        <p className="text-on-surface-variant max-w-xs text-sm italic">{TAGLINE}</p>
-        <p className="text-on-surface-variant max-w-xs text-sm">
-          Firma global de arquitectura tecnológica. Sistemas empresariales, ERP & Operaciones, INIT Logistics e inteligencia aplicada.
-        </p>
-        <p className="text-on-surface-variant text-sm">
-          {partner.label}:{" "}
+  <footer className="relative z-10 bg-surface-container-lowest border-t border-white/5">
+    <div className="max-w-container mx-auto px-6 md:px-10 py-16 md:py-20">
+      <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr_1fr]">
+        {/* Brand */}
+        <div className="flex flex-col gap-5 max-w-sm">
+          <img src="/Init-Logo-green.svg" alt="INIT" className="h-8 w-auto self-start" />
+          <p className="text-secondary text-sm font-display tracking-tight">{TAGLINE}</p>
+          <p className="text-on-surface-variant text-sm leading-relaxed">
+            Firma de arquitectura tecnológica. Sistemas empresariales, ERP & Operaciones,
+            INIT Logistics e inteligencia aplicada.
+          </p>
+          <p className="text-faint text-sm leading-relaxed">
+            {partner.label}:{" "}
+            <a
+              href="https://konnex.com.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary hover:text-green-300 transition-colors"
+            >
+              Konnex
+            </a>
+          </p>
+        </div>
+
+        {/* Nav columns */}
+        <FooterCol title="Explorar">
+          <FooterLink to="/services">{nav.services}</FooterLink>
+          <FooterLink to="/soluciones">{nav.solutions}</FooterLink>
+          <FooterLink to="/proyectos">{nav.portfolio}</FooterLink>
+          <FooterLink to="/contact">{nav.contact}</FooterLink>
+        </FooterCol>
+
+        <FooterCol title="Contacto">
           <a
-            href="https://konnex.com.mx/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:text-secondary transition-colors"
+            href="mailto:support@init.com.mx"
+            className="text-on-surface-variant text-sm hover:text-secondary transition-colors"
           >
-            Konnex
+            support@init.com.mx
           </a>
-          {" "}— {partner.description}
-        </p>
+          <a
+            href="tel:+525547617977"
+            className="text-on-surface-variant text-sm hover:text-secondary transition-colors"
+          >
+            +52 55 4761 7977
+          </a>
+        </FooterCol>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-[auto_auto_auto] gap-x-12 gap-y-10 shrink-0">
-        <div className="flex flex-col gap-3">
-          <h5 className="text-primary font-bold text-sm">Navegación</h5>
-          <Link to="/" className="text-on-surface-variant text-sm hover:text-secondary transition-colors hover:underline underline-offset-4">Inicio</Link>
-          <Link to="/team" className="text-on-surface-variant text-sm hover:text-secondary transition-colors hover:underline underline-offset-4">Equipo</Link>
-          <Link to="/services" className="text-on-surface-variant text-sm hover:text-secondary transition-colors hover:underline underline-offset-4">{nav.services}</Link>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h5 className="text-primary font-bold text-sm">Empresa</h5>
-          <Link to="/soluciones" className="text-on-surface-variant text-sm hover:text-secondary transition-colors hover:underline underline-offset-4">{nav.solutions}</Link>
-          <Link to="/portfolio" className="text-on-surface-variant text-sm hover:text-secondary transition-colors hover:underline underline-offset-4">{nav.portfolio}</Link>
-          <Link to="/contact" className="text-on-surface-variant text-sm hover:text-secondary transition-colors hover:underline underline-offset-4">{nav.contact}</Link>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h5 className="text-primary font-bold text-sm">Contacto</h5>
-          <a href="mailto:support@init.com.mx" className="text-on-surface-variant text-sm hover:text-secondary transition-colors md:whitespace-nowrap">support@init.com.mx</a>
-          <a href="tel:+525547617977" className="text-on-surface-variant text-sm hover:text-secondary transition-colors md:whitespace-nowrap">+52 55 4761 7977</a>
-        </div>
+
+      <div className="mt-14 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <p className="text-faint text-sm">© {year} INIT. Todos los derechos reservados.</p>
+        <p className="text-faint text-sm">México · LATAM</p>
       </div>
-    </div>
-    <div className="max-w-container mx-auto px-6 md:px-20 mt-12 pt-8 border-t border-white/5 text-center md:text-left">
-      <p className="text-on-surface-variant text-sm">Copyright 2024–2026 INIT</p>
     </div>
   </footer>
+);
+
+const FooterCol = ({ title, children }) => (
+  <div className="flex flex-col gap-3.5">
+    <h5 className="text-xs uppercase tracking-[0.16em] text-faint font-display mb-1">{title}</h5>
+    {children}
+  </div>
+);
+
+const FooterLink = ({ to, children }) => (
+  <Link
+    to={to}
+    className="text-on-surface-variant text-sm hover:text-secondary transition-colors w-fit"
+  >
+    {children}
+  </Link>
 );
 
 export default Footer;

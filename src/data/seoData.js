@@ -30,27 +30,16 @@ export const pageSeo = {
       "INIT software",
     ].join(", "),
   },
-  team: {
-    path: "/team",
-    title: "Equipo INIT — Arquitectura Tecnológica",
-    description:
-      "Tres disciplinas. Un estándar. Arquitectura de sistemas, operaciones tecnológicas y trazabilidad logística.",
-    keywords: [
-      "equipo INIT",
-      "arquitecto sistemas empresariales",
-      "firma tecnología enterprise",
-    ].join(", "),
-  },
   services: {
     path: "/services",
     title: "Arquitectura INIT — Cuatro Pilares",
     description:
-      "Sistemas Empresariales, ERP & Operaciones, INIT Logistics e Inteligencia Aplicada. Cuatro pilares. Un criterio.",
+      "Sistemas Empresariales, ERP & Operaciones, INIT Logistics e Inteligencia Artificial. Cuatro pilares. Un criterio.",
     keywords: [
       "sistemas empresariales",
       "ERP Odoo",
       "logística RFID",
-      "inteligencia aplicada",
+      "inteligencia artificial aplicada",
       "arquitectura software enterprise",
     ].join(", "),
   },
@@ -68,13 +57,14 @@ export const pageSeo = {
     ].join(", "),
   },
   portfolio: {
-    path: "/portfolio",
-    title: "Evidencia — INIT",
+    path: "/proyectos",
+    title: "Proyectos y Clientes — INIT",
     description:
-      "Decisiones estratégicas de empresas que eligieron INIT para su evolución operativa. JOFRA, TRANSCOM, CONFE y más.",
+      "Proyectos y clientes de INIT: empresas que eligieron construir con criterio su evolución operativa. JOFRA, TRANSCOM, CONFE y más.",
     keywords: [
-      "evidencia INIT",
-      "arquitectura empresarial casos",
+      "proyectos INIT",
+      "clientes INIT",
+      "casos arquitectura empresarial",
       "sistemas empresariales referencias",
     ].join(", "),
   },

@@ -54,7 +54,7 @@ const LoginForm = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="mx-auto flex justify-center rounded-2xl bg-white p-2 shadow-2xl"
+            className="mx-auto flex justify-center rounded-xl bg-white p-2 shadow-2xl"
           >
             <img src="/Init-Logo.svg" alt="INIT" className="h-16 w-16 object-contain" />
           </motion.div>
@@ -75,7 +75,7 @@ const LoginForm = () => {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="card-luxury p-8">
             {error && (
-              <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl flex items-center">
+              <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-center">
                 <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
                 {error}
               </div>
