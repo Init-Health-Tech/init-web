@@ -6,8 +6,19 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "/Init-Logo.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/Init-Logo.svg",
+      "sizes": "330x330",
       "type": "image/svg+xml",
       "purpose": "any"
     }
