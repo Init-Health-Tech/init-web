@@ -30,15 +30,13 @@ Hero Home: marca **INIT** + tesis + subcopy consultivo. CTA primario → portafo
 
 | Token | Hex | Psicología | Uso |
 |-------|-----|------------|-----|
-| Navy | `#062D55` | Confianza | Fondos (`#031525` profundo) |
-| Green | `#1E8F41` | Crecimiento | Marca; CTA fill AA `#146B36` |
-| Teal | `#00A7A7` | Claridad | Eyebrows, focus, hovers |
-| Lime | `#7ED957` | Progreso | Acento ~5% |
-| Light | `#F4F7FB` | Apertura | Texto principal |
-| Mint | `#E8F8F0` | Frescura | Éxito soft |
-| Gray | `#6B7280` | Neutro | En dark usar `#94A3B8` |
+| Pearl | `#F7F3EC` | Apertura | Fondos / superficies (todo) |
+| Navy (on-surface) | `#0F172A` | Confianza | Texto |
+| Green | `#1E8F41` | Crecimiento | Desarrollo / CTAs |
+| Teal | `#00A7A7` | Claridad | Marketing |
+| RFID silver | `#C0C7D1` | Precisión | initlogistics (translúcido) |
 
-Sin oro legacy. Gradiente marca: green → teal → lime.
+Sin navy-as-background. Gradiente marca: green → teal.
 
 ## Arquitectura de páginas
 

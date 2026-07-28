@@ -250,7 +250,7 @@ const Home = () => {
             <img
               src="/empleados-fotos/init-team.jpg"
               alt="INIT"
-              className="w-full object-cover aspect-[4/3] rounded-[var(--radius-exec)] border border-white/12"
+              className="w-full object-cover aspect-[4/3] rounded-[var(--radius-exec)] border border-on-surface/10"
             />
           </motion.div>
         </div>
@@ -279,8 +279,8 @@ const Home = () => {
                   <div
                     className={`success-case-logo flex items-center justify-center mb-7 h-32 sm:h-36 md:h-40 border rounded-[var(--radius-exec)] ${
                       item.client === "CONFE" || item.client === "Polola's"
-                        ? `success-case-logo--${item.client === "CONFE" ? "confe" : "pololas"} bg-white border-white/25 p-3`
-                        : "bg-surface-container border-white/12"
+                        ? `success-case-logo--${item.client === "CONFE" ? "confe" : "pololas"} bg-white border-on-surface/15 p-3`
+                        : "bg-surface-container border-on-surface/10"
                     }`}
                   >
                     <ClientLogo
@@ -320,7 +320,7 @@ const Home = () => {
 
       <PartnerSection />
 
-      <section className="layer-panel py-12 sm:py-16 bg-surface-container-low border-y border-white/10 overflow-hidden">
+      <section className="layer-panel py-12 sm:py-16 bg-surface-container-low border-y border-on-surface/10 overflow-hidden">
         <div className="flex animate-marquee items-center gap-12 sm:gap-16 opacity-80">
           {[...clientLogos, ...clientLogos].map((client, i) => (
             <ClientLogo key={`${client.id}-${i}`} client={client} size="md" />

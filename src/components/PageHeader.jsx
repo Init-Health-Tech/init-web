@@ -5,10 +5,10 @@ const PageHeader = ({ eyebrow, title, subtitle }) => (
   <section className="layer-reveal relative z-10 pt-24 pb-12 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 overflow-hidden">
     <div className="hero-scrim absolute inset-0 pointer-events-none opacity-90" aria-hidden="true" />
     <div
-      className="absolute top-0 left-1/2 -translate-x-1/2 w-[min(560px,100%)] h-[220px] sm:h-[280px] pointer-events-none opacity-40"
+      className="absolute top-0 left-1/2 -translate-x-1/2 w-[min(560px,100%)] h-[220px] sm:h-[280px] pointer-events-none opacity-50"
       style={{
         background:
-          "radial-gradient(circle, rgba(0, 167, 167, 0.18) 0%, rgba(6, 45, 85, 0.25) 40%, transparent 70%)",
+          "radial-gradient(circle, rgba(0, 167, 167, 0.14) 0%, rgba(247, 243, 236, 0.4) 45%, transparent 70%)",
       }}
       aria-hidden="true"
     />
@@ -21,7 +21,7 @@ const PageHeader = ({ eyebrow, title, subtitle }) => (
       >
         <div className="mb-6 sm:mb-8">
           <img
-            src="/Init-Logo-green.svg"
+            src="/Init-Logo-black.svg"
             alt="INIT"
             className="h-10 sm:h-12 md:h-14 w-auto mx-auto object-contain"
           />

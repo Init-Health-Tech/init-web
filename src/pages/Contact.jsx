@@ -179,7 +179,7 @@ const Contact = () => {
                 {contactInfo.map((info) => (
                   <div key={info.title} className="flex items-start gap-4">
                     <div className="icon-badge flex-shrink-0">
-                      <info.icon className="h-6 w-6 text-white" />
+                      <info.icon className="h-6 w-6 text-on-primary-container" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1 tracking-tight">{info.title}</h3>
@@ -363,7 +363,7 @@ const Contact = () => {
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-semibold hover:bg-white/5 transition-colors"
+                  className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-semibold hover:bg-on-surface/5 transition-colors"
                   aria-expanded={openFaq === i}
                   aria-controls={`faq-panel-${i}`}
                   id={`faq-button-${i}`}

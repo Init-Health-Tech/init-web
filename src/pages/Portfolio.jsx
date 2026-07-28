@@ -75,7 +75,7 @@ const Portfolio = () => {
                         {client.logo ? (
                           <ClientLogo client={client} size="lg" className="min-w-[140px]" />
                         ) : (
-                          <div className="icon-badge min-w-[80px] min-h-[80px] text-3xl font-semibold text-white">
+                          <div className="icon-badge min-w-[80px] min-h-[80px] text-3xl font-semibold text-on-primary-container">
                             <span>{client.initial}</span>
                           </div>
                         )}
@@ -83,7 +83,7 @@ const Portfolio = () => {
                       <div className="flex-1">
                         <div className="flex flex-wrap items-baseline gap-3 mb-2">
                           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">{client.name}</h2>
-                          <span className="text-sm font-medium text-on-surface-variant bg-surface-container px-3 py-1 border border-white/10 tech-pill">
+                          <span className="text-sm font-medium text-on-surface-variant bg-surface-container px-3 py-1 border border-on-surface/10 tech-pill">
                             {sectorDetail}
                           </span>
                         </div>

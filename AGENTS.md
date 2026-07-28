@@ -16,8 +16,8 @@ Antes de editar UI, copy o SEO, lee en este orden:
 
 - **Posicionamiento:** consultora que *evalúa fit*. Si no pueden ayudar, lo dicen. No vender por vender.
 - **CTAs:** “Evaluar si podemos ayudar” / “¿Podemos ayudar?” — nunca “Cotiza”, “demo gratis”, “sé nuestro caso de éxito”.
-- **Visual:** Apple space + navy profundo INIT + green/teal/lime. Sin púrpura genérico, sin oro legacy, sin urgencia falsa.
-- **Contraste:** botones con `#146B36` + blanco; texto secundario `#94A3B8` (no Gray crudo `#6B7280` sobre navy).
+- **Visual:** Apple space sobre **perla** `#F7F3EC`; texto navy `#0F172A`; acentos verdes de desarrollo; teal marketing. Sin púrpura genérico, sin urgencia falsa.
+- **Contraste:** CTAs verdes `#1E8F41` + perla; texto secundario `#475569` sobre perla. RFID = plateado translúcido.
 - **Hero Home:** marca INIT visible; CTA principal explorar trabajo; contacto como filtro.
 
 ## Skills (mapa rápido)

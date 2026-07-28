@@ -16,7 +16,7 @@ const PartnerSection = () => {
   const { t, L } = useLanguage();
 
   return (
-    <section className="layer-panel section-py bg-surface-container-low border-y border-white/10">
+    <section className="layer-panel section-py bg-surface-container-low border-y border-on-surface/10">
       <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
           <p className="eyebrow mb-4">{t("home.partnerEyebrow")}</p>

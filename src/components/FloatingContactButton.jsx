@@ -22,7 +22,7 @@ const FloatingContactButton = () => {
           <Link
             to="/contact"
             aria-label={t("common.canWeHelp")}
-            className="btn-secondary bg-surface/95 backdrop-blur-md relative flex items-center gap-2 min-h-11 px-4 py-3 md:px-5 md:py-3.5 shadow-lg shadow-[0_8px_24px_rgba(6,45,85,0.45)]"
+            className="btn-secondary bg-surface/95 backdrop-blur-md relative flex items-center gap-2 min-h-11 px-4 py-3 md:px-5 md:py-3.5 shadow-lg shadow-[0_8px_24px_rgba(15,23,42,0.12)]"
           >
             <ChatIcon className="h-4 w-4 md:h-5 md:w-5" aria-hidden="true" />
             <span className="hidden sm:inline text-[13px]">{t("common.canWeHelp")}</span>

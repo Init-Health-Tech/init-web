@@ -3,51 +3,52 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── INIT brand only (no pure black, no off-palette) ─────────────────
-     Navy  #062D55 — confianza / fondos
-     Green #1E8F41 — crecimiento / CTAs
-     Teal  #00A7A7 — claridad
-     Lime  #7ED957 — progreso (acento escaso)
-     Light #F4F7FB — texto / superficies claras
-     Mint  #E8F8F0 — éxito suave
-     Gray  #6B7280 — neutro (en dark se aclara hacia Light) */
-  --color-init-navy: #062D55;
+  /* ── INIT palette ──────────────────────────────────────────────────────
+     Pearl #F7F3EC — superficies / fondos (todo el sitio)
+     Navy  #0F172A — on-surface (texto)
+     Green #1E8F41 — desarrollo / CTAs / acentos de producto
+     Teal  #00A7A7 — marketing / claridad
+     RFID  plateado translúcido — initlogistics / hardware */
+  --color-init-pearl: #F7F3EC;
+  --color-init-navy: #0F172A;
   --color-init-green: #1E8F41;
   --color-init-teal: #00A7A7;
-  --color-init-lime: #7ED957;
-  --color-init-light: #F4F7FB;
+  --color-init-silver: #C0C7D1;
   --color-init-mint: #E8F8F0;
-  --color-init-gray: #6B7280;
+  --color-init-gray: #64748B;
 
-  /* Alias: “dark” = navy, never #000 */
-  --color-init-black: #062D55;
-  --color-init-dark: #0A3A6B;
-  --color-init-green-bright: #2BB855;
+  /* Legacy aliases → new system */
+  --color-init-light: #F7F3EC;
+  --color-init-black: #0F172A;
+  --color-init-dark: #1E293B;
+  --color-init-lime: #1E8F41;
+  --color-init-green-bright: #249B4A;
 
-  --color-accent: #7ED957;
-  --color-accent-bright: #9AE56F;
-  --color-accent-container: #1A3D28;
+  --color-accent: #1E8F41;
+  --color-accent-bright: #249B4A;
+  --color-accent-container: #D8EEDF;
 
-  /* Surfaces = navy scale (readable, not black) */
-  --color-surface: #062D55;
-  --color-background: #062D55;
-  --color-on-surface: #F4F7FB;
-  --color-on-surface-variant: #A3ADB8;
-  --color-primary: #2BB855;
-  --color-primary-container: #146B36;
-  --color-on-primary-container: #F4F7FB;
+  /* Pearl surfaces + navy type */
+  --color-surface: #F7F3EC;
+  --color-background: #F7F3EC;
+  --color-on-surface: #0F172A;
+  --color-on-surface-variant: #475569;
+  --color-primary: #1E8F41;
+  --color-primary-container: #1E8F41;
+  --color-on-primary-container: #F7F3EC;
   --color-secondary: #00A7A7;
-  --color-secondary-container: #007A7A;
-  --color-outline: #4B6490;
-  --color-surface-container-low: #0A3A6B;
-  --color-surface-container-lowest: #052548;
-  --color-surface-container: #0C4578;
-  --color-surface-container-high: #105088;
-  --color-surface-container-highest: #17609A;
-  --color-surface-variant: #105088;
+  --color-secondary-container: #D4F3F3;
+  --color-outline: #CBD5E1;
+  --color-surface-container-low: #F1EBE2;
+  --color-surface-container-lowest: #EBE4DA;
+  --color-surface-container: #FFFFFF;
+  --color-surface-container-high: #EDE6DC;
+  --color-surface-container-highest: #E6DFD4;
+  --color-surface-variant: #EDE6DC;
 
   --color-mint: #E8F8F0;
-  --color-light: #F4F7FB;
+  --color-light: #F7F3EC;
+  --color-rfid: #C0C7D1;
 
   --radius-exec: 22px;
   --radius-pill: 980px;
@@ -58,7 +59,10 @@
 
   --max-width-container: 980px;
 
-  --gradient-accent: linear-gradient(135deg, #1E8F41 0%, #00A7A7 55%, #7ED957 100%);
+  /* Dev = green; marketing = teal */
+  --gradient-accent: linear-gradient(135deg, #1E8F41 0%, #00A7A7 100%);
+  --gradient-dev: linear-gradient(135deg, #1E8F41 0%, #249B4A 100%);
+  --gradient-marketing: linear-gradient(135deg, #00A7A7 0%, #14B8B8 100%);
   --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
 }
 
@@ -78,8 +82,8 @@
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(30, 143, 65, 0.22); }
-  50% { box-shadow: 0 0 40px rgba(0, 167, 167, 0.35); }
+  0%, 100% { box-shadow: 0 0 20px rgba(30, 143, 65, 0.18); }
+  50% { box-shadow: 0 0 36px rgba(30, 143, 65, 0.28); }
 }
 
 @keyframes marquee {
@@ -107,6 +111,7 @@
   html {
     font-family: "Inter", system-ui, sans-serif;
     scroll-behavior: smooth;
+    color-scheme: light;
   }
   body {
     @apply bg-background text-on-surface antialiased overflow-x-hidden;
@@ -131,8 +136,6 @@
   }
 }
 
-/* Visible keyboard-focus ring across the site. Mouse/touch clicks don't
-   trigger :focus-visible, so this only shows up for keyboard navigation. */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -153,6 +156,7 @@ textarea:focus-visible,
     @apply py-16 sm:py-24 md:py-32 lg:py-40;
   }
 
+  /* Marketing clarity */
   .eyebrow {
     @apply text-[12px] font-medium uppercase tracking-[0.18em] text-secondary;
   }
@@ -163,40 +167,40 @@ textarea:focus-visible,
     line-height: 1.05;
   }
 
-  /* Hero readability — navy veil (INITNavy RGB 6,45,85 — never black) */
+  /* Pearl veil over video / hero media */
   .hero-scrim {
     background:
-      radial-gradient(ellipse 80% 55% at 50% 35%, rgba(6, 45, 85, 0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 55% at 50% 35%, rgba(247, 243, 236, 0.45) 0%, transparent 70%),
       linear-gradient(
         180deg,
-        rgba(6, 45, 85, 0.78) 0%,
-        rgba(6, 45, 85, 0.45) 35%,
-        rgba(6, 45, 85, 0.58) 65%,
-        rgba(5, 37, 72, 0.88) 100%
+        rgba(247, 243, 236, 0.92) 0%,
+        rgba(247, 243, 236, 0.72) 35%,
+        rgba(247, 243, 236, 0.82) 65%,
+        rgba(247, 243, 236, 0.96) 100%
       );
   }
 
   .apple-row {
-    @apply flex items-center justify-between gap-4 sm:gap-6 py-6 sm:py-7 md:py-8 border-b border-white/10 transition-colors duration-300;
+    @apply flex items-center justify-between gap-4 sm:gap-6 py-6 sm:py-7 md:py-8 border-b border-on-surface/10 transition-colors duration-300;
   }
 
   .apple-row:hover {
-    border-bottom-color: rgba(0, 167, 167, 0.5);
+    border-bottom-color: rgba(30, 143, 65, 0.45);
   }
 
   .apple-row:first-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
   }
 
   .grid-pattern {
-    background-image: radial-gradient(rgba(0, 167, 167, 0.07) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(30, 143, 65, 0.1) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .grid-pattern-lines {
     background-image:
-      linear-gradient(rgba(244, 247, 251, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(244, 247, 251, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
@@ -206,27 +210,49 @@ textarea:focus-visible,
   }
 
   .exec-frame {
-    @apply bg-init-light p-3 border border-white/15 shadow-md;
+    @apply bg-surface-container p-3 border border-on-surface/10 shadow-sm;
     border-radius: var(--radius-exec);
   }
 
   .glass-card {
-    background: rgba(6, 45, 85, 0.88);
-    backdrop-filter: blur(24px);
-    border: 1px solid rgba(0, 167, 167, 0.16);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: var(--radius-exec);
-    transition: border-color 0.35s ease, background-color 0.35s ease;
+    transition: border-color 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
   }
 
   .glass-card:hover {
-    border-color: rgba(30, 143, 65, 0.45);
-    background: rgba(10, 58, 107, 0.94);
-    box-shadow: none;
+    border-color: rgba(30, 143, 65, 0.35);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
     transform: none;
   }
 
+  /* RFID / logistics — plateado translúcido */
+  .rfid-surface,
+  .glass-card--rfid {
+    background: linear-gradient(
+      145deg,
+      rgba(192, 199, 209, 0.28) 0%,
+      rgba(247, 243, 236, 0.85) 45%,
+      rgba(192, 199, 209, 0.18) 100%
+    );
+    border: 1px solid rgba(192, 199, 209, 0.55);
+    backdrop-filter: blur(16px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  }
+
+  .accent-dev {
+    color: var(--color-init-green);
+  }
+
+  .accent-marketing {
+    color: var(--color-init-teal);
+  }
+
   .text-gradient-green {
-    background: linear-gradient(135deg, #7ED957 0%, #1E8F41 55%, #00A7A7 100%);
+    background: var(--gradient-dev);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -234,10 +260,9 @@ textarea:focus-visible,
 
   .text-shimmer-mexico,
   .text-accent {
-    @apply text-accent;
+    @apply text-primary;
   }
 
-  /* Gradient headline — green → teal → lime */
   .text-gradient-accent {
     background: var(--gradient-accent);
     background-size: 200% 200%;
@@ -247,13 +272,12 @@ textarea:focus-visible,
     animation: gradient-shift 6s ease infinite;
   }
 
-  /* Shimmer for stats — lime (progreso) */
   .stat-shimmer {
     background: linear-gradient(
       90deg,
-      var(--color-accent) 0%,
+      var(--color-primary) 0%,
       var(--color-accent-bright) 50%,
-      var(--color-accent) 100%
+      var(--color-primary) 100%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -262,13 +286,13 @@ textarea:focus-visible,
     animation: shimmer 3.5s linear infinite;
   }
 
-  /* Soft breathing glow for background orbs. */
   .orb-breathe {
     animation: breathe 6s ease-in-out infinite;
   }
 
+  /* Development CTA — green */
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-primary-container hover:brightness-110 text-init-light font-semibold py-3.5 px-6 sm:px-9 text-[13px] leading-none tracking-[-0.01em] transition-all duration-300 min-h-11;
+    @apply inline-flex items-center justify-center bg-primary-container hover:brightness-110 text-on-primary-container font-semibold py-3.5 px-6 sm:px-9 text-[13px] leading-none tracking-[-0.01em] transition-all duration-300 min-h-11;
     border: 1px solid transparent;
     border-radius: var(--radius-pill);
     box-shadow: none;
@@ -280,8 +304,14 @@ textarea:focus-visible,
     transform: none;
   }
 
+  /* Marketing outline — teal-capable secondary uses navy border on pearl */
   .btn-secondary {
-    @apply inline-flex items-center justify-center border border-init-light/25 text-on-surface hover:bg-init-light/[0.08] hover:border-init-light/40 font-semibold py-3.5 px-6 sm:px-9 text-[13px] leading-none tracking-[-0.01em] transition-colors duration-300 min-h-11;
+    @apply inline-flex items-center justify-center border border-on-surface/20 text-on-surface hover:bg-on-surface/[0.04] hover:border-on-surface/35 font-semibold py-3.5 px-6 sm:px-9 text-[13px] leading-none tracking-[-0.01em] transition-colors duration-300 min-h-11;
+    border-radius: var(--radius-pill);
+  }
+
+  .btn-marketing {
+    @apply inline-flex items-center justify-center bg-secondary text-init-pearl font-semibold py-3.5 px-6 sm:px-9 text-[13px] leading-none tracking-[-0.01em] transition-all duration-300 min-h-11;
     border-radius: var(--radius-pill);
   }
 
@@ -296,7 +326,7 @@ textarea:focus-visible,
   }
 
   .input-field {
-    @apply w-full px-4 py-3 border border-white/10 focus:outline-none focus:ring-1 focus:ring-primary/50 focus:border-primary/40 bg-surface-container text-on-surface placeholder:text-on-surface-variant/50 transition-colors duration-200;
+    @apply w-full px-4 py-3 border border-on-surface/12 focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary/40 bg-surface-container text-on-surface placeholder:text-on-surface-variant/60 transition-colors duration-200;
     border-radius: var(--radius-exec);
   }
 
@@ -305,7 +335,7 @@ textarea:focus-visible,
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-br from-surface-container-highest via-surface to-surface-container-lowest;
+    @apply bg-gradient-to-br from-surface-container-high via-surface to-surface-container-lowest;
   }
 
   .gradient-text {
@@ -328,7 +358,7 @@ textarea:focus-visible,
   }
 
   .benefit-card {
-    @apply p-8 border border-white/[0.06] hover:bg-white/[0.03] transition-colors duration-300 hover:border-primary/25;
+    @apply p-8 border border-on-surface/[0.08] hover:bg-surface-container transition-colors duration-300 hover:border-primary/25;
     border-radius: var(--radius-exec);
   }
 
@@ -337,12 +367,12 @@ textarea:focus-visible,
   }
 
   .tech-pill {
-    @apply px-4 py-2 text-sm font-medium text-on-surface border border-white/10 bg-surface-container/90 hover:border-primary/35 transition-colors duration-200;
+    @apply px-4 py-2 text-sm font-medium text-on-surface border border-on-surface/10 bg-surface-container hover:border-primary/35 transition-colors duration-200;
     border-radius: var(--radius-exec);
   }
 
   .icon-badge {
-    @apply w-14 h-14 flex items-center justify-center bg-primary-container border border-primary/30;
+    @apply w-14 h-14 flex items-center justify-center bg-primary-container border border-primary/20 text-on-primary-container;
     border-radius: var(--radius-exec);
   }
 
@@ -364,18 +394,17 @@ textarea:focus-visible,
   }
 
   .sector-badge {
-    @apply text-sm font-medium text-on-surface-variant bg-surface-container px-3 py-1 border border-white/10;
+    @apply text-sm font-medium text-on-surface-variant bg-surface-container px-3 py-1 border border-on-surface/10;
     border-radius: var(--radius-exec);
   }
 
-  /* Full-page Apple scroll-scrub video */
   .page-video-bg {
     position: fixed;
     inset: 0;
     z-index: 1;
     overflow: hidden;
     pointer-events: none;
-    background: var(--color-init-navy);
+    background: var(--color-init-pearl);
   }
 
   .page-video-bg__veil {
@@ -383,13 +412,13 @@ textarea:focus-visible,
     inset: 0;
     z-index: 2;
     background:
-      radial-gradient(ellipse 70% 55% at 50% 40%, rgba(0, 167, 167, 0.08) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 55% at 50% 40%, rgba(30, 143, 65, 0.06) 0%, transparent 65%),
       linear-gradient(
         180deg,
-        rgba(6, 45, 85, 0.55) 0%,
-        rgba(6, 45, 85, 0.28) 40%,
-        rgba(6, 45, 85, 0.42) 70%,
-        rgba(5, 37, 72, 0.7) 100%
+        rgba(247, 243, 236, 0.78) 0%,
+        rgba(247, 243, 236, 0.55) 40%,
+        rgba(247, 243, 236, 0.7) 70%,
+        rgba(247, 243, 236, 0.92) 100%
       );
   }
 
@@ -413,7 +442,7 @@ textarea:focus-visible,
   }
 
   .client-logo {
-    @apply inline-flex items-center justify-center px-6 py-3 border border-white/10 transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-6 py-3 border border-on-surface/10 transition-colors duration-200;
     border-radius: var(--radius-exec);
   }
 
@@ -426,15 +455,15 @@ textarea:focus-visible,
   }
 
   .client-logo[data-client="confe"] {
-    @apply border border-white;
+    @apply border border-on-surface/15;
   }
 
   .client-logo--light-bg {
-    @apply bg-white/95 border-white/20;
+    @apply bg-white border-on-surface/10;
   }
 
   .client-logo--light-bg[data-client="confe"] {
-    @apply border-white;
+    @apply border-on-surface/15;
   }
 
   .client-logo--light-bg img {
@@ -451,24 +480,24 @@ textarea:focus-visible,
 
   .client-logo--featured img {
     @apply grayscale-0 opacity-90 transition-all duration-300;
-    filter: brightness(0.78) saturate(0.92);
+    filter: brightness(0.95) saturate(0.95);
   }
 
   .client-logo--featured:hover img {
     @apply opacity-100;
-    filter: brightness(0.88) saturate(1);
+    filter: brightness(1) saturate(1);
   }
 
   .client-logo--featured[data-client="confe"] {
-    @apply bg-white/[0.08] px-4 py-3 border border-white;
+    @apply bg-white px-4 py-3 border border-on-surface/10;
   }
 
   .client-logo--featured[data-client="confe"] img {
-    filter: brightness(0.9) saturate(0.9);
+    filter: none;
   }
 
   .client-logo--featured[data-client="confe"]:hover img {
-    filter: brightness(0.95) saturate(0.95);
+    filter: none;
   }
 
   .success-case-logo--confe .success-case-confe-logo.client-logo--featured {
@@ -505,14 +534,13 @@ textarea:focus-visible,
 
   .partner-konnex-logo.client-logo--featured img {
     @apply h-24 md:h-32 max-w-[min(100%,360px)] grayscale-0 opacity-100;
-    filter: brightness(1.18) saturate(1.08);
+    filter: none;
   }
 
   .partner-konnex-logo.client-logo--featured:hover img {
-    filter: brightness(1.28) saturate(1.12);
+    filter: none;
   }
 
-  /* Content layers over video — panels cover, reveal sections show video through */
   .layer-panel {
     position: relative;
     z-index: 10;
@@ -527,8 +555,8 @@ textarea:focus-visible,
 
   .layer-reveal .glass-card,
   .layer-reveal .benefit-card {
-    background: rgba(6, 45, 85, 0.9);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(16px);
   }
 
   .text-balance {

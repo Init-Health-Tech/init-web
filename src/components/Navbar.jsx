@@ -42,7 +42,7 @@ const Navbar = () => {
 
   const LangToggle = ({ className = '' }) => (
     <div
-      className={`inline-flex items-center rounded-full border border-white/15 p-0.5 ${className}`}
+      className={`inline-flex items-center rounded-full border border-on-surface/15 p-0.5 ${className}`}
       role="group"
       aria-label="Language"
     >
@@ -53,7 +53,7 @@ const Navbar = () => {
           onClick={() => setLang(code)}
           className={`min-h-9 min-w-9 px-2.5 text-[11px] font-semibold uppercase tracking-wider transition-colors rounded-full ${
             lang === code
-              ? 'bg-primary-container text-init-light'
+              ? 'bg-primary-container text-on-primary-container'
               : 'text-on-surface-variant hover:text-on-surface'
           }`}
           aria-pressed={lang === code}
@@ -66,7 +66,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-white/10 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-on-surface/10 transition-all duration-300 ${
         scrolled ? 'h-14 sm:h-16' : 'h-16 sm:h-20'
       }`}
       aria-label={t('nav.aria')}
@@ -74,7 +74,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center px-4 sm:px-6 md:px-12 lg:px-20 max-w-container mx-auto h-full gap-2">
         <Link to="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
           <img
-            src="/Init-Logo-green.svg"
+            src="/Init-Logo-black.svg"
             alt="INIT"
             title="Brilliant minds building the future"
             className="h-8 sm:h-10 w-auto max-h-full object-contain"
@@ -109,7 +109,7 @@ const Navbar = () => {
           <button
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-on-surface min-h-11 min-w-11 p-2.5 hover:bg-white/5 transition-colors exec-chamfer"
+            className="lg:hidden text-on-surface min-h-11 min-w-11 p-2.5 hover:bg-on-surface/5 transition-colors exec-chamfer"
             aria-label={isMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
@@ -122,7 +122,7 @@ const Navbar = () => {
       {isMenuOpen && (
         <div
           id="mobile-menu"
-          className="lg:hidden bg-surface/98 backdrop-blur-md border-t border-white/10 px-4 py-4 space-y-1 max-h-[calc(100dvh-4rem)] overflow-y-auto"
+          className="lg:hidden bg-surface/98 backdrop-blur-md border-t border-on-surface/10 px-4 py-4 space-y-1 max-h-[calc(100dvh-4rem)] overflow-y-auto"
         >
           {navigation.map((item) => (
             <Link
@@ -130,8 +130,8 @@ const Navbar = () => {
               to={item.href}
               className={`block px-3 py-3.5 text-sm font-semibold uppercase tracking-wider transition-colors exec-chamfer min-h-11 ${
                 isActive(item.href)
-                  ? 'text-primary bg-white/5'
-                  : 'text-on-surface-variant hover:text-primary hover:bg-white/5'
+                  ? 'text-primary bg-primary/10'
+                  : 'text-on-surface-variant hover:text-primary hover:bg-on-surface/5'
               }`}
             >
               {item.name}

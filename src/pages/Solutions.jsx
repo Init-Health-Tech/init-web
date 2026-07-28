@@ -44,12 +44,26 @@ const Solutions = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="glass-card overflow-hidden"
+                  className={`glass-card overflow-hidden ${
+                    solution.name?.toLowerCase().includes("logistics") || solution.id === 2
+                      ? "glass-card--rfid"
+                      : ""
+                  }`}
                 >
                   <div className="p-5 sm:p-8 md:p-10">
                     <div className="flex items-start gap-4 sm:gap-5 mb-6">
-                      <div className="flex-shrink-0 icon-badge w-14 h-14 sm:w-16 sm:h-16">
-                        <span className="text-xl sm:text-2xl font-semibold text-white">{solution.initial}</span>
+                      <div
+                        className={`flex-shrink-0 icon-badge w-14 h-14 sm:w-16 sm:h-16 ${
+                          solution.id === 2 ? "bg-rfid/40 border-rfid/60 text-on-surface" : ""
+                        }`}
+                      >
+                        <span
+                          className={`text-xl sm:text-2xl font-semibold ${
+                            solution.id === 2 ? "text-on-surface" : "text-on-primary-container"
+                          }`}
+                        >
+                          {solution.initial}
+                        </span>
                       </div>
                       <div>
                         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">{solution.name}</h2>

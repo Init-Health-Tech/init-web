@@ -79,7 +79,7 @@ const Services = () => {
                 className={`grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center ${isImageRight ? "lg:grid-flow-dense" : ""}`}
               >
                 <div className={`relative ${isImageRight ? "lg:col-start-2" : ""}`}>
-                  <div className="relative overflow-hidden rounded-[var(--radius-exec)] border border-white/10 aspect-[4/3]">
+                  <div className="relative overflow-hidden rounded-[var(--radius-exec)] border border-on-surface/10 aspect-[4/3]">
                     <img
                       src={SERVICE_IMAGES[index]}
                       alt={service.title}
@@ -92,7 +92,7 @@ const Services = () => {
                 <div className={isImageRight ? "lg:col-start-1 lg:row-start-1" : ""}>
                   <p className="eyebrow mb-4">{String(index + 1).padStart(2, "0")}</p>
                   <div className="icon-badge mb-6">
-                    <ServiceIcon className="h-7 w-7 text-white" />
+                    <ServiceIcon className="h-7 w-7 text-on-primary-container" />
                   </div>
                   <h2 className="display-title text-2xl sm:text-3xl lg:text-4xl mb-4">{service.title}</h2>
                   <p className="text-base sm:text-lg text-on-surface mb-3 leading-relaxed">{service.intro}</p>
@@ -168,7 +168,7 @@ const Services = () => {
                 transition={{ delay: index * 0.08 }}
                 className="glass-card p-5 sm:p-6 text-center"
               >
-                <div className="icon-badge mx-auto mb-4 text-white font-semibold text-lg">
+                <div className="icon-badge mx-auto mb-4 text-on-primary-container font-semibold text-lg">
                   {index + 1}
                 </div>
                 <h3 className="font-semibold mb-2 tracking-tight">{step.title}</h3>
@@ -199,7 +199,7 @@ const Services = () => {
                   className="text-center"
                 >
                   <div className="icon-badge mx-auto mb-5">
-                    <Icon className="h-7 w-7 text-white" />
+                    <Icon className="h-7 w-7 text-on-primary-container" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2 tracking-tight">{b.title}</h3>
                   <p className="text-on-surface-variant text-sm leading-relaxed">{b.description}</p>
