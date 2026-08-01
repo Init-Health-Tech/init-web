@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import FadeIn from "./FadeIn";
 import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
 import { useLanguage } from "../i18n/LanguageContext";

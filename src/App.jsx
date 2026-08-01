@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import StitchBackground from './components/StitchBackground';
