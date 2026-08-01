@@ -8,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 import FloatingContactButton from './components/FloatingContactButton';
 import SkipLink from './components/SkipLink';
 import PageLoader from './components/PageLoader';
+import PageTransition from './components/PageTransition';
 
 // Home stays eager (first paint / LCP route). The rest are code-split so
 // visitors only download the JS for the page they actually open.
@@ -30,17 +31,19 @@ function AppRoutes() {
       <SkipLink />
       <Navbar />
       <main id="main-content" className="relative z-10" tabIndex={-1}>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* Equipo oculto de momento */}
-            {/* <Route path="/team" element={<Team />} /> */}
-            <Route path="/services" element={<Services />} />
-            <Route path="/soluciones" element={<Solutions />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Suspense>
+        <PageTransition>
+          <Suspense fallback={<PageLoader />}>
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              {/* Equipo oculto de momento */}
+              {/* <Route path="/team" element={<Team />} /> */}
+              <Route path="/services" element={<Services />} />
+              <Route path="/soluciones" element={<Solutions />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Suspense>
+        </PageTransition>
       </main>
       <Footer />
       <FloatingContactButton />
