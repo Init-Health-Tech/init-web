@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { appleEase } from "../lib/motion";
 
 /**
  * Shared stat/metric tile — dedupes the glass-card stat markup that used to
@@ -9,9 +10,8 @@ import { motion } from "framer-motion";
 const StatTile = ({ icon: Icon, value, label, sub, delay = 0, compact = false }) => (
   <motion.div
     initial={{ opacity: 0, y: 16 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-60px" }}
-    transition={{ duration: 0.5, delay }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay, ease: appleEase }}
     className={`glass-card ${compact ? "p-5 text-center" : "flex items-start gap-4 p-6"}`}
   >
     {Icon && !compact && (

@@ -9,7 +9,8 @@ import PageVideoBackground from "../components/PageVideoBackground";
 import { solutions } from "../data/solutionsData";
 import { getPageSeo } from "../data/seoData";
 import { useLanguage } from "../i18n/LanguageContext";
-import { CheckCircle as CheckCircleIcon } from "@mui/icons-material";
+import { CircleCheck as CheckCircleIcon } from "lucide-react";
+import { fadeUp } from "../lib/motion";
 
 const Solutions = () => {
   const { t, lang } = useLanguage();
@@ -40,10 +41,8 @@ const Solutions = () => {
               return (
                 <motion.div
                   key={solution.id}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  viewport={{ once: true }}
+                  {...fadeUp}
+                  transition={{ ...fadeUp.transition, delay: index * 0.1 }}
                   className={`glass-card overflow-hidden ${
                     solution.name?.toLowerCase().includes("logistics") || solution.id === 2
                       ? "glass-card--rfid"

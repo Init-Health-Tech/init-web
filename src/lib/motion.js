@@ -1,31 +1,40 @@
 /**
  * Apple-inspired motion tokens — smooth, restrained, ease-out emphasis.
- * Cubic: approx. Apple's system easing (easeOutExpo-ish).
  */
 export const appleEase = [0.16, 1, 0.3, 1];
 
-/** Route / screen enter-exit */
+/**
+ * Content reveal on mount (not whileInView).
+ *
+ * whileInView + route enter is unreliable: IntersectionObserver often misses
+ * elements that mount inside an animating page wrapper, so above-the-fold
+ * blocks stay at opacity 0 until the user scrolls. `animate` always runs.
+ */
+export const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: {
+    duration: 0.65,
+    ease: appleEase,
+  },
+};
+
+/** Route enter/exit — opacity only (no transform/filter on the page shell). */
 export const pageTransition = {
   initial: {
     opacity: 0,
-    y: 18,
-    filter: "blur(6px)",
   },
   animate: {
     opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
     transition: {
-      duration: 0.55,
+      duration: 0.4,
       ease: appleEase,
     },
   },
   exit: {
     opacity: 0,
-    y: -10,
-    filter: "blur(4px)",
     transition: {
-      duration: 0.32,
+      duration: 0.25,
       ease: [0.4, 0, 1, 1],
     },
   },

@@ -10,7 +10,8 @@ import PageVideoBackground from "../components/PageVideoBackground";
 import { portfolioClients } from "../data/portfolioData";
 import { getPageSeo } from "../data/seoData";
 import { useLanguage } from "../i18n/LanguageContext";
-import { CheckCircle as CheckCircleIcon } from "@mui/icons-material";
+import { CircleCheck as CheckCircleIcon } from "lucide-react";
+import { fadeUp } from "../lib/motion";
 
 const Portfolio = () => {
   const { t, lang } = useLanguage();
@@ -63,10 +64,8 @@ const Portfolio = () => {
               return (
                 <motion.div
                   key={client.id}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  {...fadeUp}
+                  transition={{ ...fadeUp.transition, delay: index * 0.1 }}
                   className="glass-card overflow-hidden"
                 >
                   <div className="p-5 sm:p-8 md:p-10">

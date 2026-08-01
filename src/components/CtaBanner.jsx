@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import FadeIn from "./FadeIn";
-import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
+import { ArrowRight as ArrowForwardIcon } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const CtaBanner = ({

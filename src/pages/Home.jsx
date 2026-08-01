@@ -12,16 +12,10 @@ import { getPageSeo } from "../data/seoData";
 import { BRAND } from "../data/brandData";
 import { useLanguage } from "../i18n/LanguageContext";
 import {
-  ArrowForward as ArrowForwardIcon,
-  KeyboardArrowDown as ChevronDownIcon,
-} from "@mui/icons-material";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 28 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
-};
+  ArrowRight as ArrowForwardIcon,
+  ChevronDown as ChevronDownIcon,
+} from "lucide-react";
+import { fadeUp } from "../lib/motion";
 
 const Home = () => {
   const { t, lang } = useLanguage();

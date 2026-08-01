@@ -9,21 +9,16 @@ import { getPageSeo } from "../data/seoData";
 import { useLanguage } from "../i18n/LanguageContext";
 import {
   Code as CodeIcon,
-  Computer as ComputerIcon,
-  RocketLaunch as RocketLaunchIcon,
-  Security as SecurityIcon,
-  Speed as SpeedIcon,
-  Support as SupportIcon,
+  Monitor as ComputerIcon,
+  Rocket as RocketLaunchIcon,
+  Shield as SecurityIcon,
+  Gauge as SpeedIcon,
+  LifeBuoy as SupportIcon,
   TrendingUp as TrendingUpIcon,
-  CheckCircle as CheckCircleIcon,
-} from "@mui/icons-material";
+  CircleCheck as CheckCircleIcon,
+} from "lucide-react";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 28 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-};
+import { fadeUp } from "../lib/motion";
 
 const SERVICE_ICONS = [CodeIcon, ComputerIcon, RocketLaunchIcon];
 const SERVICE_IMAGES = [
@@ -129,10 +124,8 @@ const Services = () => {
             {techCats.map((cat, i) => (
               <motion.div
                 key={cat.name}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: i * 0.05 }}
                 className="text-center px-1"
               >
                 <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-on-surface-variant mb-3">
@@ -162,10 +155,8 @@ const Services = () => {
             {process.map((step, index) => (
               <motion.div
                 key={step.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: index * 0.08 }}
                 className="glass-card p-5 sm:p-6 text-center"
               >
                 <div className="icon-badge mx-auto mb-4 text-on-primary-container font-semibold text-lg">
@@ -192,10 +183,8 @@ const Services = () => {
               return (
                 <motion.div
                   key={b.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
+                  {...fadeUp}
+                  transition={{ ...fadeUp.transition, delay: i * 0.08 }}
                   className="text-center"
                 >
                   <div className="icon-badge mx-auto mb-5">

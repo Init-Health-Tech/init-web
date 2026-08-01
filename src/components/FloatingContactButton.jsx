@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChatBubbleOutline as ChatIcon } from "@mui/icons-material";
+import { MessageCircle as ChatIcon } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const FloatingContactButton = () => {

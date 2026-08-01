@@ -1,16 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { OpenInNew as OpenInNewIcon } from "@mui/icons-material";
+import { ExternalLink as OpenInNewIcon } from "lucide-react";
 import ClientLogo from "./ClientLogo";
 import { partners } from "../data/partnersData";
 import { useLanguage } from "../i18n/LanguageContext";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 },
-};
+import { fadeUp } from "../lib/motion";
 
 const PartnerSection = () => {
   const { t, L } = useLanguage();
@@ -33,10 +27,8 @@ const PartnerSection = () => {
               href={partner.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: i * 0.1 }}
               className="glass-card w-full p-6 sm:p-8 md:p-10 text-center group hover:border-primary/30 transition-colors"
             >
               <div className="flex justify-center mb-6">

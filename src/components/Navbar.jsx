@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
-import {
-  Menu as MenuIcon,
-  Close as CloseIcon,
-} from '@mui/icons-material';
+import { Menu as MenuIcon, X as CloseIcon } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Navbar = () => {

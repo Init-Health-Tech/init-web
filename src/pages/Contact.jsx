@@ -7,14 +7,15 @@ import PageVideoBackground from "../components/PageVideoBackground";
 import { getPageSeo } from "../data/seoData";
 import { useLanguage } from "../i18n/LanguageContext";
 import {
-  Email as EmailIcon,
+  Mail as EmailIcon,
   Phone as PhoneIcon,
-  LocationOn as LocationIcon,
-  Schedule as ScheduleIcon,
+  MapPin as LocationIcon,
+  Clock as ScheduleIcon,
   Send as SendIcon,
-  CheckCircle as CheckCircleIcon,
-  ExpandMore as ExpandMoreIcon,
-} from "@mui/icons-material";
+  CircleCheck as CheckCircleIcon,
+  ChevronDown as ExpandMoreIcon,
+} from "lucide-react";
+import { fadeUp, appleEase } from "../lib/motion";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const WEB3FORMS_ACCESS_KEY = "fd5fa68e-ae1d-4ea6-9c2a-9d9450583d63";
@@ -172,7 +173,11 @@ const Contact = () => {
       <section className="layer-panel section-py pt-0 bg-background/80">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-16">
-            <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.65, ease: appleEase }}
+            >
               <p className="eyebrow mb-4">{t("contact.directEyebrow")}</p>
               <h2 className="display-title text-xl sm:text-2xl md:text-3xl mb-8">{t("contact.directTitle")}</h2>
               <div className="space-y-6">
@@ -195,7 +200,11 @@ const Contact = () => {
               </p>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.65, ease: appleEase, delay: 0.08 }}
+            >
               <div className="glass-card p-5 sm:p-8 md:p-10">
                 <h2 className="display-title text-xl sm:text-2xl mb-2">{t("contact.formTitle")}</h2>
                 <p className="text-sm text-on-surface-variant mb-8 leading-relaxed">{t("contact.formSub")}</p>
@@ -348,9 +357,7 @@ const Contact = () => {
       <section className="layer-panel section-py bg-surface-container-low">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...fadeUp}
             className="text-center mb-10 sm:mb-12"
           >
             <p className="eyebrow mb-4">{t("contact.faqEyebrow")}</p>

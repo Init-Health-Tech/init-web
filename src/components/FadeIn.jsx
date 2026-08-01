@@ -1,13 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { appleEase } from "../lib/motion";
 
 /**
- * Shared scroll-reveal wrapper. Every page previously redeclared its own
- * `fadeUp` motion variant object — this centralizes that animation so
- * timing/easing stays consistent and future tweaks only happen in one file.
- *
- * Usage: <FadeIn delay={0.1}><h2>Title</h2></FadeIn>
- * Pass `as="li"` etc. to change the rendered element when needed.
+ * Shared mount reveal. Uses `animate` (not whileInView) so content never
+ * stays invisible after a client-side route change.
  */
 const FadeIn = ({
   children,
@@ -16,16 +13,14 @@ const FadeIn = ({
   y = 24,
   className,
   as = "div",
-  once = true,
   ...rest
 }) => {
   const MotionTag = motion[as] || motion.div;
   return (
     <MotionTag
       initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "-60px" }}
-      transition={{ duration, delay, ease: [0.4, 0, 0.2, 1] }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration, delay, ease: appleEase }}
       className={className}
       {...rest}
     >

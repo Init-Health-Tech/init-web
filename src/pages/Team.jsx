@@ -9,11 +9,12 @@ import { getPageSeo } from "../data/seoData";
 import { teamMembers } from "../data/teamData";
 import { useLanguage } from "../i18n/LanguageContext";
 import {
-  Email as EmailIcon,
-  LinkedIn as LinkedInIcon,
-  Person as PersonIcon,
-  CheckCircle as CheckCircleIcon,
-} from "@mui/icons-material";
+  Mail as EmailIcon,
+  Linkedin as LinkedInIcon,
+  User as PersonIcon,
+  CircleCheck as CheckCircleIcon,
+} from "lucide-react";
+import { fadeUp } from "../lib/motion";
 
 // ─── Fotos del equipo ───────────────────────────────────────────────────────
 // Fotos individuales (cofundadores, consultora, becarios).
@@ -31,13 +32,6 @@ const ROLE_POSITION_KEY = {
   intern: "intern",
 };
 
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 },
-};
-
 function MemberCard({ member, index, t }) {
   const positionKey = ROLE_POSITION_KEY[member.role] || "cofounder";
   const position = t(`team.positions.${positionKey}`);
@@ -47,10 +41,8 @@ function MemberCard({ member, index, t }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true }}
+      {...fadeUp}
+      transition={{ ...fadeUp.transition, delay: index * 0.1 }}
       className="glass-card p-5 sm:p-6 text-center group transition-transform duration-300 hover:-translate-y-1"
     >
       {SHOW_INDIVIDUAL_MEMBER_PHOTOS && member.image_url ? (
@@ -212,10 +204,8 @@ const Team = () => {
               {values.map((v, i) => (
                 <motion.div
                   key={v.t}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+                  {...fadeUp}
+                  transition={{ ...fadeUp.transition, delay: i * 0.1 }}
                 >
                   <h3 className="text-lg sm:text-xl font-semibold mb-4 text-primary">{v.t}</h3>
                   <p className="text-on-surface-variant leading-relaxed">{v.d}</p>
