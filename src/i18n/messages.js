@@ -69,11 +69,11 @@ export const messages = {
           "ERP México, software ERP empresas, logística RFID México, initlogistics, ERPinit, software listo para usar, trazabilidad logística",
       },
       portfolio: {
-        title: "Proyectos y Clientes: Casos de Éxito en Software",
+        title: "Proyectos y Clientes: Sectores y Trabajo Real | INIT",
         description:
-          "Casos de éxito de INIT: desarrollo web, software a medida y consultoría digital para CONFE, JOFRA, Carbiu, Polola's, TRANSCOM y Geller Abogados en México.",
+          "Sectores donde INIT ha acompañado operaciones reales: social, industrial, logística, legal, digital y gastronomía. Clientes en México — el detalle, al evaluar fit.",
         keywords:
-          "casos de éxito desarrollo software, clientes software a medida México, portafolio desarrollo web, proyectos transformación digital, empresa desarrollo software clientes",
+          "sectores desarrollo software México, clientes software a medida, portafolio consultoría digital, transformación digital por industria, empresa desarrollo software México",
       },
       contact: {
         title: "Evaluar fit: Consultoría de Software | INIT",
@@ -377,106 +377,55 @@ export const messages = {
       eyebrow: "Trabajo real",
       title: "Proyectos y clientes",
       subtitle:
-        "Casos donde sí hubo fit. El detalle completo, cuando evaluemos si encajamos contigo.",
+        "Primero los sectores donde hemos acompañado. Luego, quienes ya confían en nosotros — el detalle completo, cuando evaluemos si encajamos contigo.",
       stats: {
         clients: "Clientes atendidos",
-        sectors: "Sectores distintos",
+        sectors: "Sectores",
         delivered: "Proyectos entregados",
         mexican: "Empresas mexicanas",
       },
-      deliverablesDev: "Lo que hemos realizado",
-      deliverablesConsulting: "Consultoría realizada",
-      ctaTitle: "¿Tu operación se parece a alguna de estas?",
-      ctaText:
-        "Si ves un paralelismo, hablemos para evaluar si podemos ayudar. Si no hay fit, preferimos decirlo a forzar un proyecto.",
-      clients: {
-        "1": {
-          sector: "Sector social / institucional",
-          sectorDetail: "Organización del sector social e institucional",
-          summary:
-            "Soluciones de software y digitalización para mejorar procesos y atención.",
-          deliverables: [
-            "Análisis y levantamiento de necesidades",
-            "Diseño de procesos y flujos de trabajo",
-            "Desarrollo de aplicaciones a medida",
-            "Consultoría en transformación digital",
-            "Seguimiento y mejora continua",
-          ],
-          result: "Procesos y atención mejorados con sistemas centralizados.",
+      sectorsEyebrow: "Dónde hemos trabajado",
+      sectorsTitle: "Por sector, no por plantilla.",
+      sectorsSub:
+        "Cada industria tiene su fricción. Aquí, solo el tipo de operación que ya conocemos — sin abrir el expediente completo en público.",
+      sectors: {
+        social: {
+          title: "Social e institucional",
+          tease:
+            "Procesos, atención y sistemas que ordenan operación en organizaciones con alta carga de gestión.",
         },
-        "2": {
-          sector: "Sistemas y equipos",
-          sectorDetail: "Sistemas y equipos industriales",
-          summary:
-            "Proyectos de transformación digital y optimización de operaciones. Software empresarial a medida para automatizar y conectar sistemas.",
-          deliverables: [
-            "Desarrollo de software empresarial",
-            "Automatización de procesos",
-            "Integración de sistemas",
-            "Consultoría tecnológica",
-            "Formación y soporte",
-          ],
-          result: "Operaciones más eficientes y soporte continuo post-implementación.",
+        industrial: {
+          title: "Sistemas e industria",
+          tease:
+            "Software e integración para automatizar, conectar y dar continuidad a operaciones de equipos y sistemas.",
         },
-        "3": {
-          sector: "Logística / Transporte",
-          sectorDetail: "Logística y transporte, Estado de México",
-          summary:
-            "Consultoría en digitalización y análisis de necesidades para operaciones y trazabilidad. Acompañamiento en el diagnóstico y la definición de prioridades tecnológicas.",
-          deliverables: [
-            "Diagnóstico de procesos operativos",
-            "Análisis de necesidades tecnológicas",
-            "Recomendaciones de digitalización",
-            "Roadmap de priorización",
-            "Acompañamiento en definición de alcance",
-          ],
-          result: "Diagnóstico y hoja de ruta para futuras soluciones digitales.",
+        logistics: {
+          title: "Logística y transporte",
+          tease:
+            "Diagnóstico y priorización tecnológica para trazabilidad, operación y el siguiente paso digital.",
         },
-        "4": {
-          sector: "Despacho jurídico",
-          sectorDetail: "Despacho de abogados",
-          summary:
-            "Consultoría en procesos digitales y evaluación de herramientas para la gestión del despacho. Análisis de flujos de trabajo, documentación y oportunidades de mejora.",
-          deliverables: [
-            "Levantamiento de procesos del despacho",
-            "Diagnóstico de gestión documental y expedientes",
-            "Recomendaciones de automatización",
-            "Propuesta de herramientas y prioridades",
-            "Acompañamiento en definición de proyecto",
-          ],
-          result: "Diagnóstico y recomendaciones para optimizar la operación del despacho.",
+        legal: {
+          title: "Despachos jurídicos",
+          tease:
+            "Claridad en flujos, documentación y herramientas — antes de construir lo que realmente hace falta.",
         },
-        "5": {
-          sector: "Empresa",
-          sectorDetail: "Cliente corporativo",
-          summary:
-            "Desarrollo de su página web con SEO, automatizaciones con n8n e integración de herramientas para optimizar su operación digital.",
-          deliverables: [
-            "Desarrollo de página web",
-            "Optimización SEO",
-            "Automatizaciones con n8n",
-            "Integración de procesos y herramientas",
-            "Soporte y ajustes post-lanzamiento",
-          ],
-          result: "Presencia web optimizada y procesos automatizados.",
+        digital: {
+          title: "Digital corporativo",
+          tease:
+            "Presencia web, SEO y automatizaciones que alivian la operación diaria sin ruido de más.",
         },
-        "6": {
-          sector: "Gastronomía / Repostería",
-          sectorDetail: "Productos gastronómicos y planificación de comidas",
-          summary:
-            "Desarrollo de su página web y un sistema de pedidos en línea para vender pasteles, galletas y otros productos gastronómicos, con funcionalidades para planear comidas y gestionar órdenes.",
-          deliverables: [
-            "Diseño y desarrollo de página web",
-            "Sistema de pedidos en línea",
-            "Catálogo de productos (pasteles, galletas y más)",
-            "Módulo de planificación de comidas",
-            "Panel de administración de órdenes",
-            "Soporte y ajustes post-lanzamiento",
-          ],
-          result:
-            "Canal digital para venta de productos y gestión de pedidos desde un solo sistema.",
+        food: {
+          title: "Gastronomía",
+          tease:
+            "Pedidos, catálogo y operación en un solo canal — menos WhatsApp improvisado, más control.",
         },
       },
+      clientsEyebrow: "Confianza",
+      clientsTitle: "Quienes ya están dentro.",
+      clientsSub: "El mismo ritmo que en Inicio. Nombres, no pitches.",
+      ctaTitle: "¿Tu operación se parece a alguno de estos sectores?",
+      ctaText:
+        "Si ves un paralelismo, hablemos para evaluar si podemos ayudar. Si no hay fit, preferimos decirlo a forzar un proyecto.",
     },
     team: {
       eyebrow: "Quiénes somos",
@@ -690,11 +639,11 @@ export const messages = {
           "ERP Mexico, enterprise ERP software, RFID logistics Mexico, initlogistics, ERPinit, ready-to-use software, logistics traceability",
       },
       portfolio: {
-        title: "Projects & Clients: Software Success Stories",
+        title: "Projects & Clients: Sectors and Real Work | INIT",
         description:
-          "INIT success stories: web development, custom software, and digital consulting for CONFE, JOFRA, Carbiu, Polola's, TRANSCOM, and Geller Abogados in Mexico.",
+          "Sectors where INIT has supported real operations: social, industrial, logistics, legal, digital, and food. Clients in Mexico — full detail when we evaluate fit.",
         keywords:
-          "software development success stories, custom software clients Mexico, web development portfolio, digital transformation projects, software company clients",
+          "software development sectors Mexico, custom software clients, digital consulting portfolio, industry digital transformation, software company Mexico",
       },
       contact: {
         title: "Evaluate Fit: Software Consultancy | INIT",
@@ -999,106 +948,55 @@ export const messages = {
       eyebrow: "Real work",
       title: "Projects & clients",
       subtitle:
-        "Cases where there was a fit. Full detail when we evaluate whether we fit with you.",
+        "First, the sectors we've supported. Then, who already trusts us — full detail when we evaluate whether we fit with you.",
       stats: {
         clients: "Clients served",
-        sectors: "Distinct sectors",
+        sectors: "Sectors",
         delivered: "Projects delivered",
         mexican: "Mexican companies",
       },
-      deliverablesDev: "What we've delivered",
-      deliverablesConsulting: "Consulting delivered",
-      ctaTitle: "Does your operation look like any of these?",
-      ctaText:
-        "If you see a parallel, let's talk to evaluate whether we can help. If there's no fit, we'd rather say so than force a project.",
-      clients: {
-        "1": {
-          sector: "Social / institutional sector",
-          sectorDetail: "Social and institutional sector organization",
-          summary:
-            "Software and digitalization solutions to improve processes and service.",
-          deliverables: [
-            "Needs analysis and requirements gathering",
-            "Process and workflow design",
-            "Custom application development",
-            "Digital transformation consulting",
-            "Follow-up and continuous improvement",
-          ],
-          result: "Improved processes and service with centralized systems.",
+      sectorsEyebrow: "Where we've worked",
+      sectorsTitle: "By sector, not by template.",
+      sectorsSub:
+        "Every industry has its own friction. Here, only the kind of operation we already know — without opening the full file in public.",
+      sectors: {
+        social: {
+          title: "Social & institutional",
+          tease:
+            "Processes, service, and systems that bring order to organizations with heavy operational load.",
         },
-        "2": {
-          sector: "Systems & equipment",
-          sectorDetail: "Industrial systems and equipment",
-          summary:
-            "Digital transformation and operations optimization projects. Custom business software to automate and connect systems.",
-          deliverables: [
-            "Business software development",
-            "Process automation",
-            "Systems integration",
-            "Technology consulting",
-            "Training and support",
-          ],
-          result: "More efficient operations and ongoing post-implementation support.",
+        industrial: {
+          title: "Systems & industry",
+          tease:
+            "Software and integration to automate, connect, and sustain equipment and systems operations.",
         },
-        "3": {
-          sector: "Logistics / Transport",
-          sectorDetail: "Logistics and transport, Estado de México",
-          summary:
-            "Digitalization consulting and needs analysis for operations and traceability. Support through diagnosis and defining technology priorities.",
-          deliverables: [
-            "Operational process diagnosis",
-            "Technology needs analysis",
-            "Digitalization recommendations",
-            "Prioritization roadmap",
-            "Support defining scope",
-          ],
-          result: "Diagnosis and roadmap for future digital solutions.",
+        logistics: {
+          title: "Logistics & transport",
+          tease:
+            "Diagnosis and technology prioritization for traceability, operations, and the next digital step.",
         },
-        "4": {
-          sector: "Law firm",
-          sectorDetail: "Law firm",
-          summary:
-            "Consulting on digital processes and evaluation of tools for firm management. Analysis of workflows, documentation, and improvement opportunities.",
-          deliverables: [
-            "Firm process mapping",
-            "Document and case-file management diagnosis",
-            "Automation recommendations",
-            "Tool and priority proposals",
-            "Support defining the project",
-          ],
-          result: "Diagnosis and recommendations to optimize the firm's operations.",
+        legal: {
+          title: "Law firms",
+          tease:
+            "Clarity on workflows, documentation, and tools — before building what is actually needed.",
         },
-        "5": {
-          sector: "Business",
-          sectorDetail: "Corporate client",
-          summary:
-            "Website development with SEO, n8n automations, and tool integration to optimize their digital operation.",
-          deliverables: [
-            "Website development",
-            "SEO optimization",
-            "Automations with n8n",
-            "Process and tool integration",
-            "Post-launch support and adjustments",
-          ],
-          result: "Optimized web presence and automated processes.",
+        digital: {
+          title: "Corporate digital",
+          tease:
+            "Web presence, SEO, and automations that ease daily operations without excess noise.",
         },
-        "6": {
-          sector: "Food / Pastry",
-          sectorDetail: "Food products and meal planning",
-          summary:
-            "Website development and an online ordering system to sell cakes, cookies, and other food products, with meal planning and order management features.",
-          deliverables: [
-            "Website design and development",
-            "Online ordering system",
-            "Product catalog (cakes, cookies, and more)",
-            "Meal planning module",
-            "Order administration panel",
-            "Post-launch support and adjustments",
-          ],
-          result:
-            "A digital channel for product sales and order management from a single system.",
+        food: {
+          title: "Food & hospitality",
+          tease:
+            "Orders, catalog, and operations in one channel — less improvised WhatsApp, more control.",
         },
       },
+      clientsEyebrow: "Trust",
+      clientsTitle: "Who's already in.",
+      clientsSub: "Same rhythm as Home. Names, not pitches.",
+      ctaTitle: "Does your operation look like any of these sectors?",
+      ctaText:
+        "If you see a parallel, let's talk to evaluate whether we can help. If there's no fit, we'd rather say so than force a project.",
     },
     team: {
       eyebrow: "Who we are",

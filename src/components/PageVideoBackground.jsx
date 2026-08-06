@@ -1,33 +1,42 @@
 import React, { useEffect, useRef } from "react";
 import { useReducedMotion } from "framer-motion";
+import PearlAtmosphere from "./PearlAtmosphere";
 
 /**
- * Apple-style scroll-scrubbed video background.
- * Pass `clip` to pick which asset (one per page).
+ * Page ambient background.
+ * Scroll-scrubbed video is parked (`SHOW_VIDEO = false`) — pearl atmosphere only.
+ * Flip the flag to restore video on all pages that use this component.
  */
 export const VIDEO_CLIPS = {
-  cinematic: "/video/apple-cinematic.mp4", // Home — ARRI cinematic
-  cinematicCut: "/video/apple-cinematic-cut.mp4", // Contact — cut-edited cinematic
-  reveal: "/video/apple-reveal.mp4", // Portfolio / Team — Vision Pro reveal
-  minimal: "/video/apple-minimal.mp4", // Solutions — clean product
-  systems: "/video/apple-systems.mp4", // Services — system-building
+  cinematic: "/video/apple-cinematic.mp4",
+  cinematicCut: "/video/apple-cinematic-cut.mp4",
+  reveal: "/video/apple-reveal.mp4",
+  minimal: "/video/apple-minimal.mp4",
+  systems: "/video/apple-systems.mp4",
 };
+
+const SHOW_VIDEO = false;
 
 const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
 
-const PageVideoBackground = ({ clip = "cinematic" }) => {
+const PageVideoBackground = ({
+  clip = "cinematic",
+  atmosphere = true,
+  showVideo = SHOW_VIDEO,
+}) => {
   const prefersReducedMotion = useReducedMotion();
   const rootRef = useRef(null);
   const videoRef = useRef(null);
   const durationRef = useRef(12);
   const rafRef = useRef(null);
   const src = VIDEO_CLIPS[clip] || VIDEO_CLIPS.cinematic;
+  const useVideo = showVideo && !prefersReducedMotion;
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    if (!useVideo) return undefined;
 
     const video = videoRef.current;
-    if (!video) return;
+    if (!video) return undefined;
 
     const onMeta = () => {
       if (video.duration && Number.isFinite(video.duration)) {
@@ -84,25 +93,38 @@ const PageVideoBackground = ({ clip = "cinematic" }) => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       video.removeEventListener("loadedmetadata", onMeta);
     };
-  }, [prefersReducedMotion, src]);
+  }, [useVideo, src]);
 
-  if (prefersReducedMotion) return null;
+  if (!atmosphere && !useVideo) return null;
 
   return (
-    <div className="page-video-bg" aria-hidden ref={rootRef}>
-      <div className="page-video-bg__veil" />
-      <div className="page-video-bg__track">
-        <video
-          key={src}
-          ref={videoRef}
-          className="page-video-bg__video"
-          src={src}
-          muted
-          playsInline
-          preload="auto"
-          tabIndex={-1}
-        />
-      </div>
+    <div
+      className={`page-video-bg${useVideo ? "" : " page-video-bg--still"}`}
+      aria-hidden
+      ref={rootRef}
+    >
+      {useVideo ? (
+        <>
+          <div className="page-video-bg__track">
+            <video
+              key={src}
+              ref={videoRef}
+              className="page-video-bg__video"
+              src={src}
+              muted
+              playsInline
+              preload="auto"
+              tabIndex={-1}
+            />
+          </div>
+          <div className="page-video-bg__veil" />
+        </>
+      ) : null}
+      {atmosphere ? (
+        <div className="page-video-bg__atmosphere">
+          <PearlAtmosphere intensity="strong" mode="overlay" />
+        </div>
+      ) : null}
     </div>
   );
 };

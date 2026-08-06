@@ -1,32 +1,28 @@
 import React from "react";
-import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import StructuredData from "../components/StructuredData";
 import CtaBanner from "../components/CtaBanner";
-import ClientLogo from "../components/ClientLogo";
+import ClientMarquee from "../components/ClientMarquee";
 import StatTile from "../components/StatTile";
 import PageVideoBackground from "../components/PageVideoBackground";
-import { portfolioClients } from "../data/portfolioData";
+import Reveal from "../components/Reveal";
+import { Stagger, StaggerItem } from "../components/Stagger";
+import {
+  portfolioSectors,
+  getSectorClients,
+  clientLogos,
+} from "../data/portfolioData";
 import { getPageSeo } from "../data/seoData";
 import { useLanguage } from "../i18n/LanguageContext";
-import { CircleCheck as CheckCircleIcon } from "lucide-react";
-import { fadeUp } from "../lib/motion";
 
 const Portfolio = () => {
   const { t, lang } = useLanguage();
   const seo = getPageSeo("portfolio", lang);
 
-  const sectorCount = new Set(
-    portfolioClients.map((c) => {
-      const loc = t(`portfolio.clients.${c.id}`);
-      return loc?.sector ?? c.sector;
-    })
-  ).size;
-
   const stats = [
-    { value: `${portfolioClients.length}+`, label: t("portfolio.stats.clients") },
-    { value: `${sectorCount}+`, label: t("portfolio.stats.sectors") },
+    { value: `${clientLogos.length}+`, label: t("portfolio.stats.clients") },
+    { value: `${portfolioSectors.length}`, label: t("portfolio.stats.sectors") },
     { value: "100%", label: t("portfolio.stats.delivered") },
     { value: "MX", label: t("portfolio.stats.mexican") },
   ];
@@ -42,88 +38,76 @@ const Portfolio = () => {
         subtitle={t("portfolio.subtitle")}
       />
 
-      <section className="layer-panel section-py pt-0 pb-12 bg-background/75">
+      <section className="layer-panel section-py pt-10 sm:pt-14 md:pt-16 pb-12 bg-background/75">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, i) => (
-            <StatTile key={stat.label} {...stat} delay={i * 0.08} compact />
+            <StatTile key={stat.label} {...stat} delay={i * 0.14} compact />
           ))}
         </div>
       </section>
 
       <section className="layer-panel section-py pt-0 bg-background">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
-          <div className="space-y-8 sm:space-y-10">
-            {portfolioClients.map((client, index) => {
-              const loc = t(`portfolio.clients.${client.id}`) || {};
-              const sectorDetail = loc.sectorDetail || loc.sector || client.sectorDetail || client.sector;
-              const summary = loc.summary || client.summary;
-              const deliverables = loc.deliverables || client.deliverables;
-              const result = loc.result || client.result;
-              const isConsulting = client.engagement === "consultoria";
+          <Reveal inView variant="blur" className="mb-12 sm:mb-16 max-w-2xl">
+            <p className="eyebrow mb-4">{t("portfolio.sectorsEyebrow")}</p>
+            <h2 className="display-section mb-4 text-balance">
+              {t("portfolio.sectorsTitle")}
+            </h2>
+            <p className="text-on-surface-variant text-base sm:text-lg leading-relaxed">
+              {t("portfolio.sectorsSub")}
+            </p>
+            <div className="section-title-rail mt-8" aria-hidden="true" />
+          </Reveal>
+
+          <Stagger inView className="divide-y divide-on-surface/10" stagger={0.14}>
+            {portfolioSectors.map((sector, index) => {
+              const loc = t(`portfolio.sectors.${sector.id}`) || {};
+              const clients = getSectorClients(sector.id);
+              const names = clients.map((c) => c.name).join(" · ");
+              const n = String(index + 1).padStart(2, "0");
 
               return (
-                <motion.div
-                  key={client.id}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: index * 0.1 }}
-                  className="glass-card overflow-hidden"
+                <StaggerItem
+                  key={sector.id}
+                  variant={index % 2 === 0 ? "left" : "right"}
+                  className="apple-row flex-col sm:flex-row sm:items-start gap-3 sm:gap-8 py-8 sm:py-10"
                 >
-                  <div className="p-5 sm:p-8 md:p-10">
-                    <div className="flex flex-col md:flex-row md:items-start md:gap-8">
-                      <div className="flex-shrink-0 mb-6 md:mb-0">
-                        {client.logo ? (
-                          <ClientLogo client={client} size="lg" className="min-w-[140px]" />
-                        ) : (
-                          <div className="icon-badge min-w-[80px] min-h-[80px] text-3xl font-semibold text-on-primary-container">
-                            <span>{client.initial}</span>
-                          </div>
-                        )}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex flex-wrap items-baseline gap-3 mb-2">
-                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">{client.name}</h2>
-                          <span className="text-sm font-medium text-on-surface-variant bg-surface-container px-3 py-1 border border-on-surface/10 tech-pill">
-                            {sectorDetail}
-                          </span>
-                        </div>
-                        <p className="text-on-surface-variant mb-4 leading-relaxed">{summary}</p>
-                        {client.stack ? (
-                          <p className="text-sm text-on-surface-variant mb-2">
-                            <span className="font-semibold text-on-surface">{t("common.stack")}:</span>{" "}
-                            {client.stack}
-                          </p>
-                        ) : null}
-                        {isConsulting ? (
-                          <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                            {t("common.consulting")}
-                          </p>
-                        ) : null}
-                        {result ? (
-                          <p className="text-sm text-primary mb-4">
-                            <span className="font-semibold">{t("common.result")}:</span> {result}
-                          </p>
-                        ) : null}
-                        <h3 className="text-sm font-semibold uppercase tracking-wide mb-3">
-                          {isConsulting
-                            ? t("portfolio.deliverablesConsulting")
-                            : t("portfolio.deliverablesDev")}
-                        </h3>
-                        <ul className="space-y-2">
-                          {deliverables.map((item, i) => (
-                            <li key={i} className="flex items-start text-on-surface">
-                              <CheckCircleIcon className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
+                  <span className="text-sm font-semibold text-primary tracking-wider tabular-nums shrink-0 sm:w-12 pt-1">
+                    {n}
+                  </span>
+                  <div className="flex-1 min-w-0 text-left">
+                    <h3 className="text-xl sm:text-2xl font-bold text-on-surface mb-2 text-balance">
+                      {loc.title}
+                    </h3>
+                    <p className="text-on-surface-variant leading-relaxed max-w-2xl">
+                      {loc.tease}
+                    </p>
+                    {names ? (
+                      <p className="mt-3 text-sm text-on-surface/55 tracking-wide">
+                        {names}
+                      </p>
+                    ) : null}
                   </div>
-                </motion.div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </Stagger>
         </div>
+      </section>
+
+      <section className="layer-panel section-py bg-surface-container-low overflow-hidden">
+        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20 mb-10 sm:mb-12">
+          <Reveal inView variant="up" className="text-center max-w-xl mx-auto">
+            <p className="eyebrow mb-4">{t("portfolio.clientsEyebrow")}</p>
+            <h2 className="display-section mb-3 text-balance">
+              {t("portfolio.clientsTitle")}
+            </h2>
+            <p className="text-on-surface-variant text-base sm:text-lg">
+              {t("portfolio.clientsSub")}
+            </p>
+          </Reveal>
+        </div>
+        <ClientMarquee />
       </section>
 
       <CtaBanner

@@ -1,13 +1,20 @@
 import React from "react";
 import { Link } from "react-router";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import StructuredData from "../components/StructuredData";
 import PageVideoBackground from "../components/PageVideoBackground";
 import ClientLogo from "../components/ClientLogo";
+import ClientMarquee from "../components/ClientMarquee";
 import PartnerSection from "../components/PartnerSection";
 import CtaBanner from "../components/CtaBanner";
-import { clientLogos, getClientLogo } from "../data/clientsData";
+import { HeroEntryBurst } from "../components/PearlAtmosphere";
+import KineticBrand from "../components/KineticBrand";
+import MagneticLink from "../components/MagneticLink";
+import Reveal from "../components/Reveal";
+import { Stagger, StaggerItem } from "../components/Stagger";
+import TiltCard from "../components/TiltCard";
+import { getClientLogo } from "../data/clientsData";
 import { getPageSeo } from "../data/seoData";
 import { BRAND } from "../data/brandData";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -15,7 +22,7 @@ import {
   ArrowRight as ArrowForwardIcon,
   ChevronDown as ChevronDownIcon,
 } from "lucide-react";
-import { fadeUp } from "../lib/motion";
+import { appleEase } from "../lib/motion";
 
 const Home = () => {
   const { t, lang } = useLanguage();
@@ -23,6 +30,7 @@ const Home = () => {
   const services = t("home.services");
   const successCases = t("home.cases");
   const seo = getPageSeo("home", lang);
+  const reduce = useReducedMotion();
 
   return (
     <div className="min-h-screen">
@@ -70,27 +78,40 @@ const Home = () => {
       <PageVideoBackground clip="cinematic" />
 
       <section className="layer-reveal relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-        <div className="hero-scrim absolute inset-0 pointer-events-none" aria-hidden="true" />
+        {/* Ambient pearl only — video background parked for now */}
+        <HeroEntryBurst />
         <div className="relative z-10 max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 text-center pt-28 sm:pt-32 pb-20 sm:pb-24">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
             className="mb-8 sm:mb-10 md:mb-14"
+            style={{ perspective: 800 }}
           >
-            <p className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-on-surface">
-              {BRAND.name}
-            </p>
-            <p className="mt-3 text-sm sm:text-base md:text-lg text-secondary font-medium tracking-wide px-2">
+            <KineticBrand
+              name={BRAND.name}
+              className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-on-surface"
+            />
+            <motion.p
+              initial={reduce ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.55, ease: appleEase }}
+              className="mt-3 text-sm sm:text-base md:text-lg text-secondary font-medium tracking-wide px-2"
+            >
               {BRAND.slogan}
-            </p>
+            </motion.p>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="display-title text-[2.15rem] leading-[1.08] sm:text-5xl md:text-6xl lg:text-[4.5rem] mb-6 sm:mb-7 md:mb-8 max-w-3xl mx-auto text-balance"
+            initial={
+              reduce
+                ? false
+                : { opacity: 0, y: 40, rotateX: 28, transformPerspective: 1000 }
+            }
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            transition={{ duration: 1.35, delay: 0.45, ease: appleEase }}
+            className="display-hero mb-6 sm:mb-7 md:mb-8 max-w-3xl mx-auto text-balance"
+            style={{ transformStyle: "preserve-3d" }}
           >
             {t("home.h1Line1")}
             <br />
@@ -98,109 +119,121 @@ const Home = () => {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.95, delay: 0.22 }}
+            initial={reduce ? false : { opacity: 0, y: 20, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1.2, delay: 0.72, ease: appleEase }}
             className="text-[15px] sm:text-[17px] md:text-xl text-on-surface-variant max-w-lg mx-auto mb-10 sm:mb-12 md:mb-14 leading-relaxed px-1"
           >
             {t("home.sub")}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.36 }}
+            initial={reduce ? false : { opacity: 0, scale: 0.88, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1.05, delay: 0.95, ease: appleEase }}
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-sm sm:max-w-none mx-auto"
           >
-            <Link to="/portfolio" className="btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto">
+            <MagneticLink
+              to="/portfolio"
+              className="btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+            >
               {t("home.ctaWork")}
-            </Link>
-            <Link to="/contact" className="btn-secondary inline-flex items-center justify-center gap-2 w-full sm:w-auto">
+            </MagneticLink>
+            <MagneticLink
+              to="/contact"
+              className="btn-secondary inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+              strength={0.22}
+            >
               {t("home.ctaHelp")}
               <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            </MagneticLink>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="mt-16 sm:mt-24 md:mt-28 text-on-surface-variant/70"
+            transition={{ duration: 1.1, delay: 1.55, ease: appleEase }}
+            className="mt-16 sm:mt-24 md:mt-28 flex flex-col items-center gap-4 text-on-surface-variant/70"
             aria-hidden="true"
           >
-            <ChevronDownIcon className="h-7 w-7 mx-auto animate-[bounce-slow_2.4s_ease-in-out_infinite]" />
+            <div className="section-title-rail h-10 sm:h-12 opacity-80" />
+            <ChevronDownIcon className="h-7 w-7 animate-[bounce-slow_2.4s_ease-in-out_infinite]" />
           </motion.div>
         </div>
       </section>
 
-      <section className="layer-reveal relative py-20 sm:py-28 md:py-36">
+      <section className="layer-reveal relative py-24 sm:py-32 md:py-40">
         <div className="absolute inset-0 bg-background/40 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 text-center">
-          <motion.p
-            {...fadeUp}
-            className="display-title text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-on-surface max-w-3xl mx-auto leading-[1.15] text-balance"
-          >
-            {t("home.scarcity1")}
-            <span className="block mt-3 md:mt-4 text-on-surface-variant font-normal tracking-tight text-xl sm:text-3xl md:text-4xl">
-              {t("home.scarcity2")}
-            </span>
-          </motion.p>
+          <Reveal inView variant="blur" className="max-w-3xl mx-auto">
+            <div className="rail-vertical rail-vertical--center h-12 sm:h-16 mb-8 sm:mb-10 opacity-70" aria-hidden="true" />
+            <p className="display-quote text-on-surface leading-[1.15] text-balance">
+              {t("home.scarcity1")}
+              <span className="block mt-3 md:mt-5 text-on-surface-variant font-normal tracking-tight text-[0.72em] sm:text-[0.78em]">
+                {t("home.scarcity2")}
+              </span>
+            </p>
+            <div className="section-rule mt-10 sm:mt-12" aria-hidden="true" />
+          </Reveal>
         </div>
       </section>
 
       <section className="layer-reveal relative section-py">
         <div className="absolute inset-0 bg-background/55 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
-          <motion.div {...fadeUp} className="max-w-2xl mx-auto text-center mb-14 sm:mb-20 md:mb-28">
+          <Reveal inView variant="up" className="max-w-2xl mx-auto text-center mb-16 sm:mb-24 md:mb-28">
             <p className="eyebrow mb-5">{t("home.diffEyebrow")}</p>
-            <h2 className="display-title text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] mb-5 sm:mb-6 text-balance">
+            <h2 className="display-section mb-5 sm:mb-6 text-balance">
               {t("home.diffTitle")}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-xl mx-auto">
               {t("home.diffSub")}
             </p>
-          </motion.div>
+          </Reveal>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-10">
-            {pillars.map((item, i) => (
-              <motion.div
-                key={item.title}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: i * 0.08 }}
-                className="text-center md:text-left"
-              >
-                <p className="text-[13px] text-primary font-medium tracking-[0.12em] mb-5">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="text-xl md:text-[1.35rem] font-semibold mb-3 tracking-tight text-on-surface">
-                  {item.title}
-                </h3>
-                <p className="text-on-surface-variant text-[15px] leading-relaxed">{item.text}</p>
-              </motion.div>
-            ))}
-          </div>
+          <Stagger
+            inView
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 md:gap-14"
+            stagger={0.22}
+            style={{ perspective: 1100 }}
+          >
+            {pillars.map((item, i) => {
+              const variants = ["tilt", "flip", "tiltRight"];
+              return (
+                <StaggerItem
+                  key={item.title}
+                  variant={variants[i % variants.length]}
+                  className="text-center md:text-left"
+                >
+                  <p className="font-heading text-[13px] text-primary font-medium tracking-[0.16em] mb-5">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="text-xl md:text-[1.4rem] font-semibold mb-3 tracking-tight text-on-surface">
+                    {item.title}
+                  </h3>
+                  <p className="text-on-surface-variant text-[15px] leading-relaxed">{item.text}</p>
+                </StaggerItem>
+              );
+            })}
+          </Stagger>
         </div>
       </section>
 
       <section className="layer-panel section-py bg-background">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
-          <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 md:mb-20">
+          <Reveal inView variant="left" className="text-center max-w-2xl mx-auto mb-14 sm:mb-16 md:mb-20">
             <p className="eyebrow mb-5">{t("home.servicesEyebrow")}</p>
-            <h2 className="display-title text-3xl sm:text-4xl md:text-5xl mb-5 text-balance">
+            <h2 className="display-section mb-5 text-balance">
               {t("home.servicesTitle")}
             </h2>
             <p className="text-on-surface-variant text-base sm:text-lg leading-relaxed">
               {t("home.servicesSub")}
             </p>
-          </motion.div>
+          </Reveal>
 
-          <div className="max-w-2xl mx-auto">
+          <Stagger inView className="max-w-2xl mx-auto" stagger={0.2} delayChildren={0.16}>
             {services.map((row, i) => (
-              <motion.div
-                key={row.title}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: i * 0.06 }}
-              >
+              <StaggerItem key={row.title} variant={i % 2 === 0 ? "left" : "right"}>
                 <Link to="/services" className="apple-row group">
                   <div className="text-left min-w-0">
                     <h3 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-on-surface group-hover:text-primary transition-colors">
@@ -215,111 +248,92 @@ const Home = () => {
                     aria-hidden="true"
                   />
                 </Link>
-              </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* Equipo oculto de momento — sección "Quiénes somos" + CTA a /team
       <section className="layer-panel section-py bg-surface-container-low">
-        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 items-center">
-          <motion.div {...fadeUp}>
-            <p className="eyebrow mb-5">{t("home.aboutEyebrow")}</p>
-            <h2 className="display-title text-3xl sm:text-4xl md:text-5xl mb-6 text-balance">
-              {t("home.aboutTitle")}
-            </h2>
-            <p className="text-base sm:text-lg text-on-surface-variant mb-5 leading-relaxed">
-              {t("team.compositionAbout")} {t("home.aboutExtra")}
-            </p>
-            <p className="text-on-surface-variant mb-8 sm:mb-10 leading-relaxed">
-              {t("home.aboutLocation")}
-            </p>
-            <Link to="/team" className="btn-secondary inline-flex items-center gap-2 w-full sm:w-auto justify-center">
-              {t("home.aboutCta")}
-              <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </motion.div>
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.12 }}>
-            <img
-              src="/empleados-fotos/init-team.jpg"
-              alt="INIT"
-              className="w-full object-cover aspect-[4/3] rounded-[var(--radius-exec)] border border-on-surface/10"
-            />
-          </motion.div>
-        </div>
+        ...
       </section>
       */}
 
       <section className="layer-panel section-py bg-background">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
-          <motion.div {...fadeUp} className="mb-12 sm:mb-16 md:mb-20 max-w-2xl mx-auto text-center">
+          <Reveal inView variant="blur" className="mb-14 sm:mb-16 md:mb-20 max-w-2xl mx-auto text-center">
             <p className="eyebrow mb-5">{t("home.trustEyebrow")}</p>
-            <h2 className="display-title text-3xl sm:text-4xl md:text-5xl mb-4 text-balance">
+            <h2 className="display-section mb-4 text-balance">
               {t("home.trustTitle")}
             </h2>
             <p className="text-on-surface-variant text-base sm:text-lg">{t("home.trustSub")}</p>
-          </motion.div>
+          </Reveal>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-8">
+          <Stagger
+            inView
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 md:gap-10"
+            stagger={0.22}
+            style={{ perspective: 1100 }}
+          >
             {successCases.map((item, i) => (
-              <motion.div
+              <StaggerItem
                 key={item.client}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: i * 0.08 }}
+                variant={i % 2 === 0 ? "flip" : "tilt"}
                 className="group text-center"
               >
-                {getClientLogo(item.client) && (
-                  <div
-                    className={`success-case-logo flex items-center justify-center mb-7 h-32 sm:h-36 md:h-40 border rounded-[var(--radius-exec)] ${
-                      item.client === "CONFE" || item.client === "Polola's"
-                        ? `success-case-logo--${item.client === "CONFE" ? "confe" : "pololas"} bg-white border-on-surface/15 p-3`
-                        : "bg-surface-container border-on-surface/10"
-                    }`}
-                  >
-                    <ClientLogo
-                      client={
+                <TiltCard className="rounded-[var(--radius-exec)]" maxTilt={11}>
+                  {getClientLogo(item.client) && (
+                    <div
+                      className={`success-case-logo flex items-center justify-center mb-7 h-32 sm:h-36 md:h-40 border rounded-[var(--radius-exec)] ${
                         item.client === "CONFE" || item.client === "Polola's"
-                          ? { ...getClientLogo(item.client), lightBg: false }
-                          : getClientLogo(item.client)
-                      }
-                      size="lg"
-                      variant="featured"
-                      className={
-                        item.client === "CONFE"
-                          ? "success-case-confe-logo"
-                          : item.client === "Polola's"
-                            ? "success-case-pololas-logo"
-                            : ""
-                      }
-                    />
-                  </div>
-                )}
-                <p className="font-semibold text-on-surface text-lg mb-2">{item.client}</p>
-                <p className="text-[15px] text-on-surface-variant leading-relaxed max-w-xs mx-auto">
-                  {item.tease}
-                </p>
-              </motion.div>
+                          ? `success-case-logo--${item.client === "CONFE" ? "confe" : "pololas"} bg-white border-on-surface/15 p-3`
+                          : "bg-surface-container border-on-surface/10"
+                      }`}
+                    >
+                      <ClientLogo
+                        client={
+                          item.client === "CONFE" || item.client === "Polola's"
+                            ? { ...getClientLogo(item.client), lightBg: false }
+                            : getClientLogo(item.client)
+                        }
+                        size="lg"
+                        variant="featured"
+                        className={
+                          item.client === "CONFE"
+                            ? "success-case-confe-logo"
+                            : item.client === "Polola's"
+                              ? "success-case-pololas-logo"
+                              : ""
+                        }
+                      />
+                    </div>
+                  )}
+                  <p className="font-semibold text-on-surface text-lg mb-2">{item.client}</p>
+                  <p className="text-[15px] text-on-surface-variant leading-relaxed max-w-xs mx-auto">
+                    {item.tease}
+                  </p>
+                </TiltCard>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
 
-          <div className="mt-12 sm:mt-16 text-center">
-            <Link to="/portfolio" className="btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto max-w-sm mx-auto">
+          <Reveal inView variant="pop" className="mt-14 sm:mt-16 text-center" delay={0.2}>
+            <MagneticLink
+              to="/portfolio"
+              className="btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto max-w-sm mx-auto"
+            >
               {t("home.explorePortfolio")}
               <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </div>
+            </MagneticLink>
+          </Reveal>
         </div>
       </section>
 
       <PartnerSection />
 
-      <section className="layer-panel py-12 sm:py-16 bg-surface-container-low border-y border-on-surface/10 overflow-hidden">
-        <div className="flex animate-marquee items-center gap-12 sm:gap-16 opacity-80">
-          {[...clientLogos, ...clientLogos].map((client, i) => (
-            <ClientLogo key={`${client.id}-${i}`} client={client} size="md" />
-          ))}
-        </div>
+      <section className="layer-panel py-14 sm:py-16 bg-surface-container-low border-y border-on-surface/10 overflow-hidden">
+        <ClientMarquee />
       </section>
 
       <CtaBanner

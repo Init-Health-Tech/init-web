@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Menu as MenuIcon, X as CloseIcon } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { appleEase } from '../lib/motion';
 
 const Navbar = () => {
   const location = useLocation();
   const { lang, setLang, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -62,8 +65,11 @@ const Navbar = () => {
   );
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-on-surface/10 transition-all duration-300 ${
+    <motion.nav
+      initial={reduce ? false : { opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, ease: appleEase }}
+      className={`fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-on-surface/10 transition-[height] duration-300 ${
         scrolled ? 'h-14 sm:h-16' : 'h-16 sm:h-20'
       }`}
       aria-label={t('nav.aria')}
@@ -116,39 +122,48 @@ const Navbar = () => {
         </div>
       </div>
 
-      {isMenuOpen && (
-        <div
-          id="mobile-menu"
-          className="lg:hidden bg-surface/98 backdrop-blur-md border-t border-on-surface/10 px-4 py-4 space-y-1 max-h-[calc(100dvh-4rem)] overflow-y-auto"
-        >
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              className={`block px-3 py-3.5 text-sm font-semibold uppercase tracking-wider transition-colors exec-chamfer min-h-11 ${
-                isActive(item.href)
-                  ? 'text-primary bg-primary/10'
-                  : 'text-on-surface-variant hover:text-primary hover:bg-on-surface/5'
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
-          <Link
-            to="/contact"
-            className="block px-3 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary bg-primary-container/20 exec-chamfer min-h-11"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            id="mobile-menu"
+            key="mobile-menu"
+            initial={reduce ? false : { opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={reduce ? undefined : { opacity: 0, height: 0 }}
+            transition={{ duration: 0.28, ease: appleEase }}
+            className="lg:hidden bg-surface/98 backdrop-blur-md border-t border-on-surface/10 overflow-hidden"
           >
-            {t('nav.contactCta')}
-          </Link>
-          <div className="pt-3 px-1 flex items-center justify-between sm:hidden">
-            <span className="text-xs text-on-surface-variant uppercase tracking-wider">
-              Language
-            </span>
-            <LangToggle />
-          </div>
-        </div>
-      )}
-    </nav>
+            <div className="px-4 py-4 space-y-1 max-h-[calc(100dvh-4rem)] overflow-y-auto">
+              {navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`block px-3 py-3.5 text-sm font-semibold uppercase tracking-wider transition-colors exec-chamfer min-h-11 ${
+                    isActive(item.href)
+                      ? 'text-primary bg-primary/10'
+                      : 'text-on-surface-variant hover:text-primary hover:bg-on-surface/5'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <Link
+                to="/contact"
+                className="block px-3 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary bg-primary-container/20 exec-chamfer min-h-11"
+              >
+                {t('nav.contactCta')}
+              </Link>
+              <div className="pt-3 px-1 flex items-center justify-between sm:hidden">
+                <span className="text-xs text-on-surface-variant uppercase tracking-wider">
+                  Language
+                </span>
+                <LangToggle />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 

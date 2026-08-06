@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router";
-import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import StructuredData from "../components/StructuredData";
 import CtaBanner from "../components/CtaBanner";
 import PageVideoBackground from "../components/PageVideoBackground";
+import { Stagger, StaggerItem } from "../components/Stagger";
+import TiltCard from "../components/TiltCard";
 import { solutions } from "../data/solutionsData";
 import { getPageSeo } from "../data/seoData";
 import { useLanguage } from "../i18n/LanguageContext";
 import { CircleCheck as CheckCircleIcon } from "lucide-react";
-import { fadeUp } from "../lib/motion";
 
 const Solutions = () => {
   const { t, lang } = useLanguage();
@@ -27,9 +27,15 @@ const Solutions = () => {
         subtitle={t("solutions.subtitle")}
       />
 
-      <section className="layer-panel section-py pt-0 bg-background/80">
+      <section className="layer-panel section-py pt-10 sm:pt-14 md:pt-16 bg-background/80">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-10">
+          <Stagger
+            inView
+            className="grid md:grid-cols-2 gap-8 sm:gap-10"
+            stagger={0.24}
+            delayChildren={0.16}
+            style={{ perspective: 1200 }}
+          >
             {solutions.map((solution, index) => {
               const loc = t(`solutions.items.${solution.id}`) || {};
               const tagline = loc.tagline || solution.tagline;
@@ -39,77 +45,81 @@ const Solutions = () => {
               const priceNote = loc.priceNote || solution.priceNote;
 
               return (
-                <motion.div
+                <StaggerItem
                   key={solution.id}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: index * 0.1 }}
-                  className={`glass-card overflow-hidden ${
-                    solution.name?.toLowerCase().includes("logistics") || solution.id === 2
-                      ? "glass-card--rfid"
-                      : ""
-                  }`}
+                  variant={index % 2 === 0 ? "tilt" : "tiltRight"}
+                  className="h-full"
                 >
-                  <div className="p-5 sm:p-8 md:p-10">
-                    <div className="flex items-start gap-4 sm:gap-5 mb-6">
-                      <div
-                        className={`flex-shrink-0 icon-badge w-14 h-14 sm:w-16 sm:h-16 ${
-                          solution.id === 2 ? "bg-rfid/40 border-rfid/60 text-on-surface" : ""
-                        }`}
-                      >
-                        <span
-                          className={`text-xl sm:text-2xl font-semibold ${
-                            solution.id === 2 ? "text-on-surface" : "text-on-primary-container"
+                  <TiltCard
+                    className={`glass-card overflow-hidden h-full ${
+                      solution.name?.toLowerCase().includes("logistics") || solution.id === 2
+                        ? "glass-card--rfid"
+                        : ""
+                    }`}
+                    maxTilt={10}
+                  >
+                    <div className="p-5 sm:p-8 md:p-10">
+                      <div className="flex items-start gap-4 sm:gap-5 mb-6">
+                        <div
+                          className={`flex-shrink-0 icon-badge w-14 h-14 sm:w-16 sm:h-16 ${
+                            solution.id === 2 ? "bg-rfid/40 border-rfid/60 text-on-surface" : ""
                           }`}
                         >
-                          {solution.initial}
-                        </span>
+                          <span
+                            className={`text-xl sm:text-2xl font-semibold ${
+                              solution.id === 2 ? "text-on-surface" : "text-on-primary-container"
+                            }`}
+                          >
+                            {solution.initial}
+                          </span>
+                        </div>
+                        <div>
+                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">{solution.name}</h2>
+                          <p className="text-on-surface-variant font-medium mt-1">{tagline}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">{solution.name}</h2>
-                        <p className="text-on-surface-variant font-medium mt-1">{tagline}</p>
-                      </div>
+                      <p className="text-on-surface-variant mb-6 leading-relaxed">{description}</p>
+                      <h3 className="text-sm font-semibold uppercase tracking-wide mb-3">
+                        {t("solutions.includes")}
+                      </h3>
+                      <ul className="space-y-2 mb-6">
+                        {features.map((feature, i) => (
+                          <li key={i} className="flex items-start">
+                            <CheckCircleIcon className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {paraQuien.length > 0 ? (
+                        <>
+                          <h3 className="text-sm font-semibold uppercase tracking-wide mb-3">
+                            {t("solutions.forWhom")}
+                          </h3>
+                          <ul className="space-y-2 mb-6">
+                            {paraQuien.map((item, i) => (
+                              <li key={i} className="flex items-start text-sm text-on-surface-variant">
+                                <span className="text-primary mr-2">•</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : null}
+                      {priceNote ? (
+                        <p className="text-sm text-on-surface-variant mb-4">{priceNote}</p>
+                      ) : null}
+                      <Link
+                        to="/contact"
+                        className="btn-secondary inline-flex items-center justify-center w-full sm:w-auto px-6 py-3"
+                      >
+                        {t("solutions.ctaCard")}
+                      </Link>
                     </div>
-                    <p className="text-on-surface-variant mb-6 leading-relaxed">{description}</p>
-                    <h3 className="text-sm font-semibold uppercase tracking-wide mb-3">
-                      {t("solutions.includes")}
-                    </h3>
-                    <ul className="space-y-2 mb-6">
-                      {features.map((feature, i) => (
-                        <li key={i} className="flex items-start">
-                          <CheckCircleIcon className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    {paraQuien.length > 0 ? (
-                      <>
-                        <h3 className="text-sm font-semibold uppercase tracking-wide mb-3">
-                          {t("solutions.forWhom")}
-                        </h3>
-                        <ul className="space-y-2 mb-6">
-                          {paraQuien.map((item, i) => (
-                            <li key={i} className="flex items-start text-sm text-on-surface-variant">
-                              <span className="text-primary mr-2">•</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    ) : null}
-                    {priceNote ? (
-                      <p className="text-sm text-on-surface-variant mb-4">{priceNote}</p>
-                    ) : null}
-                    <Link
-                      to="/contact"
-                      className="btn-secondary inline-flex items-center justify-center w-full sm:w-auto px-6 py-3"
-                    >
-                      {t("solutions.ctaCard")}
-                    </Link>
-                  </div>
-                </motion.div>
+                  </TiltCard>
+                </StaggerItem>
               );
             })}
-          </div>
+          </Stagger>
         </div>
       </section>
 

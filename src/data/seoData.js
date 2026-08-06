@@ -82,15 +82,15 @@ export const pageSeo = {
   },
   portfolio: {
     path: "/portfolio",
-    title: "Proyectos y Clientes: Casos de Éxito en Software",
+    title: "Proyectos y Clientes: Sectores y Trabajo Real | INIT",
     description:
-      "Casos de éxito de INIT: desarrollo web, software a medida y consultoría digital para CONFE, JOFRA, Carbiu, Polola's, TRANSCOM y Geller Abogados en México.",
+      "Sectores donde INIT ha acompañado operaciones reales: social, industrial, logística, legal, digital y gastronomía. Clientes en México — el detalle, al evaluar fit.",
     keywords: [
-      "casos de éxito desarrollo software",
-      "clientes software a medida México",
-      "portafolio desarrollo web",
-      "proyectos transformación digital",
-      "empresa desarrollo software clientes",
+      "sectores desarrollo software México",
+      "clientes software a medida",
+      "portafolio consultoría digital",
+      "transformación digital por industria",
+      "empresa desarrollo software México",
     ].join(", "),
   },
   contact: {

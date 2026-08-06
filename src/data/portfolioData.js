@@ -1,68 +1,65 @@
 /**
- * Portafolio: proyectos y clientes con desglose de lo realizado.
+ * Portafolio: sectores donde hemos trabajado + vínculo a logos de clientes.
+ * Detalle por cliente queda para la conversación de fit — no en tarjetas públicas.
  */
+import { clientLogos, getClientLogo } from "./clientsData";
+
+export const portfolioSectors = [
+  {
+    id: "social",
+    clientIds: ["confe"],
+  },
+  {
+    id: "industrial",
+    clientIds: ["jofra"],
+  },
+  {
+    id: "logistics",
+    clientIds: ["transcom"],
+  },
+  {
+    id: "legal",
+    clientIds: ["geller"],
+  },
+  {
+    id: "digital",
+    clientIds: ["carbiu", "kairos"],
+  },
+  {
+    id: "food",
+    clientIds: ["pololas"],
+  },
+];
+
+/** @deprecated Prefer portfolioSectors — kept for any leftover refs */
 export const portfolioClients = [
   {
     id: 1,
     name: "CONFE",
     logo: "/clients/confe.png",
-    lightBg: true,
+    lightBg: false,
+    sectorId: "social",
     sector: "Sector social / institucional",
-    sectorDetail: "Organización del sector social e institucional",
-    summary: "Soluciones de software y digitalización para mejorar procesos y atención.",
-    deliverables: [
-      "Análisis y levantamiento de necesidades",
-      "Diseño de procesos y flujos de trabajo",
-      "Desarrollo de aplicaciones a medida",
-      "Consultoría en transformación digital",
-      "Seguimiento y mejora continua",
-    ],
-    stack: "React, Node.js, bases de datos relacionales",
-    result: "Procesos y atención mejorados con sistemas centralizados.",
     initial: "C",
-    color: "from-init-green to-init-green-bright",
   },
   {
     id: 2,
     name: "JOFRA",
     logo: "/clients/jofra.png",
     lightBg: false,
-    dimmedColor: true,
+    sectorId: "industrial",
     sector: "Sistemas y equipos",
-    sectorDetail: "Sistemas y equipos industriales",
-    summary: "Proyectos de transformación digital y optimización de operaciones. Software empresarial a medida para automatizar y conectar sistemas.",
-    deliverables: [
-      "Desarrollo de software empresarial",
-      "Automatización de procesos",
-      "Integración de sistemas",
-      "Consultoría tecnológica",
-      "Formación y soporte",
-    ],
-    stack: "Python, Django, APIs, integraciones",
-    result: "Operaciones más eficientes y soporte continuo post-implementación.",
     initial: "J",
-    color: "from-init-dark to-init-green",
   },
   {
     id: 3,
     name: "TRANSCOM",
     logo: "/clients/transcom.png",
     lightBg: false,
-    dimmedColor: true,
     engagement: "consultoria",
+    sectorId: "logistics",
     sector: "Logística / Transporte",
-    sectorDetail: "Logística y transporte, Estado de México",
-    summary: "Consultoría en digitalización y análisis de necesidades para operaciones y trazabilidad. Acompañamiento en el diagnóstico y la definición de prioridades tecnológicas.",
-    deliverables: [
-      "Diagnóstico de procesos operativos",
-      "Análisis de necesidades tecnológicas",
-      "Recomendaciones de digitalización",
-      "Roadmap de priorización",
-      "Acompañamiento en definición de alcance",
-    ],
-    result: "Diagnóstico y hoja de ruta para futuras soluciones digitales.",
     initial: "T",
-    color: "from-init-green to-init-green-bright",
   },
   {
     id: 4,
@@ -70,62 +67,36 @@ export const portfolioClients = [
     logo: "/clients/geller-abogados.png",
     lightBg: false,
     engagement: "consultoria",
+    sectorId: "legal",
     sector: "Despacho jurídico",
-    sectorDetail: "Despacho de abogados",
-    summary: "Consultoría en procesos digitales y evaluación de herramientas para la gestión del despacho. Análisis de flujos de trabajo, documentación y oportunidades de mejora.",
-    deliverables: [
-      "Levantamiento de procesos del despacho",
-      "Diagnóstico de gestión documental y expedientes",
-      "Recomendaciones de automatización",
-      "Propuesta de herramientas y prioridades",
-      "Acompañamiento en definición de proyecto",
-    ],
-    result: "Diagnóstico y recomendaciones para optimizar la operación del despacho.",
     initial: "G",
-    color: "from-init-dark to-init-green-bright",
   },
   {
     id: 5,
     name: "CARBIU",
     logo: "/clients/carbiu.png",
     lightBg: false,
-    dimmedColor: true,
-    sector: "Empresa",
-    sectorDetail: "Cliente corporativo",
-    summary:
-      "Desarrollo de su página web con SEO, automatizaciones con n8n e integración de herramientas para optimizar su operación digital.",
-    deliverables: [
-      "Desarrollo de página web",
-      "Optimización SEO",
-      "Automatizaciones con n8n",
-      "Integración de procesos y herramientas",
-      "Soporte y ajustes post-lanzamiento",
-    ],
-    stack: "React, SEO, n8n, integraciones",
-    result: "Presencia web optimizada y procesos automatizados.",
+    sectorId: "digital",
+    sector: "Digital corporativo",
     initial: "B",
-    color: "from-init-green to-init-green-bright",
   },
   {
     id: 6,
     name: "POLOLA'S",
     logo: "/clients/pololas.png",
-    lightBg: true,
+    lightBg: false,
+    sectorId: "food",
     sector: "Gastronomía / Repostería",
-    sectorDetail: "Productos gastronómicos y planificación de comidas",
-    summary:
-      "Desarrollo de su página web y un sistema de pedidos en línea para vender pasteles, galletas y otros productos gastronómicos, con funcionalidades para planear comidas y gestionar órdenes.",
-    deliverables: [
-      "Diseño y desarrollo de página web",
-      "Sistema de pedidos en línea",
-      "Catálogo de productos (pasteles, galletas y más)",
-      "Módulo de planificación de comidas",
-      "Panel de administración de órdenes",
-      "Soporte y ajustes post-lanzamiento",
-    ],
-    stack: "React, Node.js, bases de datos relacionales",
-    result: "Canal digital para venta de productos y gestión de pedidos desde un solo sistema.",
     initial: "P",
-    color: "from-init-green to-init-green-bright",
   },
 ];
+
+export const getSectorClients = (sectorId) => {
+  const sector = portfolioSectors.find((s) => s.id === sectorId);
+  if (!sector) return [];
+  return sector.clientIds
+    .map((id) => getClientLogo(id))
+    .filter(Boolean);
+};
+
+export { clientLogos };

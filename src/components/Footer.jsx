@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import { BRAND } from "../data/brandData";
 import { useLanguage } from "../i18n/LanguageContext";
+import Reveal from "./Reveal";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -10,9 +11,8 @@ const Footer = () => {
     <footer className="relative z-10 bg-surface-container-lowest border-t border-on-surface/10">
       <div className="h-[2px] w-full" style={{ background: "var(--gradient-accent)" }} />
 
-      <div className="py-10 sm:py-14">
+      <Reveal className="py-10 sm:py-14" delay={0.05} y={16} duration={0.65}>
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 grid gap-10 lg:gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)]">
-          {/* Brand */}
           <div className="flex flex-col gap-4 min-w-0 max-w-md">
             <div className="flex items-center gap-3">
               <img
@@ -42,7 +42,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Links + contact */}
           <div className="flex flex-col gap-8 min-w-0">
             <div className="grid grid-cols-2 gap-x-8 gap-y-6 min-w-0">
               <div className="flex flex-col gap-3 min-w-0">
@@ -55,9 +54,6 @@ const Footer = () => {
                 >
                   {t("footer.home")}
                 </Link>
-                {/* Equipo oculto de momento
-                <Link to="/team" className="...">{t("footer.team")}</Link>
-                */}
                 <Link
                   to="/services"
                   className="text-on-surface-variant text-sm hover:text-primary transition-colors hover:underline underline-offset-4 py-0.5"
@@ -128,7 +124,7 @@ const Footer = () => {
             Copyright 2024–2026 {BRAND.name}
           </p>
         </div>
-      </div>
+      </Reveal>
     </footer>
   );
 };

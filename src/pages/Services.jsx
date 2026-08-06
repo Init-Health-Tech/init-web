@@ -1,10 +1,12 @@
 import React from "react";
-import { motion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import PageHeader from "../components/PageHeader";
 import StructuredData from "../components/StructuredData";
 import CtaBanner from "../components/CtaBanner";
 import PageVideoBackground from "../components/PageVideoBackground";
+import Reveal from "../components/Reveal";
+import { Stagger, StaggerItem } from "../components/Stagger";
+import TiltCard from "../components/TiltCard";
 import { getPageSeo } from "../data/seoData";
 import { useLanguage } from "../i18n/LanguageContext";
 import {
@@ -17,8 +19,6 @@ import {
   TrendingUp as TrendingUpIcon,
   CircleCheck as CheckCircleIcon,
 } from "lucide-react";
-
-import { fadeUp } from "../lib/motion";
 
 const SERVICE_ICONS = [CodeIcon, ComputerIcon, RocketLaunchIcon];
 const SERVICE_IMAGES = [
@@ -61,16 +61,16 @@ const Services = () => {
       <PageVideoBackground clip="systems" />
       <PageHeader eyebrow={t("services.eyebrow")} title={t("services.title")} subtitle={t("services.subtitle")} />
 
-      <section className="layer-panel section-py pt-0 bg-background/80">
-        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20 space-y-16 sm:space-y-24 md:space-y-28">
+      <section className="layer-panel section-py pt-10 sm:pt-14 md:pt-16 bg-background/80">
+        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20 space-y-20 sm:space-y-28 md:space-y-32">
           {services.map((service, index) => {
             const ServiceIcon = SERVICE_ICONS[index];
             const isImageRight = index % 2 === 1;
             return (
-              <motion.div
+              <Reveal
                 key={service.title}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: index * 0.08 }}
+                inView
+                variant={isImageRight ? "tiltRight" : "tilt"}
                 className={`grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center ${isImageRight ? "lg:grid-flow-dense" : ""}`}
               >
                 <div className={`relative ${isImageRight ? "lg:col-start-2" : ""}`}>
@@ -85,11 +85,13 @@ const Services = () => {
                   </div>
                 </div>
                 <div className={isImageRight ? "lg:col-start-1 lg:row-start-1" : ""}>
-                  <p className="eyebrow mb-4">{String(index + 1).padStart(2, "0")}</p>
+                  <p className="font-heading text-[13px] text-primary font-medium tracking-[0.16em] mb-4">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
                   <div className="icon-badge mb-6">
                     <ServiceIcon className="h-7 w-7 text-on-primary-container" />
                   </div>
-                  <h2 className="display-title text-2xl sm:text-3xl lg:text-4xl mb-4">{service.title}</h2>
+                  <h2 className="display-section text-[clamp(1.5rem,3vw,2.25rem)] mb-4">{service.title}</h2>
                   <p className="text-base sm:text-lg text-on-surface mb-3 leading-relaxed">{service.intro}</p>
                   <p className="text-on-surface-variant mb-6 sm:mb-8 leading-relaxed">{service.description}</p>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
@@ -107,7 +109,7 @@ const Services = () => {
                     {service.result}
                   </p>
                 </div>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>
@@ -115,17 +117,16 @@ const Services = () => {
 
       <section className="layer-panel section-py bg-surface-container-low">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
-          <motion.div {...fadeUp} className="text-center mb-12 sm:mb-16 max-w-xl mx-auto">
+          <Reveal inView variant="blur" className="text-center mb-14 sm:mb-16 max-w-xl mx-auto">
             <p className="eyebrow mb-4">{t("services.stackEyebrow")}</p>
-            <h2 className="display-title text-2xl sm:text-3xl md:text-4xl mb-3">{t("services.stackTitle")}</h2>
+            <h2 className="display-section mb-3">{t("services.stackTitle")}</h2>
             <p className="text-on-surface-variant text-sm leading-relaxed">{t("services.stackSub")}</p>
-          </motion.div>
-          <div className="flex flex-col items-center gap-8 sm:gap-10">
+          </Reveal>
+          <Stagger inView className="flex flex-col items-center gap-8 sm:gap-10" stagger={0.16} delayChildren={0.12}>
             {techCats.map((cat, i) => (
-              <motion.div
+              <StaggerItem
                 key={cat.name}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: i * 0.05 }}
+                variant={i % 2 === 0 ? "left" : "right"}
                 className="text-center px-1"
               >
                 <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-on-surface-variant mb-3">
@@ -138,64 +139,63 @@ const Services = () => {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       <section className="layer-panel section-py bg-background">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
-          <motion.div {...fadeUp} className="text-center mb-12 sm:mb-16 max-w-xl mx-auto">
+          <Reveal inView variant="up" className="text-center mb-14 sm:mb-16 max-w-xl mx-auto">
             <p className="eyebrow mb-4">{t("services.processEyebrow")}</p>
-            <h2 className="display-title text-2xl sm:text-3xl md:text-4xl mb-3">{t("services.processTitle")}</h2>
+            <h2 className="display-section mb-3">{t("services.processTitle")}</h2>
             <p className="text-on-surface-variant">{t("services.processSub")}</p>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 sm:gap-5">
+          </Reveal>
+          <Stagger
+            inView
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 sm:gap-5"
+            stagger={0.18}
+            delayChildren={0.16}
+            style={{ perspective: 1100 }}
+          >
             {process.map((step, index) => (
-              <motion.div
-                key={step.title}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: index * 0.08 }}
-                className="glass-card p-5 sm:p-6 text-center"
-              >
-                <div className="icon-badge mx-auto mb-4 text-on-primary-container font-semibold text-lg">
-                  {index + 1}
-                </div>
-                <h3 className="font-semibold mb-2 tracking-tight">{step.title}</h3>
-                <p className="text-sm text-on-surface-variant leading-relaxed">{step.description}</p>
-                <p className="text-xs text-primary mt-3 tracking-wide">{step.timeframe}</p>
-              </motion.div>
+              <StaggerItem key={step.title} variant="flip">
+                <TiltCard className="glass-card p-5 sm:p-6 text-center h-full" maxTilt={12}>
+                  <div className="icon-badge mx-auto mb-4 text-on-primary-container font-semibold text-lg font-heading">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="font-semibold mb-2 tracking-tight">{step.title}</h3>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">{step.description}</p>
+                  <p className="text-xs text-primary mt-3 tracking-wide">{step.timeframe}</p>
+                </TiltCard>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       <section className="layer-panel section-py bg-surface-container-lowest">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
-          <motion.div {...fadeUp} className="text-center mb-12 sm:mb-16 max-w-xl mx-auto">
+          <Reveal inView variant="scale" className="text-center mb-14 sm:mb-16 max-w-xl mx-auto">
             <p className="eyebrow mb-4">{t("services.whyEyebrow")}</p>
-            <h2 className="display-title text-2xl sm:text-3xl md:text-4xl">{t("services.whyTitle")}</h2>
-          </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+            <h2 className="display-section">{t("services.whyTitle")}</h2>
+          </Reveal>
+          <Stagger inView className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12" stagger={0.18} delayChildren={0.12}>
             {benefits.map((b, i) => {
               const Icon = BENEFIT_ICONS[i];
+              const variants = ["pop", "tilt", "tiltRight", "flip"];
               return (
-                <motion.div
-                  key={b.title}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: i * 0.08 }}
-                  className="text-center"
-                >
+                <StaggerItem key={b.title} variant={variants[i % variants.length]} className="text-center">
                   <div className="icon-badge mx-auto mb-5">
                     <Icon className="h-7 w-7 text-on-primary-container" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2 tracking-tight">{b.title}</h3>
                   <p className="text-on-surface-variant text-sm leading-relaxed">{b.description}</p>
-                </motion.div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </Stagger>
         </div>
       </section>
 

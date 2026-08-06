@@ -9,6 +9,7 @@ import FloatingContactButton from './components/FloatingContactButton';
 import SkipLink from './components/SkipLink';
 import PageLoader from './components/PageLoader';
 import PageTransition from './components/PageTransition';
+import { PageReadyProvider } from './components/PageReadyContext';
 
 // Home stays eager (first paint / LCP route). The rest are code-split so
 // visitors only download the JS for the page they actually open.
@@ -24,30 +25,32 @@ function AppRoutes() {
   const location = useLocation();
   const isHome = location.pathname === "/";
   return (
-    <div className="App min-h-screen bg-background">
-      <ScrollToTop />
-      <ScrollProgress />
-      {!isHome && <StitchBackground />}
-      <SkipLink />
-      <Navbar />
-      <main id="main-content" className="relative z-10" tabIndex={-1}>
-        <PageTransition>
-          <Suspense fallback={<PageLoader />}>
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Home />} />
-              {/* Equipo oculto de momento */}
-              {/* <Route path="/team" element={<Team />} /> */}
-              <Route path="/services" element={<Services />} />
-              <Route path="/soluciones" element={<Solutions />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </Suspense>
-        </PageTransition>
-      </main>
-      <Footer />
-      <FloatingContactButton />
-    </div>
+    <PageReadyProvider>
+      <div className="App min-h-screen bg-background">
+        <ScrollToTop />
+        <ScrollProgress />
+        {!isHome && <StitchBackground />}
+        <SkipLink />
+        <Navbar />
+        <main id="main-content" className="relative z-10" tabIndex={-1}>
+          <PageTransition>
+            <Suspense fallback={<PageLoader />}>
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Home />} />
+                {/* Equipo oculto de momento */}
+                {/* <Route path="/team" element={<Team />} /> */}
+                <Route path="/services" element={<Services />} />
+                <Route path="/soluciones" element={<Solutions />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </Suspense>
+          </PageTransition>
+        </main>
+        <Footer />
+        <FloatingContactButton />
+      </div>
+    </PageReadyProvider>
   );
 }
 

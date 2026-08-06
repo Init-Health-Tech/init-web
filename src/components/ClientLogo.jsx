@@ -1,7 +1,13 @@
 import React from "react";
 import { getClientLogo } from "../data/clientsData";
 
-const ClientLogo = ({ client, size = "md", variant = "default", className = "" }) => {
+const ClientLogo = ({
+  client,
+  size = "md",
+  variant = "default",
+  className = "",
+  loading = "lazy",
+}) => {
   if (!client?.logo) return null;
 
   const canonical = getClientLogo(client.name);
@@ -20,15 +26,16 @@ const ClientLogo = ({ client, size = "md", variant = "default", className = "" }
 
   return (
     <div
-      className={`client-logo ${useLightBg ? "client-logo--light-bg" : ""} ${useFeatured ? "client-logo--featured" : ""} ${className}`}
+      className={`client-logo shrink-0 ${useLightBg ? "client-logo--light-bg" : ""} ${useFeatured ? "client-logo--featured" : ""} ${className}`}
       data-client={dataClient}
       title={client.name}
     >
       <img
         src={client.logo}
         alt={client.name}
-        className={`${sizes[size]} w-auto object-contain`}
-        loading="lazy"
+        className={`${sizes[size]} w-auto object-contain shrink-0`}
+        loading={loading}
+        decoding="async"
       />
     </div>
   );

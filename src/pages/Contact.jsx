@@ -15,7 +15,8 @@ import {
   CircleCheck as CheckCircleIcon,
   ChevronDown as ExpandMoreIcon,
 } from "lucide-react";
-import { fadeUp, appleEase } from "../lib/motion";
+import { appleEase } from "../lib/motion";
+import Reveal from "../components/Reveal";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const WEB3FORMS_ACCESS_KEY = "fd5fa68e-ae1d-4ea6-9c2a-9d9450583d63";
@@ -170,16 +171,16 @@ const Contact = () => {
         subtitle={t("contact.subtitle")}
       />
 
-      <section className="layer-panel section-py pt-0 bg-background/80">
+      <section className="layer-panel section-py pt-10 sm:pt-14 md:pt-16 bg-background/80">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.65, ease: appleEase }}
+              transition={{ duration: 0.95, ease: appleEase }}
             >
               <p className="eyebrow mb-4">{t("contact.directEyebrow")}</p>
-              <h2 className="display-title text-xl sm:text-2xl md:text-3xl mb-8">{t("contact.directTitle")}</h2>
+              <h2 className="display-section text-[clamp(1.25rem,2.5vw,1.75rem)] mb-8">{t("contact.directTitle")}</h2>
               <div className="space-y-6">
                 {contactInfo.map((info) => (
                   <div key={info.title} className="flex items-start gap-4">
@@ -203,10 +204,10 @@ const Contact = () => {
             <motion.div
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.65, ease: appleEase, delay: 0.08 }}
+              transition={{ duration: 0.95, ease: appleEase, delay: 0.18 }}
             >
               <div className="glass-card p-5 sm:p-8 md:p-10">
-                <h2 className="display-title text-xl sm:text-2xl mb-2">{t("contact.formTitle")}</h2>
+                <h2 className="display-section text-[clamp(1.25rem,2.5vw,1.5rem)] mb-2">{t("contact.formTitle")}</h2>
                 <p className="text-sm text-on-surface-variant mb-8 leading-relaxed">{t("contact.formSub")}</p>
                 {submitStatus === "success" && (
                   <motion.div
@@ -356,14 +357,11 @@ const Contact = () => {
 
       <section className="layer-panel section-py bg-surface-container-low">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-20">
-          <motion.div
-            {...fadeUp}
-            className="text-center mb-10 sm:mb-12"
-          >
+          <Reveal inView className="text-center mb-10 sm:mb-12">
             <p className="eyebrow mb-4">{t("contact.faqEyebrow")}</p>
-            <h2 className="display-title text-2xl sm:text-3xl mb-3">{t("contact.faqTitle")}</h2>
+            <h2 className="display-section mb-3">{t("contact.faqTitle")}</h2>
             <p className="text-on-surface-variant text-sm">{t("contact.faqSub")}</p>
-          </motion.div>
+          </Reveal>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
               <div key={faq.q} className="glass-card overflow-hidden">
