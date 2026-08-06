@@ -17,7 +17,7 @@ export const messages = {
     },
     footer: {
       blurb:
-        "Consultora de software. Empresas de todo tamaño, en cualquier parte del mundo. Evaluamos si podemos ayudar — y si no, te lo decimos.",
+        "Consultora de software. Empresas de todo tamaño, en cualquier parte del mundo. Evaluamos la aportación que podemos generar.",
       partner: "Partner estratégico",
       nav: "Navegación",
       company: "Empresa",
@@ -62,11 +62,11 @@ export const messages = {
           "servicios desarrollo software a medida, consultoría transformación digital México, desarrollo aplicaciones web empresariales, integración de sistemas, data analysis empresas, cyberseguridad empresarial, automatización procesos",
       },
       solutions: {
-        title: "ERPinit e initlogistics: Software Listo para Empresas",
+        title: "ERPinit, CRMinit e initlogistics | Software Listo | INIT",
         description:
-          "ERPinit e initlogistics: ERP y plataforma logística con trazabilidad RFID para empresas en México. Software listo para usar sin desarrollo a medida.",
+          "ERPinit, CRMinit e initlogistics: ERP, CRM y logística con RFID para empresas en México. Productos listos — siempre con evaluación de fit.",
         keywords:
-          "ERP México, software ERP empresas, logística RFID México, initlogistics, ERPinit, software listo para usar, trazabilidad logística",
+          "ERP México, CRM México, software CRM empresas, logística RFID México, initlogistics, ERPinit, CRMinit, software listo para usar",
       },
       portfolio: {
         title: "Proyectos y Clientes: Sectores y Trabajo Real | INIT",
@@ -84,13 +84,13 @@ export const messages = {
       },
     },
     home: {
-      h1Line1: "Hay empresas que operan.",
-      h1Line2: "Y empresas que avanzan.",
-      sub: "Consultora de software para empresas de todo tamaño, en cualquier parte del mundo. Primero evaluamos si realmente podemos ayudar. Si no, te lo decimos — no vendemos por vender.",
+      h1Line1: "Más allá de la operación.",
+      h1Line2: "Es hora de evolucionar.",
+      sub: "Somos una consultora digital de desarrollo tecnológico a medida con alcance global. Analizamos en profundidad tu modelo estratégico para diseñar soluciones de software de alto impacto que se adaptan con precisión a la realidad de tu negocio.",
       ctaWork: "Ver el trabajo",
       ctaHelp: "¿Podemos ayudar?",
-      scarcity1: "No aceptamos todos los proyectos.",
-      scarcity2: "Si no podemos ayudar, no vendemos.",
+      scarcity1: "Tu inversión y nuestro equipo merecen un match perfecto.",
+      scarcity2: "Creamos tecnología a medida para llevar tu negocio al siguiente nivel.",
       diffEyebrow: "La diferencia",
       diffTitle: "Cuando el sistema trabaja contigo, todo cambia.",
       diffSub: "Menos fricción. Menos improvisación. Más control.",
@@ -150,19 +150,19 @@ export const messages = {
           tease: "Logística. Un diagnóstico que abre el siguiente paso.",
         },
       ],
-      ctaTitle: "¿Tiene sentido hablar?",
+      ctaTitle: "¿Hablamos de tu operación?",
       ctaText:
-        "Escribimos para evaluar si podemos ayudar de verdad. Si el encaje no está, te lo diremos con claridad — sin empujar una venta.",
+        "Cuéntanos qué estás viviendo. Evaluamos juntos si podemos aportar — y cómo sería el siguiente paso.",
       ctaSecondary: "Ver servicios",
       partnerEyebrow: "Alianza",
       partnerTitle: "Nuestro partner",
-      partnerSub: "No trabajamos solos. Socios que elevan el estándar — no que lo diluyen.",
+      partnerSub: "No trabajamos solos. Socios que elevan el estándar",
     },
     services: {
       eyebrow: "Tres caminos",
       title: "Una sola exigencia",
       subtitle:
-        "Software a medida, digitalización e integración. Pocos proyectos. Primero evaluamos si hay fit.",
+        "Software a medida, digitalización e integración. Adaptados a tu negocio.",
       items: [
         {
           title: "Software a medida",
@@ -213,14 +213,45 @@ export const messages = {
       ],
       stackEyebrow: "Stack",
       stackTitle: "Herramientas con criterio",
-      stackSub: "Elegimos tecnología por el problema — no por la moda.",
+      stackSub: "Seis capas. Elegimos por el problema — no por la moda.",
+      stackHint: "Explora una capa",
       techCats: [
-        { name: "Frontend" },
-        { name: "Backend" },
-        { name: "Bases de datos" },
-        { name: "Infraestructura" },
-        { name: "Cyberseguridad" },
-        { name: "Datos e IA" },
+        {
+          id: "frontend",
+          name: "Frontend",
+          tease:
+            "Interfaces claras y fluidas — pensadas para quien las usa todos los días, no para impresionar en un demo.",
+        },
+        {
+          id: "backend",
+          name: "Backend",
+          tease:
+            "Lógica, APIs y servicios que sostienen la operación: estables, mantenibles y listos para crecer.",
+        },
+        {
+          id: "databases",
+          name: "Bases de datos",
+          tease:
+            "Datos ordenados y confiables. La base para decidir con criterio — no con hojas sueltas.",
+        },
+        {
+          id: "infra",
+          name: "Infraestructura",
+          tease:
+            "Entornos sólidos, despliegues calmados y capacidad de escalar cuando el negocio lo pide.",
+        },
+        {
+          id: "security",
+          name: "Cyberseguridad",
+          tease:
+            "Protección desde el diseño. Menos parches al final; más cuidado en cada decisión técnica.",
+        },
+        {
+          id: "data",
+          name: "Datos e IA",
+          tease:
+            "Información útil y automatización con sentido de negocio — no ruido por ruido.",
+        },
       ],
       processEyebrow: "Cómo trabajamos",
       processTitle: "Un proceso que reduce sorpresas",
@@ -228,48 +259,63 @@ export const messages = {
       process: [
         {
           title: "Entender",
-          description: "Alcance, operación y arquitectura.",
+          description:
+            "Conversamos sobre tu operación, definimos alcance y arquitectura — antes de tocar código.",
           timeframe: "1–2 semanas",
         },
         {
           title: "Diseñar",
-          description: "Prototipos para validar antes de construir.",
+          description:
+            "Prototipos para validar flujos y prioridades. Menos sorpresas cuando empiece la construcción.",
           timeframe: "1–3 semanas",
         },
         {
           title: "Construir",
-          description: "Desarrollo con código mantenible.",
+          description:
+            "Desarrollo con código mantenible, entregas que se pueden tocar y comunicación directa.",
           timeframe: "4–12 semanas",
         },
         {
           title: "Lanzar",
-          description: "Pruebas, despliegue y salida limpia.",
+          description:
+            "Pruebas, despliegue y salida limpia. El sistema entra en operación sin drama.",
           timeframe: "1–2 semanas",
         },
         {
           title: "Acompañar",
-          description: "Soporte y evolución del sistema.",
+          description:
+            "Soporte y evolución con el mismo equipo que lo construyó. En español, sin capas de más.",
           timeframe: "Continuo",
         },
       ],
       whyEyebrow: "Por qué INIT",
       whyTitle: "Lo que no negociamos",
+      whySub: "Cuatro principios. Pasa el cursor — o toca — para leer cada uno.",
+      whyHint: "Principio",
       benefits: [
         {
           title: "Ritmo",
-          description: "Avance real sin el teatro de las agencias grandes.",
+          description:
+            "Avance que se nota semana a semana. Sin teatro de agencia, sin status meetings que no mueven nada.",
+          line: "Menos ruido. Más entrega.",
         },
         {
           title: "Seguridad",
-          description: "Buenas prácticas desde el diseño — no al final.",
+          description:
+            "Buenas prácticas desde el diseño. La protección no es un parche el día antes del lanzamiento.",
+          line: "Cuidado técnico, no improvisación.",
         },
         {
           title: "Cercanía",
-          description: "Hablas con quien construye. En español.",
+          description:
+            "Hablas con quien construye. En español. Sin capas entre tu operación y el código.",
+          line: "Una conversación. El mismo equipo.",
         },
         {
           title: "Impacto",
-          description: "Menos caos operativo. Más capacidad de crecer.",
+          description:
+            "Menos pelear contra la operación. Más control, claridad y capacidad real de crecer.",
+          line: "El sistema trabaja contigo.",
         },
       ],
       ctaTitle: "¿Crees que podríamos ayudar?",
@@ -316,6 +362,7 @@ export const messages = {
         "Sistema empresarial",
         "Consultoría",
         "ERPinit",
+        "CRMinit",
         "initlogistics",
         "Otro",
       ],
@@ -369,7 +416,7 @@ export const messages = {
         },
         {
           q: "¿Tienen productos listos?",
-          a: "Sí: ERPinit e initlogistics (incluye trazabilidad RFID). También desarrollamos 100% a medida — siempre tras evaluar si encaja.",
+          a: "Sí: ERPinit, CRMinit e initlogistics (incluye trazabilidad RFID). También desarrollamos 100% a medida — siempre tras evaluar si encaja.",
         },
       ],
     },
@@ -522,52 +569,77 @@ export const messages = {
       eyebrow: "Productos",
       title: "Soluciones listas",
       subtitle:
-        "ERPinit e initlogistics: software empresarial y logística con trazabilidad RFID listo para empresas en México.",
+        "ERPinit, CRMinit e initlogistics: operación, relación con clientes y logística con RFID — cuando el producto encaja de verdad.",
+      introEyebrow: "Catálogo",
+      introTitle: "Tres productos. Un solo criterio: que encajen.",
+      introSub:
+        "Elige uno, míralo con calma. No son plantillas genéricas ni demos de catálogo — cada uno existe para un tipo de operación. Si no es el tuyo, lo decimos.",
+      pickHint: "Elige un producto",
       includes: "Incluye",
       forWhom: "Para quién es",
       ctaCard: "Ver si encaja con tu operación",
+      fitEyebrow: "Antes de elegir",
+      fitTitle: "¿Producto listo o a medida?",
+      fitSub:
+        "A veces un producto acelera. A veces tu operación pide algo propio. Lo evaluamos juntos — sin empujar una venta.",
       ctaTitle: "¿Producto listo o a medida?",
       ctaText:
         "A veces un producto encaja. A veces no. Lo evaluamos contigo — sin empujar una venta.",
       ctaSecondary: "Ver servicios",
       items: {
-        "1": {
-          tagline: "Sistema de planificación de recursos empresariales",
+        erp: {
+          tagline: "Planificación de recursos empresariales",
           description:
-            "Solución ERP lista para usar: gestión integral de tu empresa. Finanzas, inventario, ventas, compras y reportes en una sola plataforma.",
+            "ERP listo para centralizar finanzas, inventario, compras y ventas. Una sola operación — sin pelear con hojas de cálculo desconectadas.",
           features: [
             "Gestión financiera y contable",
             "Control de inventario y almacén",
             "Ventas, compras y proveedores",
             "Reportes y dashboards",
             "Multiempresa y multiusuario",
-            "Implementación y soporte incluido",
+            "Implementación y acompañamiento",
           ],
           paraQuien: [
-            "Pymes que necesitan un ERP integrado sin desarrollo a medida",
-            "Empresas con múltiples almacenes o puntos de venta",
-            "Equipos que quieren dejar Excel y pasar a un sistema centralizado",
+            "Pymes que necesitan un ERP integrado sin empezar de cero",
+            "Empresas con varios almacenes o puntos de venta",
+            "Equipos listos para dejar Excel y unificar el control",
           ],
-          priceNote: "Desde $X/mes según módulos y usuarios (consulta con nosotros)",
         },
-        "2": {
-          tagline: "Gestión logística y trazabilidad",
+        crm: {
+          tagline: "Relación con clientes y pipeline de ventas",
           description:
-            "Plataforma para operaciones logísticas con trazabilidad RFID: envíos, rutas, almacenes y seguimiento en tiempo real. Integración con lectores RFID para activos, inventarios y operaciones logísticas.",
+            "CRM para seguir prospectos, oportunidades y seguimiento comercial en un solo lugar. Menos WhatsApp perdido. Más claridad de quién compra y por qué se frena.",
+          features: [
+            "Pipeline de ventas y etapas configurables",
+            "Contactos, empresas e historial en un solo lugar",
+            "Seguimiento de oportunidades y tareas",
+            "Recordatorios y actividad del equipo comercial",
+            "Reportes de conversión y embudo",
+            "Implementación y acompañamiento",
+          ],
+          paraQuien: [
+            "Equipos comerciales que viven en Excel, notas o chats",
+            "Empresas que pierden seguimiento entre prospecto y cierre",
+            "Operaciones que quieren visibilidad del embudo sin un sistema a medida todavía",
+          ],
+        },
+        logistics: {
+          tagline: "Logística y trazabilidad RFID",
+          description:
+            "Plataforma para envíos, rutas, almacenes y seguimiento en tiempo real — con integración a lectores RFID cuando la operación lo exige.",
           features: [
             "Trazabilidad RFID en tiempo real (activos, inventarios)",
             "Gestión de envíos y rutas",
             "Control de almacenes y stock",
-            "Integración con lectores RFID y gestión de almacenes",
-            "Documentación y facturación",
+            "Integración con lectores RFID",
+            "Documentación operativa",
             "Panel de control y reportes",
           ],
           paraQuien: [
-            "Empresas de logística y transporte (última milla, distribución)",
-            "Operaciones con necesidad de trazabilidad de activos e inventarios",
-            "Almacenes que requieren integración con lectores RFID",
+            "Logística y transporte (última milla, distribución)",
+            "Operaciones que necesitan trazabilidad de activos e inventarios",
+            "Almacenes que requieren integración con hardware RFID",
           ],
-          priceNote: "Desde $X/mes según volumen y módulos (consulta con nosotros)",
         },
       },
     },
@@ -587,7 +659,7 @@ export const messages = {
     },
     footer: {
       blurb:
-        "A software consultancy. Companies of every size, anywhere in the world. We evaluate whether we can help — and if we can't, we say so.",
+        "A software consultancy. Companies of every size, anywhere in the world. We evaluate the contribution we can generate.",
       partner: "Strategic partner",
       nav: "Navigation",
       company: "Company",
@@ -632,11 +704,11 @@ export const messages = {
           "custom software development services, digital transformation consulting Mexico, business web app development, systems integration, business data analysis, enterprise cybersecurity, process automation",
       },
       solutions: {
-        title: "ERPinit & initlogistics: Ready-to-Use Business Software",
+        title: "ERPinit, CRMinit & initlogistics | Ready Software | INIT",
         description:
-          "ERPinit and initlogistics: ERP and logistics platform with RFID traceability for companies in Mexico. Ready-to-use software without custom development.",
+          "ERPinit, CRMinit and initlogistics: ERP, CRM and RFID logistics for companies in Mexico. Ready products — always with a fit evaluation.",
         keywords:
-          "ERP Mexico, enterprise ERP software, RFID logistics Mexico, initlogistics, ERPinit, ready-to-use software, logistics traceability",
+          "ERP Mexico, CRM Mexico, enterprise CRM software, RFID logistics Mexico, initlogistics, ERPinit, CRMinit, ready-to-use software",
       },
       portfolio: {
         title: "Projects & Clients: Sectors and Real Work | INIT",
@@ -654,13 +726,13 @@ export const messages = {
       },
     },
     home: {
-      h1Line1: "Some companies just operate.",
-      h1Line2: "Others move forward.",
-      sub: "A software consultancy for companies of every size, anywhere in the world. We first evaluate whether we can truly help. If we can't, we say so — we don't sell for the sake of selling.",
+      h1Line1: "Move past operations.",
+      h1Line2: "It's time to evolve.",
+      sub: "We are a global digital consultancy specializing in custom tech development. We analyze your strategic model in depth to engineer high-impact software solutions tailored precisely to your business reality.",
       ctaWork: "See the work",
       ctaHelp: "Can we help?",
-      scarcity1: "We don't take every project.",
-      scarcity2: "If we can't help, we don't sell.",
+      scarcity1: "Your investment and our team deserve a perfect match.",
+      scarcity2: "We build custom technology to take your business to the next level.",
       diffEyebrow: "The difference",
       diffTitle: "When the system works with you, everything changes.",
       diffSub: "Less friction. Less improvisation. More control.",
@@ -720,20 +792,20 @@ export const messages = {
           tease: "Logistics. A diagnosis that opens the next step.",
         },
       ],
-      ctaTitle: "Does it make sense to talk?",
+      ctaTitle: "Shall we talk about your operation?",
       ctaText:
-        "We write to evaluate whether we can truly help. If the fit isn't there, we'll say so clearly — without pushing a sale.",
+        "Tell us what you're dealing with. We'll evaluate together whether we can help — and what the next step could look like.",
       ctaSecondary: "See services",
       partnerEyebrow: "Alliance",
       partnerTitle: "Our partner",
       partnerSub:
-        "We don't work alone. Partners who raise the bar — not dilute it.",
+        "We don't work alone. Partners who raise the bar.",
     },
     services: {
       eyebrow: "Three paths",
       title: "One standard",
       subtitle:
-        "Custom software, digitalization, and integration. Few projects. We evaluate fit first.",
+        "Custom software, digitalization, and integration. Adapted to your business.",
       items: [
         {
           title: "Custom software",
@@ -784,14 +856,45 @@ export const messages = {
       ],
       stackEyebrow: "Stack",
       stackTitle: "Tools chosen with judgment",
-      stackSub: "We pick technology for the problem — not for the trend.",
+      stackSub: "Six layers. We choose for the problem — not for the trend.",
+      stackHint: "Explore a layer",
       techCats: [
-        { name: "Frontend" },
-        { name: "Backend" },
-        { name: "Databases" },
-        { name: "Infrastructure" },
-        { name: "Cybersecurity" },
-        { name: "Data & AI" },
+        {
+          id: "frontend",
+          name: "Frontend",
+          tease:
+            "Clear, fluid interfaces — built for the people who use them every day, not for a demo wow-factor.",
+        },
+        {
+          id: "backend",
+          name: "Backend",
+          tease:
+            "Logic, APIs, and services that carry the operation: stable, maintainable, and ready to grow.",
+        },
+        {
+          id: "databases",
+          name: "Databases",
+          tease:
+            "Ordered, reliable data. The foundation for deciding with judgment — not with scattered sheets.",
+        },
+        {
+          id: "infra",
+          name: "Infrastructure",
+          tease:
+            "Solid environments, calm deployments, and room to scale when the business asks for it.",
+        },
+        {
+          id: "security",
+          name: "Cybersecurity",
+          tease:
+            "Protection by design. Fewer last-minute patches; more care in every technical decision.",
+        },
+        {
+          id: "data",
+          name: "Data & AI",
+          tease:
+            "Useful information and automation with business sense — not noise for noise's sake.",
+        },
       ],
       processEyebrow: "How we work",
       processTitle: "A process that reduces surprises",
@@ -799,48 +902,63 @@ export const messages = {
       process: [
         {
           title: "Understand",
-          description: "Scope, operation, and architecture.",
+          description:
+            "We talk through your operation, define scope and architecture — before writing a line of code.",
           timeframe: "1–2 weeks",
         },
         {
           title: "Design",
-          description: "Prototypes to validate before we build.",
+          description:
+            "Prototypes to validate flows and priorities. Fewer surprises when building starts.",
           timeframe: "1–3 weeks",
         },
         {
           title: "Build",
-          description: "Development with maintainable code.",
+          description:
+            "Development with maintainable code, tangible deliveries, and direct communication.",
           timeframe: "4–12 weeks",
         },
         {
           title: "Launch",
-          description: "Testing, deployment, and a clean go-live.",
+          description:
+            "Testing, deployment, and a clean go-live. The system enters operation without drama.",
           timeframe: "1–2 weeks",
         },
         {
           title: "Support",
-          description: "Support and ongoing evolution of the system.",
+          description:
+            "Support and evolution with the same team that built it. In Spanish, without extra layers.",
           timeframe: "Ongoing",
         },
       ],
       whyEyebrow: "Why INIT",
       whyTitle: "What we don't compromise on",
+      whySub: "Four principles. Hover — or tap — to read each one.",
+      whyHint: "Principle",
       benefits: [
         {
           title: "Pace",
-          description: "Real progress without the theater of big agencies.",
+          description:
+            "Progress you can feel week to week. No agency theater, no status meetings that move nothing.",
+          line: "Less noise. More delivery.",
         },
         {
           title: "Security",
-          description: "Good practices from design — not bolted on at the end.",
+          description:
+            "Good practices from design. Protection isn't a patch the day before launch.",
+          line: "Technical care, not improvisation.",
         },
         {
           title: "Closeness",
-          description: "You talk to the people who build. In Spanish.",
+          description:
+            "You talk to the people who build. In Spanish. No layers between your operation and the code.",
+          line: "One conversation. The same team.",
         },
         {
           title: "Impact",
-          description: "Less operational chaos. More room to grow.",
+          description:
+            "Less fighting the operation. More control, clarity, and real room to grow.",
+          line: "The system works with you.",
         },
       ],
       ctaTitle: "Think we could help?",
@@ -887,6 +1005,7 @@ export const messages = {
         "Business system",
         "Consulting",
         "ERPinit",
+        "CRMinit",
         "initlogistics",
         "Other",
       ],
@@ -940,7 +1059,7 @@ export const messages = {
         },
         {
           q: "Do you have ready-made products?",
-          a: "Yes: ERPinit and initlogistics (includes RFID traceability). We also build 100% custom — always after evaluating whether it's a fit.",
+          a: "Yes: ERPinit, CRMinit and initlogistics (includes RFID traceability). We also build 100% custom — always after evaluating whether it's a fit.",
         },
       ],
     },
@@ -1093,52 +1212,77 @@ export const messages = {
       eyebrow: "Products",
       title: "Ready-made solutions",
       subtitle:
-        "ERPinit and initlogistics: business software and logistics with RFID traceability, ready for companies in Mexico.",
+        "ERPinit, CRMinit and initlogistics: operations, customer relationships, and RFID logistics — when the product truly fits.",
+      introEyebrow: "Catalog",
+      introTitle: "Three products. One criterion: that they fit.",
+      introSub:
+        "Pick one and look closely. Not generic templates or catalog demos — each exists for a type of operation. If it isn't yours, we say so.",
+      pickHint: "Choose a product",
       includes: "Includes",
       forWhom: "Who it's for",
       ctaCard: "See if it fits your operation",
+      fitEyebrow: "Before choosing",
+      fitTitle: "Ready-made product or custom?",
+      fitSub:
+        "Sometimes a product accelerates. Sometimes your operation needs something built for you. We evaluate it together — without pushing a sale.",
       ctaTitle: "Ready-made product or custom?",
       ctaText:
         "Sometimes a product fits. Sometimes it doesn't. We evaluate it with you — without pushing a sale.",
       ctaSecondary: "See services",
       items: {
-        "1": {
-          tagline: "Enterprise resource planning system",
+        erp: {
+          tagline: "Enterprise resource planning",
           description:
-            "Ready-to-use ERP: end-to-end management of your company. Finance, inventory, sales, purchasing, and reporting in one platform.",
+            "Ready ERP to centralize finance, inventory, purchasing, and sales. One operation — without fighting disconnected spreadsheets.",
           features: [
             "Financial and accounting management",
             "Inventory and warehouse control",
             "Sales, purchasing, and suppliers",
             "Reports and dashboards",
             "Multi-company and multi-user",
-            "Implementation and support included",
+            "Implementation and guidance",
           ],
           paraQuien: [
-            "SMEs that need an integrated ERP without custom development",
+            "SMEs that need an integrated ERP without starting from scratch",
             "Companies with multiple warehouses or points of sale",
-            "Teams ready to leave Excel for a centralized system",
+            "Teams ready to leave Excel and unify control",
           ],
-          priceNote: "From $X/month depending on modules and users (talk to us)",
         },
-        "2": {
-          tagline: "Logistics management and traceability",
+        crm: {
+          tagline: "Customer relationships and sales pipeline",
           description:
-            "Platform for logistics operations with RFID traceability: shipments, routes, warehouses, and real-time tracking. Integration with RFID readers for assets, inventories, and logistics operations.",
+            "CRM to track prospects, opportunities, and commercial follow-up in one place. Less lost WhatsApp. More clarity on who buys and where deals stall.",
+          features: [
+            "Sales pipeline with configurable stages",
+            "Contacts, companies, and history in one place",
+            "Opportunity and task follow-up",
+            "Reminders and sales-team activity",
+            "Conversion and funnel reports",
+            "Implementation and guidance",
+          ],
+          paraQuien: [
+            "Sales teams living in Excel, notes, or chats",
+            "Companies that lose follow-up between prospect and close",
+            "Operations that want funnel visibility before a custom system",
+          ],
+        },
+        logistics: {
+          tagline: "Logistics and RFID traceability",
+          description:
+            "Platform for shipments, routes, warehouses, and real-time tracking — with RFID reader integration when the operation requires it.",
           features: [
             "Real-time RFID traceability (assets, inventories)",
             "Shipment and route management",
             "Warehouse and stock control",
-            "RFID reader integration and warehouse management",
-            "Documentation and invoicing",
+            "RFID reader integration",
+            "Operational documentation",
             "Control panel and reports",
           ],
           paraQuien: [
-            "Logistics and transport companies (last mile, distribution)",
+            "Logistics and transport (last mile, distribution)",
             "Operations that need asset and inventory traceability",
-            "Warehouses that require RFID reader integration",
+            "Warehouses that require RFID hardware integration",
           ],
-          priceNote: "From $X/month depending on volume and modules (talk to us)",
         },
       },
     },

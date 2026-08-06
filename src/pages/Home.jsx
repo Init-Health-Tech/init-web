@@ -4,17 +4,13 @@ import { motion, useReducedMotion } from "framer-motion";
 import PageHead from "../components/PageHead";
 import StructuredData from "../components/StructuredData";
 import PageVideoBackground from "../components/PageVideoBackground";
-import ClientLogo from "../components/ClientLogo";
 import ClientMarquee from "../components/ClientMarquee";
 import PartnerSection from "../components/PartnerSection";
 import CtaBanner from "../components/CtaBanner";
 import { HeroEntryBurst } from "../components/PearlAtmosphere";
-import KineticBrand from "../components/KineticBrand";
 import MagneticLink from "../components/MagneticLink";
 import Reveal from "../components/Reveal";
 import { Stagger, StaggerItem } from "../components/Stagger";
-import TiltCard from "../components/TiltCard";
-import { getClientLogo } from "../data/clientsData";
 import { getPageSeo } from "../data/seoData";
 import { BRAND } from "../data/brandData";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -28,7 +24,6 @@ const Home = () => {
   const { t, lang } = useLanguage();
   const pillars = t("home.pillars");
   const services = t("home.services");
-  const successCases = t("home.cases");
   const seo = getPageSeo("home", lang);
   const reduce = useReducedMotion();
 
@@ -82,20 +77,20 @@ const Home = () => {
         <HeroEntryBurst />
         <div className="relative z-10 max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16 text-center pt-28 sm:pt-32 pb-20 sm:pb-24">
           <motion.div
-            initial={reduce ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
+            initial={reduce ? false : { opacity: 0, y: 16, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1.1, ease: appleEase }}
             className="mb-8 sm:mb-10 md:mb-14"
-            style={{ perspective: 800 }}
           >
-            <KineticBrand
-              name={BRAND.name}
-              className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-on-surface"
+            <img
+              src="/Init-Logo-black.svg"
+              alt="INIT"
+              className="h-12 sm:h-14 md:h-16 w-auto mx-auto object-contain"
             />
             <motion.p
               initial={reduce ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.55, ease: appleEase }}
+              transition={{ duration: 1, delay: 0.35, ease: appleEase }}
               className="mt-3 text-sm sm:text-base md:text-lg text-secondary font-medium tracking-wide px-2"
             >
               {BRAND.slogan}
@@ -259,76 +254,6 @@ const Home = () => {
         ...
       </section>
       */}
-
-      <section className="layer-panel section-py bg-background">
-        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
-          <Reveal inView variant="blur" className="mb-14 sm:mb-16 md:mb-20 max-w-2xl mx-auto text-center">
-            <p className="eyebrow mb-5">{t("home.trustEyebrow")}</p>
-            <h2 className="display-section mb-4 text-balance">
-              {t("home.trustTitle")}
-            </h2>
-            <p className="text-on-surface-variant text-base sm:text-lg">{t("home.trustSub")}</p>
-          </Reveal>
-
-          <Stagger
-            inView
-            className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 md:gap-10"
-            stagger={0.22}
-            style={{ perspective: 1100 }}
-          >
-            {successCases.map((item, i) => (
-              <StaggerItem
-                key={item.client}
-                variant={i % 2 === 0 ? "flip" : "tilt"}
-                className="group text-center"
-              >
-                <TiltCard className="rounded-[var(--radius-exec)]" maxTilt={11}>
-                  {getClientLogo(item.client) && (
-                    <div
-                      className={`success-case-logo flex items-center justify-center mb-7 h-32 sm:h-36 md:h-40 border rounded-[var(--radius-exec)] ${
-                        item.client === "CONFE" || item.client === "Polola's"
-                          ? `success-case-logo--${item.client === "CONFE" ? "confe" : "pololas"} bg-white border-on-surface/15 p-3`
-                          : "bg-surface-container border-on-surface/10"
-                      }`}
-                    >
-                      <ClientLogo
-                        client={
-                          item.client === "CONFE" || item.client === "Polola's"
-                            ? { ...getClientLogo(item.client), lightBg: false }
-                            : getClientLogo(item.client)
-                        }
-                        size="lg"
-                        variant="featured"
-                        className={
-                          item.client === "CONFE"
-                            ? "success-case-confe-logo"
-                            : item.client === "Polola's"
-                              ? "success-case-pololas-logo"
-                              : ""
-                        }
-                      />
-                    </div>
-                  )}
-                  <p className="font-semibold text-on-surface text-lg mb-2">{item.client}</p>
-                  <p className="text-[15px] text-on-surface-variant leading-relaxed max-w-xs mx-auto">
-                    {item.tease}
-                  </p>
-                </TiltCard>
-              </StaggerItem>
-            ))}
-          </Stagger>
-
-          <Reveal inView variant="pop" className="mt-14 sm:mt-16 text-center" delay={0.2}>
-            <MagneticLink
-              to="/portfolio"
-              className="btn-primary inline-flex items-center justify-center gap-2 w-full sm:w-auto max-w-sm mx-auto"
-            >
-              {t("home.explorePortfolio")}
-              <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
-            </MagneticLink>
-          </Reveal>
-        </div>
-      </section>
 
       <PartnerSection />
 

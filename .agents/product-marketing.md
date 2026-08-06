@@ -34,7 +34,7 @@
 1. **Software a medida** — apps web, sistemas de gestión, APIs
 2. **Consultoría en digitalización** — diagnóstico, roadmap, priorización
 3. **Sistemas e integración** — automatización, datos, cloud, cyberseguridad
-4. **Productos listos** — ERPinit, initlogistics (cuando aplique — siempre con evaluación de fit)
+4. **Productos listos** — ERPinit, CRMinit, initlogistics (cuando aplique — siempre con evaluación de fit)
 
 **Transformación clave:** pasar de pelear contra la operación a que el sistema trabaje *con* la empresa — solo cuando el encaje es real.
 

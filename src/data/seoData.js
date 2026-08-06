@@ -67,17 +67,18 @@ export const pageSeo = {
   },
   solutions: {
     path: "/soluciones",
-    title: "ERPinit e initlogistics: Software Listo para Empresas",
+    title: "ERPinit, CRMinit e initlogistics | Software Listo | INIT",
     description:
-      "ERPinit e initlogistics: ERP y plataforma logística con trazabilidad RFID para empresas en México. Software listo para usar sin desarrollo a medida.",
+      "ERPinit, CRMinit e initlogistics: ERP, CRM y logística con RFID para empresas en México. Productos listos — siempre con evaluación de fit.",
     keywords: [
       "ERP México",
-      "software ERP empresas",
+      "CRM México",
+      "software CRM empresas",
       "logística RFID México",
       "initlogistics",
       "ERPinit",
+      "CRMinit",
       "software listo para usar",
-      "trazabilidad logística",
     ].join(", "),
   },
   portfolio: {
