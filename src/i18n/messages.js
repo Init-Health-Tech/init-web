@@ -71,7 +71,7 @@ export const messages = {
       portfolio: {
         title: "Proyectos y Clientes: Sectores y Trabajo Real | INIT",
         description:
-          "Sectores donde INIT ha acompañado operaciones reales: social, industrial, logística, legal, digital y gastronomía. Clientes en México — el detalle, al evaluar fit.",
+          "Sectores e industrias donde INIT ha acompañado operaciones reales en México: social, industrial, logística, legal, digital y gastronomía.",
         keywords:
           "sectores desarrollo software México, clientes software a medida, portafolio consultoría digital, transformación digital por industria, empresa desarrollo software México",
       },
@@ -440,7 +440,7 @@ export const messages = {
       eyebrow: "Trabajo real",
       title: "Proyectos y clientes",
       subtitle:
-        "Primero los sectores donde hemos acompañado. Luego, quienes ya confían en nosotros — el detalle completo, cuando evaluemos si encajamos contigo.",
+        "Operaciones distintas, industrias distintas. Un mapa de dónde hemos acompañado — y quienes ya confían en INIT.",
       stats: {
         clients: "Clientes atendidos",
         sectors: "Sectores",
@@ -450,7 +450,7 @@ export const messages = {
       sectorsEyebrow: "Dónde hemos trabajado",
       sectorsTitle: "Por sector, no por plantilla.",
       sectorsSub:
-        "Cada industria tiene su fricción. Aquí, solo el tipo de operación que ya conocemos — sin abrir el expediente completo en público.",
+        "Cada industria tiene su fricción. Estas son las operaciones que ya conocemos de cerca.",
       sectorsHint: "Explora un sector",
       sectors: {
         social: {
@@ -730,7 +730,7 @@ export const messages = {
       portfolio: {
         title: "Projects & Clients: Sectors and Real Work | INIT",
         description:
-          "Sectors where INIT has supported real operations: social, industrial, logistics, legal, digital, and food. Clients in Mexico — full detail when we evaluate fit.",
+          "Sectors and industries where INIT has supported real operations in Mexico: social, industrial, logistics, legal, digital, and food.",
         keywords:
           "software development sectors Mexico, custom software clients, digital consulting portfolio, industry digital transformation, software company Mexico",
       },
@@ -1100,7 +1100,7 @@ export const messages = {
       eyebrow: "Real work",
       title: "Projects & clients",
       subtitle:
-        "First, the sectors we've supported. Then, who already trusts us — full detail when we evaluate whether we fit with you.",
+        "Different operations, different industries. A map of where we've supported — and who already trusts INIT.",
       stats: {
         clients: "Clients served",
         sectors: "Sectors",
@@ -1110,7 +1110,7 @@ export const messages = {
       sectorsEyebrow: "Where we've worked",
       sectorsTitle: "By sector, not by template.",
       sectorsSub:
-        "Every industry has its own friction. Here, only the kind of operation we already know — without opening the full file in public.",
+        "Every industry has its own friction. These are the operations we already know up close.",
       sectorsHint: "Explore a sector",
       sectors: {
         social: {

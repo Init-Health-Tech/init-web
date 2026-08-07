@@ -85,7 +85,7 @@ export const pageSeo = {
     path: "/portfolio",
     title: "Proyectos y Clientes: Sectores y Trabajo Real | INIT",
     description:
-      "Sectores donde INIT ha acompañado operaciones reales: social, industrial, logística, legal, digital y gastronomía. Clientes en México — el detalle, al evaluar fit.",
+      "Sectores e industrias donde INIT ha acompañado operaciones reales en México: social, industrial, logística, legal, digital y gastronomía.",
     keywords: [
       "sectores desarrollo software México",
       "clientes software a medida",
