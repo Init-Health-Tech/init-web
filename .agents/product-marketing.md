@@ -10,7 +10,7 @@
 | Nombre | INIT |
 | Slogan | Brilliant minds building the future |
 | Qué somos | **Consultora** de software a medida y digitalización: primero evaluamos si podemos ayudar de verdad |
-| Dónde | Ciudad López Mateos, Estado de México · proyectos en México / LATAM |
+| Dónde | Ciudad de México · proyectos en México / LATAM |
 | Sitio | https://init.com.mx |
 | Contacto | support@init.com.mx · +52 55 4761 7977 |
 | Partner | Konnex (mancuerna estratégica) |
@@ -77,16 +77,17 @@ Framing: el contacto es para **diagnosticar fit**. A veces la respuesta honesta 
 
 ## Messaging — Contacto
 
-- Header: conversación para ver si podemos ayudar
-- Form: lo esencial para evaluar fit
-- CTA envío: “Enviar para evaluar”
-- FAQ / cuerpo: honestidad explícita — a veces la respuesta es no
+- Header: conversación para ver si hay **sincronía** entre cliente e INIT
+- Form: lo esencial para entender el reto y alinear expectativas
+- CTA envío: “Enviar para conversar” / tono de diálogo, no de filtro frío
+- Cuerpo: no vender por vender — pero el foco es **match mutuo**, no el “no”
+- FAQ: claridad útil; honestidad sin pesimismo
 
 ## Words to prefer / avoid
 
-**Preferir:** evaluar, encajar, fit, consultora, si podemos ayudar, honestidad, operación, pocos proyectos.
+**Preferir:** sincronía, alinear, match, conversar, juntos, criterio, operación, claridad.
 
-**Evitar:** cotiza, demo gratis, caso de éxito (como CTA), “propuesta inmediata”, urgencia, exclamaciones de venta.
+**Evitar:** cotiza, demo gratis, caso de éxito (como CTA), “propuesta inmediata”, urgencia, exclamaciones de venta, insistir en “si no encaja te decimos que no”.
 
 ## Colores (psicología + AA)
 

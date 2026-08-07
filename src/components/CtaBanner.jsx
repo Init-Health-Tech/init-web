@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
 import Reveal from "./Reveal";
-import TiltCard from "./TiltCard";
 import { ArrowRight as ArrowForwardIcon } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -19,12 +18,8 @@ const CtaBanner = ({
   return (
     <section className="layer-panel section-py bg-background">
       <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
-        <Reveal inView variant="flip" className="relative">
-          <TiltCard
-            className="glass-card p-8 sm:p-12 md:p-20 lg:p-24 text-center relative overflow-hidden border-on-surface/10"
-            maxTilt={6}
-            glare
-          >
+        <Reveal inView variant="up" className="relative">
+          <div className="glass-card p-8 sm:p-12 md:p-20 lg:p-24 text-center relative overflow-hidden border-on-surface/10">
             <div className="relative z-10">
               <div className="rail-vertical rail-vertical--center h-10 mb-8 opacity-60" aria-hidden="true" />
               <h2 className="display-section mb-4 sm:mb-5 text-balance">
@@ -53,7 +48,7 @@ const CtaBanner = ({
                 )}
               </div>
             </div>
-          </TiltCard>
+          </div>
         </Reveal>
       </div>
     </section>

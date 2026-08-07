@@ -59,8 +59,8 @@ const StructuredData = ({ description, extra = [] }) => {
             email: "support@init.com.mx",
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Ciudad López Mateos",
-              addressRegion: "Estado de México",
+              addressLocality: "Ciudad de México",
+              addressRegion: "Ciudad de México",
               addressCountry: "MX",
             },
             areaServed: [

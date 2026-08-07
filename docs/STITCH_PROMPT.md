@@ -44,7 +44,7 @@ MARCA
 
 Empresa: INIT
 Sector: Desarrollo de software a medida, consultoría en digitalización, soluciones digitales
-Ubicación: Ciudad López Mateos, Estado de México, México
+Ubicación: Ciudad de México, México
 Teléfono: +52 55 4761 7977
 Email: support@init.com.mx
 Web: init.com.mx
@@ -190,7 +190,7 @@ NAVEGACIÓN
 
 Inicio (/) | Equipo (/team) | Servicios (/services) | Soluciones (/soluciones) | Proyectos y Clientes (/portfolio) | Contacto (/contact)
 
-Footer: logo, navegación, empresa, contacto real (support@init.com.mx, +52 55 4761 7977, Ciudad López Mateos, Estado de México), copyright 2024–2026.
+Footer: logo, navegación, empresa, contacto real (support@init.com.mx, +52 55 4761 7977, Ciudad de México), copyright 2024–2026.
 
 ---
 
@@ -645,7 +645,7 @@ Frontend: React, Vue.js · Backend: Node.js, Python, Django · DB: PostgreSQL, M
 |-------|-------|
 | Email | support@init.com.mx |
 | Teléfono | 55 4761 7977 |
-| Oficina | Ciudad López Mateos, Estado de México, México |
+| Oficina | Ciudad de México, México |
 | Horario | Lun–vie 7:00–22:00 (hora México central) |
 
 ### Formulario (glass-card, inputs con focus glow breathe)
@@ -688,7 +688,7 @@ Frontend: React, Vue.js · Backend: Node.js, Python, Django · DB: PostgreSQL, M
 ### Home con animaciones máximas
 
 ```
-Toma init_home/screen.png y code.html como base. Reemplaza TODO el copy con el contenido real de INIT (support@init.com.mx, López Mateos, bullets correctos de "Qué hacemos"). Añade las 56 animaciones del brief: orbes breathe, parallax grid, stagger H1, shimmer en "México", count-up métricas, glass-card tilt, Ken Burns casos, marquee logos, CTA con blob morph. El sitio debe sentirse vivo y premium dark.
+Toma init_home/screen.png y code.html como base. Reemplaza TODO el copy con el contenido real de INIT (support@init.com.mx, Ciudad de México, bullets correctos de "Qué hacemos"). Añade las 56 animaciones del brief: orbes breathe, parallax grid, stagger H1, shimmer en "México", count-up métricas, glass-card tilt, Ken Burns casos, marquee logos, CTA con blob morph. El sitio debe sentirse vivo y premium dark.
 ```
 
 ### Equipo
@@ -718,7 +718,7 @@ Diseña /portfolio como init_proyectos_y_clientes/screen.png. 4 clientes expandi
 ### Contacto
 
 ```
-Diseña /contact como init_contacto/screen.png. Formulario glass con focus glow breathe, FAQ acordeón animado, datos reales support@init.com.mx y López Mateos. Success state animado al enviar.
+Diseña /contact como init_contacto/screen.png. Formulario glass con focus glow breathe, FAQ acordeón animado, datos reales support@init.com.mx y Ciudad de México. Success state animado al enviar.
 ```
 
 ### Refinamiento motion

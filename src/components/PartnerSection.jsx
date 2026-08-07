@@ -35,7 +35,7 @@ const PartnerSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card block w-full p-6 sm:p-8 md:p-10 text-center group hover:border-primary/30"
-                maxTilt={8}
+                maxTilt={5}
               >
                 <div className="flex justify-center mb-6">
                   <ClientLogo client={partner} size="2xl" className="partner-konnex-logo" />

@@ -10,7 +10,7 @@ export const messages = {
       services: "Servicios",
       solutions: "Soluciones",
       portfolio: "Proyectos y Clientes",
-      contactCta: "¿Podemos ayudar?",
+      contactCta: "Contáctanos",
       openMenu: "Abrir menú",
       closeMenu: "Cerrar menú",
       aria: "Navegación principal",
@@ -45,14 +45,14 @@ export const messages = {
         description:
           "INIT: Brilliant minds building the future. Consultora de software a medida y digitalización en México. Evaluamos fit — no vendemos por vender.",
         keywords:
-          "desarrollo de software a medida México, aplicaciones web empresariales, consultoría digitalización empresas, transformación digital pymes, software empresarial Estado de México, sistemas de gestión a medida, desarrollo web Ciudad López Mateos, automatización procesos empresariales",
+          "desarrollo de software a medida México, aplicaciones web empresariales, consultoría digitalización empresas, transformación digital pymes, software empresarial Ciudad de México, sistemas de gestión a medida, desarrollo web Ciudad de México, automatización procesos empresariales",
       },
       team: {
         title: "Equipo de Desarrollo de Software y Consultoría Digital",
         description:
           "Equipo de desarrollo de software, consultoría en digitalización y transformación digital en México. Cofundadores, consultora senior y talento técnico de INIT.",
         keywords:
-          "equipo desarrollo software México, consultores transformación digital, desarrolladores software a medida, empresa tecnología Estado de México, equipo INIT",
+          "equipo desarrollo software México, consultores transformación digital, desarrolladores software a medida, empresa tecnología Ciudad de México, equipo INIT",
       },
       services: {
         title: "Servicios: Software a Medida y Digitalización",
@@ -76,11 +76,11 @@ export const messages = {
           "sectores desarrollo software México, clientes software a medida, portafolio consultoría digital, transformación digital por industria, empresa desarrollo software México",
       },
       contact: {
-        title: "Evaluar fit: Consultoría de Software | INIT",
+        title: "Conversemos: Consultoría de Software | INIT",
         description:
-          "Conversación para determinar si INIT puede ayudar a tu empresa. Software a medida y digitalización en México. Si no hay encaje, te lo decimos.",
+          "Conversación para alinear tu operación con INIT. Software a medida y digitalización en México — avanzamos cuando hay sincronía real.",
         keywords:
-          "contacto consultoría software México, evaluar desarrollo software a medida, consultoría digitalización México, empresa software Estado de México",
+          "contacto consultoría software México, desarrollo software a medida, consultoría digitalización México, empresa software Ciudad de México",
       },
     },
     home: {
@@ -130,7 +130,7 @@ export const messages = {
       aboutExtra:
         "Trabajamos cerca, sin capas de más — como si fueras parte del estudio.",
       aboutLocation:
-        "Base en Estado de México. Trabajamos con empresas de todo tamaño y de cualquier parte del mundo — las que quieren sentir, no solo decir, que su tecnología está a la altura.",
+        "Base en Ciudad de México. Trabajamos con empresas de todo tamaño y de cualquier parte del mundo — las que quieren sentir, no solo decir, que su tecnología está a la altura.",
       aboutCta: "Conocer al equipo",
       trustEyebrow: "Confianza",
       trustTitle: "Quienes ya están dentro.",
@@ -324,14 +324,30 @@ export const messages = {
       ctaSecondary: "Ver el trabajo",
     },
     contact: {
-      eyebrow: "Evaluación",
-      title: "Primero vemos si podemos ayudar",
+      eyebrow: "Conversación",
+      title: "Busquemos si estamos en sincronía",
       subtitle:
-        "No es una cotización. Es una conversación para determinar si hay fit — y si no lo hay, te lo diremos sin venderte nada.",
-      directEyebrow: "Directo",
-      directTitle: "Cómo encontrarnos",
+        "No es una cotización automática. Es una conversación para alinear tu operación con lo que hacemos bien — y construir juntos solo cuando hay match real.",
+      directEyebrow: "Antes del formulario",
+      directTitle: "Desarrollo con criterio, no por vender.",
       honesty:
-        "Somos consultora, no una línea de ventas. Si el proyecto no encaja con lo que hacemos bien, la respuesta honesta es no — y preferimos eso a un mal engagement.",
+        "Somos consultora. Queremos entender tu reto y ver si hay sincronía entre lo que necesitas y lo que aportamos. Cuando hay match, avanzamos con claridad. Cuando no, preferimos orientarte con honestidad antes que forzar un proyecto.",
+      nextEyebrow: "Qué pasa después",
+      nextSteps: [
+        {
+          title: "Leemos con calma",
+          text: "Revisamos lo que compartes: operación, fricción y qué te gustaría cambiar.",
+        },
+        {
+          title: "Conversamos el match",
+          text: "Te respondemos con claridad: cómo podríamos ayudar y cómo trabajaríamos.",
+        },
+        {
+          title: "Avanzamos alineados",
+          text: "Definimos juntos el alcance técnico y estratégico para asegurar que cada funcionalidad sume al negocio.",
+        },
+      ],
+      channelsEyebrow: "También por aquí",
       labels: {
         email: "Email",
         phone: "Teléfono",
@@ -339,15 +355,15 @@ export const messages = {
         hours: "Horario",
       },
       hoursValue: "Lun–vie 7:00–22:00 (hora México central)",
-      formTitle: "Lo esencial para evaluar",
-      formSub: "Con eso basta para ver si tiene sentido seguir.",
+      formTitle: "Cuéntanos lo esencial",
+      formSub: "Con esto basta para empezar a ver si hay sincronía.",
       fields: {
         name: "Nombre *",
         email: "Email *",
         subject: "Asunto *",
         message: "Mensaje *",
         projectType: "Tipo de proyecto",
-        budget: "Presupuesto aproximado",
+        budget: "Presupuesto",
       },
       placeholders: {
         name: "Tu nombre",
@@ -372,11 +388,11 @@ export const messages = {
         "Más de $150k MXN",
         "Prefiero no indicar",
       ],
-      submit: "Enviar para evaluar",
+      submit: "Enviar para conversar",
       submitting: "Enviando...",
-      formNote: "Sin compromiso de venta. Solo claridad sobre si podemos ayudar.",
+      formNote: "Sin presión de venta. Solo una conversación para ver si podemos avanzar juntos.",
       success:
-        "Mensaje recibido. Lo revisamos y te respondemos — incluso si la respuesta es que no encajamos.",
+        "Mensaje recibido. Lo revisamos y te respondemos con claridad sobre cómo seguir.",
       errors: {
         name: "El nombre es obligatorio.",
         email: "El email es obligatorio.",
@@ -387,36 +403,36 @@ export const messages = {
         connection: "Error de conexión. Intenta de nuevo.",
       },
       faqEyebrow: "Antes de escribir",
-      faqTitle: "Preguntas frecuentes",
-      faqSub: "Lo esencial. El resto, en la conversación.",
+      faqTitle: "Lo que suele preguntarse",
+      faqSub: "Claridad útil. El resto, en la conversación.",
       faqs: [
         {
           q: "¿Esto es para cotizar un proyecto?",
-          a: "No. Es para evaluar si podemos ayudar de verdad. Si el encaje no está, te lo decimos — no armamos una propuesta solo por vender.",
+          a: "No de entrada. Primero conversamos para alinear expectativas y ver si hay sincronía. Una propuesta tiene sentido cuando ambos vemos que vale la pena seguir.",
         },
         {
           q: "¿Cuánto tarda un proyecto?",
-          a: "Una app web enfocada: suele ser 4–8 semanas. Sistemas más complejos: 3–6 meses. Lo definimos juntos solo si hay fit — con plazos claros desde el inicio.",
+          a: "Una app web enfocada: suele ser 4–8 semanas. Sistemas más complejos: 3–6 meses. Los plazos los definimos juntos cuando el alcance está claro.",
         },
         {
           q: "¿Qué pasa después del lanzamiento?",
-          a: "Seguimos. Soporte y evolución del sistema, en español, con el mismo equipo que lo construyó.",
+          a: "Seguimos. Soporte y evolución del sistema, con el mismo equipo que lo construyó.",
         },
         {
-          q: "¿Trabajan con cualquier empresa?",
-          a: "No. Priorizamos proyectos donde podemos aportar. Si tu reto no es lo nuestro, preferimos decirlo a forzar un contrato.",
+          q: "¿Con qué tipo de empresas trabajan?",
+          a: "Con equipos que quieren tecnología a la altura de su operación. Priorizamos retos donde podemos aportar de verdad y construir una relación de trabajo sólida.",
         },
         {
           q: "¿Con qué tecnologías trabajan?",
-          a: "React, Node.js, Python, Django, AWS y más — elegidas por el problema, no por moda. El detalle lo vemos según tu caso.",
+          a: "Frontend, backend, bases de datos, cloud, seguridad y datos — elegimos el stack según el problema y tu operación, no por moda. En la conversación afinamos qué herramientas encajan.",
         },
         {
-          q: "¿Solo en Estado de México?",
-          a: "Estamos en Ciudad López Mateos. Trabajamos con empresas de todo tamaño y de cualquier parte del mundo — remoto o donde haga falta.",
+          q: "¿Solo en Ciudad de México?",
+          a: "Estamos en Ciudad de México. Trabajamos con empresas de todo tamaño y de cualquier parte del mundo — remoto o donde haga falta.",
         },
         {
           q: "¿Tienen productos listos?",
-          a: "Sí: ERPinit, CRMinit e initlogistics (incluye trazabilidad RFID). También desarrollamos 100% a medida — siempre tras evaluar si encaja.",
+          a: "Sí: ERPinit, CRMinit e initlogistics (incluye trazabilidad RFID). También desarrollamos 100% a medida — siempre conversando primero si es el camino correcto.",
         },
       ],
     },
@@ -435,6 +451,7 @@ export const messages = {
       sectorsTitle: "Por sector, no por plantilla.",
       sectorsSub:
         "Cada industria tiene su fricción. Aquí, solo el tipo de operación que ya conocemos — sin abrir el expediente completo en público.",
+      sectorsHint: "Explora un sector",
       sectors: {
         social: {
           title: "Social e institucional",
@@ -652,7 +669,7 @@ export const messages = {
       services: "Services",
       solutions: "Solutions",
       portfolio: "Projects & Clients",
-      contactCta: "Can we help?",
+      contactCta: "Contact us",
       openMenu: "Open menu",
       closeMenu: "Close menu",
       aria: "Main navigation",
@@ -687,14 +704,14 @@ export const messages = {
         description:
           "INIT: Brilliant minds building the future. Custom software and digitalization consultancy in Mexico. We evaluate fit — we don't sell for the sake of selling.",
         keywords:
-          "custom software development Mexico, business web applications, digitalization consulting, digital transformation SMEs, enterprise software Estado de Mexico, custom management systems, web development Ciudad Lopez Mateos, business process automation",
+          "custom software development Mexico, business web applications, digitalization consulting, digital transformation SMEs, enterprise software Mexico City, custom management systems, web development Mexico City, business process automation",
       },
       team: {
         title: "Software Development & Digital Consulting Team",
         description:
           "Software development, digitalization consulting, and digital transformation team in Mexico. INIT cofounders, senior consultant, and technical talent.",
         keywords:
-          "software development team Mexico, digital transformation consultants, custom software developers, technology company Estado de Mexico, INIT team",
+          "software development team Mexico, digital transformation consultants, custom software developers, technology company Mexico City, INIT team",
       },
       services: {
         title: "Services: Custom Software & Digitalization",
@@ -718,11 +735,11 @@ export const messages = {
           "software development sectors Mexico, custom software clients, digital consulting portfolio, industry digital transformation, software company Mexico",
       },
       contact: {
-        title: "Evaluate Fit: Software Consultancy | INIT",
+        title: "Let's Talk: Software Consultancy | INIT",
         description:
-          "A conversation to determine whether INIT can help your company. Custom software and digitalization in Mexico. If there's no fit, we say so.",
+          "A conversation to align your operation with INIT. Custom software and digitalization in Mexico — we move forward when there's real sync.",
         keywords:
-          "software consultancy contact Mexico, evaluate custom software development, digitalization consulting Mexico, software company Estado de Mexico",
+          "software consultancy contact Mexico, custom software development, digitalization consulting Mexico, software company Mexico City",
       },
     },
     home: {
@@ -772,7 +789,7 @@ export const messages = {
       aboutExtra:
         "We work closely, without extra layers — as if you were part of the studio.",
       aboutLocation:
-        "Based in Estado de México. We work with companies of every size, anywhere in the world — the ones that want to feel, not just say, that their technology is up to the task.",
+        "Based in Mexico City. We work with companies of every size, anywhere in the world — the ones that want to feel, not just say, that their technology is up to the task.",
       aboutCta: "Meet the team",
       trustEyebrow: "Trust",
       trustTitle: "Those already inside.",
@@ -967,14 +984,30 @@ export const messages = {
       ctaSecondary: "See the work",
     },
     contact: {
-      eyebrow: "Evaluation",
-      title: "First we see if we can help",
+      eyebrow: "Conversation",
+      title: "Let's see if we're in sync",
       subtitle:
-        "This isn't a quote request. It's a conversation to determine whether there's a fit — and if there isn't, we'll tell you without selling you anything.",
-      directEyebrow: "Direct",
-      directTitle: "How to reach us",
+        "This isn't an automatic quote. It's a conversation to align your operation with what we do well — and build together only when there's a real match.",
+      directEyebrow: "Before the form",
+      directTitle: "Development with judgment, not for the sake of selling.",
       honesty:
-        "We're a consultancy, not a sales line. If the project doesn't match what we do well, the honest answer is no — and we prefer that to a bad engagement.",
+        "We're a consultancy. We want to understand your challenge and see if there's sync between what you need and what we bring. When there's a match, we move with clarity. When there isn't, we'd rather guide you honestly than force a project.",
+      nextEyebrow: "What happens next",
+      nextSteps: [
+        {
+          title: "We read carefully",
+          text: "We review what you share: the operation, the friction, and what you'd like to change.",
+        },
+        {
+          title: "We talk through the match",
+          text: "We reply with clarity: how we could help and how we work.",
+        },
+        {
+          title: "We move aligned",
+          text: "Together, we define the technical and strategic scope to ensure every feature drives real business value.",
+        },
+      ],
+      channelsEyebrow: "Also here",
       labels: {
         email: "Email",
         phone: "Phone",
@@ -982,15 +1015,15 @@ export const messages = {
         hours: "Hours",
       },
       hoursValue: "Mon–Fri 7:00–22:00 (Central Mexico time)",
-      formTitle: "The essentials to evaluate",
-      formSub: "That's enough to see if it makes sense to continue.",
+      formTitle: "Tell us the essentials",
+      formSub: "That's enough to start seeing whether there's sync.",
       fields: {
         name: "Name *",
         email: "Email *",
         subject: "Subject *",
         message: "Message *",
         projectType: "Project type",
-        budget: "Approximate budget",
+        budget: "Budget",
       },
       placeholders: {
         name: "Your name",
@@ -1015,11 +1048,11 @@ export const messages = {
         "Over $150k MXN",
         "Prefer not to say",
       ],
-      submit: "Send for evaluation",
+      submit: "Send to start the conversation",
       submitting: "Sending...",
-      formNote: "No sales commitment. Just clarity on whether we can help.",
+      formNote: "No sales pressure. Just a conversation to see if we can move forward together.",
       success:
-        "Message received. We'll review it and get back to you — even if the answer is that we aren't a fit.",
+        "Message received. We'll review it and reply with clarity on how to continue.",
       errors: {
         name: "Name is required.",
         email: "Email is required.",
@@ -1030,36 +1063,36 @@ export const messages = {
         connection: "Connection error. Please try again.",
       },
       faqEyebrow: "Before you write",
-      faqTitle: "Frequently asked questions",
-      faqSub: "The essentials. The rest, in the conversation.",
+      faqTitle: "What people usually ask",
+      faqSub: "Useful clarity. The rest, in the conversation.",
       faqs: [
         {
           q: "Is this to get a project quote?",
-          a: "No. It's to evaluate whether we can truly help. If the fit isn't there, we say so — we don't put together a proposal just to sell.",
+          a: "Not right away. First we talk to align expectations and see if there's sync. A proposal makes sense when both sides see value in continuing.",
         },
         {
           q: "How long does a project take?",
-          a: "A focused web app: usually 4–8 weeks. More complex systems: 3–6 months. We define it together only if there's a fit — with clear timelines from the start.",
+          a: "A focused web app: usually 4–8 weeks. More complex systems: 3–6 months. We define timelines together once the scope is clear.",
         },
         {
           q: "What happens after launch?",
-          a: "We stay. Support and evolution of the system, in Spanish, with the same team that built it.",
+          a: "We stay. Support and evolution of the system, with the same team that built it.",
         },
         {
-          q: "Do you work with any company?",
-          a: "No. We prioritize projects where we can contribute. If your challenge isn't ours, we'd rather say so than force a contract.",
+          q: "What kinds of companies do you work with?",
+          a: "Teams that want technology that matches their operation. We prioritize challenges where we can truly contribute and build a solid working relationship.",
         },
         {
           q: "What technologies do you work with?",
-          a: "React, Node.js, Python, Django, AWS, and more — chosen for the problem, not for trends. We go into detail based on your case.",
+          a: "Frontend, backend, databases, cloud, security, and data — we choose the stack for the problem and your operation, not for trends. In the conversation we refine which tools fit.",
         },
         {
-          q: "Only in Estado de México?",
-          a: "We're based in Ciudad López Mateos. We work with companies of every size, anywhere in the world — remote or wherever it's needed.",
+          q: "Only in Mexico City?",
+          a: "We're based in Mexico City. We work with companies of every size, anywhere in the world — remote or wherever it's needed.",
         },
         {
           q: "Do you have ready-made products?",
-          a: "Yes: ERPinit, CRMinit and initlogistics (includes RFID traceability). We also build 100% custom — always after evaluating whether it's a fit.",
+          a: "Yes: ERPinit, CRMinit and initlogistics (includes RFID traceability). We also build 100% custom — always talking first about whether that's the right path.",
         },
       ],
     },
@@ -1078,6 +1111,7 @@ export const messages = {
       sectorsTitle: "By sector, not by template.",
       sectorsSub:
         "Every industry has its own friction. Here, only the kind of operation we already know — without opening the full file in public.",
+      sectorsHint: "Explore a sector",
       sectors: {
         social: {
           title: "Social & institutional",

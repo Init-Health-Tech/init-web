@@ -49,7 +49,7 @@ const StatTile = ({ icon: Icon, value, label, sub, delay = 0, compact = false })
     <motion.div variants={variants} initial="hidden" animate="show">
       <TiltCard
         className={`glass-card ${compact ? "p-5 text-center" : "flex items-start gap-4 p-6"}`}
-        maxTilt={10}
+        maxTilt={5}
       >
         {inner}
       </TiltCard>

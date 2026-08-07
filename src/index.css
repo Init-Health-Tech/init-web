@@ -329,7 +329,6 @@ textarea:focus-visible,
     border-color: rgba(30, 143, 65, 0.35);
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
-    transform: none;
   }
 
   /* 3D tilt wrappers — PezRuido-inspired, calm on pearl */

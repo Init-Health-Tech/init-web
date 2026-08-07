@@ -48,8 +48,8 @@ const Home = () => {
             priceRange: "$$",
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Ciudad López Mateos",
-              addressRegion: "Estado de México",
+              addressLocality: "Ciudad de México",
+              addressRegion: "Ciudad de México",
               addressCountry: "MX",
             },
             serviceType:

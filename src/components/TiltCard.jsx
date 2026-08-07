@@ -6,18 +6,21 @@ import {
   useSpring,
   useReducedMotion,
 } from "framer-motion";
-import { springSnappy } from "../lib/motion";
+import { springSoft } from "../lib/motion";
 
-const DEFAULT_MAX = 9;
+const DEFAULT_MAX = 6;
+
+/** Calmer spring — snappy springs fought the pointer and felt stuck. */
+const tiltSpring = { ...springSoft, stiffness: 120, damping: 22, mass: 0.9 };
 
 /**
- * Pointer-tracking 3D tilt card.
+ * Pointer-tracking 3D tilt card (small surfaces). Prefer off on large CTAs.
  */
 const TiltCard = ({
   children,
   className = "",
   maxTilt = DEFAULT_MAX,
-  glare = true,
+  glare = false,
   as = "div",
   href,
   target,
@@ -28,11 +31,11 @@ const TiltCard = ({
   const ref = useRef(null);
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
-  const springX = useSpring(rotateX, springSnappy);
-  const springY = useSpring(rotateY, springSnappy);
+  const springX = useSpring(rotateX, tiltSpring);
+  const springY = useSpring(rotateY, tiltSpring);
   const glareX = useMotionValue(50);
   const glareY = useMotionValue(50);
-  const glareBg = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255,255,255,0.55) 0%, transparent 55%)`;
+  const glareBg = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255,255,255,0.45) 0%, transparent 55%)`;
 
   const reset = () => {
     rotateX.set(0);
@@ -45,12 +48,15 @@ const TiltCard = ({
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;
     rotateY.set((px - 0.5) * maxTilt * 2);
     rotateX.set((0.5 - py) * maxTilt * 2);
-    glareX.set(px * 100);
-    glareY.set(py * 100);
+    if (glare) {
+      glareX.set(px * 100);
+      glareY.set(py * 100);
+    }
   };
 
   const MotionTag = href ? motion.a : motion[as] || motion.div;

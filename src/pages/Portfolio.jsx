@@ -7,18 +7,15 @@ import ClientMarquee from "../components/ClientMarquee";
 import StatTile from "../components/StatTile";
 import PageVideoBackground from "../components/PageVideoBackground";
 import Reveal from "../components/Reveal";
-import { Stagger, StaggerItem } from "../components/Stagger";
-import {
-  portfolioSectors,
-  getSectorClients,
-  clientLogos,
-} from "../data/portfolioData";
+import SectorAtlas from "../components/SectorAtlas";
+import { portfolioSectors, clientLogos } from "../data/portfolioData";
 import { getPageSeo } from "../data/seoData";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const Portfolio = () => {
   const { t, lang } = useLanguage();
   const seo = getPageSeo("portfolio", lang);
+  const sectorsCopy = t("portfolio.sectors") || {};
 
   const stats = [
     { value: `${clientLogos.length}+`, label: t("portfolio.stats.clients") },
@@ -38,7 +35,7 @@ const Portfolio = () => {
         subtitle={t("portfolio.subtitle")}
       />
 
-      <section className="layer-panel section-py pt-10 sm:pt-14 md:pt-16 pb-12 bg-background/75">
+      <section className="layer-panel section-py pt-12 sm:pt-16 md:pt-20 pb-10 sm:pb-12 bg-background/75">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, i) => (
             <StatTile key={stat.label} {...stat} delay={i * 0.14} compact />
@@ -46,9 +43,9 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section className="layer-panel section-py pt-0 bg-background">
+      <section className="layer-panel section-py pt-14 sm:pt-20 md:pt-24 bg-background">
         <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
-          <Reveal inView variant="blur" className="mb-12 sm:mb-16 max-w-2xl">
+          <Reveal inView variant="blur" className="mb-10 sm:mb-14 max-w-2xl">
             <p className="eyebrow mb-4">{t("portfolio.sectorsEyebrow")}</p>
             <h2 className="display-section mb-4 text-balance">
               {t("portfolio.sectorsTitle")}
@@ -56,42 +53,15 @@ const Portfolio = () => {
             <p className="text-on-surface-variant text-base sm:text-lg leading-relaxed">
               {t("portfolio.sectorsSub")}
             </p>
-            <div className="section-title-rail mt-8" aria-hidden="true" />
           </Reveal>
 
-          <Stagger inView className="divide-y divide-on-surface/10" stagger={0.14}>
-            {portfolioSectors.map((sector, index) => {
-              const loc = t(`portfolio.sectors.${sector.id}`) || {};
-              const clients = getSectorClients(sector.id);
-              const names = clients.map((c) => c.name).join(" · ");
-              const n = String(index + 1).padStart(2, "0");
-
-              return (
-                <StaggerItem
-                  key={sector.id}
-                  variant={index % 2 === 0 ? "left" : "right"}
-                  className="apple-row flex-col sm:flex-row sm:items-start gap-3 sm:gap-8 py-8 sm:py-10"
-                >
-                  <span className="text-sm font-semibold text-primary tracking-wider tabular-nums shrink-0 sm:w-12 pt-1">
-                    {n}
-                  </span>
-                  <div className="flex-1 min-w-0 text-left">
-                    <h3 className="text-xl sm:text-2xl font-bold text-on-surface mb-2 text-balance">
-                      {loc.title}
-                    </h3>
-                    <p className="text-on-surface-variant leading-relaxed max-w-2xl">
-                      {loc.tease}
-                    </p>
-                    {names ? (
-                      <p className="mt-3 text-sm text-on-surface/55 tracking-wide">
-                        {names}
-                      </p>
-                    ) : null}
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </Stagger>
+          <Reveal inView variant="up" delay={0.08}>
+            <SectorAtlas
+              sectors={portfolioSectors}
+              copy={sectorsCopy}
+              hint={t("portfolio.sectorsHint")}
+            />
+          </Reveal>
         </div>
       </section>
 

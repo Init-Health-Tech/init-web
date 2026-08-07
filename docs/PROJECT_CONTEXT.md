@@ -5,7 +5,7 @@
 ## Qué es
 
 **INIT** — *Brilliant minds building the future.*  
-Consultora de desarrollo de software a medida y digitalización en Ciudad López Mateos, Estado de México. Sitio: https://init.com.mx
+Consultora de desarrollo de software a medida y digitalización en Ciudad de México. Sitio: https://init.com.mx
 
 No es una fábrica de cotizaciones: **primero evalúan si pueden ayudar**. Si no hay fit, lo dicen y no venden por vender.
 

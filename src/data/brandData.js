@@ -6,5 +6,5 @@ export const BRAND = {
   email: "support@init.com.mx",
   phone: "+52 55 4761 7977",
   phoneHref: "tel:+525547617977",
-  location: "Ciudad López Mateos, Estado de México",
+  location: "Ciudad de México",
 };
