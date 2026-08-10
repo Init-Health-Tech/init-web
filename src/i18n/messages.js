@@ -250,7 +250,7 @@ export const messages = {
           id: "data",
           name: "Datos e IA",
           tease:
-            "Información útil y automatización con sentido de negocio — no ruido por ruido.",
+            "Información útil y automatización con sentido de negocio.",
         },
       ],
       processEyebrow: "Cómo trabajamos",
@@ -260,7 +260,7 @@ export const messages = {
         {
           title: "Entender",
           description:
-            "Conversamos sobre tu operación, definimos alcance y arquitectura — antes de tocar código.",
+            "Conversamos sobre tu operación, definimos alcance y arquitectura.",
           timeframe: "1–2 semanas",
         },
         {
@@ -272,7 +272,7 @@ export const messages = {
         {
           title: "Construir",
           description:
-            "Desarrollo con código mantenible, entregas que se pueden tocar y comunicación directa.",
+            "Desarrollo mantenible, entregas que se pueden tocar y comunicación directa.",
           timeframe: "4–12 semanas",
         },
         {
@@ -284,7 +284,7 @@ export const messages = {
         {
           title: "Acompañar",
           description:
-            "Soporte y evolución con el mismo equipo que lo construyó. En español, sin capas de más.",
+            "Soporte y evolución con el mismo equipo que lo construyó. Sin capas de más.",
           timeframe: "Continuo",
         },
       ],
@@ -302,13 +302,13 @@ export const messages = {
         {
           title: "Seguridad",
           description:
-            "Buenas prácticas desde el diseño. La protección no es un parche el día antes del lanzamiento.",
-          line: "Cuidado técnico, no improvisación.",
+            "Seguridad desde el diseño. La protección es una base, no una función.",
+          line: "Disciplina técnica, no improvisación.",
         },
         {
           title: "Cercanía",
           description:
-            "Hablas con quien construye. En español. Sin capas entre tu operación y el código.",
+            "Hablas con quien construye. Sin capas entre tu operación y el código.",
           line: "Una conversación. El mismo equipo.",
         },
         {
@@ -320,7 +320,7 @@ export const messages = {
       ],
       ctaTitle: "¿Crees que podríamos ayudar?",
       ctaText:
-        "Escribimos para evaluar el encaje. Si no es lo nuestro, te lo diremos — sin vender por vender.",
+        "Escríbenos para evaluar el encaje. Si no es lo nuestro, te lo diremos.",
       ctaSecondary: "Ver el trabajo",
     },
     contact: {
@@ -486,7 +486,6 @@ export const messages = {
       },
       clientsEyebrow: "Confianza",
       clientsTitle: "Quienes ya están dentro.",
-      clientsSub: "El mismo ritmo que en Inicio. Nombres, no pitches.",
       ctaTitle: "¿Tu operación se parece a alguno de estos sectores?",
       ctaText:
         "Si ves un paralelismo, hablemos para evaluar si podemos ayudar. Si no hay fit, preferimos decirlo a forzar un proyecto.",
@@ -598,10 +597,10 @@ export const messages = {
       fitEyebrow: "Antes de elegir",
       fitTitle: "¿Producto listo o a medida?",
       fitSub:
-        "A veces un producto acelera. A veces tu operación pide algo propio. Lo evaluamos juntos — sin empujar una venta.",
+        "A veces un producto acelera. A veces tu operación pide algo propio. Lo evaluamos juntos.",
       ctaTitle: "¿Producto listo o a medida?",
       ctaText:
-        "A veces un producto encaja. A veces no. Lo evaluamos contigo — sin empujar una venta.",
+        "A veces un producto encaja. A veces no. Lo evaluamos contigo.",
       ctaSecondary: "Ver servicios",
       items: {
         erp: {
@@ -910,7 +909,7 @@ export const messages = {
           id: "data",
           name: "Data & AI",
           tease:
-            "Useful information and automation with business sense — not noise for noise's sake.",
+            "Useful information and automation with business sense.",
         },
       ],
       processEyebrow: "How we work",
@@ -920,7 +919,7 @@ export const messages = {
         {
           title: "Understand",
           description:
-            "We talk through your operation, define scope and architecture — before writing a line of code.",
+            "We talk through your operation, define scope and architecture.",
           timeframe: "1–2 weeks",
         },
         {
@@ -932,7 +931,7 @@ export const messages = {
         {
           title: "Build",
           description:
-            "Development with maintainable code, tangible deliveries, and direct communication.",
+            "Maintainable development, tangible deliveries, and direct communication.",
           timeframe: "4–12 weeks",
         },
         {
@@ -944,7 +943,7 @@ export const messages = {
         {
           title: "Support",
           description:
-            "Support and evolution with the same team that built it. In Spanish, without extra layers.",
+            "Support and evolution with the same team that built it. Without extra layers.",
           timeframe: "Ongoing",
         },
       ],
@@ -962,13 +961,13 @@ export const messages = {
         {
           title: "Security",
           description:
-            "Good practices from design. Protection isn't a patch the day before launch.",
-          line: "Technical care, not improvisation.",
+            "Good practices from design. Protection is a foundation, not a feature.",
+          line: "Technical discipline, not improvisation.",
         },
         {
           title: "Closeness",
           description:
-            "You talk to the people who build. In Spanish. No layers between your operation and the code.",
+            "You talk to the people who build. No layers between your operation and the code.",
           line: "One conversation. The same team.",
         },
         {
@@ -980,7 +979,7 @@ export const messages = {
       ],
       ctaTitle: "Think we could help?",
       ctaText:
-        "We write to evaluate fit. If it's not our kind of work, we'll say so — without selling for the sake of selling.",
+        "Write to us to evaluate fit. If it's not our kind of work, we'll say so.",
       ctaSecondary: "See the work",
     },
     contact: {
@@ -1146,7 +1145,6 @@ export const messages = {
       },
       clientsEyebrow: "Trust",
       clientsTitle: "Who's already in.",
-      clientsSub: "Same rhythm as Home. Names, not pitches.",
       ctaTitle: "Does your operation look like any of these sectors?",
       ctaText:
         "If you see a parallel, let's talk to evaluate whether we can help. If there's no fit, we'd rather say so than force a project.",
@@ -1258,10 +1256,10 @@ export const messages = {
       fitEyebrow: "Before choosing",
       fitTitle: "Ready-made product or custom?",
       fitSub:
-        "Sometimes a product accelerates. Sometimes your operation needs something built for you. We evaluate it together — without pushing a sale.",
+        "Sometimes a product accelerates. Sometimes your operation needs something built for you. We evaluate it together.",
       ctaTitle: "Ready-made product or custom?",
       ctaText:
-        "Sometimes a product fits. Sometimes it doesn't. We evaluate it with you — without pushing a sale.",
+        "Sometimes a product fits. Sometimes it doesn't. We evaluate it with you.",
       ctaSecondary: "See services",
       items: {
         erp: {

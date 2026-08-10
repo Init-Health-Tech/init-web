@@ -72,9 +72,6 @@ const Portfolio = () => {
             <h2 className="display-section mb-3 text-balance">
               {t("portfolio.clientsTitle")}
             </h2>
-            <p className="text-on-surface-variant text-base sm:text-lg">
-              {t("portfolio.clientsSub")}
-            </p>
           </Reveal>
         </div>
         <ClientMarquee />
