@@ -1,0 +1,13 @@
+---
+description: Motion INIT — appleEase, compositor, reduced motion
+globs: src/lib/motion.js,src/components/Reveal.jsx,src/components/Stagger.jsx,src/components/FadeIn.jsx,src/components/PageTransition.jsx,src/components/PearlAtmosphere.jsx
+alwaysApply: false
+---
+
+# INIT — Motion
+
+- Tokens en `src/lib/motion.js` (`appleEase`, `revealPresets`). No inventar easings.
+- Animar opacity, transform y filter. No width/height/top/margin.
+- Respetar `useReducedMotion` / `prefers-reduced-motion`.
+- Rutas: `PageTransition` existente. No View Transitions de Next/React Canary.
+- Reusar `Reveal`, `Stagger`, `MagneticLink`. No añadir librerías de animación.

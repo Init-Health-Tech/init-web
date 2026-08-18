@@ -16,7 +16,8 @@ Antes de editar UI, copy o SEO, lee en este orden:
 
 - **Posicionamiento:** consultora que *evalúa fit*. Si no pueden ayudar, lo dicen. No vender por vender.
 - **CTAs:** “Evaluar si podemos ayudar” / “¿Podemos ayudar?” — nunca “Cotiza”, “demo gratis”, “sé nuestro caso de éxito”.
-- **Visual:** Apple space sobre **perla** `#F7F3EC`; texto navy `#0F172A`; acentos verdes de desarrollo; teal marketing. Sin púrpura genérico, sin urgencia falsa.
+- **Visual:** Apple space sobre **perla** `#F7F3EC`; texto navy `#0F172A`; verde = desarrollo / CTAs; teal = giro marketing. Sin púrpura genérico, sin urgencia falsa.
+- **Giros:** `/services` software; `/marketing` comunicación. Home no mezcla marketing dentro de “Tres caminos”.
 - **Contraste:** CTAs verdes `#1E8F41` + perla; texto secundario `#475569` sobre perla. RFID = plateado translúcido.
 - **Hero Home:** marca INIT visible; CTA principal explorar trabajo; contacto como filtro.
 
@@ -26,6 +27,7 @@ Ver [`.agents/SKILLS.md`](.agents/SKILLS.md). Destacados:
 
 | Tarea | Skill |
 |-------|--------|
+| Esencia INIT | `init-essence` (antes que skills genéricos de UI) |
 | UI / landing | `frontend-design`, `landing-page-design`, `ui-ux-pro-max`, `web-design-guidelines` |
 | Copy / tono | `copywriting`, `copy-editing`, `marketing-psychology`, `landing-page-copywriter` |
 | SEO | `seo`, `seo-audit`, `ai-seo`, `programmatic-seo`, `seo-geo`, `schema` |
@@ -45,7 +47,7 @@ npm run build    # verificar antes de cerrar cambios UI
 
 | Área | Path |
 |------|------|
-| Páginas | `src/pages/` |
+| Páginas | `src/pages/` (`Marketing.jsx` = giro marketing) |
 | SEO meta | `src/data/seoData.js` |
 | Estilos / tokens | `src/index.css` |
 | CTA compartido | `src/components/CtaBanner.jsx` |

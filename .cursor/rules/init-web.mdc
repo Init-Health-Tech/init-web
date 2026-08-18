@@ -1,27 +1,20 @@
 ---
-description: INIT web — posicionamiento, colores, stack y dónde cargar contexto
+description: INIT web — posicionamiento, giros, colores y contexto
 alwaysApply: true
 ---
 
 # INIT Web
 
-Sitio React+Vite+Tailwind v4 de INIT (consultora software, México).
+Sitio React+Vite+Tailwind v4 de INIT (consultora, México). Dos giros: **desarrollo** (verde) y **marketing** (teal).
 
 ## Antes de editar UI / copy / SEO
 
-Leer: `docs/PROJECT_CONTEXT.md`, `.agents/product-marketing.md`, `docs/brand-colors.md`. Tokens en `src/index.css` `@theme`. Skills map: `.agents/SKILLS.md`. Entrada: `AGENTS.md`.
+Leer `docs/PROJECT_CONTEXT.md`, `.agents/product-marketing.md`, `docs/brand-colors.md`. Tokens: `src/index.css` `@theme`. Skill: `init-essence`.
 
 ## No negociable
 
 - Tono: **evaluar fit**, no vender. CTAs: “Evaluar si podemos ayudar” / “¿Podemos ayudar?”. Prohibido: Cotiza, demo gratis, “próximo caso de éxito”.
-- Colores: **Perla** `#F7F3EC` (fondos), **Navy** `#0F172A` (texto), **Green** `#1E8F41` (desarrollo/CTAs), **Teal** `#00A7A7` (marketing), **RFID** plateado translúcido `#C0C7D1`. Solo paleta INIT.
-- Visual: espacio claro tipo Apple sobre perla; acentos verdes de producto; no purple genérico.
-- SEO: alinear `src/data/seoData.js` con copy de página.
-- Tras UI: `npm run build`.
-
-## Skills típicos
-
-UI → `frontend-design` / `landing-page-design` / `web-design-guidelines`  
-Copy → `copywriting` / `marketing-psychology`  
-SEO → `seo` / `seo-audit` / `schema` / `seo-geo`  
-Color → `color-palette` / `color-expert`
+- Colores: **Perla** `#F7F3EC` (fondos), **Navy** `#0F172A` (texto), **Green** `#1E8F41` (desarrollo / CTAs de producto), **Teal** `#00A7A7` (marketing / claridad), **RFID** `#C0C7D1`.
+- Visual: espacio Apple sobre perla. No purple, no rediseñar la paleta.
+- Home: marca INIT; CTA primario explorar trabajo; contacto = filtro; marketing es el **otro giro**, no reemplaza los tres caminos de software.
+- SEO: alinear `src/data/seoData.js` con copy. Tras UI: `npm run build`.

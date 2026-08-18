@@ -1,0 +1,14 @@
+---
+description: Copy INIT — bilingüe, CTAs de fit, SEO alineado
+globs: src/i18n/messages.js,src/data/seoData.js,src/data/brandData.js
+alwaysApply: false
+---
+
+# INIT — Copy
+
+- Toda cadena de UI vive en `src/i18n/messages.js`. Cambiar **es y en** juntos.
+- Predeterminado: español. Slogan siempre en inglés.
+- CTAs: “Evaluar si podemos ayudar” / “¿Podemos ayudar?”. Nunca Cotiza, demo gratis, “caso de éxito”.
+- Giro marketing: presencia, mensaje, criterio — no agencia de ruido ni urgencia.
+- Al cambiar copy de página, alinear `title`/`description`/`keywords` en `seoData.js` y `messages.*.seo`.
+- Una idea por sección. Tono calmado, consultivo.

@@ -9,7 +9,7 @@
 |-------|--------|
 | Nombre | INIT |
 | Slogan | Brilliant minds building the future |
-| Qué somos | **Consultora** de software a medida y digitalización: primero evaluamos si podemos ayudar de verdad |
+| Qué somos | **Consultora** de software a medida, digitalización y marketing: primero evaluamos si podemos ayudar de verdad |
 | Dónde | Ciudad de México · proyectos en México / LATAM |
 | Sitio | https://init.com.mx |
 | Contacto | support@init.com.mx · +52 55 4761 7977 |
@@ -34,7 +34,8 @@
 1. **Software a medida** — apps web, sistemas de gestión, APIs
 2. **Consultoría en digitalización** — diagnóstico, roadmap, priorización
 3. **Sistemas e integración** — automatización, datos, cloud, cyberseguridad
-4. **Productos listos** — ERPinit, CRMinit, initlogistics (cuando aplique — siempre con evaluación de fit)
+4. **Marketing** — presencia digital, mensaje y crecimiento con criterio (no agencia de ruido)
+5. **Productos listos** — ERPinit, CRMinit, initlogistics (cuando aplique — siempre con evaluación de fit)
 
 **Transformación clave:** pasar de pelear contra la operación a que el sistema trabaje *con* la empresa — solo cuando el encaje es real.
 
@@ -48,7 +49,7 @@
 ## Primary CTA (filtro, no venta)
 
 - **Principal:** Ver si podemos ayudar / Evaluar si encajamos → `/contact`
-- **Secundario:** Ver el trabajo → `/portfolio` o Cómo trabajamos → `/services`
+- **Secundario:** Ver el trabajo → `/portfolio` · Desarrollo → `/services` · Marketing → `/marketing`
 - **Nunca:** Cotiza tu proyecto, demo gratuita, “sé nuestro próximo caso de éxito”
 
 Framing: el contacto es para **diagnosticar fit**. A veces la respuesta honesta es “no somos el equipo correcto” — y eso también es valor.
@@ -83,6 +84,13 @@ Framing: el contacto es para **diagnosticar fit**. A veces la respuesta honesta 
 - Cuerpo: no vender por vender — pero el foco es **match mutuo**, no el “no”
 - FAQ: claridad útil; honestidad sin pesimismo
 
+## Messaging — Marketing
+
+- Header: claridad que se sostiene — no una agencia de ruido
+- Tres frentes: presencia digital, mensaje/contenido, crecimiento con criterio
+- CTA: el mismo filtro de fit; `btn-marketing` solo para **entrar** al giro, no para “contratar campaña”
+- Nunca: likes, “hazte viral”, pauta ilimitada, urgencia
+
 ## Words to prefer / avoid
 
 **Preferir:** sincronía, alinear, match, conversar, juntos, criterio, operación, claridad.
@@ -91,15 +99,16 @@ Framing: el contacto es para **diagnosticar fit**. A veces la respuesta honesta 
 
 ## Colores (psicología + AA)
 
-Fuente: `docs/brand-colors.md`. Primitivos LaTeX: Navy `#062D55`, Green `#1E8F41`, Teal `#00A7A7`, Lime `#7ED957`, Light `#F4F7FB`, Mint `#E8F8F0`, Gray `#6B7280`.
+Fuente: `docs/brand-colors.md`. Superficies **perla**; navy es texto, no fondo.
 
-- Navy → confianza / fondos
-- Green → crecimiento / CTAs (variación oscura `#146B36` para texto blanco AA)
-- Teal → claridad / eyebrows / foco
-- Lime → progreso (acento escaso)
-- Light → tipografía
-- Mint → éxito suave
+- Perla `#F7F3EC` → fondos / superficies de todo el sitio
+- Navy `#0F172A` → texto (confianza)
+- Green `#1E8F41` → desarrollo / CTAs de producto
+- Teal `#00A7A7` → giro marketing / claridad / eyebrows (no el CTA de evaluación)
+- RFID `#C0C7D1` → logística / hardware translúcido
+- Mint `#E8F8F0` → éxito suave
+- Texto secundario `#475569` sobre perla (AA)
 
 ## SEO (sin sacrificar tono)
 
-Incluir de forma natural: desarrollo de software a medida, consultoría digital, México. Title/meta en `src/data/seoData.js`.
+Incluir de forma natural: desarrollo de software a medida, consultoría digital, marketing digital, México. Title/meta en `src/data/seoData.js`.

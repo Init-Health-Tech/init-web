@@ -59,12 +59,14 @@ const Home = () => {
                     "Digital transformation consulting",
                     "Web application development",
                     "Systems integration",
+                    "Digital marketing consulting",
                   ]
                 : [
                     "Desarrollo de software a medida",
                     "Consultoría en transformación digital",
                     "Desarrollo de aplicaciones web",
                     "Integración de sistemas",
+                    "Consultoría de marketing digital",
                   ],
           },
         ]}
@@ -246,6 +248,28 @@ const Home = () => {
               </StaggerItem>
             ))}
           </Stagger>
+        </div>
+      </section>
+
+      <section className="layer-panel section-py bg-surface-container-low">
+        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+          <Reveal inView variant="blur" className="max-w-2xl mx-auto text-center">
+            <p className="eyebrow mb-5">{t("home.marketingEyebrow")}</p>
+            <h2 className="display-section mb-5 text-balance">
+              {t("home.marketingTitle")}
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-xl mx-auto mb-10 sm:mb-12">
+              {t("home.marketingSub")}
+            </p>
+            <MagneticLink
+              to="/marketing"
+              className="btn-marketing inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+              strength={0.22}
+            >
+              {t("home.marketingCta")}
+              <ArrowForwardIcon className="h-4 w-4" aria-hidden="true" />
+            </MagneticLink>
+          </Reveal>
         </div>
       </section>
 

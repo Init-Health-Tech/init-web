@@ -17,6 +17,7 @@ import Home from './pages/Home';
 // Equipo oculto de momento
 // const Team = lazy(() => import('./pages/Team'));
 const Services = lazy(() => import('./pages/Services'));
+const Marketing = lazy(() => import('./pages/Marketing'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Solutions = lazy(() => import('./pages/Solutions'));
@@ -40,6 +41,7 @@ function AppRoutes() {
                 {/* Equipo oculto de momento */}
                 {/* <Route path="/team" element={<Team />} /> */}
                 <Route path="/services" element={<Services />} />
+                <Route path="/marketing" element={<Marketing />} />
                 <Route path="/soluciones" element={<Solutions />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/contact" element={<Contact />} />

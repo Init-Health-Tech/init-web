@@ -15,6 +15,7 @@ export const defaultKeywords = [
   "sistemas empresariales",
   "automatización de procesos",
   "integración de sistemas",
+  "marketing digital empresas México",
   "desarrollo de software Estado de México",
   "software para pymes México",
   "INIT",
@@ -25,11 +26,12 @@ export const pageSeo = {
     path: "/",
     title: "INIT — Brilliant minds building the future",
     description:
-      "INIT: Brilliant minds building the future. Consultora de software a medida y digitalización en México. Evaluamos fit — no vendemos por vender.",
+      "INIT: Brilliant minds building the future. Consultora de software a medida, digitalización y marketing en México. Evaluamos fit — no vendemos por vender.",
     keywords: [
       "desarrollo de software a medida México",
       "aplicaciones web empresariales",
       "consultoría digitalización empresas",
+      "marketing digital empresas México",
       "transformación digital pymes",
       "software empresarial Ciudad de México",
       "sistemas de gestión a medida",
@@ -94,14 +96,28 @@ export const pageSeo = {
       "empresa desarrollo software México",
     ].join(", "),
   },
+  marketing: {
+    path: "/marketing",
+    title: "Marketing digital con criterio",
+    description:
+      "Marketing digital para empresas en México: presencia, mensaje y crecimiento. INIT evalúa fit — no vendemos campañas por vender.",
+    keywords: [
+      "marketing digital empresas México",
+      "consultoría marketing Ciudad de México",
+      "presencia digital pymes",
+      "estrategia de mensaje",
+      "marketing con criterio INIT",
+    ].join(", "),
+  },
   contact: {
     path: "/contact",
-    title: "Conversemos: Consultoría de Software | INIT",
+    title: "Conversemos: Consultoría de Software y Marketing",
     description:
-      "Conversación para alinear tu operación con INIT. Software a medida y digitalización en México — avanzamos cuando hay sincronía real.",
+      "Conversación para alinear tu operación con INIT. Software, digitalización y marketing en México — avanzamos cuando hay sincronía real.",
     keywords: [
       "contacto consultoría software México",
       "desarrollo software a medida",
+      "marketing digital empresas México",
       "consultoría digitalización México",
       "empresa software Ciudad de México",
     ].join(", "),

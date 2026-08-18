@@ -5,9 +5,9 @@
 ## Qué es
 
 **INIT** — *Brilliant minds building the future.*  
-Consultora de desarrollo de software a medida y digitalización en Ciudad de México. Sitio: https://init.com.mx
+Consultora de desarrollo de software a medida, digitalización y **marketing** en Ciudad de México. Sitio: https://init.com.mx
 
-No es una fábrica de cotizaciones: **primero evalúan si pueden ayudar**. Si no hay fit, lo dicen y no venden por vender.
+Dos giros, un estándar: **desarrollo** (verde) y **marketing** (teal). No es una fábrica de cotizaciones: **primero evalúan si pueden ayudar**. Si no hay fit, lo dicen y no venden por vender.
 
 ## Stack
 
@@ -43,10 +43,11 @@ Sin navy-as-background. Gradiente marca: green → teal.
 | Ruta | Archivo | Notas |
 |------|---------|--------|
 | `/` | `Home.jsx` | Apple layout, scrim navy, escasez |
-| `/services` | `Services.jsx` | Tres caminos, exigencia |
+| `/services` | `Services.jsx` | Tres caminos de desarrollo, exigencia |
+| `/marketing` | `Marketing.jsx` | Giro de marketing (teal) — presencia, mensaje, criterio |
 | `/contact` | `Contact.jsx` | Evaluar fit + FAQ honestas |
 | `/portfolio` | `Portfolio.jsx` | Casos reales, CTA filtro |
-| `/team` | `Team.jsx` | Equipo |
+| `/team` | `Team.jsx` | Equipo (ruta oculta de momento) |
 | `/soluciones` | `Solutions.jsx` | ERPinit / initlogistics — sin demo gratis |
 
 Componentes clave: `CtaBanner`, `PageHeader`, `PageHead`, `StructuredData`, `FloatingContactButton` (discreto, no “cotiza”).
@@ -78,4 +79,4 @@ Al cambiar copy de página, alinear `title`/`description` en `seoData.js`.
 
 ## Skills instalados
 
-Mapa completo: [`.agents/SKILLS.md`](../.agents/SKILLS.md). Lock: `skills-lock.json`.
+Esencia del sitio: `init-essence`. Mapa: [`.agents/SKILLS.md`](../.agents/SKILLS.md). Lock: `skills-lock.json`.

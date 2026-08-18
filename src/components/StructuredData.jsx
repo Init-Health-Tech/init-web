@@ -19,12 +19,12 @@ const StructuredData = ({ description, extra = [] }) => {
   const inLanguage = lang === "en" ? "en" : "es-MX";
   const defaultDescription =
     lang === "en"
-      ? "Custom software development and digitalization consultancy for companies in Mexico."
-      : "Empresa de desarrollo de software a medida y consultoría en digitalización para empresas en México.";
+      ? "Custom software, digitalization, and marketing consultancy for companies in Mexico."
+      : "Empresa de desarrollo de software a medida, digitalización y marketing para empresas en México.";
   const defaultSiteDescription =
     lang === "en"
-      ? "INIT — Custom software development in Mexico."
-      : "INIT — Desarrollo de software a medida en México.";
+      ? "INIT — Custom software and marketing in Mexico."
+      : "INIT — Desarrollo de software y marketing en México.";
   const knowsAbout =
     lang === "en"
       ? [
@@ -32,6 +32,7 @@ const StructuredData = ({ description, extra = [] }) => {
           "Business web applications",
           "Digitalization consulting",
           "Digital transformation",
+          "Digital marketing",
           "Cybersecurity",
           "Data Analysis",
         ]
@@ -40,6 +41,7 @@ const StructuredData = ({ description, extra = [] }) => {
           "Aplicaciones web empresariales",
           "Consultoría en digitalización",
           "Transformación digital",
+          "Marketing digital",
           "Cyberseguridad",
           "Data Analysis",
         ];

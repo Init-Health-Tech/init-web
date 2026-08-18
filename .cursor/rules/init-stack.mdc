@@ -1,0 +1,13 @@
+---
+description: Stack INIT — Vite + React Router, no Next/RN/shadcn
+alwaysApply: true
+---
+
+# INIT — Stack
+
+React + Vite + Tailwind v4 + React Router. Deploy típico: Vercel.
+
+- No Next.js App Router, no `react@canary` ViewTransition, no React Native.
+- No shadcn / Radix como sistema de UI. Componentes del repo.
+- Home eager; el resto `lazy` en `App.jsx`.
+- Tokens en `src/index.css` `@theme`. Páginas en `src/pages/`.

@@ -8,6 +8,7 @@ export const messages = {
       home: "Inicio",
       team: "Equipo",
       services: "Servicios",
+      marketing: "Marketing",
       solutions: "Soluciones",
       portfolio: "Proyectos y Clientes",
       contactCta: "Contáctanos",
@@ -17,7 +18,7 @@ export const messages = {
     },
     footer: {
       blurb:
-        "Consultora de software. Empresas de todo tamaño, en cualquier parte del mundo. Evaluamos la aportación que podemos generar.",
+        "Consultora de software y marketing. Empresas de todo tamaño, en cualquier parte del mundo. Evaluamos la aportación que podemos generar.",
       partner: "Partner estratégico",
       nav: "Navegación",
       company: "Empresa",
@@ -25,6 +26,7 @@ export const messages = {
       home: "Inicio",
       team: "Equipo",
       services: "Servicios",
+      marketing: "Marketing",
       solutions: "Soluciones",
       projects: "Proyectos",
       contactLink: "Contacto",
@@ -43,9 +45,9 @@ export const messages = {
       home: {
         title: "INIT — Brilliant minds building the future",
         description:
-          "INIT: Brilliant minds building the future. Consultora de software a medida y digitalización en México. Evaluamos fit — no vendemos por vender.",
+          "INIT: Brilliant minds building the future. Consultora de software a medida, digitalización y marketing en México. Evaluamos fit — no vendemos por vender.",
         keywords:
-          "desarrollo de software a medida México, aplicaciones web empresariales, consultoría digitalización empresas, transformación digital pymes, software empresarial Ciudad de México, sistemas de gestión a medida, desarrollo web Ciudad de México, automatización procesos empresariales",
+          "desarrollo de software a medida México, aplicaciones web empresariales, consultoría digitalización empresas, marketing digital empresas México, transformación digital pymes, software empresarial Ciudad de México, sistemas de gestión a medida, desarrollo web Ciudad de México, automatización procesos empresariales",
       },
       team: {
         title: "Equipo de Desarrollo de Software y Consultoría Digital",
@@ -76,11 +78,18 @@ export const messages = {
           "sectores desarrollo software México, clientes software a medida, portafolio consultoría digital, transformación digital por industria, empresa desarrollo software México",
       },
       contact: {
-        title: "Conversemos: Consultoría de Software | INIT",
+        title: "Conversemos: Consultoría de Software y Marketing | INIT",
         description:
-          "Conversación para alinear tu operación con INIT. Software a medida y digitalización en México — avanzamos cuando hay sincronía real.",
+          "Conversación para alinear tu operación con INIT. Software, digitalización y marketing en México — avanzamos cuando hay sincronía real.",
         keywords:
-          "contacto consultoría software México, desarrollo software a medida, consultoría digitalización México, empresa software Ciudad de México",
+          "contacto consultoría software México, desarrollo software a medida, marketing digital empresas México, consultoría digitalización México, empresa software Ciudad de México",
+      },
+      marketing: {
+        title: "Marketing digital con criterio | INIT",
+        description:
+          "Marketing digital para empresas en México: presencia, mensaje y crecimiento. INIT evalúa fit — no vendemos campañas por vender.",
+        keywords:
+          "marketing digital empresas México, consultoría marketing Ciudad de México, presencia digital pymes, estrategia de mensaje, marketing con criterio INIT",
       },
     },
     home: {
@@ -157,6 +166,11 @@ export const messages = {
       partnerEyebrow: "Alianza",
       partnerTitle: "Nuestro partner",
       partnerSub: "No trabajamos solos. Socios que elevan el estándar",
+      marketingEyebrow: "El otro giro",
+      marketingTitle: "Marketing con el mismo criterio.",
+      marketingSub:
+        "Presencia y mensaje que se sostienen. Si encaja con lo que hacemos bien, lo vemos juntos.",
+      marketingCta: "Ver marketing",
     },
     services: {
       eyebrow: "Tres caminos",
@@ -323,6 +337,97 @@ export const messages = {
         "Escríbenos para evaluar el encaje. Si no es lo nuestro, te lo diremos.",
       ctaSecondary: "Ver el trabajo",
     },
+    marketing: {
+      eyebrow: "Marketing",
+      title: "Claridad que se sostiene",
+      subtitle:
+        "El mismo estándar que en software: evaluamos fit. No vendemos campañas por vender.",
+      introEyebrow: "El giro",
+      introTitle: "Que te encuentren. Que coincida con lo que eres.",
+      introSub:
+        "Ordenamos presencia y mensaje — con calma, y solo cuando hay encaje con tu operación.",
+      pathsEyebrow: "Qué hacemos",
+      pathsTitle: "Tres frentes. Una sola exigencia.",
+      pathsSub: "Solo lo esencial. Si encaja, el resto lo vemos juntos.",
+      paths: [
+        {
+          title: "Presencia digital",
+          text: "Sitios y piezas que se leen con calma. Sin plantillas que gritan.",
+        },
+        {
+          title: "Mensaje y contenido",
+          text: "Decir lo correcto, una vez, bien. No un calendario de ruido.",
+        },
+        {
+          title: "Crecimiento con criterio",
+          text: "Canales y campañas cuando hay base. Medir antes de escalar.",
+        },
+      ],
+      processEyebrow: "Cómo trabajamos",
+      processTitle: "Un proceso que no improvisa",
+      processSub: "Primero el encaje. Después la ejecución.",
+      process: [
+        {
+          title: "Entender",
+          description: "Operación, audiencia y lo que ya existe — sin asumir el canal.",
+          timeframe: "1–2 semanas",
+        },
+        {
+          title: "Enmarcar",
+          description: "Mensaje, prioridades y qué no hacer. Menos ruido desde el inicio.",
+          timeframe: "1–2 semanas",
+        },
+        {
+          title: "Construir",
+          description: "Presencia y piezas que se pueden tocar. El mismo estándar visual que el resto de INIT.",
+          timeframe: "2–6 semanas",
+        },
+        {
+          title: "Activar",
+          description: "Canales con medida. Nada de pauta por inercia.",
+          timeframe: "Según el encaje",
+        },
+        {
+          title: "Acompañar",
+          description: "Leer resultados y ajustar con el mismo equipo. Sin teatro de agencia.",
+          timeframe: "Continuo",
+        },
+      ],
+      whyEyebrow: "Por qué INIT",
+      whyTitle: "Marketing sin teatro",
+      whySub: "Cuatro principios. Pasa el cursor — o toca — para leer cada uno.",
+      whyHint: "Principio",
+      benefits: [
+        {
+          title: "Criterio",
+          description:
+            "Elegimos canales por el negocio, no por moda. Si no hay base, no empujamos campaña.",
+          line: "Menos ruido. Más dirección.",
+        },
+        {
+          title: "Honestidad",
+          description:
+            "Si el problema es el producto o la operación, no lo tapamos con anuncios.",
+          line: "El fit también aplica aquí.",
+        },
+        {
+          title: "Continuidad",
+          description:
+            "Un mensaje estable. Sin reinventar la marca cada mes.",
+          line: "Claridad que se sostiene.",
+        },
+        {
+          title: "Encaje",
+          description:
+            "Marketing que habla con la operación — no un mundo aparte del software.",
+          line: "Un estándar. Dos giros.",
+        },
+      ],
+      ctaTitle: "¿Hablamos de tu presencia?",
+      ctaText:
+        "Cuéntanos qué quieres que el mercado entienda. Evaluamos si podemos aportar.",
+      ctaSecondary: "Ver desarrollo",
+    },
     contact: {
       eyebrow: "Conversación",
       title: "Busquemos si estamos en sincronía",
@@ -377,6 +482,7 @@ export const messages = {
         "Aplicación web",
         "Sistema empresarial",
         "Consultoría",
+        "Marketing digital",
         "ERPinit",
         "CRMinit",
         "initlogistics",
@@ -433,6 +539,10 @@ export const messages = {
         {
           q: "¿Tienen productos listos?",
           a: "Sí: ERPinit, CRMinit e initlogistics (incluye trazabilidad RFID). También desarrollamos 100% a medida — siempre conversando primero si es el camino correcto.",
+        },
+        {
+          q: "¿También hacen marketing?",
+          a: "Sí. Presencia, mensaje y crecimiento con el mismo criterio que el software: evaluamos fit. No somos una agencia de ruido.",
         },
       ],
     },
@@ -666,6 +776,7 @@ export const messages = {
       home: "Home",
       team: "Team",
       services: "Services",
+      marketing: "Marketing",
       solutions: "Solutions",
       portfolio: "Projects & Clients",
       contactCta: "Contact us",
@@ -675,7 +786,7 @@ export const messages = {
     },
     footer: {
       blurb:
-        "A software consultancy. Companies of every size, anywhere in the world. We evaluate the contribution we can generate.",
+        "A software and marketing consultancy. Companies of every size, anywhere in the world. We evaluate the contribution we can generate.",
       partner: "Strategic partner",
       nav: "Navigation",
       company: "Company",
@@ -683,6 +794,7 @@ export const messages = {
       home: "Home",
       team: "Team",
       services: "Services",
+      marketing: "Marketing",
       solutions: "Solutions",
       projects: "Projects",
       contactLink: "Contact",
@@ -701,9 +813,9 @@ export const messages = {
       home: {
         title: "INIT — Brilliant minds building the future",
         description:
-          "INIT: Brilliant minds building the future. Custom software and digitalization consultancy in Mexico. We evaluate fit — we don't sell for the sake of selling.",
+          "INIT: Brilliant minds building the future. Custom software, digitalization, and marketing consultancy in Mexico. We evaluate fit — we don't sell for the sake of selling.",
         keywords:
-          "custom software development Mexico, business web applications, digitalization consulting, digital transformation SMEs, enterprise software Mexico City, custom management systems, web development Mexico City, business process automation",
+          "custom software development Mexico, business web applications, digitalization consulting, digital marketing consulting Mexico, digital transformation SMEs, enterprise software Mexico City, custom management systems, web development Mexico City, business process automation",
       },
       team: {
         title: "Software Development & Digital Consulting Team",
@@ -734,11 +846,18 @@ export const messages = {
           "software development sectors Mexico, custom software clients, digital consulting portfolio, industry digital transformation, software company Mexico",
       },
       contact: {
-        title: "Let's Talk: Software Consultancy | INIT",
+        title: "Let's Talk: Software & Marketing Consultancy | INIT",
         description:
-          "A conversation to align your operation with INIT. Custom software and digitalization in Mexico — we move forward when there's real sync.",
+          "A conversation to align your operation with INIT. Software, digitalization, and marketing in Mexico — we move forward when there's real sync.",
         keywords:
-          "software consultancy contact Mexico, custom software development, digitalization consulting Mexico, software company Mexico City",
+          "software consultancy contact Mexico, custom software development, digital marketing consulting Mexico, digitalization consulting Mexico, software company Mexico City",
+      },
+      marketing: {
+        title: "Digital marketing with judgment | INIT",
+        description:
+          "Digital marketing for companies in Mexico: presence, message, and growth. INIT evaluates fit — we don't sell campaigns for the sake of selling.",
+        keywords:
+          "digital marketing companies Mexico, marketing consultancy Mexico City, digital presence SMEs, message strategy, INIT marketing with judgment",
       },
     },
     home: {
@@ -816,6 +935,11 @@ export const messages = {
       partnerTitle: "Our partner",
       partnerSub:
         "We don't work alone. Partners who raise the bar.",
+      marketingEyebrow: "The other line",
+      marketingTitle: "Marketing to the same standard.",
+      marketingSub:
+        "Presence and message that hold up. If it fits what we do well, we look at it together.",
+      marketingCta: "See marketing",
     },
     services: {
       eyebrow: "Three paths",
@@ -982,6 +1106,96 @@ export const messages = {
         "Write to us to evaluate fit. If it's not our kind of work, we'll say so.",
       ctaSecondary: "See the work",
     },
+    marketing: {
+      eyebrow: "Marketing",
+      title: "Clarity that holds",
+      subtitle:
+        "The same standard as software: we evaluate fit. We don't sell campaigns for the sake of selling.",
+      introEyebrow: "The line",
+      introTitle: "Be found. Match who you actually are.",
+      introSub:
+        "We order presence and message — calmly, and only when it fits your operation.",
+      pathsEyebrow: "What we do",
+      pathsTitle: "Three fronts. One standard.",
+      pathsSub: "Only what matters. If there's a fit, we figure out the rest together.",
+      paths: [
+        {
+          title: "Digital presence",
+          text: "Sites and pieces that read calmly. No shouting templates.",
+        },
+        {
+          title: "Message and content",
+          text: "Say the right thing, once, well. Not a calendar of noise.",
+        },
+        {
+          title: "Growth with judgment",
+          text: "Channels and campaigns when there's a base. Measure before you scale.",
+        },
+      ],
+      processEyebrow: "How we work",
+      processTitle: "A process that doesn't improvise",
+      processSub: "Fit first. Then execution.",
+      process: [
+        {
+          title: "Understand",
+          description: "Operation, audience, and what already exists — without assuming the channel.",
+          timeframe: "1–2 weeks",
+        },
+        {
+          title: "Frame",
+          description: "Message, priorities, and what not to do. Less noise from the start.",
+          timeframe: "1–2 weeks",
+        },
+        {
+          title: "Build",
+          description: "Presence and pieces you can touch. The same visual standard as the rest of INIT.",
+          timeframe: "2–6 weeks",
+        },
+        {
+          title: "Activate",
+          description: "Channels with measure. No ads on autopilot.",
+          timeframe: "If there's a fit",
+        },
+        {
+          title: "Stay with it",
+          description: "Read results and adjust with the same team. No agency theater.",
+          timeframe: "Ongoing",
+        },
+      ],
+      whyEyebrow: "Why INIT",
+      whyTitle: "Marketing without theater",
+      whySub: "Four principles. Hover — or tap — to read each one.",
+      whyHint: "Principle",
+      benefits: [
+        {
+          title: "Judgment",
+          description:
+            "We choose channels for the business, not the trend. If there's no base, we don't push a campaign.",
+          line: "Less noise. More direction.",
+        },
+        {
+          title: "Honesty",
+          description:
+            "If the problem is the product or the operation, we don't paper over it with ads.",
+          line: "Fit applies here too.",
+        },
+        {
+          title: "Continuity",
+          description: "A stable message. No reinventing the brand every month.",
+          line: "Clarity that holds.",
+        },
+        {
+          title: "Fit",
+          description:
+            "Marketing that talks to the operation — not a world apart from the software.",
+          line: "One standard. Two lines of work.",
+        },
+      ],
+      ctaTitle: "Shall we talk about your presence?",
+      ctaText:
+        "Tell us what you want the market to understand. We'll evaluate whether we can help.",
+      ctaSecondary: "See development",
+    },
     contact: {
       eyebrow: "Conversation",
       title: "Let's see if we're in sync",
@@ -1036,6 +1250,7 @@ export const messages = {
         "Web application",
         "Business system",
         "Consulting",
+        "Digital marketing",
         "ERPinit",
         "CRMinit",
         "initlogistics",
@@ -1092,6 +1307,10 @@ export const messages = {
         {
           q: "Do you have ready-made products?",
           a: "Yes: ERPinit, CRMinit and initlogistics (includes RFID traceability). We also build 100% custom — always talking first about whether that's the right path.",
+        },
+        {
+          q: "Do you also do marketing?",
+          a: "Yes. Presence, message, and growth to the same standard as the software: we evaluate fit. We're not a noise agency.",
         },
       ],
     },

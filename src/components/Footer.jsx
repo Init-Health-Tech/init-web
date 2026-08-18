@@ -60,6 +60,12 @@ const Footer = () => {
                 >
                   {t("footer.services")}
                 </Link>
+                <Link
+                  to="/marketing"
+                  className="text-on-surface-variant text-sm hover:text-primary transition-colors hover:underline underline-offset-4 py-0.5"
+                >
+                  {t("footer.marketing")}
+                </Link>
               </div>
 
               <div className="flex flex-col gap-3 min-w-0">

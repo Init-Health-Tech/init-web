@@ -2,6 +2,12 @@
 
 Skills viven en `.agents/skills/`. Lock: `skills-lock.json` en la raíz.
 
+## Esencia (cargar primero en UI / copy)
+
+| Skill | Cuándo |
+|-------|--------|
+| `init-essence` | Cualquier cambio de página, paleta, CTA, copy o SEO. Gana sobre skills genéricos (no rediseñar perla, no CTAs de SaaS). |
+
 ## Usar según la tarea
 
 ### Diseño / UI
@@ -71,4 +77,6 @@ npx skills add <owner/repo@skill> -y
 - `docs/PROJECT_CONTEXT.md` — verdad del producto
 - `.agents/product-marketing.md` — voz y CTAs
 - `docs/brand-colors.md` — colores
-- `.cursor/rules/init-web.mdc` — regla always-on
+- `.cursor/rules/init-web.mdc` — always-on (posicionamiento + giros)
+- `.cursor/rules/init-stack.mdc` — always-on (Vite, no Next/RN)
+- `.cursor/rules/init-pages.mdc` / `init-copy.mdc` / `init-motion.mdc` — por archivos
