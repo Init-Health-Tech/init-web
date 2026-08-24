@@ -7,20 +7,34 @@ import PageVideoBackground from "../components/PageVideoBackground";
 import Reveal from "../components/Reveal";
 import ProcessTimeline from "../components/ProcessTimeline";
 import WhyInitPrinciples from "../components/WhyInitPrinciples";
-import MarketingIllustration from "../components/MarketingIllustration";
-import { Stagger, StaggerItem } from "../components/Stagger";
+import ServiceStory from "../components/ServiceStory";
+import MarketingServiceIllustration from "../components/MarketingServiceIllustration";
 import { getPageSeo } from "../data/seoData";
 import { BRAND } from "../data/brandData";
 import { useLanguage } from "../i18n/LanguageContext";
+import {
+  Share2 as ShareIcon,
+  Brain as BrainIcon,
+  Megaphone as MegaphoneIcon,
+} from "lucide-react";
+
+const MARKETING_ICONS = [ShareIcon, BrainIcon, MegaphoneIcon];
+const MARKETING_ART = ["digital", "neuro", "traditional"];
 
 const Marketing = () => {
   const { t, lang } = useLanguage();
-  const paths = t("marketing.paths");
+  const items = t("marketing.items");
   const process = t("marketing.process");
   const benefits = t("marketing.benefits");
   const seo = getPageSeo("marketing", lang);
-  const serviceName =
-    lang === "en" ? "Digital marketing consulting" : "Consultoría de marketing digital";
+  const catalogName =
+    lang === "en"
+      ? "INIT marketing services"
+      : "Servicios de marketing INIT";
+  const serviceTypes =
+    lang === "en"
+      ? ["Digital marketing", "Neuromarketing", "Traditional marketing"]
+      : ["Marketing digital", "Neuromarketing", "Marketing tradicional"];
 
   return (
     <div className="min-h-screen relative z-10">
@@ -36,16 +50,29 @@ const Marketing = () => {
           {
             "@context": "https://schema.org",
             "@type": "Service",
-            name: serviceName,
+            name: catalogName,
             provider: {
               "@type": "Organization",
               name: "INIT",
               url: BRAND.siteUrl,
             },
             areaServed: ["MX", "Worldwide"],
-            serviceType: serviceName,
+            serviceType: serviceTypes,
             description: seo.description,
             url: `${BRAND.siteUrl}/marketing`,
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: catalogName,
+              itemListElement: items.map((item, i) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: item.title,
+                  description: item.description,
+                  serviceType: serviceTypes[i],
+                },
+              })),
+            },
           },
         ]}
       />
@@ -56,56 +83,19 @@ const Marketing = () => {
         subtitle={t("marketing.subtitle")}
       />
 
-      <section className="layer-panel section-py pt-4 sm:pt-8 bg-background/80">
-        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <Reveal inView variant="blur">
-              <p className="eyebrow mb-4">{t("marketing.introEyebrow")}</p>
-              <h2 className="display-section mb-5 text-balance">
-                {t("marketing.introTitle")}
-              </h2>
-              <p className="text-on-surface-variant text-base sm:text-lg leading-relaxed max-w-md">
-                {t("marketing.introSub")}
-              </p>
-            </Reveal>
-            <Reveal inView variant="up" delay={0.12}>
-              <MarketingIllustration title={t("marketing.introTitle")} />
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="layer-panel section-py bg-surface-container-low">
-        <div className="max-w-container mx-auto px-4 sm:px-6 md:px-20">
-          <Reveal inView variant="up" className="text-center max-w-xl mx-auto mb-14 sm:mb-16">
-            <p className="eyebrow mb-4">{t("marketing.pathsEyebrow")}</p>
-            <h2 className="display-section mb-4 text-balance">
-              {t("marketing.pathsTitle")}
-            </h2>
-            <p className="text-on-surface-variant text-base sm:text-lg leading-relaxed">
-              {t("marketing.pathsSub")}
-            </p>
-          </Reveal>
-          <Stagger
-            inView
-            className="grid sm:grid-cols-3 gap-10 md:gap-12"
-            stagger={0.18}
-          >
-            {paths.map((item, i) => (
-              <StaggerItem key={item.title} variant="up">
-                <p className="font-heading text-[13px] text-secondary font-medium tracking-[0.16em] mb-5">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="text-xl md:text-[1.35rem] font-semibold mb-3 tracking-tight text-on-surface">
-                  {item.title}
-                </h3>
-                <p className="text-on-surface-variant text-[15px] leading-relaxed">
-                  {item.text}
-                </p>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
+      <section className="layer-panel bg-background/80 pt-4 sm:pt-8">
+        {items.map((service, index) => (
+          <ServiceStory
+            key={service.title}
+            service={service}
+            index={index}
+            artKind={MARKETING_ART[index]}
+            Icon={MARKETING_ICONS[index]}
+            imageRight={index % 2 === 1}
+            tone="marketing"
+            Illustration={MarketingServiceIllustration}
+          />
+        ))}
       </section>
 
       <section className="layer-panel section-py bg-background">

@@ -613,6 +613,10 @@ textarea:focus-visible,
     border-radius: var(--radius-exec);
   }
 
+  .icon-badge-marketing {
+    @apply bg-secondary text-background border-secondary/25;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .solution-rfid-pulse circle:nth-child(2),
     .solution-rfid-pulse circle:nth-child(3),

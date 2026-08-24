@@ -34,7 +34,7 @@
 1. **Software a medida** — apps web, sistemas de gestión, APIs
 2. **Consultoría en digitalización** — diagnóstico, roadmap, priorización
 3. **Sistemas e integración** — automatización, datos, cloud, cyberseguridad
-4. **Marketing** — presencia digital, mensaje y crecimiento con criterio (no agencia de ruido)
+4. **Marketing** — tradicional, digital y neuromarketing; conectamos marca y audiencia con criterio (no agencia de ruido)
 5. **Productos listos** — ERPinit, CRMinit, initlogistics (cuando aplique — siempre con evaluación de fit)
 
 **Transformación clave:** pasar de pelear contra la operación a que el sistema trabaje *con* la empresa — solo cuando el encaje es real.
@@ -86,8 +86,8 @@ Framing: el contacto es para **diagnosticar fit**. A veces la respuesta honesta 
 
 ## Messaging — Marketing
 
-- Header: claridad que se sostiene — no una agencia de ruido
-- Tres frentes: presencia digital, mensaje/contenido, crecimiento con criterio
+- Header: conectamos tu marca con tu audiencia — no una agencia de ruido
+- Tres caminos: marketing digital, neuromarketing, marketing tradicional
 - CTA: el mismo filtro de fit; `btn-marketing` solo para **entrar** al giro, no para “contratar campaña”
 - Nunca: likes, “hazte viral”, pauta ilimitada, urgencia
 
@@ -111,4 +111,4 @@ Fuente: `docs/brand-colors.md`. Superficies **perla**; navy es texto, no fondo.
 
 ## SEO (sin sacrificar tono)
 
-Incluir de forma natural: desarrollo de software a medida, consultoría digital, marketing digital, México. Title/meta en `src/data/seoData.js`.
+Incluir de forma natural: desarrollo de software a medida, consultoría digital, marketing digital, neuromarketing, marketing tradicional, México. Title/meta en `src/data/seoData.js`.

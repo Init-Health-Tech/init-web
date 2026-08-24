@@ -14,7 +14,7 @@ This site is **already designed**. Extend it. Do not restyle it.
 | Giro | Color | Rutas | Qué es |
 |------|--------|-------|--------|
 | Desarrollo | Green `#1E8F41` | `/services`, `/soluciones` | Software a medida, digitalización, integración |
-| Marketing | Teal `#00A7A7` | `/marketing` | Presencia, mensaje, crecimiento con criterio |
+| Marketing | Teal `#00A7A7` | `/marketing` | Tradicional, digital y neuromarketing — con criterio |
 
 Both evaluate **fit** first. Never sell by default. Primary conversion CTA stays green (`btn-primary`). Teal is path/clarity (`eyebrow`, `btn-marketing`), not “Cotiza”.
 

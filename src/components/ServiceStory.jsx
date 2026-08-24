@@ -18,7 +18,17 @@ const ServiceStory = ({
   artKind,
   Icon,
   imageRight = false,
+  tone = "dev",
+  Illustration,
 }) => {
+  const Art = Illustration || ServiceIllustration;
+  const isMarketing = tone === "marketing";
+  const accentText = isMarketing ? "text-secondary" : "text-primary";
+  const accentBorder = isMarketing ? "border-secondary" : "border-primary";
+  const badgeClass = isMarketing ? "icon-badge icon-badge-marketing" : "icon-badge";
+  const iconClass = isMarketing
+    ? "h-7 w-7 text-background"
+    : "h-7 w-7 text-on-primary-container";
   const reduce = useReducedMotion();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -54,7 +64,7 @@ const ServiceStory = ({
     return (
       <article className="py-16 sm:py-24 max-w-container mx-auto px-4 sm:px-6 md:px-20">
         <div className={imageRight ? "text-right" : ""}>
-          <p className="font-heading text-[13px] text-primary font-medium tracking-[0.16em] mb-4">
+          <p className={`font-heading text-[13px] ${accentText} font-medium tracking-[0.16em] mb-4`}>
             {String(index + 1).padStart(2, "0")}
           </p>
           <h2
@@ -71,9 +81,16 @@ const ServiceStory = ({
           }`}
         >
           <div className={imageRight ? "lg:col-start-2" : ""}>
-            <ServiceIllustration kind={artKind} title={service.title} />
+            <Art kind={artKind} title={service.title} />
           </div>
-          <ServiceCopy service={service} Icon={Icon} />
+          <ServiceCopy
+            service={service}
+            Icon={Icon}
+            badgeClass={badgeClass}
+            iconClass={iconClass}
+            accentText={accentText}
+            accentBorder={accentBorder}
+          />
         </div>
       </article>
     );
@@ -94,7 +111,7 @@ const ServiceStory = ({
               imageRight ? "text-right" : ""
             }`}
           >
-            <p className="font-heading text-[13px] text-primary font-medium tracking-[0.16em] mb-3 sm:mb-5">
+            <p className={`font-heading text-[13px] ${accentText} font-medium tracking-[0.16em] mb-3 sm:mb-5`}>
               {String(index + 1).padStart(2, "0")}
             </p>
             <h2
@@ -124,7 +141,7 @@ const ServiceStory = ({
                 }}
                 className={`will-change-transform ${imageRight ? "lg:col-start-2" : ""}`}
               >
-                <ServiceIllustration kind={artKind} title={service.title} />
+                <Art kind={artKind} title={service.title} />
               </motion.div>
 
               <motion.div
@@ -133,7 +150,14 @@ const ServiceStory = ({
                   imageRight ? "lg:col-start-1 lg:row-start-1" : ""
                 }`}
               >
-                <ServiceCopy service={service} Icon={Icon} />
+                <ServiceCopy
+                  service={service}
+                  Icon={Icon}
+                  badgeClass={badgeClass}
+                  iconClass={iconClass}
+                  accentText={accentText}
+                  accentBorder={accentBorder}
+                />
               </motion.div>
             </div>
           </div>
@@ -143,12 +167,19 @@ const ServiceStory = ({
   );
 };
 
-function ServiceCopy({ service, Icon }) {
+function ServiceCopy({
+  service,
+  Icon,
+  badgeClass = "icon-badge",
+  iconClass = "h-7 w-7 text-on-primary-container",
+  accentText = "text-primary",
+  accentBorder = "border-primary",
+}) {
   return (
     <div>
       {Icon ? (
-        <div className="icon-badge mb-5 sm:mb-6">
-          <Icon className="h-7 w-7 text-on-primary-container" />
+        <div className={`${badgeClass} mb-5 sm:mb-6`}>
+          <Icon className={iconClass} />
         </div>
       ) : null}
       <p className="text-base sm:text-lg text-on-surface mb-3 leading-relaxed">
@@ -157,18 +188,18 @@ function ServiceCopy({ service, Icon }) {
       <p className="text-on-surface-variant mb-6 sm:mb-8 leading-relaxed">
         {service.description}
       </p>
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
+      <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${accentText} mb-4`}>
         {service.featuresLabel}
       </p>
       <ul className="space-y-2.5 mb-8">
         {service.features.map((f) => (
           <li key={f} className="flex items-start gap-3">
-            <CheckCircleIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+            <CheckCircleIcon className={`h-5 w-5 ${accentText} mt-0.5 flex-shrink-0`} />
             <span className="text-on-surface text-sm sm:text-base">{f}</span>
           </li>
         ))}
       </ul>
-      <p className="text-primary font-medium border-l-2 border-primary pl-4 leading-relaxed">
+      <p className={`${accentText} font-medium border-l-2 ${accentBorder} pl-4 leading-relaxed`}>
         {service.result}
       </p>
     </div>

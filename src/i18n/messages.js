@@ -85,11 +85,11 @@ export const messages = {
           "contacto consultoría software México, desarrollo software a medida, marketing digital empresas México, consultoría digitalización México, empresa software Ciudad de México",
       },
       marketing: {
-        title: "Marketing digital con criterio | INIT",
+        title: "Marketing tradicional, digital y neuromarketing | INIT",
         description:
-          "Marketing digital para empresas en México: presencia, mensaje y crecimiento. INIT evalúa fit — no vendemos campañas por vender.",
+          "INIT conecta tu marca con tu audiencia: marketing digital, tradicional y neuromarketing en México. Evaluamos fit — no vendemos campañas por vender.",
         keywords:
-          "marketing digital empresas México, consultoría marketing Ciudad de México, presencia digital pymes, estrategia de mensaje, marketing con criterio INIT",
+          "marketing digital empresas México, neuromarketing México, marketing tradicional empresas, SEO SEM Social Ads, consultoría marketing Ciudad de México, INIT marketing",
       },
     },
     home: {
@@ -169,7 +169,7 @@ export const messages = {
       marketingEyebrow: "El otro giro",
       marketingTitle: "Marketing con el mismo criterio.",
       marketingSub:
-        "Presencia y mensaje que se sostienen. Si encaja con lo que hacemos bien, lo vemos juntos.",
+        "Conectamos tu marca con tu audiencia: tradicional, digital y neuromarketing. Si encaja, lo vemos juntos.",
       marketingCta: "Ver marketing",
     },
     services: {
@@ -339,28 +339,52 @@ export const messages = {
     },
     marketing: {
       eyebrow: "Marketing",
-      title: "Claridad que se sostiene",
+      title: "Conectamos tu marca con tu audiencia",
       subtitle:
-        "El mismo estándar que en software: evaluamos fit. No vendemos campañas por vender.",
-      introEyebrow: "El giro",
-      introTitle: "Que te encuentren. Que coincida con lo que eres.",
-      introSub:
-        "Ordenamos presencia y mensaje — con calma, y solo cuando hay encaje con tu operación.",
-      pathsEyebrow: "Qué hacemos",
-      pathsTitle: "Tres frentes. Una sola exigencia.",
-      pathsSub: "Solo lo esencial. Si encaja, el resto lo vemos juntos.",
-      paths: [
+        "Marketing tradicional, digital y neuromarketing. El mismo estándar que en software: primero evaluamos fit.",
+      items: [
         {
-          title: "Presencia digital",
-          text: "Sitios y piezas que se leen con calma. Sin plantillas que gritan.",
+          title: "Marketing digital",
+          intro: "Para cuando existes, pero no te encuentran — o te encuentran distinto a como eres.",
+          description:
+            "Redes, pauta, búsqueda, correo y copy. Presencia que se puede medir. Sin calendario de ruido.",
+          featuresLabel: "Qué cubrimos",
+          features: [
+            "Gestión de redes sociales",
+            "Publicidad en línea (SEM y Social Ads)",
+            "SEO",
+            "Email marketing",
+            "Copywriting",
+          ],
+          result: "Que te encuentren. Y que coincida con lo que eres.",
         },
         {
-          title: "Mensaje y contenido",
-          text: "Decir lo correcto, una vez, bien. No un calendario de ruido.",
+          title: "Neuromarketing",
+          intro: "La gente no elige lo que no siente.",
+          description:
+            "Leemos percepción, decisión y recuerdo. El mensaje se diseña desde cómo responde la audiencia — no desde un moodboard.",
+          featuresLabel: "Qué cubrimos",
+          features: [
+            "Análisis del consumidor",
+            "Experiencia de usuario (UX) basada en neurociencias",
+            "Estrategias de comunicación emocional",
+            "Estudios de percepción de marca",
+          ],
+          result: "Comunicación que llega. No solo se publica.",
         },
         {
-          title: "Crecimiento con criterio",
-          text: "Canales y campañas cuando hay base. Medir antes de escalar.",
+          title: "Marketing tradicional",
+          intro: "No todo lo que importa cabe en una pantalla.",
+          description:
+            "Relaciones públicas, medios, eventos y punto de venta. Presencia que ocupa un lugar real — cuando el negocio lo pide.",
+          featuresLabel: "Qué cubrimos",
+          features: [
+            "Relaciones públicas y activaciones",
+            "Medios impresos y exteriores",
+            "Eventos corporativos",
+            "Material de punto de venta (POS)",
+          ],
+          result: "La marca también existe fuera del feed.",
         },
       ],
       processEyebrow: "Cómo trabajamos",
@@ -369,27 +393,27 @@ export const messages = {
       process: [
         {
           title: "Entender",
-          description: "Operación, audiencia y lo que ya existe — sin asumir el canal.",
+          description: "Marca, audiencia y lo que ya existe — en digital, en el mundo real y en cómo se percibe.",
           timeframe: "1–2 semanas",
         },
         {
           title: "Enmarcar",
-          description: "Mensaje, prioridades y qué no hacer. Menos ruido desde el inicio.",
+          description: "Qué canal, qué no. Digital, tradicional o ambos. Menos ruido desde el inicio.",
           timeframe: "1–2 semanas",
         },
         {
           title: "Construir",
-          description: "Presencia y piezas que se pueden tocar. El mismo estándar visual que el resto de INIT.",
+          description: "Piezas que se pueden tocar: presencia, mensaje, experiencia. El mismo estándar visual que el resto de INIT.",
           timeframe: "2–6 semanas",
         },
         {
           title: "Activar",
-          description: "Canales con medida. Nada de pauta por inercia.",
+          description: "Campañas, activaciones o ambos — con medida. Nada de pauta por inercia.",
           timeframe: "Según el encaje",
         },
         {
           title: "Acompañar",
-          description: "Leer resultados y ajustar con el mismo equipo. Sin teatro de agencia.",
+          description: "Leer percepción y resultados. Ajustar con el mismo equipo. Sin teatro de agencia.",
           timeframe: "Continuo",
         },
       ],
@@ -401,19 +425,19 @@ export const messages = {
         {
           title: "Criterio",
           description:
-            "Elegimos canales por el negocio, no por moda. Si no hay base, no empujamos campaña.",
+            "Elegimos canales por el negocio, no por moda. Digital, tradicional o neuro: si no hay base, no empujamos.",
           line: "Menos ruido. Más dirección.",
         },
         {
           title: "Honestidad",
           description:
-            "Si el problema es el producto o la operación, no lo tapamos con anuncios.",
+            "Si el problema es el producto o la operación, no lo tapamos con anuncios ni con un evento.",
           line: "El fit también aplica aquí.",
         },
         {
           title: "Continuidad",
           description:
-            "Un mensaje estable. Sin reinventar la marca cada mes.",
+            "Un mensaje estable en cada canal. Sin reinventar la marca cada mes.",
           line: "Claridad que se sostiene.",
         },
         {
@@ -423,9 +447,9 @@ export const messages = {
           line: "Un estándar. Dos giros.",
         },
       ],
-      ctaTitle: "¿Hablamos de tu presencia?",
+      ctaTitle: "¿Hablamos de tu marca?",
       ctaText:
-        "Cuéntanos qué quieres que el mercado entienda. Evaluamos si podemos aportar.",
+        "Cuéntanos a quién quieres llegar. Evaluamos si podemos conectar — y cómo.",
       ctaSecondary: "Ver desarrollo",
     },
     contact: {
@@ -483,6 +507,8 @@ export const messages = {
         "Sistema empresarial",
         "Consultoría",
         "Marketing digital",
+        "Neuromarketing",
+        "Marketing tradicional",
         "ERPinit",
         "CRMinit",
         "initlogistics",
@@ -542,7 +568,7 @@ export const messages = {
         },
         {
           q: "¿También hacen marketing?",
-          a: "Sí. Presencia, mensaje y crecimiento con el mismo criterio que el software: evaluamos fit. No somos una agencia de ruido.",
+          a: "Sí. Digital, tradicional y neuromarketing — con el mismo criterio que el software: evaluamos fit. No somos una agencia de ruido.",
         },
       ],
     },
@@ -853,11 +879,11 @@ export const messages = {
           "software consultancy contact Mexico, custom software development, digital marketing consulting Mexico, digitalization consulting Mexico, software company Mexico City",
       },
       marketing: {
-        title: "Digital marketing with judgment | INIT",
+        title: "Traditional, digital and neuromarketing | INIT",
         description:
-          "Digital marketing for companies in Mexico: presence, message, and growth. INIT evaluates fit — we don't sell campaigns for the sake of selling.",
+          "INIT connects your brand with your audience: digital, traditional and neuromarketing in Mexico. We evaluate fit — we don't sell campaigns for the sake of selling.",
         keywords:
-          "digital marketing companies Mexico, marketing consultancy Mexico City, digital presence SMEs, message strategy, INIT marketing with judgment",
+          "digital marketing companies Mexico, neuromarketing Mexico, traditional marketing companies, SEO SEM Social Ads, marketing consultancy Mexico City, INIT marketing",
       },
     },
     home: {
@@ -938,7 +964,7 @@ export const messages = {
       marketingEyebrow: "The other line",
       marketingTitle: "Marketing to the same standard.",
       marketingSub:
-        "Presence and message that hold up. If it fits what we do well, we look at it together.",
+        "We connect your brand with your audience: traditional, digital, and neuromarketing. If it fits, we look at it together.",
       marketingCta: "See marketing",
     },
     services: {
@@ -1108,28 +1134,52 @@ export const messages = {
     },
     marketing: {
       eyebrow: "Marketing",
-      title: "Clarity that holds",
+      title: "We connect your brand with your audience",
       subtitle:
-        "The same standard as software: we evaluate fit. We don't sell campaigns for the sake of selling.",
-      introEyebrow: "The line",
-      introTitle: "Be found. Match who you actually are.",
-      introSub:
-        "We order presence and message — calmly, and only when it fits your operation.",
-      pathsEyebrow: "What we do",
-      pathsTitle: "Three fronts. One standard.",
-      pathsSub: "Only what matters. If there's a fit, we figure out the rest together.",
-      paths: [
+        "Traditional, digital, and neuromarketing. The same standard as software: we evaluate fit first.",
+      items: [
         {
-          title: "Digital presence",
-          text: "Sites and pieces that read calmly. No shouting templates.",
+          title: "Digital marketing",
+          intro: "For when you exist, but nobody finds you — or they find a version that isn't you.",
+          description:
+            "Social, ads, search, email, and copy. Presence you can measure. No calendar of noise.",
+          featuresLabel: "What we cover",
+          features: [
+            "Social media management",
+            "Online advertising (SEM and Social Ads)",
+            "SEO",
+            "Email marketing",
+            "Copywriting",
+          ],
+          result: "That they find you. And that it matches who you are.",
         },
         {
-          title: "Message and content",
-          text: "Say the right thing, once, well. Not a calendar of noise.",
+          title: "Neuromarketing",
+          intro: "People don't choose what they don't feel.",
+          description:
+            "We read perception, decision, and memory. The message is designed from how the audience responds — not from a moodboard.",
+          featuresLabel: "What we cover",
+          features: [
+            "Consumer analysis",
+            "UX informed by neuroscience",
+            "Emotional communication strategies",
+            "Brand perception studies",
+          ],
+          result: "Communication that lands. Not just that gets published.",
         },
         {
-          title: "Growth with judgment",
-          text: "Channels and campaigns when there's a base. Measure before you scale.",
+          title: "Traditional marketing",
+          intro: "Not everything that matters fits on a screen.",
+          description:
+            "PR, media, events, and point of sale. Presence that occupies a real place — when the business asks for it.",
+          featuresLabel: "What we cover",
+          features: [
+            "Public relations and activations",
+            "Print and outdoor media",
+            "Corporate events",
+            "Point-of-sale (POS) materials",
+          ],
+          result: "The brand also exists outside the feed.",
         },
       ],
       processEyebrow: "How we work",
@@ -1138,27 +1188,27 @@ export const messages = {
       process: [
         {
           title: "Understand",
-          description: "Operation, audience, and what already exists — without assuming the channel.",
+          description: "Brand, audience, and what already exists — digital, in the real world, and in how it's perceived.",
           timeframe: "1–2 weeks",
         },
         {
           title: "Frame",
-          description: "Message, priorities, and what not to do. Less noise from the start.",
+          description: "Which channel, and which not. Digital, traditional, or both. Less noise from the start.",
           timeframe: "1–2 weeks",
         },
         {
           title: "Build",
-          description: "Presence and pieces you can touch. The same visual standard as the rest of INIT.",
+          description: "Pieces you can touch: presence, message, experience. The same visual standard as the rest of INIT.",
           timeframe: "2–6 weeks",
         },
         {
           title: "Activate",
-          description: "Channels with measure. No ads on autopilot.",
+          description: "Campaigns, activations, or both — with measure. No ads on autopilot.",
           timeframe: "If there's a fit",
         },
         {
           title: "Stay with it",
-          description: "Read results and adjust with the same team. No agency theater.",
+          description: "Read perception and results. Adjust with the same team. No agency theater.",
           timeframe: "Ongoing",
         },
       ],
@@ -1170,18 +1220,18 @@ export const messages = {
         {
           title: "Judgment",
           description:
-            "We choose channels for the business, not the trend. If there's no base, we don't push a campaign.",
+            "We choose channels for the business, not the trend. Digital, traditional, or neuro: if there's no base, we don't push.",
           line: "Less noise. More direction.",
         },
         {
           title: "Honesty",
           description:
-            "If the problem is the product or the operation, we don't paper over it with ads.",
+            "If the problem is the product or the operation, we don't paper over it with ads or an event.",
           line: "Fit applies here too.",
         },
         {
           title: "Continuity",
-          description: "A stable message. No reinventing the brand every month.",
+          description: "A stable message on every channel. No reinventing the brand every month.",
           line: "Clarity that holds.",
         },
         {
@@ -1191,9 +1241,9 @@ export const messages = {
           line: "One standard. Two lines of work.",
         },
       ],
-      ctaTitle: "Shall we talk about your presence?",
+      ctaTitle: "Shall we talk about your brand?",
       ctaText:
-        "Tell us what you want the market to understand. We'll evaluate whether we can help.",
+        "Tell us who you want to reach. We'll evaluate whether we can connect — and how.",
       ctaSecondary: "See development",
     },
     contact: {
@@ -1251,6 +1301,8 @@ export const messages = {
         "Business system",
         "Consulting",
         "Digital marketing",
+        "Neuromarketing",
+        "Traditional marketing",
         "ERPinit",
         "CRMinit",
         "initlogistics",
@@ -1310,7 +1362,7 @@ export const messages = {
         },
         {
           q: "Do you also do marketing?",
-          a: "Yes. Presence, message, and growth to the same standard as the software: we evaluate fit. We're not a noise agency.",
+          a: "Yes. Digital, traditional, and neuromarketing — to the same standard as the software: we evaluate fit. We're not a noise agency.",
         },
       ],
     },

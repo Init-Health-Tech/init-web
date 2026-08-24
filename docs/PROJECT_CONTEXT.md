@@ -44,7 +44,7 @@ Sin navy-as-background. Gradiente marca: green → teal.
 |------|---------|--------|
 | `/` | `Home.jsx` | Apple layout, scrim navy, escasez |
 | `/services` | `Services.jsx` | Tres caminos de desarrollo, exigencia |
-| `/marketing` | `Marketing.jsx` | Giro de marketing (teal) — presencia, mensaje, criterio |
+| `/marketing` | `Marketing.jsx` | Giro de marketing (teal) — tradicional, digital y neuromarketing |
 | `/contact` | `Contact.jsx` | Evaluar fit + FAQ honestas |
 | `/portfolio` | `Portfolio.jsx` | Casos reales, CTA filtro |
 | `/team` | `Team.jsx` | Equipo (ruta oculta de momento) |

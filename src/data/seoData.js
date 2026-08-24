@@ -98,15 +98,16 @@ export const pageSeo = {
   },
   marketing: {
     path: "/marketing",
-    title: "Marketing digital con criterio",
+    title: "Marketing tradicional, digital y neuromarketing",
     description:
-      "Marketing digital para empresas en México: presencia, mensaje y crecimiento. INIT evalúa fit — no vendemos campañas por vender.",
+      "INIT conecta tu marca con tu audiencia: marketing digital, tradicional y neuromarketing en México. Evaluamos fit — no vendemos campañas por vender.",
     keywords: [
       "marketing digital empresas México",
+      "neuromarketing México",
+      "marketing tradicional empresas",
+      "SEO SEM Social Ads",
       "consultoría marketing Ciudad de México",
-      "presencia digital pymes",
-      "estrategia de mensaje",
-      "marketing con criterio INIT",
+      "INIT marketing",
     ].join(", "),
   },
   contact: {

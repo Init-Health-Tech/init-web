@@ -60,6 +60,8 @@ const Home = () => {
                     "Web application development",
                     "Systems integration",
                     "Digital marketing consulting",
+                    "Neuromarketing",
+                    "Traditional marketing",
                   ]
                 : [
                     "Desarrollo de software a medida",
@@ -67,6 +69,8 @@ const Home = () => {
                     "Desarrollo de aplicaciones web",
                     "Integración de sistemas",
                     "Consultoría de marketing digital",
+                    "Neuromarketing",
+                    "Marketing tradicional",
                   ],
           },
         ]}

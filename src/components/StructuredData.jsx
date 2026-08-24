@@ -33,6 +33,8 @@ const StructuredData = ({ description, extra = [] }) => {
           "Digitalization consulting",
           "Digital transformation",
           "Digital marketing",
+          "Neuromarketing",
+          "Traditional marketing",
           "Cybersecurity",
           "Data Analysis",
         ]
@@ -42,6 +44,8 @@ const StructuredData = ({ description, extra = [] }) => {
           "Consultoría en digitalización",
           "Transformación digital",
           "Marketing digital",
+          "Neuromarketing",
+          "Marketing tradicional",
           "Cyberseguridad",
           "Data Analysis",
         ];
