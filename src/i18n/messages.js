@@ -64,11 +64,11 @@ export const messages = {
           "servicios desarrollo software a medida, consultoría transformación digital México, desarrollo aplicaciones web empresariales, integración de sistemas, data analysis empresas, cyberseguridad empresarial, automatización procesos",
       },
       solutions: {
-        title: "ERPinit, CRMinit e initlogistics | Software Listo | INIT",
+        title: "CRMinit e initlogistics | Software Listo | INIT",
         description:
-          "ERPinit, CRMinit e initlogistics: ERP, CRM y logística con RFID para empresas en México. Productos listos — siempre con evaluación de fit.",
+          "CRMinit se adapta a los procesos de tu empresa: pipeline, clientes y proyectos. initlogistics con RFID. Siempre con evaluación de fit.",
         keywords:
-          "ERP México, CRM México, software CRM empresas, logística RFID México, initlogistics, ERPinit, CRMinit, software listo para usar",
+          "CRM México, software CRM empresas, CRM adaptable procesos, pipeline de ventas, logística RFID México, initlogistics, CRMinit, software listo para usar",
       },
       portfolio: {
         title: "Proyectos y Clientes: Sectores y Trabajo Real | INIT",
@@ -509,7 +509,6 @@ export const messages = {
         "Marketing digital",
         "Neuromarketing",
         "Marketing tradicional",
-        "ERPinit",
         "CRMinit",
         "initlogistics",
         "Otro",
@@ -564,7 +563,7 @@ export const messages = {
         },
         {
           q: "¿Tienen productos listos?",
-          a: "Sí: ERPinit, CRMinit e initlogistics (incluye trazabilidad RFID). También desarrollamos 100% a medida — siempre conversando primero si es el camino correcto.",
+          a: "Sí: CRMinit e initlogistics (incluye trazabilidad RFID). También desarrollamos 100% a medida — siempre conversando primero si es el camino correcto.",
         },
         {
           q: "¿También hacen marketing?",
@@ -721,9 +720,9 @@ export const messages = {
       eyebrow: "Productos",
       title: "Soluciones listas",
       subtitle:
-        "ERPinit, CRMinit e initlogistics: operación, relación con clientes y logística con RFID — cuando el producto encaja de verdad.",
+        "CRMinit e initlogistics: relación con clientes que se adapta a tu proceso, y logística con RFID — cuando el producto encaja de verdad.",
       introEyebrow: "Catálogo",
-      introTitle: "Tres productos. Un solo criterio: que encajen.",
+      introTitle: "Dos productos. Un solo criterio: que encajen.",
       introSub:
         "Elige uno, míralo con calma. No son plantillas genéricas ni demos de catálogo — cada uno existe para un tipo de operación. Si no es el tuyo, lo decimos.",
       pickHint: "Elige un producto",
@@ -739,40 +738,22 @@ export const messages = {
         "A veces un producto encaja. A veces no. Lo evaluamos contigo.",
       ctaSecondary: "Ver servicios",
       items: {
-        erp: {
-          tagline: "Planificación de recursos empresariales",
-          description:
-            "ERP listo para centralizar finanzas, inventario, compras y ventas. Una sola operación — sin pelear con hojas de cálculo desconectadas.",
-          features: [
-            "Gestión financiera y contable",
-            "Control de inventario y almacén",
-            "Ventas, compras y proveedores",
-            "Reportes y dashboards",
-            "Multiempresa y multiusuario",
-            "Implementación y acompañamiento",
-          ],
-          paraQuien: [
-            "Pymes que necesitan un ERP integrado sin empezar de cero",
-            "Empresas con varios almacenes o puntos de venta",
-            "Equipos listos para dejar Excel y unificar el control",
-          ],
-        },
         crm: {
-          tagline: "Relación con clientes y pipeline de ventas",
+          tagline: "CRM que sigue tu proceso, no al revés",
           description:
-            "CRM para seguir prospectos, oportunidades y seguimiento comercial en un solo lugar. Menos WhatsApp perdido. Más claridad de quién compra y por qué se frena.",
+            "De prospecto a cliente a proyecto, en un solo lugar. Las etapas del pipeline, los equipos y lo que pasa después del cierre se configuran a cómo ya trabaja tu empresa. Menos WhatsApp perdido. Más claridad de quién compra y qué sigue.",
           features: [
-            "Pipeline de ventas y etapas configurables",
-            "Contactos, empresas e historial en un solo lugar",
-            "Seguimiento de oportunidades y tareas",
-            "Recordatorios y actividad del equipo comercial",
-            "Reportes de conversión y embudo",
+            "Pipeline con etapas configurables",
+            "Clientes, contactos e historial comercial",
+            "De oportunidad ganada a proyecto de entrega",
+            "Documentos, calendario y tareas del equipo",
+            "Roles, equipos y varias organizaciones",
             "Implementación y acompañamiento",
           ],
           paraQuien: [
             "Equipos comerciales que viven en Excel, notas o chats",
-            "Empresas que pierden seguimiento entre prospecto y cierre",
-            "Operaciones que quieren visibilidad del embudo sin un sistema a medida todavía",
+            "Empresas cuyo proceso no cabe en un CRM genérico",
+            "Operaciones que quieren visibilidad del embudo — y seguir con el proyecto, no solo con el cierre",
           ],
         },
         logistics: {
@@ -858,11 +839,11 @@ export const messages = {
           "custom software development services, digital transformation consulting Mexico, business web app development, systems integration, business data analysis, enterprise cybersecurity, process automation",
       },
       solutions: {
-        title: "ERPinit, CRMinit & initlogistics | Ready Software | INIT",
+        title: "CRMinit & initlogistics | Ready Software | INIT",
         description:
-          "ERPinit, CRMinit and initlogistics: ERP, CRM and RFID logistics for companies in Mexico. Ready products — always with a fit evaluation.",
+          "CRMinit adapts to your company's processes: pipeline, clients, and projects. initlogistics with RFID. Always with a fit evaluation.",
         keywords:
-          "ERP Mexico, CRM Mexico, enterprise CRM software, RFID logistics Mexico, initlogistics, ERPinit, CRMinit, ready-to-use software",
+          "CRM Mexico, enterprise CRM software, adaptable CRM processes, sales pipeline, RFID logistics Mexico, initlogistics, CRMinit, ready-to-use software",
       },
       portfolio: {
         title: "Projects & Clients: Sectors and Real Work | INIT",
@@ -1303,7 +1284,6 @@ export const messages = {
         "Digital marketing",
         "Neuromarketing",
         "Traditional marketing",
-        "ERPinit",
         "CRMinit",
         "initlogistics",
         "Other",
@@ -1358,7 +1338,7 @@ export const messages = {
         },
         {
           q: "Do you have ready-made products?",
-          a: "Yes: ERPinit, CRMinit and initlogistics (includes RFID traceability). We also build 100% custom — always talking first about whether that's the right path.",
+          a: "Yes: CRMinit and initlogistics (includes RFID traceability). We also build 100% custom — always talking first about whether that's the right path.",
         },
         {
           q: "Do you also do marketing?",
@@ -1515,9 +1495,9 @@ export const messages = {
       eyebrow: "Products",
       title: "Ready-made solutions",
       subtitle:
-        "ERPinit, CRMinit and initlogistics: operations, customer relationships, and RFID logistics — when the product truly fits.",
+        "CRMinit and initlogistics: customer relationships that adapt to your process, and RFID logistics — when the product truly fits.",
       introEyebrow: "Catalog",
-      introTitle: "Three products. One criterion: that they fit.",
+      introTitle: "Two products. One criterion: that they fit.",
       introSub:
         "Pick one and look closely. Not generic templates or catalog demos — each exists for a type of operation. If it isn't yours, we say so.",
       pickHint: "Choose a product",
@@ -1533,40 +1513,22 @@ export const messages = {
         "Sometimes a product fits. Sometimes it doesn't. We evaluate it with you.",
       ctaSecondary: "See services",
       items: {
-        erp: {
-          tagline: "Enterprise resource planning",
-          description:
-            "Ready ERP to centralize finance, inventory, purchasing, and sales. One operation — without fighting disconnected spreadsheets.",
-          features: [
-            "Financial and accounting management",
-            "Inventory and warehouse control",
-            "Sales, purchasing, and suppliers",
-            "Reports and dashboards",
-            "Multi-company and multi-user",
-            "Implementation and guidance",
-          ],
-          paraQuien: [
-            "SMEs that need an integrated ERP without starting from scratch",
-            "Companies with multiple warehouses or points of sale",
-            "Teams ready to leave Excel and unify control",
-          ],
-        },
         crm: {
-          tagline: "Customer relationships and sales pipeline",
+          tagline: "A CRM that follows your process, not the other way around",
           description:
-            "CRM to track prospects, opportunities, and commercial follow-up in one place. Less lost WhatsApp. More clarity on who buys and where deals stall.",
+            "From prospect to client to project, in one place. Pipeline stages, teams, and what happens after the close are configured to how your company already works. Less lost WhatsApp. More clarity on who buys and what comes next.",
           features: [
-            "Sales pipeline with configurable stages",
-            "Contacts, companies, and history in one place",
-            "Opportunity and task follow-up",
-            "Reminders and sales-team activity",
-            "Conversion and funnel reports",
+            "Pipeline with configurable stages",
+            "Clients, contacts, and commercial history",
+            "From won opportunity to delivery project",
+            "Documents, calendar, and team tasks",
+            "Roles, teams, and multiple organizations",
             "Implementation and guidance",
           ],
           paraQuien: [
             "Sales teams living in Excel, notes, or chats",
-            "Companies that lose follow-up between prospect and close",
-            "Operations that want funnel visibility before a custom system",
+            "Companies whose process doesn't fit a generic CRM",
+            "Operations that want funnel visibility — and to continue into the project, not just the close",
           ],
         },
         logistics: {

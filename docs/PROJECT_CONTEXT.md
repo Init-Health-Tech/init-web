@@ -48,7 +48,7 @@ Sin navy-as-background. Gradiente marca: green → teal.
 | `/contact` | `Contact.jsx` | Evaluar fit + FAQ honestas |
 | `/portfolio` | `Portfolio.jsx` | Casos reales, CTA filtro |
 | `/team` | `Team.jsx` | Equipo (ruta oculta de momento) |
-| `/soluciones` | `Solutions.jsx` | ERPinit / initlogistics — sin demo gratis |
+| `/soluciones` | `Solutions.jsx` | CRMinit / initlogistics — sin demo gratis |
 
 Componentes clave: `CtaBanner`, `PageHeader`, `PageHead`, `StructuredData`, `FloatingContactButton` (discreto, no “cotiza”).
 

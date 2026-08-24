@@ -1,13 +1,8 @@
 /**
  * Productos listos — siempre con evaluación de fit (sin demo gratis / cotiza).
- * accent: green (ERP) | teal (CRM) | rfid (logistics)
+ * accent: teal (CRM) | rfid (logistics)
  */
 export const solutions = [
-  {
-    id: "erp",
-    name: "ERPinit",
-    accent: "green",
-  },
   {
     id: "crm",
     name: "CRMinit",

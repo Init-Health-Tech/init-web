@@ -2,42 +2,8 @@ import React from "react";
 
 /**
  * Flat brand visuals for ready-made products — no photos, no people.
- * Accents: green ERP · teal CRM · RFID silver logistics.
+ * Accents: teal CRM · RFID silver logistics.
  */
-const ErpArt = () => (
-  <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-    <rect width="400" height="300" fill="#F7F3EC" />
-    <rect x="28" y="36" width="344" height="228" rx="18" fill="#FFFFFF" stroke="#0F172A" strokeOpacity="0.08" />
-    {/* Hub */}
-    <rect x="158" y="112" width="84" height="76" rx="14" fill="#1E8F41" />
-    <rect x="172" y="128" width="56" height="8" rx="4" fill="#E8F8F0" fillOpacity="0.9" />
-    <rect x="172" y="144" width="40" height="6" rx="3" fill="#E8F8F0" fillOpacity="0.55" />
-    <rect x="172" y="158" width="48" height="6" rx="3" fill="#E8F8F0" fillOpacity="0.4" />
-    {/* Modules */}
-    <rect x="52" y="64" width="72" height="56" rx="12" fill="#E8F8F0" stroke="#1E8F41" strokeOpacity="0.35" />
-    <rect x="64" y="78" width="36" height="6" rx="3" fill="#1E8F41" fillOpacity="0.55" />
-    <rect x="64" y="92" width="48" height="5" rx="2.5" fill="#1E8F41" fillOpacity="0.28" />
-    <rect x="276" y="64" width="72" height="56" rx="12" fill="#E8F8F0" stroke="#1E8F41" strokeOpacity="0.35" />
-    <rect x="288" y="78" width="40" height="6" rx="3" fill="#1E8F41" fillOpacity="0.55" />
-    <rect x="288" y="92" width="28" height="5" rx="2.5" fill="#1E8F41" fillOpacity="0.28" />
-    <rect x="52" y="180" width="72" height="56" rx="12" fill="#E8F8F0" stroke="#1E8F41" strokeOpacity="0.35" />
-    <rect x="64" y="194" width="32" height="6" rx="3" fill="#1E8F41" fillOpacity="0.55" />
-    <rect x="64" y="208" width="44" height="5" rx="2.5" fill="#1E8F41" fillOpacity="0.28" />
-    <rect x="276" y="180" width="72" height="56" rx="12" fill="#E8F8F0" stroke="#1E8F41" strokeOpacity="0.35" />
-    <rect x="288" y="194" width="36" height="6" rx="3" fill="#1E8F41" fillOpacity="0.55" />
-    <rect x="288" y="208" width="48" height="5" rx="2.5" fill="#1E8F41" fillOpacity="0.28" />
-    {/* Connectors */}
-    <path d="M124 92H158" stroke="#1E8F41" strokeWidth="2" strokeOpacity="0.45" />
-    <path d="M242 92H276" stroke="#1E8F41" strokeWidth="2" strokeOpacity="0.45" />
-    <path d="M124 208H158" stroke="#1E8F41" strokeWidth="2" strokeOpacity="0.45" />
-    <path d="M242 208H276" stroke="#1E8F41" strokeWidth="2" strokeOpacity="0.45" />
-    <circle cx="124" cy="92" r="3.5" fill="#1E8F41" />
-    <circle cx="276" cy="92" r="3.5" fill="#1E8F41" />
-    <circle cx="124" cy="208" r="3.5" fill="#1E8F41" />
-    <circle cx="276" cy="208" r="3.5" fill="#1E8F41" />
-  </svg>
-);
-
 const CrmArt = () => (
   <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
     <rect width="400" height="300" fill="#F7F3EC" />
@@ -112,14 +78,12 @@ const LogisticsArt = () => (
 );
 
 const ART = {
-  erp: ErpArt,
   crm: CrmArt,
   logistics: LogisticsArt,
 };
 
 const ALT = {
-  erp: "Ilustración: módulos de ERP conectados",
-  crm: "Ilustración: pipeline de CRM",
+  crm: "Ilustración: pipeline de CRM adaptable",
   logistics: "Ilustración: logística con trazabilidad RFID",
 };
 
@@ -127,7 +91,7 @@ const ALT = {
  * Product illustration panel for Solutions.
  */
 const SolutionIllustration = ({ kind, title, accent = "green", wide = false }) => {
-  const Art = ART[kind] || ErpArt;
+  const Art = ART[kind] || CrmArt;
   const frame =
     accent === "teal"
       ? "border-secondary/25"
@@ -143,7 +107,7 @@ const SolutionIllustration = ({ kind, title, accent = "green", wide = false }) =
           : `rounded-[var(--radius-exec)] border aspect-[4/3] ${frame}`
       }`}
       role="img"
-      aria-label={title || ALT[kind] || ALT.erp}
+      aria-label={title || ALT[kind] || ALT.crm}
     >
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full h-full max-w-[720px] mx-auto [&_svg]:w-full [&_svg]:h-full">

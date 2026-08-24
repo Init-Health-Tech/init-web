@@ -35,7 +35,7 @@
 2. **Consultoría en digitalización** — diagnóstico, roadmap, priorización
 3. **Sistemas e integración** — automatización, datos, cloud, cyberseguridad
 4. **Marketing** — tradicional, digital y neuromarketing; conectamos marca y audiencia con criterio (no agencia de ruido)
-5. **Productos listos** — ERPinit, CRMinit, initlogistics (cuando aplique — siempre con evaluación de fit)
+5. **Productos listos** — CRMinit (se adapta a los procesos de cada empresa), initlogistics (cuando aplique — siempre con evaluación de fit)
 
 **Transformación clave:** pasar de pelear contra la operación a que el sistema trabaje *con* la empresa — solo cuando el encaje es real.
 

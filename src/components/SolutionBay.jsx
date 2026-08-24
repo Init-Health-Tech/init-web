@@ -5,13 +5,11 @@ import SolutionIllustration from "./SolutionIllustration";
 import { appleEase } from "../lib/motion";
 import {
   CircleCheck as CheckCircleIcon,
-  LayoutGrid as ErpIcon,
   UsersRound as CrmIcon,
   RadioTower as LogisticsIcon,
 } from "lucide-react";
 
 const ICONS = {
-  erp: ErpIcon,
   crm: CrmIcon,
   logistics: LogisticsIcon,
 };
@@ -40,10 +38,10 @@ const accentText = {
  */
 const SolutionBay = ({ products, copy, t }) => {
   const reduce = useReducedMotion();
-  const [activeId, setActiveId] = useState(products[0]?.id || "erp");
+  const [activeId, setActiveId] = useState(products[0]?.id || "crm");
   const active = products.find((p) => p.id === activeId) || products[0];
   const loc = copy[active?.id] || {};
-  const Icon = ICONS[active?.id] || ErpIcon;
+  const Icon = ICONS[active?.id] || CrmIcon;
 
   const select = (id) => {
     startTransition(() => setActiveId(id));
@@ -54,11 +52,13 @@ const SolutionBay = ({ products, copy, t }) => {
       <div
         role="tablist"
         aria-label={t("solutions.pickHint")}
-        className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 mb-8 sm:mb-10"
+        className={`grid grid-cols-1 gap-2 sm:gap-3 mb-8 sm:mb-10 ${
+          products.length > 2 ? "sm:grid-cols-3" : "sm:grid-cols-2"
+        }`}
       >
         {products.map((product) => {
           const selected = product.id === activeId;
-          const ProductIcon = ICONS[product.id] || ErpIcon;
+          const ProductIcon = ICONS[product.id] || CrmIcon;
           const locTab = copy[product.id] || {};
           return (
             <button
