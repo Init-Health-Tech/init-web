@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
- * Living pearl atmosphere — drifting brand orbs, film grain, cursor spotlight.
+ * Living pearl atmosphere — orbital contours, brand light and cursor spotlight.
  * Use `mode="fixed"` (site chrome) or `mode="overlay"` (above video/scrim in hero).
  */
 const PearlAtmosphere = ({ intensity = "default", mode = "fixed" }) => {
@@ -13,33 +13,86 @@ const PearlAtmosphere = ({ intensity = "default", mode = "fixed" }) => {
   const isOverlay = mode === "overlay";
 
   useEffect(() => {
-    if (reduce) return undefined;
+    if (reduce || !window.matchMedia("(pointer: fine)").matches) return undefined;
     const spot = spotRef.current;
     if (!spot) return undefined;
+    const fields = Array.from(rootRef.current.querySelectorAll(".pearl-orbits__field"), (element) => ({
+      element,
+      bounds: element.getBoundingClientRect(),
+      contours: Array.from(element.querySelectorAll(".pearl-orbits__contour")),
+    }));
 
     let raf = 0;
     let tx = window.innerWidth * 0.5;
-    let ty = window.innerHeight * 0.35;
+    let ty = window.innerHeight * 0.5;
     let cx = tx;
     let cy = ty;
-
+    let pressure = 0;
+    let active = false;
+    let lastTime = 0;
     const onMove = (e) => {
+      if (e.pointerType === "touch") return;
+      active = true;
       tx = e.clientX;
       ty = e.clientY;
+      if (!raf) raf = requestAnimationFrame(tick);
     };
 
-    const tick = () => {
-      cx += (tx - cx) * 0.08;
-      cy += (ty - cy) * 0.08;
+    const reset = () => {
+      active = false;
+      tx = window.innerWidth * 0.5;
+      ty = window.innerHeight * 0.5;
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+
+    const onResize = () => {
+      fields.forEach((field) => { field.bounds = field.element.getBoundingClientRect(); });
+      reset();
+    };
+
+    const tick = (time) => {
+      const elapsed = lastTime ? Math.min(time - lastTime, 32) : 16;
+      lastTime = time;
+      const easing = 1 - Math.exp(-elapsed / 140);
+      pressure += ((active ? 1 : 0) - pressure) * easing;
+      const dx = tx - cx;
+      const dy = ty - cy;
+      cx += dx * easing;
+      cy += dy * easing;
       spot.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
-      raf = requestAnimationFrame(tick);
+      fields.forEach(({ bounds, contours }) => {
+        const x = (cx - bounds.left - bounds.width / 2) / (bounds.width / 2);
+        const y = (cy - bounds.top - bounds.height / 2) / (bounds.height / 2);
+        const influence = Math.exp(-(x * x + y * y) * 0.55) * pressure;
+        const bendX = Math.max(-1, Math.min(1, x)) * influence;
+        const bendY = Math.max(-1, Math.min(1, y)) * influence;
+        contours.forEach((contour, i) => {
+          // Each line yields differently, so the field bends instead of sliding.
+          const depth = (i + 1) / contours.length;
+          const flex = Math.sin(depth * Math.PI * 0.8);
+          contour.style.transform = `rotate(${i * 9 + bendX * 22 * flex}deg) skew(${bendX * 20 * flex}deg, ${bendY * 16 * flex}deg) scale(${1 + influence * 0.22 * flex}, ${1 - influence * 0.16 * flex})`;
+        });
+      });
+      const unsettled = Math.abs(dx) + Math.abs(dy) > 0.5
+        || Math.abs((active ? 1 : 0) - pressure) > 0.001;
+      raf = unsettled ? requestAnimationFrame(tick) : 0;
+      if (!raf) lastTime = 0;
     };
 
     window.addEventListener("pointermove", onMove, { passive: true });
+    document.documentElement.addEventListener("pointerleave", reset);
+    window.addEventListener("blur", reset);
+    window.addEventListener("resize", onResize);
     raf = requestAnimationFrame(tick);
     return () => {
       window.removeEventListener("pointermove", onMove);
+      document.documentElement.removeEventListener("pointerleave", reset);
+      window.removeEventListener("blur", reset);
+      window.removeEventListener("resize", onResize);
       cancelAnimationFrame(raf);
+      fields.forEach(({ contours }) => {
+        contours.forEach((contour) => { contour.style.transform = ""; });
+      });
     };
   }, [reduce]);
 
@@ -64,6 +117,23 @@ const PearlAtmosphere = ({ intensity = "default", mode = "fixed" }) => {
           `,
         }}
       />
+
+      <div className={`pearl-orbits ${strong ? "pearl-orbits--strong" : ""}`}>
+        {["green", "teal"].map((tone) => (
+          <div key={tone} className={`pearl-orbits__field pearl-orbits__field--${tone}`}>
+            <div className="pearl-orbits__rotor">
+              {Array.from({ length: 12 }, (_, i) => (
+                <span
+                  key={i}
+                  className="pearl-orbits__contour"
+                  style={{ "--contour": i }}
+                />
+              ))}
+              <span className="pearl-orbits__satellite" />
+            </div>
+          </div>
+        ))}
+      </div>
 
       {!reduce && (
         <>

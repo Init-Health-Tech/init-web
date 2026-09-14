@@ -508,6 +508,88 @@ textarea:focus-visible,
     mix-blend-mode: normal;
   }
 
+  /* Orbital contours: an abstract drawing of connected, evolving systems.
+     Keep detail at the edges and a pearl reading area through the center. */
+  .pearl-orbits {
+    position: absolute;
+    inset: 0;
+    opacity: 0.65;
+    mask-image: linear-gradient(90deg, black, #0006 26%, transparent 46%, #0005 70%, black);
+  }
+
+  .pearl-orbits--strong { opacity: 1; }
+
+  .pearl-orbits__field {
+    position: absolute;
+    width: clamp(420px, 64vw, 1000px);
+    aspect-ratio: 1;
+    perspective: 900px;
+    color: var(--color-primary);
+  }
+
+  .pearl-orbits__field--green {
+    top: -24%;
+    right: -27%;
+    transform: rotate(-28deg);
+  }
+
+  .pearl-orbits__field--teal {
+    bottom: -38%;
+    left: -30%;
+    color: var(--color-secondary);
+    transform: rotate(24deg);
+  }
+
+  .pearl-orbits__rotor {
+    position: absolute;
+    inset: 0;
+    transform: rotateX(32deg) rotate(-20deg);
+    animation: pearl-orbit-turn 38s linear infinite;
+  }
+
+  .pearl-orbits__field--teal .pearl-orbits__rotor {
+    animation-duration: 48s;
+    animation-direction: reverse;
+  }
+
+  .pearl-orbits__contour {
+    position: absolute;
+    inset: calc(var(--contour) * 2.3%);
+    border: 1px solid currentColor;
+    border-radius: 43% 57% 64% 36% / 44% 35% 65% 56%;
+    opacity: calc(0.48 - var(--contour) * 0.022);
+    transform: rotate(calc(var(--contour) * 9deg));
+    background: linear-gradient(135deg, color-mix(in srgb, currentColor 3%, transparent), transparent 60%);
+  }
+
+  .pearl-orbits__satellite {
+    position: absolute;
+    top: 17%;
+    left: 18%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 0 7px color-mix(in srgb, currentColor 10%, transparent),
+      0 0 26px color-mix(in srgb, currentColor 35%, transparent);
+  }
+
+  @keyframes pearl-orbit-turn {
+    from { transform: rotateX(32deg) rotate(-20deg); }
+    to { transform: rotateX(32deg) rotate(340deg); }
+  }
+
+  @media (max-width: 640px) {
+    .pearl-orbits { opacity: 0.75; }
+    .pearl-orbits__field--green { top: -12%; right: -78%; }
+    .pearl-orbits__field--teal { bottom: -18%; left: -85%; }
+    .pearl-orbits__contour:nth-child(n + 9) { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pearl-orbits__rotor { animation: none; }
+  }
+
   .pearl-orb {
     position: absolute;
     border-radius: 50%;
@@ -554,26 +636,21 @@ textarea:focus-visible,
     border-radius: 50%;
     background: radial-gradient(
       circle,
-      rgba(255, 255, 255, 0.55) 0%,
-      rgba(247, 243, 236, 0.2) 35%,
+      color-mix(in srgb, var(--color-surface-container) 55%, transparent) 0%,
+      color-mix(in srgb, var(--color-primary) 14%, transparent) 32%,
+      color-mix(in srgb, var(--color-secondary) 8%, transparent) 48%,
       transparent 68%
     );
-    opacity: 0.75;
+    opacity: 0.7;
     will-change: transform;
     pointer-events: none;
-    mix-blend-mode: soft-light;
+    transform: translate3d(50vw, 50vh, 0) translate(-50%, -50%);
   }
 
-  .pearl-spotlight--strong {
-    opacity: 0.9;
-    width: min(62vw, 580px);
-    height: min(62vw, 580px);
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.65) 0%,
-      rgba(30, 143, 65, 0.14) 38%,
-      transparent 70%
-    );
+  .pearl-spotlight--strong { opacity: 0.8; }
+
+  @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+    .pearl-spotlight { display: none; }
   }
 
   .pearl-grain {
