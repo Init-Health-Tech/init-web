@@ -13,7 +13,7 @@ export const teamMembers = [
     expertise: "Estrategia, Liderazgo, Digitalización, Ventas B2B y B2C, Customer success, Entendimiento de proceso, Levantamiento de necesidades",
     technologies: "Gestión de equipos, Negocio digital, Ventas B2B, Ventas B2C, Customer success, Levantamiento de necesidades",
     image_url: "/empleados-fotos/jimenez-guevara-enrique.jpg",
-    email: "enrique.jimenez@init.com.mx",
+    email: null, // "enrique.jimenez@init.com.mx",
     linkedin: null, // Reemplazar con URL real o dejar null para ocultar
   },
   {
@@ -25,7 +25,7 @@ export const teamMembers = [
     expertise: "Cloud, Arquitectura, DevOps, Customer success, Entendimiento de proceso, Levantamiento de necesidades",
     technologies: "Experto en todo el stack: Cloud, Backend, Frontend, DevOps, Arquitectura. Customer success, Levantamiento de necesidades",
     image_url: "/empleados-fotos/guerrero-negrete-inaki.jpg",
-    email: "inaki.guerrero@init.com.mx",
+    email: null, // "inaki.guerrero@init.com.mx",
     linkedin: null,
   },
   {
@@ -37,7 +37,7 @@ export const teamMembers = [
     expertise: "Ventas, Alianzas, Negocio, Desarrollo web, Customer success, Entendimiento de proceso, Levantamiento de necesidades",
     technologies: "Ventas B2B, Alianzas estratégicas, Páginas web avanzadas, Customer success, Levantamiento de necesidades",
     image_url: "/empleados-fotos/corona-del-rio-javier.jpg",
-    email: "javier.corona@init.com.mx",
+    email: null, // "javier.corona@init.com.mx",
     linkedin: null,
   },
   {
@@ -49,7 +49,7 @@ export const teamMembers = [
     expertise: "Operaciones, Calidad, Procesos, RFID, Logística, Customer success, Entendimiento de proceso, Levantamiento de necesidades",
     technologies: "Gestión de proyectos, QA, Procesos, RFID, Trazabilidad logística, Customer success, Levantamiento de necesidades",
     image_url: "/empleados-fotos/eguiluz-del-angel-luken.jpg",
-    email: "luken.eguiluz@init.com.mx",
+    email: null, // "luken.eguiluz@init.com.mx",
     linkedin: null,
   },
   // Consultora senior (1)
@@ -62,7 +62,7 @@ export const teamMembers = [
     expertise: "Procesos de calidad, Levantamiento de necesidades, Seguimiento, Customer success, Entendimiento de proceso",
     technologies: "Levantamiento de requisitos, Metodologías ágiles, Customer success, Levantamiento de necesidades",
     image_url: "/empleados-fotos/martinez-carolina.jpg",
-    email: "carolina.martinez@init.com.mx",
+    email: null, // "carolina.martinez@init.com.mx",
     linkedin: null,
   },
   // Becarios (2)
@@ -75,7 +75,7 @@ export const teamMembers = [
     expertise: "Documentación, Pruebas de sistema, Levantamiento de necesidades, Atención al cliente, Customer success, Entendimiento de proceso",
     technologies: "JavaScript, React, Git, QA, Documentación técnica, Customer success, Levantamiento de necesidades",
     image_url: "/empleados-fotos/rodriguez-xoan-pablo.jpg",
-    email: "xoan.rodriguez@init.com.mx",
+    email: null, // "xoan.rodriguez@init.com.mx",
     linkedin: null,
   },
   {
@@ -87,7 +87,7 @@ export const teamMembers = [
     expertise: "Documentación, Pruebas de sistema, Levantamiento de necesidades, Atención al cliente, Customer success, Entendimiento de proceso",
     technologies: "JavaScript, React, Git, QA, Documentación técnica, Customer success, Levantamiento de necesidades",
     image_url: null,
-    email: "diego.luna@init.com.mx",
+    email: null, // "diego.luna@init.com.mx",
     linkedin: null,
   },
 ];
